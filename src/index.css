@@ -123,15 +123,15 @@
 }
 
 @layer components {
-  /* Hero reveal animation */
+  /* Hero reveal animation - entrance uses 450-500ms */
   .hero-reveal {
-    animation: heroReveal 0.6s ease-out forwards;
+    animation: heroReveal 500ms ease-in-out forwards;
   }
 
   @keyframes heroReveal {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(24px);
     }
     to {
       opacity: 1;
@@ -139,11 +139,11 @@
     }
   }
 
-  /* Scroll reveal */
+  /* Scroll reveal - entrance uses 400-500ms with ease-in-out */
   .scroll-reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 450ms ease-in-out, transform 450ms ease-in-out;
   }
 
   .scroll-reveal.visible {
@@ -151,9 +151,9 @@
     transform: translateY(0);
   }
 
-  /* Card hover lift */
+  /* Card hover lift - hover uses 150-250ms for responsiveness */
   .card-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
   }
 
   .card-lift:hover {
@@ -165,6 +165,12 @@
   .service-card {
     @apply relative bg-card rounded-lg p-6 border border-border;
     box-shadow: var(--shadow-card);
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
   }
 
   .service-card::before {
@@ -173,14 +179,15 @@
     background: hsl(var(--accent));
   }
 
-  /* Arrow button circle */
+  /* Arrow button circle - hover uses 200ms */
   .arrow-button {
     @apply w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center;
-    @apply transition-all duration-300;
+    transition: all 200ms ease-in-out;
   }
 
   .arrow-button:hover {
     @apply bg-primary text-primary-foreground;
+    transform: scale(1.05);
   }
 
   /* Client marquee */
@@ -190,7 +197,7 @@
 
   .marquee-content {
     display: flex;
-    animation: marquee 30s linear infinite;
+    animation: marquee 35s linear infinite;
     width: max-content;
   }
 
@@ -207,7 +214,7 @@
     }
   }
 
-  /* Link underline animation */
+  /* Link underline animation - hover uses 200ms */
   .link-underline {
     @apply relative;
   }
@@ -217,12 +224,64 @@
     @apply absolute bottom-0 left-0 w-full h-0.5 bg-accent;
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 0.3s ease;
+    transition: transform 200ms ease-in-out;
   }
 
   .link-underline:hover::after {
     transform: scaleX(1);
     transform-origin: left;
+  }
+
+  /* Project card hover - 200ms for responsiveness */
+  .project-card {
+    transition: transform 200ms ease-in-out;
+  }
+
+  .project-card:hover {
+    transform: scale(1.02);
+  }
+
+  .project-card img {
+    transition: transform 450ms ease-in-out;
+  }
+
+  .project-card:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Button hover effects - 150-200ms */
+  .btn-hover {
+    transition: all 180ms ease-in-out;
+  }
+
+  .btn-hover:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Fade in animation for staggered elements */
+  .fade-in-up {
+    animation: fadeInUp 450ms ease-in-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Focus ring animation */
+  .focus-ring {
+    @apply outline-none ring-0;
+    transition: box-shadow 150ms ease-in-out;
+  }
+
+  .focus-ring:focus-visible {
+    @apply ring-2 ring-accent ring-offset-2;
   }
 
   /* Hero gradient overlay */

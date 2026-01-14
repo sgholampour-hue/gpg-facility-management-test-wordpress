@@ -71,21 +71,24 @@ const FeaturedProjects = () => {
             <Link
               key={project.slug}
               to={`/projecten/${project.slug}`}
-              className={`group block transition-all duration-500 ${
+              className={`group block project-card focus-ring rounded-lg ${
                 visibleCards.includes(index)
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               }`}
+              style={{
+                transition: `opacity 450ms ease-in-out ${index * 100}ms, transform 450ms ease-in-out ${index * 100}ms`
+              }}
             >
               <div className="relative overflow-hidden rounded-lg mb-4">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full aspect-[4/3] object-cover"
                 />
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-200 ease-in-out" />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-1 group-hover:text-accent transition-colors">
+              <h3 className="text-xl font-bold text-primary mb-1 group-hover:text-accent transition-colors duration-200 ease-in-out">
                 {project.title}
               </h3>
               <p className="text-muted-foreground text-sm mb-3">
@@ -95,7 +98,7 @@ const FeaturedProjects = () => {
                 {project.stats.map((stat) => (
                   <span
                     key={stat}
-                    className="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full"
+                    className="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full transition-colors duration-150 ease-in-out hover:bg-accent/20"
                   >
                     {stat}
                   </span>
