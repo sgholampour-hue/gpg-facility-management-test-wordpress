@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import FAQSection from "@/components/sections/FAQSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -293,6 +294,9 @@ const Contact = () => {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQSection variant="light" />
       </main>
       <Footer />
     </div>
