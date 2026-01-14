@@ -1,0 +1,302 @@
+import { useState } from "react";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+
+const Contact = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    naam: "",
+    email: "",
+    telefoon: "",
+    bedrijf: "",
+    onderwerp: "",
+    bericht: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    
+    toast({
+      title: "Bericht verzonden!",
+      description: "Wij nemen zo snel mogelijk contact met u op.",
+    });
+
+    // Reset form after delay
+    setTimeout(() => {
+      setFormData({
+        naam: "",
+        email: "",
+        telefoon: "",
+        bedrijf: "",
+        onderwerp: "",
+        bericht: ""
+      });
+      setIsSubmitted(false);
+    }, 3000);
+  };
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: "Telefoon",
+      value: "+31 (0)20 123 4567",
+      link: "tel:+31201234567"
+    },
+    {
+      icon: Mail,
+      title: "E-mail",
+      value: "info@gpg-fm.nl",
+      link: "mailto:info@gpg-fm.nl"
+    },
+    {
+      icon: MapPin,
+      title: "Adres",
+      value: "Schiphol Boulevard 127, 1118 BG Schiphol",
+      link: "https://maps.google.com/?q=Schiphol+Boulevard+127+Schiphol"
+    },
+    {
+      icon: Clock,
+      title: "Openingstijden",
+      value: "Ma - Vr: 08:00 - 17:00",
+      link: null
+    }
+  ];
+
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        {/* Hero Section */}
+        <section className="pt-32 pb-16 bg-primary">
+          <div className="container">
+            <div className="max-w-3xl">
+              <p className="text-accent font-medium mb-4 uppercase tracking-wider text-sm">
+                Contact
+              </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                Neem contact met ons op
+              </h1>
+              <p className="text-xl text-white/80 leading-relaxed">
+                Heeft u vragen of wilt u een vrijblijvende offerte? Wij staan voor u klaar.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="py-20 lg:py-28">
+          <div className="container">
+            <div className="grid lg:grid-cols-5 gap-12 lg:gap-20">
+              {/* Contact Form */}
+              <div className="lg:col-span-3">
+                <div className="bg-white rounded-2xl shadow-elegant p-8 md:p-10">
+                  <h2 className="text-2xl font-bold text-primary mb-2">
+                    Stuur ons een bericht
+                  </h2>
+                  <p className="text-muted-foreground mb-8">
+                    Vul het formulier in en wij nemen binnen 24 uur contact met u op.
+                  </p>
+
+                  {isSubmitted ? (
+                    <div className="text-center py-12">
+                      <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <CheckCircle className="w-8 h-8 text-accent" />
+                      </div>
+                      <h3 className="text-xl font-bold text-primary mb-2">
+                        Bedankt voor uw bericht!
+                      </h3>
+                      <p className="text-muted-foreground">
+                        Wij nemen zo snel mogelijk contact met u op.
+                      </p>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="grid sm:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                          <Label htmlFor="naam">Naam *</Label>
+                          <Input
+                            id="naam"
+                            name="naam"
+                            placeholder="Uw volledige naam"
+                            value={formData.naam}
+                            onChange={handleChange}
+                            required
+                            className="h-12"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="email">E-mail *</Label>
+                          <Input
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder="uw@email.nl"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            className="h-12"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid sm:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                          <Label htmlFor="telefoon">Telefoon</Label>
+                          <Input
+                            id="telefoon"
+                            name="telefoon"
+                            type="tel"
+                            placeholder="+31 6 12345678"
+                            value={formData.telefoon}
+                            onChange={handleChange}
+                            className="h-12"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="bedrijf">Bedrijf</Label>
+                          <Input
+                            id="bedrijf"
+                            name="bedrijf"
+                            placeholder="Uw bedrijfsnaam"
+                            value={formData.bedrijf}
+                            onChange={handleChange}
+                            className="h-12"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="onderwerp">Onderwerp *</Label>
+                        <Input
+                          id="onderwerp"
+                          name="onderwerp"
+                          placeholder="Waar kunnen wij u mee helpen?"
+                          value={formData.onderwerp}
+                          onChange={handleChange}
+                          required
+                          className="h-12"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="bericht">Bericht *</Label>
+                        <Textarea
+                          id="bericht"
+                          name="bericht"
+                          placeholder="Beschrijf uw vraag of project..."
+                          value={formData.bericht}
+                          onChange={handleChange}
+                          required
+                          rows={6}
+                          className="resize-none"
+                        />
+                      </div>
+
+                      <Button 
+                        type="submit" 
+                        size="lg" 
+                        className="w-full sm:w-auto group"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <span className="animate-pulse">Verzenden...</span>
+                          </>
+                        ) : (
+                          <>
+                            Verstuur bericht
+                            <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                          </>
+                        )}
+                      </Button>
+                    </form>
+                  )}
+                </div>
+              </div>
+
+              {/* Contact Info */}
+              <div className="lg:col-span-2 space-y-6">
+                <div>
+                  <h2 className="text-2xl font-bold text-primary mb-2">
+                    Contactgegevens
+                  </h2>
+                  <p className="text-muted-foreground">
+                    U kunt ons ook direct bereiken via onderstaande contactgegevens.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {contactInfo.map((item, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-start gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors duration-200"
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                        <item.icon className="w-5 h-5 text-accent" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-muted-foreground mb-1">
+                          {item.title}
+                        </p>
+                        {item.link ? (
+                          <a 
+                            href={item.link}
+                            target={item.link.startsWith('http') ? '_blank' : undefined}
+                            rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            className="text-primary font-medium hover:text-accent transition-colors duration-200"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <p className="text-primary font-medium">{item.value}</p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Map placeholder */}
+                <div className="aspect-square rounded-2xl overflow-hidden bg-muted mt-8">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.5!2d4.762!3d52.309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSchiphol!5e0!3m2!1snl!2snl!4v1234567890"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="GPG Facility Management locatie"
+                    className="grayscale hover:grayscale-0 transition-all duration-500"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Contact;
