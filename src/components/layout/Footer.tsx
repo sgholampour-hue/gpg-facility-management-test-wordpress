@@ -1,6 +1,27 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Linkedin } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import gpgLogo from "@/assets/gpg-logo.png";
+
+const footerFaqs = [
+  {
+    question: "Wat doet GPG Facility Management?",
+    answer: "GPG is een facilitair dienstverlener gespecialiseerd in handyman diensten, verhuizingen, fit-outs en projectinrichting.",
+  },
+  {
+    question: "In welke regio's zijn jullie actief?",
+    answer: "Wij zijn actief in heel Nederland met focus op de Randstad, met HUB-locaties in Schiphol, IJmuiden, Rotterdam en Oud Beijerland.",
+  },
+  {
+    question: "Hoe kan ik een offerte aanvragen?",
+    answer: "Via ons contactformulier, telefonisch (020 - 795 28 20) of per e-mail (info@gpg-fm.nl). Wij reageren binnen 24 uur.",
+  },
+];
 
 const Footer = () => {
   return (
@@ -110,6 +131,33 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section in Footer */}
+      <div className="border-t border-primary-foreground/10">
+        <div className="container py-12">
+          <div className="max-w-2xl mx-auto">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-center mb-6">
+              Veelgestelde vragen
+            </h4>
+            <Accordion type="single" collapsible className="space-y-2">
+              {footerFaqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`footer-faq-${index}`}
+                  className="border border-primary-foreground/10 rounded-lg px-4 bg-primary-foreground/5"
+                >
+                  <AccordionTrigger className="text-left hover:no-underline py-4 text-primary-foreground hover:text-accent text-sm">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-4 text-primary-foreground/70 text-sm">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </div>

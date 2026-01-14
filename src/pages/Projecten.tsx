@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import FAQSection from "@/components/sections/FAQSection";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -99,6 +100,9 @@ const Projecten = () => {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQSection variant="light" />
 
         {/* CTA */}
         <section className="py-16 bg-primary">
