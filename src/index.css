@@ -826,4 +826,18 @@
   .animate-road-line {
     animation: road-line 0.3s linear infinite;
   }
+
+  /* Road scroll animation */
+  @keyframes road-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-88px);
+    }
+  }
+
+  .animate-road-scroll {
+    animation: road-scroll 0.2s linear infinite;
+  }
 }
