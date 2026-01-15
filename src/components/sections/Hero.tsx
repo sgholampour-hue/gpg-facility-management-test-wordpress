@@ -105,7 +105,7 @@ const Hero = () => {
               asChild 
               className="hover-lift focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary w-full sm:w-auto text-sm md:text-base"
             >
-              <Link to="/contact">Vraag een offerte aan</Link>
+              <Link to="/contact">Neem contact op</Link>
             </Button>
             <Button 
               variant="ghost" 

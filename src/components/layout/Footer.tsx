@@ -18,7 +18,7 @@ const footerFaqs = [
     answer: "Wij zijn actief in heel Nederland met focus op de Randstad, met HUB-locaties in Schiphol, IJmuiden, Rotterdam en Oud Beijerland.",
   },
   {
-    question: "Hoe kan ik een offerte aanvragen?",
+    question: "Hoe kan ik contact opnemen?",
     answer: "Via ons contactformulier, telefonisch (020 - 795 28 20) of per e-mail (info@gpg-fm.nl). Wij reageren binnen 24 uur.",
   },
 ];
