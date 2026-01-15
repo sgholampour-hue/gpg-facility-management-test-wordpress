@@ -80,7 +80,7 @@ const FeaturedProjects = () => {
                 transition: `opacity 450ms ease-in-out ${index * 100}ms, transform 450ms ease-in-out ${index * 100}ms`
               }}
             >
-              <div className="relative overflow-hidden gsa-hoek-br-lg mb-4">
+              <div className="relative overflow-hidden gsa-hoek-tr-lg mb-4">
                 <img
                   src={project.image}
                   alt={project.title}

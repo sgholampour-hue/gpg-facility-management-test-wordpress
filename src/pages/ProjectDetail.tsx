@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, MapPin, Calendar, Ruler, Building2 } from "lucide-react";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { CountUp } from "@/components/ui/CountUp";
+import SEO from "@/components/SEO";
 import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
 import projectHub from "@/assets/project-hub.jpg";
@@ -120,6 +121,12 @@ const ProjectDetail = () => {
 
   return (
     <div className="min-h-screen page-enter">
+      <SEO
+        title={project.title}
+        description={project.description}
+        canonical={`https://gpg-facility.lovable.app/projecten/${slug}`}
+        type="article"
+      />
       <Header />
       <main>
         {/* Hero */}

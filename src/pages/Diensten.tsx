@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Wrench, Truck, Building2, HardHat, ShoppingCart, Palette } from "lucide-react";
+import SEO, { serviceSchema } from "@/components/SEO";
 
 import dienstHandyman from "@/assets/dienst-handyman.jpg";
 import dienstVerhuizen from "@/assets/dienst-verhuizen.jpg";
@@ -191,6 +192,12 @@ const ServiceSection = ({
 const Diensten = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Diensten"
+        description="Ontdek onze facilitaire diensten: handyman, verhuizingen, integrated facilities, fit-outs, inkoop en stoffering. Complete oplossingen voor uw organisatie."
+        canonical="https://gpg-facility.lovable.app/diensten"
+        structuredData={serviceSchema}
+      />
       <Header />
       <main>
         {/* Hero Section */}

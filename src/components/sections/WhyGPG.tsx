@@ -108,7 +108,7 @@ const WhyGPG = () => {
               <img
                 src={teamPhoto}
                 alt="GPG Team"
-                className="w-full h-auto gsa-hoek-br-lg shadow-card"
+                className="w-full h-auto gsa-hoek-tr-lg shadow-card"
               />
               <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-accent/10 gsa-hoek-bl -z-10" />
               <div className="absolute -top-4 -right-4 w-32 h-32 bg-primary/5 gsa-hoek-tr -z-10" />
