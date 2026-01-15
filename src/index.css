@@ -298,7 +298,7 @@
     }
   }
 
-  /* Link underline animation - hover uses 200ms */
+/* Link underline animation - hover uses 200ms */
   .link-underline {
     @apply relative;
   }
@@ -314,6 +314,23 @@
   .link-underline:hover::after {
     transform: scaleX(1);
     transform-origin: left;
+  }
+
+  /* Nav link hover - expand from center */
+  .nav-link-hover {
+    @apply relative;
+  }
+
+  .nav-link-hover::after {
+    content: '';
+    @apply absolute left-1/2 bottom-0 w-0 h-0.5;
+    background: hsl(var(--primary));
+    transform: translateX(-50%);
+    transition: width 300ms ease-out;
+  }
+
+  .nav-link-hover:hover::after {
+    width: 100%;
   }
 
   /* Project card hover - 200ms for responsiveness */
