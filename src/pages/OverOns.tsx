@@ -12,6 +12,7 @@ import gsaLogo from "@/assets/gsa-groep-logo.png";
 import teamPhoto from "@/assets/team-photo.jpg";
 import aboutTechnician from "@/assets/about-technician.jpg";
 import aboutManagers from "@/assets/about-managers.jpg";
+import gsaDochtersImage from "@/assets/gsa-groep-dochters.png";
 
 const kernwaarden = [
   {
@@ -46,14 +47,6 @@ const kernwaarden = [
   },
 ];
 
-const gsaDochters = [
-  { name: "GOV Vloerenspecialist", description: "Advies, leggen en nabewerken van vloeren" },
-  { name: "GPB Bouw", description: "Bouw, afbouw en renovatie" },
-  { name: "Active Bouwlogistiek", description: "Bouwlogistiek en technisch onderhoud" },
-  { name: "SST Security & Training", description: "Beveiliging en veiligheidstrainingen" },
-  { name: "HPG W-techniek", description: "Installatietechniek en onderhoud" },
-  { name: "GPG Facility Management", description: "Facilitaire dienstverlening" },
-];
 
 const OverOns = () => {
   return (
@@ -197,19 +190,13 @@ const OverOns = () => {
                   </p>
                 </RevealOnScroll>
                 
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {gsaDochters.map((dochter, index) => (
-                    <RevealOnScroll key={index} variant="fade-up" delay={300 + index * 80}>
-                      <div className="flex items-start gap-3 p-4 gsa-hoek-sm bg-white border border-border hover-lift">
-                        <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                        <div>
-                          <p className="font-semibold text-primary text-sm font-heading">{dochter.name}</p>
-                          <p className="text-muted-foreground text-xs font-body">{dochter.description}</p>
-                        </div>
-                      </div>
-                    </RevealOnScroll>
-                  ))}
-                </div>
+                <RevealOnScroll variant="fade-up" delay={300}>
+                  <img
+                    src={gsaDochtersImage}
+                    alt="GSA Groep dochterondernemingen"
+                    className="w-full max-w-md"
+                  />
+                </RevealOnScroll>
               </div>
             </div>
           </div>
