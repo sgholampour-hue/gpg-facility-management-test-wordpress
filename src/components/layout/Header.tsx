@@ -210,30 +210,26 @@ const Header = () => {
         )}
       </header>
 
-      {/* Sub-header with contact info - disappears on scroll */}
+      {/* Sub-header with contact info - static, always visible */}
       <div 
-        className={`fixed left-0 right-0 z-40 transition-all duration-300 ease-out ${
-          isScrolled 
-            ? "opacity-0 -translate-y-full pointer-events-none" 
-            : "opacity-100 translate-y-0"
-        }`}
+        className="fixed left-0 right-0 z-40"
         style={{ top: "73px" }}
       >
         <div className="hidden md:block bg-muted border-b border-border">
-          <div className="container flex justify-end items-center py-2 gap-8 text-sm">
+          <div className="container flex justify-end items-center py-3 gap-10 text-sm">
             <a
               href="mailto:info@gpg-fm.nl"
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
             >
-              <span className="text-muted-foreground">Mail:</span>
-              info@gpg-fm.nl
+              <Mail className="w-4 h-4" />
+              <span>info@gpg-fm.nl</span>
             </a>
             <a
               href="tel:+31207952820"
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
             >
-              <span className="text-muted-foreground">Tel:</span>
-              020 - 795 28 20
+              <Phone className="w-4 h-4" />
+              <span>020 - 795 28 20</span>
             </a>
           </div>
         </div>
