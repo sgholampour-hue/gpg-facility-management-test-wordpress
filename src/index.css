@@ -840,4 +840,36 @@
   .animate-road-scroll {
     animation: road-scroll 0.2s linear infinite;
   }
+
+  /* Road move animation for preloader */
+  @keyframes road-move {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-80px);
+    }
+  }
+
+  .animate-road-move {
+    animation: road-move 0.15s linear infinite;
+  }
+
+  /* Wheel spin animation */
+  @keyframes spin-wheel {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-wheel {
+    animation: spin-wheel 0.2s linear infinite;
+  }
+
+  .duration-400 {
+    transition-duration: 400ms;
+  }
 }
