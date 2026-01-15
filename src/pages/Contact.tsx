@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -84,22 +85,28 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen page-enter">
       <Header />
       <main>
         {/* Hero Section */}
         <section className="pt-32 pb-16 bg-primary">
           <div className="container">
             <div className="max-w-3xl">
-              <p className="text-accent font-medium mb-4 uppercase tracking-wider text-sm">
-                Contact
-              </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Neem contact met ons op
-              </h1>
-              <p className="text-xl text-white/80 leading-relaxed">
-                Heeft u vragen of wilt u een vrijblijvende offerte? Wij staan voor u klaar.
-              </p>
+              <RevealOnScroll variant="fade-up">
+                <p className="text-accent font-medium mb-4 uppercase tracking-wider text-sm font-heading">
+                  Contact
+                </p>
+              </RevealOnScroll>
+              <RevealOnScroll variant="fade-up" delay={100}>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                  Neem contact met ons op
+                </h1>
+              </RevealOnScroll>
+              <RevealOnScroll variant="fade-up" delay={200}>
+                <p className="text-xl text-white/80 leading-relaxed font-body">
+                  Heeft u vragen of wilt u een vrijblijvende offerte? Wij staan voor u klaar.
+                </p>
+              </RevealOnScroll>
             </div>
           </div>
         </section>
@@ -110,186 +117,191 @@ const Contact = () => {
             <div className="grid lg:grid-cols-5 gap-12 lg:gap-20">
               {/* Contact Form */}
               <div className="lg:col-span-3">
-                <div className="bg-white gsa-hoek-lg shadow-elegant p-8 md:p-10">
-                  <h2 className="text-2xl font-bold text-primary mb-2">
-                    Stuur ons een bericht
-                  </h2>
-                  <p className="text-muted-foreground mb-8">
-                    Vul het formulier in en wij nemen binnen 24 uur contact met u op.
-                  </p>
+                <RevealOnScroll variant="fade-up">
+                  <div className="bg-white gsa-hoek-lg shadow-elegant p-8 md:p-10">
+                    <h2 className="text-2xl font-bold text-primary mb-2">
+                      Stuur ons een bericht
+                    </h2>
+                    <p className="text-muted-foreground mb-8 font-body">
+                      Vul het formulier in en wij nemen binnen 24 uur contact met u op.
+                    </p>
 
-                  {isSubmitted ? (
-                    <div className="text-center py-12">
-                      <div className="w-16 h-16 bg-accent/10 gsa-hoek flex items-center justify-center mx-auto mb-4">
-                        <CheckCircle className="w-8 h-8 text-accent" />
+                    {isSubmitted ? (
+                      <div className="text-center py-12">
+                        <div className="w-16 h-16 bg-accent/10 gsa-hoek flex items-center justify-center mx-auto mb-4">
+                          <CheckCircle className="w-8 h-8 text-accent" />
+                        </div>
+                        <h3 className="text-xl font-bold text-primary mb-2">
+                          Bedankt voor uw bericht!
+                        </h3>
+                        <p className="text-muted-foreground font-body">
+                          Wij nemen zo snel mogelijk contact met u op.
+                        </p>
                       </div>
-                      <h3 className="text-xl font-bold text-primary mb-2">
-                        Bedankt voor uw bericht!
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Wij nemen zo snel mogelijk contact met u op.
-                      </p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid sm:grid-cols-2 gap-6">
+                    ) : (
+                      <form onSubmit={handleSubmit} className="space-y-6">
+                        <div className="grid sm:grid-cols-2 gap-6">
+                          <div className="space-y-2">
+                            <Label htmlFor="naam" className="font-heading uppercase text-xs tracking-wider">Naam *</Label>
+                            <Input
+                              id="naam"
+                              name="naam"
+                              placeholder="Uw volledige naam"
+                              value={formData.naam}
+                              onChange={handleChange}
+                              required
+                              className="h-12 field-focus"
+                            />
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="email" className="font-heading uppercase text-xs tracking-wider">E-mail *</Label>
+                            <Input
+                              id="email"
+                              name="email"
+                              type="email"
+                              placeholder="uw@email.nl"
+                              value={formData.email}
+                              onChange={handleChange}
+                              required
+                              className="h-12 field-focus"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid sm:grid-cols-2 gap-6">
+                          <div className="space-y-2">
+                            <Label htmlFor="telefoon" className="font-heading uppercase text-xs tracking-wider">Telefoon</Label>
+                            <Input
+                              id="telefoon"
+                              name="telefoon"
+                              type="tel"
+                              placeholder="+31 6 12345678"
+                              value={formData.telefoon}
+                              onChange={handleChange}
+                              className="h-12 field-focus"
+                            />
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="bedrijf" className="font-heading uppercase text-xs tracking-wider">Bedrijf</Label>
+                            <Input
+                              id="bedrijf"
+                              name="bedrijf"
+                              placeholder="Uw bedrijfsnaam"
+                              value={formData.bedrijf}
+                              onChange={handleChange}
+                              className="h-12 field-focus"
+                            />
+                          </div>
+                        </div>
+
                         <div className="space-y-2">
-                          <Label htmlFor="naam">Naam *</Label>
+                          <Label htmlFor="onderwerp" className="font-heading uppercase text-xs tracking-wider">Onderwerp *</Label>
                           <Input
-                            id="naam"
-                            name="naam"
-                            placeholder="Uw volledige naam"
-                            value={formData.naam}
+                            id="onderwerp"
+                            name="onderwerp"
+                            placeholder="Waar kunnen wij u mee helpen?"
+                            value={formData.onderwerp}
                             onChange={handleChange}
                             required
-                            className="h-12"
+                            className="h-12 field-focus"
                           />
                         </div>
+
                         <div className="space-y-2">
-                          <Label htmlFor="email">E-mail *</Label>
-                          <Input
-                            id="email"
-                            name="email"
-                            type="email"
-                            placeholder="uw@email.nl"
-                            value={formData.email}
+                          <Label htmlFor="bericht" className="font-heading uppercase text-xs tracking-wider">Bericht *</Label>
+                          <Textarea
+                            id="bericht"
+                            name="bericht"
+                            placeholder="Beschrijf uw vraag of project..."
+                            value={formData.bericht}
                             onChange={handleChange}
                             required
-                            className="h-12"
+                            rows={6}
+                            className="resize-none field-focus"
                           />
                         </div>
-                      </div>
 
-                      <div className="grid sm:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                          <Label htmlFor="telefoon">Telefoon</Label>
-                          <Input
-                            id="telefoon"
-                            name="telefoon"
-                            type="tel"
-                            placeholder="+31 6 12345678"
-                            value={formData.telefoon}
-                            onChange={handleChange}
-                            className="h-12"
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="bedrijf">Bedrijf</Label>
-                          <Input
-                            id="bedrijf"
-                            name="bedrijf"
-                            placeholder="Uw bedrijfsnaam"
-                            value={formData.bedrijf}
-                            onChange={handleChange}
-                            className="h-12"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="onderwerp">Onderwerp *</Label>
-                        <Input
-                          id="onderwerp"
-                          name="onderwerp"
-                          placeholder="Waar kunnen wij u mee helpen?"
-                          value={formData.onderwerp}
-                          onChange={handleChange}
-                          required
-                          className="h-12"
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="bericht">Bericht *</Label>
-                        <Textarea
-                          id="bericht"
-                          name="bericht"
-                          placeholder="Beschrijf uw vraag of project..."
-                          value={formData.bericht}
-                          onChange={handleChange}
-                          required
-                          rows={6}
-                          className="resize-none"
-                        />
-                      </div>
-
-                      <Button 
-                        type="submit" 
-                        size="lg" 
-                        className="w-full sm:w-auto group"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <span className="animate-pulse">Verzenden...</span>
-                          </>
-                        ) : (
-                          <>
-                            Verstuur bericht
-                            <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                          </>
-                        )}
-                      </Button>
-                    </form>
-                  )}
-                </div>
+                        <Button 
+                          type="submit" 
+                          size="lg" 
+                          className="w-full sm:w-auto group hover-lift"
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? (
+                            <>
+                              <span className="animate-pulse">Verzenden...</span>
+                            </>
+                          ) : (
+                            <>
+                              Verstuur bericht
+                              <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                            </>
+                          )}
+                        </Button>
+                      </form>
+                    )}
+                  </div>
+                </RevealOnScroll>
               </div>
 
               {/* Contact Info */}
               <div className="lg:col-span-2 space-y-6">
-                <div>
-                  <h2 className="text-2xl font-bold text-primary mb-2">
-                    Contactgegevens
-                  </h2>
-                  <p className="text-muted-foreground">
-                    U kunt ons ook direct bereiken via onderstaande contactgegevens.
-                  </p>
-                </div>
+                <RevealOnScroll variant="fade-up">
+                  <div>
+                    <h2 className="text-2xl font-bold text-primary mb-2">
+                      Contactgegevens
+                    </h2>
+                    <p className="text-muted-foreground font-body">
+                      U kunt ons ook direct bereiken via onderstaande contactgegevens.
+                    </p>
+                  </div>
+                </RevealOnScroll>
 
                 <div className="space-y-4">
                   {contactInfo.map((item, index) => (
-                    <div 
-                      key={index}
-                      className="flex items-start gap-4 p-4 gsa-hoek-sm bg-muted/50 hover:bg-muted transition-colors duration-200"
-                    >
-                      <div className="w-12 h-12 gsa-hoek-sm bg-accent/10 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-5 h-5 text-accent" />
+                    <RevealOnScroll key={index} variant="fade-up" delay={100 + index * 80}>
+                      <div className="flex items-start gap-4 p-4 gsa-hoek-sm bg-muted/50 hover:bg-muted transition-colors duration-200 hover-lift">
+                        <div className="w-12 h-12 gsa-hoek-sm bg-accent/10 flex items-center justify-center flex-shrink-0">
+                          <item.icon className="w-5 h-5 text-accent" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-muted-foreground mb-1 font-heading uppercase tracking-wider">
+                            {item.title}
+                          </p>
+                          {item.link ? (
+                            <a 
+                              href={item.link}
+                              target={item.link.startsWith('http') ? '_blank' : undefined}
+                              rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                              className="text-primary font-medium hover:text-accent transition-colors duration-200 font-body"
+                            >
+                              {item.value}
+                            </a>
+                          ) : (
+                            <p className="text-primary font-medium font-body">{item.value}</p>
+                          )}
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-sm font-medium text-muted-foreground mb-1">
-                          {item.title}
-                        </p>
-                        {item.link ? (
-                          <a 
-                            href={item.link}
-                            target={item.link.startsWith('http') ? '_blank' : undefined}
-                            rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                            className="text-primary font-medium hover:text-accent transition-colors duration-200"
-                          >
-                            {item.value}
-                          </a>
-                        ) : (
-                          <p className="text-primary font-medium">{item.value}</p>
-                        )}
-                      </div>
-                    </div>
+                    </RevealOnScroll>
                   ))}
                 </div>
 
                 {/* Map placeholder */}
-                <div className="aspect-square gsa-hoek-lg overflow-hidden bg-muted mt-8">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.5!2d4.762!3d52.309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSchiphol!5e0!3m2!1snl!2snl!4v1234567890"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="GPG Facility Management locatie"
-                    className="grayscale hover:grayscale-0 transition-all duration-500"
-                  />
-                </div>
+                <RevealOnScroll variant="scale-in" delay={400}>
+                  <div className="aspect-square gsa-hoek-lg overflow-hidden bg-muted mt-8">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.5!2d4.762!3d52.309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSchiphol!5e0!3m2!1snl!2snl!4v1234567890"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="GPG Facility Management locatie"
+                      className="grayscale hover:grayscale-0 transition-all duration-500"
+                    />
+                  </div>
+                </RevealOnScroll>
               </div>
             </div>
           </div>
