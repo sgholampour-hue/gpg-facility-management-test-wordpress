@@ -50,7 +50,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-[100svh] md:min-h-[85vh] flex items-center pt-24 pb-8 md:pt-40 md:pb-0 overflow-hidden"
+      className="relative min-h-[85svh] md:min-h-[85vh] flex items-center pt-20 pb-6 md:pt-40 md:pb-0 overflow-hidden"
     >
       {/* Background image with parallax */}
       <div 
@@ -73,7 +73,7 @@ const Hero = () => {
       <div className="hero-overlay absolute inset-0" />
 
       {/* Content */}
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-4 md:px-6">
         <div className="max-w-2xl">
           <div className={getAnimationClasses(0)} style={getAnimationStyle(0)}>
             <p className="text-accent mb-3 md:mb-4 tracking-wide font-semibold text-sm md:text-base">
@@ -82,14 +82,14 @@ const Hero = () => {
           </div>
 
           <h1 
-            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 md:mb-6 ${getAnimationClasses(100)}`}
+            className={`text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-4 md:mb-6 ${getAnimationClasses(100)}`}
             style={getAnimationStyle(100)}
           >
             SPECIALIST IN FACILITAIRE DIENSTEN MÉT EEN PERSOONLIJKE BENADERING.
           </h1>
 
           <p 
-            className={`text-base md:text-lg text-white/80 mb-6 md:mb-8 max-w-lg ${getAnimationClasses(200)}`}
+            className={`text-sm sm:text-base md:text-lg text-white/80 mb-6 md:mb-8 max-w-lg leading-relaxed ${getAnimationClasses(200)}`}
             style={getAnimationStyle(200)}
           >
             Complete facilitaire ondersteuning waarmee je kunt vertrouwen op vakwerk, flexibiliteit en een partner die meedenkt.
@@ -103,29 +103,20 @@ const Hero = () => {
               variant="hero" 
               size="lg" 
               asChild 
-              className="hover-lift focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary w-full sm:w-auto"
+              className="hover-lift focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary w-full sm:w-auto text-sm md:text-base"
             >
               <Link to="/contact">Vraag een offerte aan</Link>
             </Button>
             <Button 
               variant="ghost" 
               size="lg" 
-              className="text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white w-full sm:w-auto" 
+              className="text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white w-full sm:w-auto text-sm md:text-base" 
               asChild
             >
               <Link to="/projecten">Bekijk projecten</Link>
             </Button>
           </div>
         </div>
-      </div>
-
-      {/* Scroll indicator - hidden on mobile */}
-      <div 
-        className={`absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 ${getAnimationClasses(500)}`}
-        style={getAnimationStyle(500)}
-      >
-        <span className="text-white/60 text-xs uppercase tracking-widest">Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-white/60 to-transparent animate-pulse" />
       </div>
     </section>
   );

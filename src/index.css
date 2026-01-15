@@ -752,4 +752,25 @@
       transform: none;
     }
   }
+
+  /* Preloader loading bar animation */
+  @keyframes loading-bar {
+    0% {
+      width: 0%;
+    }
+    50% {
+      width: 70%;
+    }
+    100% {
+      width: 90%;
+    }
+  }
+
+  .animate-loading-bar {
+    animation: loading-bar 1.5s ease-out forwards;
+  }
+
+  .duration-600 {
+    transition-duration: 600ms;
+  }
 }
