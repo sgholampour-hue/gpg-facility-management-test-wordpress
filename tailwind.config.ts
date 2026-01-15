@@ -67,8 +67,8 @@ export default {
           "navy-light": "hsl(var(--gsa-navy-light))",
         },
         gpg: {
-          purple: "hsl(var(--gpg-purple))",
-          "purple-light": "hsl(var(--gpg-purple-light))",
+          olive: "hsl(var(--gpg-olive))",
+          "olive-light": "hsl(var(--gpg-olive-light))",
           cream: "hsl(var(--gpg-cream))",
           gray: "hsl(var(--gpg-gray))",
         },
