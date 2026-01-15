@@ -812,4 +812,18 @@
   .animate-page-enter {
     animation: page-enter 0.4s ease-out forwards;
   }
+
+  /* Road line animation for preloader */
+  @keyframes road-line {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-80px);
+    }
+  }
+
+  .animate-road-line {
+    animation: road-line 0.3s linear infinite;
+  }
 }
