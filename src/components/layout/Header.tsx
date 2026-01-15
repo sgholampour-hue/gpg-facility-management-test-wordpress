@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/diensten", label: "Diensten", hasDropdown: true },
   { href: "/projecten", label: "Projecten" },
   { href: "/over-ons", label: "Over Ons" },
+  { href: "/duurzaamheid", label: "Duurzaamheid" },
 ];
 
 const dienstenLinks = [

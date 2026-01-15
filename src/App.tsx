@@ -10,6 +10,7 @@ import Projecten from "./pages/Projecten";
 import ProjectDetail from "./pages/ProjectDetail";
 import Diensten from "./pages/Diensten";
 import OverOns from "./pages/OverOns";
+import Duurzaamheid from "./pages/Duurzaamheid";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Preloader from "./components/ui/Preloader";
@@ -51,6 +52,7 @@ const AppRoutes = () => (
       <Route path="/projecten/:slug" element={<PageWrapper><ProjectDetail /></PageWrapper>} />
       <Route path="/diensten" element={<PageWrapper><Diensten /></PageWrapper>} />
       <Route path="/over-ons" element={<PageWrapper><OverOns /></PageWrapper>} />
+      <Route path="/duurzaamheid" element={<PageWrapper><Duurzaamheid /></PageWrapper>} />
       <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
       <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
     </Routes>

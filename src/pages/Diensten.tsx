@@ -7,7 +7,7 @@ import SEO, { serviceSchema } from "@/components/SEO";
 import LazyImage from "@/components/ui/LazyImage";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 
-import dienstHandyman from "@/assets/dienst-handyman.jpg";
+import dienstHandyman from "@/assets/dienst-handyman-new.jpg";
 import dienstVerhuizen from "@/assets/dienst-verhuizen.jpg";
 import dienstFacilities from "@/assets/dienst-facilities-new.jpg";
 import dienstFitout from "@/assets/dienst-fitout-new.jpg";
