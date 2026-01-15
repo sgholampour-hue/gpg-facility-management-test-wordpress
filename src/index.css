@@ -22,8 +22,8 @@
     --secondary: 220 20% 96%;
     --secondary-foreground: 229 65% 25%;
 
-    /* Accent: GPG Purple #9f25b5 */
-    --accent: 289 65% 43%;
+    /* Accent: GPG Olive Green */
+    --accent: 68 45% 42%;
     --accent-foreground: 0 0% 100%;
 
     --muted: 220 20% 96%;
@@ -34,15 +34,15 @@
 
     --border: 220 20% 90%;
     --input: 220 20% 90%;
-    --ring: 289 65% 43%;
+    --ring: 68 45% 42%;
 
     --radius: 0.375rem;
 
     /* Custom GSA/GPG tokens */
     --gsa-navy: 229 65% 25%;
     --gsa-navy-light: 229 55% 35%;
-    --gpg-purple: 289 65% 43%;
-    --gpg-purple-light: 289 55% 55%;
+    --gpg-olive: 68 45% 42%;
+    --gpg-olive-light: 68 40% 50%;
     --gpg-cream: 40 30% 97%;
     --gpg-gray: 220 15% 50%;
 
@@ -77,7 +77,7 @@
     --secondary: 229 40% 20%;
     --secondary-foreground: 0 0% 98%;
 
-    --accent: 289 65% 43%;
+    --accent: 68 45% 42%;
     --accent-foreground: 0 0% 100%;
 
     --muted: 229 40% 20%;
@@ -88,7 +88,7 @@
 
     --border: 229 40% 20%;
     --input: 229 40% 20%;
-    --ring: 289 65% 43%;
+    --ring: 68 45% 42%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -115,26 +115,26 @@
     font-family: 'Open Sans', system-ui, sans-serif;
   }
 
-  /* Headings use Titillium Web, uppercase, GSA dark blue */
+  /* Headings use Titillium Web, uppercase, GSA dark blue - semibold for lighter weight */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Titillium Web', system-ui, sans-serif;
-    @apply font-bold tracking-tight text-primary uppercase;
+    @apply font-semibold tracking-tight text-primary uppercase;
   }
 
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl font-bold;
+    @apply text-3xl md:text-4xl font-semibold;
   }
 
   h3 {
-    @apply text-xl md:text-2xl font-semibold;
+    @apply text-xl md:text-2xl font-medium;
   }
 
   h4 {
-    @apply text-lg md:text-xl font-semibold;
+    @apply text-lg md:text-xl font-medium;
   }
 
   /* Body text uses Open Sans */
@@ -157,8 +157,8 @@
   /* Quote text - Titillium Web Regular or Light */
   .text-quote {
     font-family: 'Titillium Web', system-ui, sans-serif;
-    @apply font-light text-xl md:text-2xl italic;
-    color: hsl(var(--gpg-purple));
+    @apply font-light text-xl md:text-2xl;
+    color: hsl(var(--gpg-olive));
   }
 
   /* Highlight text - Open Sans Light */
@@ -389,13 +389,13 @@
     color: hsl(var(--gsa-navy));
   }
 
-  /* GPG Purple utilities */
-  .bg-gpg-purple {
-    background-color: hsl(var(--gpg-purple));
+  /* GPG Olive/Green utilities */
+  .bg-gpg-olive {
+    background-color: hsl(var(--gpg-olive));
   }
 
-  .text-gpg-purple {
-    color: hsl(var(--gpg-purple));
+  .text-gpg-olive {
+    color: hsl(var(--gpg-olive));
   }
 
   .bg-gpg-cream {
