@@ -10,12 +10,14 @@ import cbreLogo from "@/assets/clients/cbre.png";
 import schipholLogo from "@/assets/clients/schiphol.png";
 
 const ClientLogo = ({ name, src }: { name: string; src: string }) => (
-  <div className="flex items-center justify-center px-8 md:px-12 lg:px-16">
-    <img 
-      src={src} 
-      alt={`${name} logo`}
-      className="h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-200 ease-out grayscale hover:grayscale-0 hover:scale-[1.02]"
-    />
+  <div className="flex items-center justify-center px-6 md:px-10 lg:px-12">
+    <div className="w-24 md:w-32 lg:w-36 h-10 md:h-12 flex items-center justify-center">
+      <img 
+        src={src} 
+        alt={`${name} logo`}
+        className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-all duration-200 ease-out grayscale hover:grayscale-0 hover:scale-[1.02]"
+      />
+    </div>
   </div>
 );
 
