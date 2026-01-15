@@ -11,6 +11,7 @@ import CTASection from "@/components/sections/CTASection";
 import PartnerSection from "@/components/sections/PartnerSection";
 import FinalCTA from "@/components/sections/FinalCTA";
 import StickyContactButton from "@/components/ui/StickyContactButton";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -36,6 +37,7 @@ const Index = () => {
       </main>
       <Footer />
       <StickyContactButton />
+      <ScrollToTop />
     </div>
   );
 };
