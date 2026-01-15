@@ -86,7 +86,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen page-enter">
+    <div className="min-h-screen">
       <SEO
         title="Contact"
         description="Neem contact op met GPG Facility Management voor een vrijblijvend adviesgesprek. Bel +31 23 303 0684 of vul ons contactformulier in."
@@ -95,21 +95,21 @@ const Contact = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-primary">
-          <div className="container">
+        <section className="pt-24 md:pt-32 pb-10 md:pb-16 bg-primary">
+          <div className="container px-4 md:px-6">
             <div className="max-w-3xl">
               <RevealOnScroll variant="fade-up">
-                <p className="text-accent font-medium mb-4 uppercase tracking-wider text-sm font-heading">
+                <p className="text-accent font-medium mb-2 md:mb-4 uppercase tracking-wider text-xs md:text-sm font-heading">
                   Contact
                 </p>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={100}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6">
                   Neem contact met ons op
                 </h1>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={200}>
-                <p className="text-xl text-white/80 leading-relaxed font-body">
+                <p className="text-base md:text-xl text-white/80 leading-relaxed font-body">
                   Heeft u vragen of wilt u een vrijblijvende offerte? Wij staan voor u klaar.
                 </p>
               </RevealOnScroll>
@@ -118,36 +118,36 @@ const Contact = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-20 lg:py-28">
-          <div className="container">
-            <div className="grid lg:grid-cols-5 gap-12 lg:gap-20">
+        <section className="py-10 md:py-20 lg:py-28">
+          <div className="container px-4 md:px-6">
+            <div className="grid lg:grid-cols-5 gap-8 md:gap-12 lg:gap-20">
               {/* Contact Form */}
               <div className="lg:col-span-3">
                 <RevealOnScroll variant="fade-up">
-                  <div className="bg-white gsa-hoek-lg shadow-elegant p-8 md:p-10">
-                    <h2 className="text-2xl font-bold text-primary mb-2">
+                  <div className="bg-white gsa-hoek-lg shadow-elegant p-5 md:p-8 lg:p-10">
+                    <h2 className="text-xl md:text-2xl font-bold text-primary mb-1 md:mb-2">
                       Stuur ons een bericht
                     </h2>
-                    <p className="text-muted-foreground mb-8 font-body">
+                    <p className="text-muted-foreground mb-5 md:mb-8 font-body text-sm md:text-base">
                       Vul het formulier in en wij nemen binnen 24 uur contact met u op.
                     </p>
 
                     {isSubmitted ? (
-                      <div className="text-center py-12">
-                        <div className="w-16 h-16 bg-accent/10 gsa-hoek flex items-center justify-center mx-auto mb-4">
-                          <CheckCircle className="w-8 h-8 text-accent" />
+                      <div className="text-center py-8 md:py-12">
+                        <div className="w-14 h-14 md:w-16 md:h-16 bg-accent/10 gsa-hoek flex items-center justify-center mx-auto mb-3 md:mb-4">
+                          <CheckCircle className="w-7 h-7 md:w-8 md:h-8 text-accent" />
                         </div>
-                        <h3 className="text-xl font-bold text-primary mb-2">
+                        <h3 className="text-lg md:text-xl font-bold text-primary mb-2">
                           Bedankt voor uw bericht!
                         </h3>
-                        <p className="text-muted-foreground font-body">
+                        <p className="text-muted-foreground font-body text-sm md:text-base">
                           Wij nemen zo snel mogelijk contact met u op.
                         </p>
                       </div>
                     ) : (
-                      <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="grid sm:grid-cols-2 gap-6">
-                          <div className="space-y-2">
+                      <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                          <div className="space-y-1.5 md:space-y-2">
                             <Label htmlFor="naam" className="font-heading uppercase text-xs tracking-wider">Naam *</Label>
                             <Input
                               id="naam"
@@ -156,10 +156,10 @@ const Contact = () => {
                               value={formData.naam}
                               onChange={handleChange}
                               required
-                              className="h-12 field-focus"
+                              className="h-11 md:h-12 field-focus text-base"
                             />
                           </div>
-                          <div className="space-y-2">
+                          <div className="space-y-1.5 md:space-y-2">
                             <Label htmlFor="email" className="font-heading uppercase text-xs tracking-wider">E-mail *</Label>
                             <Input
                               id="email"
@@ -169,13 +169,13 @@ const Contact = () => {
                               value={formData.email}
                               onChange={handleChange}
                               required
-                              className="h-12 field-focus"
+                              className="h-11 md:h-12 field-focus text-base"
                             />
                           </div>
                         </div>
 
-                        <div className="grid sm:grid-cols-2 gap-6">
-                          <div className="space-y-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                          <div className="space-y-1.5 md:space-y-2">
                             <Label htmlFor="telefoon" className="font-heading uppercase text-xs tracking-wider">Telefoon</Label>
                             <Input
                               id="telefoon"
@@ -184,10 +184,10 @@ const Contact = () => {
                               placeholder="+31 6 12345678"
                               value={formData.telefoon}
                               onChange={handleChange}
-                              className="h-12 field-focus"
+                              className="h-11 md:h-12 field-focus text-base"
                             />
                           </div>
-                          <div className="space-y-2">
+                          <div className="space-y-1.5 md:space-y-2">
                             <Label htmlFor="bedrijf" className="font-heading uppercase text-xs tracking-wider">Bedrijf</Label>
                             <Input
                               id="bedrijf"
@@ -195,12 +195,12 @@ const Contact = () => {
                               placeholder="Uw bedrijfsnaam"
                               value={formData.bedrijf}
                               onChange={handleChange}
-                              className="h-12 field-focus"
+                              className="h-11 md:h-12 field-focus text-base"
                             />
                           </div>
                         </div>
 
-                        <div className="space-y-2">
+                        <div className="space-y-1.5 md:space-y-2">
                           <Label htmlFor="onderwerp" className="font-heading uppercase text-xs tracking-wider">Onderwerp *</Label>
                           <Input
                             id="onderwerp"
@@ -209,11 +209,11 @@ const Contact = () => {
                             value={formData.onderwerp}
                             onChange={handleChange}
                             required
-                            className="h-12 field-focus"
+                            className="h-11 md:h-12 field-focus text-base"
                           />
                         </div>
 
-                        <div className="space-y-2">
+                        <div className="space-y-1.5 md:space-y-2">
                           <Label htmlFor="bericht" className="font-heading uppercase text-xs tracking-wider">Bericht *</Label>
                           <Textarea
                             id="bericht"
@@ -222,8 +222,8 @@ const Contact = () => {
                             value={formData.bericht}
                             onChange={handleChange}
                             required
-                            rows={6}
-                            className="resize-none field-focus"
+                            rows={5}
+                            className="resize-none field-focus text-base min-h-[120px] md:min-h-[150px]"
                           />
                         </div>
 
@@ -234,9 +234,7 @@ const Contact = () => {
                           disabled={isSubmitting}
                         >
                           {isSubmitting ? (
-                            <>
-                              <span className="animate-pulse">Verzenden...</span>
-                            </>
+                            <span className="animate-pulse">Verzenden...</span>
                           ) : (
                             <>
                               Verstuur bericht
@@ -251,27 +249,27 @@ const Contact = () => {
               </div>
 
               {/* Contact Info */}
-              <div className="lg:col-span-2 space-y-6">
+              <div className="lg:col-span-2 space-y-5 md:space-y-6">
                 <RevealOnScroll variant="fade-up">
                   <div>
-                    <h2 className="text-2xl font-bold text-primary mb-2">
+                    <h2 className="text-xl md:text-2xl font-bold text-primary mb-1 md:mb-2">
                       Contactgegevens
                     </h2>
-                    <p className="text-muted-foreground font-body">
+                    <p className="text-muted-foreground font-body text-sm md:text-base">
                       U kunt ons ook direct bereiken via onderstaande contactgegevens.
                     </p>
                   </div>
                 </RevealOnScroll>
 
-                <div className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 md:gap-4">
                   {contactInfo.map((item, index) => (
                     <RevealOnScroll key={index} variant="fade-up" delay={100 + index * 80}>
-                      <div className="flex items-start gap-4 p-4 gsa-hoek-sm bg-muted/50 hover:bg-muted transition-colors duration-200 hover-lift">
-                        <div className="w-12 h-12 gsa-hoek-sm bg-accent/10 flex items-center justify-center flex-shrink-0">
-                          <item.icon className="w-5 h-5 text-accent" />
+                      <div className="flex items-start gap-3 md:gap-4 p-3 md:p-4 gsa-hoek-sm bg-muted/50 hover:bg-muted transition-colors duration-200">
+                        <div className="w-10 h-10 md:w-12 md:h-12 gsa-hoek-sm bg-accent/10 flex items-center justify-center flex-shrink-0">
+                          <item.icon className="w-4 h-4 md:w-5 md:h-5 text-accent" />
                         </div>
-                        <div>
-                          <p className="text-sm font-medium text-muted-foreground mb-1 font-heading uppercase tracking-wider">
+                        <div className="min-w-0">
+                          <p className="text-xs font-medium text-muted-foreground mb-0.5 md:mb-1 font-heading uppercase tracking-wider">
                             {item.title}
                           </p>
                           {item.link ? (
@@ -279,12 +277,12 @@ const Contact = () => {
                               href={item.link}
                               target={item.link.startsWith('http') ? '_blank' : undefined}
                               rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                              className="text-primary font-medium hover:text-accent transition-colors duration-200 font-body"
+                              className="text-primary font-medium hover:text-accent transition-colors duration-200 font-body text-sm md:text-base break-words"
                             >
                               {item.value}
                             </a>
                           ) : (
-                            <p className="text-primary font-medium font-body">{item.value}</p>
+                            <p className="text-primary font-medium font-body text-sm md:text-base">{item.value}</p>
                           )}
                         </div>
                       </div>
@@ -294,7 +292,7 @@ const Contact = () => {
 
                 {/* Map placeholder */}
                 <RevealOnScroll variant="scale-in" delay={400}>
-                  <div className="aspect-square gsa-hoek-lg overflow-hidden bg-muted mt-8">
+                  <div className="aspect-video md:aspect-square gsa-hoek-lg overflow-hidden bg-muted mt-4 md:mt-8">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.5!2d4.762!3d52.309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSchiphol!5e0!3m2!1snl!2snl!4v1234567890"
                       width="100%"
