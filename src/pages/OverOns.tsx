@@ -7,11 +7,12 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { CountUp } from "@/components/ui/CountUp";
 import SEO from "@/components/SEO";
 import gsaLogo from "@/assets/gsa-groep-logo.png";
-import teamPhoto from "@/assets/team-photo.jpg";
+import gpgTeamLobby from "@/assets/gpg-team-lobby-new.jpg";
 import gpgTeam from "@/assets/gpg-team.jpg";
 import gpgWorker from "@/assets/gpg-worker.jpg";
 import gpgMovers from "@/assets/gpg-movers.jpg";
 import gsaDochtersImage from "@/assets/gsa-groep-dochters.png";
+import gsaOrganisatie from "@/assets/gsa-organisatie.png";
 
 const kernwaarden = [
   { icon: Handshake, title: "Betrouwbaar" },
@@ -108,24 +109,17 @@ const OverOns = () => {
               </div>
               <RevealOnScroll variant="slide-left" delay={200}>
                 <div className="relative mt-4 lg:mt-0">
-                  {/* Desktop: teamPhoto, Mobile: gpgTeam for consistency with homepage */}
                   <img
-                    src={teamPhoto}
+                    src={gpgTeamLobby}
                     alt="GPG team aan het werk"
                     loading="lazy"
-                    className="gsa-hoek-lg shadow-elegant w-full aspect-[4/3] object-cover hidden md:block"
+                    className="gsa-hoek-lg shadow-elegant w-full aspect-[4/3] object-cover"
                   />
-                  <img
-                    src={gpgTeam}
-                    alt="GPG team aan het werk"
-                    loading="lazy"
-                    className="gsa-hoek-lg shadow-elegant w-full aspect-[4/3] object-cover md:hidden"
-                  />
-                  <div className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 bg-primary text-primary-foreground gsa-hoek-sm px-3 py-1.5 md:px-5 md:py-3 shadow-lg">
-                    <p className="text-lg md:text-2xl font-bold font-heading">
-                      <CountUp end={40} suffix="+" duration={1000} />
+                  <div className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 bg-primary gsa-hoek-sm px-3 py-1.5 md:px-5 md:py-3 shadow-lg">
+                    <p className="text-lg md:text-2xl font-bold font-heading text-white">
+                      <CountUp end={40} suffix="+" duration={1000} className="text-white" />
                     </p>
-                    <p className="text-[10px] md:text-xs font-medium font-body">Jaar ervaring</p>
+                    <p className="text-[10px] md:text-xs font-medium font-body text-white/80">Jaar ervaring</p>
                   </div>
                 </div>
               </RevealOnScroll>
@@ -139,18 +133,27 @@ const OverOns = () => {
             <div className="grid lg:grid-cols-2 gap-6 md:gap-10 lg:gap-16 items-center">
               {/* Mobile: GSA logo block first, Desktop: second */}
               <RevealOnScroll variant="slide-right" className="order-1 md:order-2 lg:order-1">
-                <div className="bg-white gsa-hoek-lg p-4 md:p-6 lg:p-8 shadow-elegant">
+                <div className="space-y-4 md:space-y-6">
+                  <div className="bg-white gsa-hoek-lg p-4 md:p-6 lg:p-8 shadow-elegant">
+                    <img
+                      src={gsaLogo}
+                      alt="GSA Groep logo"
+                      className="h-12 md:h-20 w-auto mb-3 md:mb-6 object-contain"
+                    />
+                    <h3 className="text-base md:text-xl font-bold text-primary mb-2">
+                      Verrassend Veelzijdig & Betrokken
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed font-body">
+                      GSA Groep is opgericht in 1982 en uitgegroeid tot een full-service organisatie met meerdere gespecialiseerde dochterbedrijven. Met de hoofdvestiging op Schiphol bedienen wij klanten in heel Nederland.
+                    </p>
+                  </div>
+                  {/* GSA Organisatie afbeelding */}
                   <img
-                    src={gsaLogo}
-                    alt="GSA Groep logo"
-                    className="h-12 md:h-20 w-auto mb-3 md:mb-6 object-contain"
+                    src={gsaOrganisatie}
+                    alt="GSA Groep - Één groep, zeven specialismen"
+                    className="w-full gsa-hoek-lg shadow-elegant"
+                    loading="lazy"
                   />
-                  <h3 className="text-base md:text-xl font-bold text-primary mb-2">
-                    Verrassend Veelzijdig & Betrokken
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed font-body">
-                    GSA Groep is opgericht in 1982 en uitgegroeid tot een full-service organisatie met meerdere gespecialiseerde dochterbedrijven. Met de hoofdvestiging op Schiphol bedienen wij klanten in heel Nederland.
-                  </p>
                 </div>
               </RevealOnScroll>
               
