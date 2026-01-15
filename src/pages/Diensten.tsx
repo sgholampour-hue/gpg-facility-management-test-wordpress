@@ -8,7 +8,7 @@ import LazyImage from "@/components/ui/LazyImage";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 
 import dienstHandyman from "@/assets/dienst-handyman-new.jpg";
-import dienstVerhuizen from "@/assets/dienst-verhuizen.jpg";
+import dienstVerhuizen from "@/assets/dienst-verhuizen-new.jpg";
 import dienstFacilities from "@/assets/dienst-facilities-new.jpg";
 import dienstFitout from "@/assets/dienst-fitout-new.jpg";
 import dienstInkoop from "@/assets/dienst-inkoop-new.jpg";
@@ -133,22 +133,18 @@ const ServiceSection = ({
           <div className={`grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
             {/* Content */}
             <div className={`space-y-4 md:space-y-6 ${isReversed ? 'lg:order-2' : ''}`}>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 md:w-12 md:h-12 gsa-hoek-sm bg-accent/10 flex items-center justify-center">
+              <div className="flex items-center gap-3 md:gap-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 gsa-hoek-sm bg-accent/10 flex items-center justify-center flex-shrink-0">
                   <Icon className="w-5 h-5 md:w-6 md:h-6 text-accent" />
                 </div>
-                <span className="text-xs md:text-sm font-medium text-accent uppercase tracking-wider">
-                  {service.title}
-                </span>
-              </div>
-              
-              <div>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-1 md:mb-2">
-                  {service.title}
-                </h2>
-                <p className="text-base md:text-lg text-accent font-medium">
-                  {service.subtitle}
-                </p>
+                <div>
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-0.5">
+                    {service.title}
+                  </h2>
+                  <p className="text-sm md:text-base text-accent font-medium">
+                    {service.subtitle}
+                  </p>
+                </div>
               </div>
               
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed">

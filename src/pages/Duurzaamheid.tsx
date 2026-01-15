@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Recycle, Leaf, TrendingDown, Award, CheckCircle, ArrowRight } from "lucide-react";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO from "@/components/SEO";
+import CountUp from "@/components/ui/CountUp";
 
 const circularPrincipes = [
   {
@@ -191,33 +192,62 @@ const Duurzaamheid = () => {
         </section>
 
         {/* Impact Cijfers */}
-        <section className="py-12 md:py-20 bg-accent">
+        <section className="py-12 md:py-20 bg-primary">
           <div className="container px-4 md:px-6">
             <RevealOnScroll variant="fade-up">
               <div className="text-center mb-8 md:mb-12">
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent-foreground mb-2 md:mb-3">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 md:mb-3">
                   Onze duurzame impact
                 </h2>
-                <p className="text-accent-foreground/80 max-w-lg mx-auto text-sm md:text-base">
+                <p className="text-white/80 max-w-lg mx-auto text-sm md:text-base">
                   Concrete resultaten van onze circulaire aanpak
                 </p>
               </div>
             </RevealOnScroll>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {[
-                { value: "85%", label: "Materiaal hergebruik" },
-                { value: "40%", label: "CO₂ reductie" },
-                { value: "100%", label: "Circulaire inkoop" },
-                { value: "0", label: "Afval naar stort" }
-              ].map((stat, index) => (
-                <RevealOnScroll key={index} variant="scale-in" delay={index * 100}>
-                  <div className="bg-white/10 gsa-hoek-sm p-4 md:p-6 text-center">
-                    <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent-foreground mb-1">{stat.value}</p>
-                    <p className="text-xs md:text-sm text-accent-foreground/80">{stat.label}</p>
-                  </div>
-                </RevealOnScroll>
-              ))}
+              <div className="bg-white/10 gsa-hoek-sm p-4 md:p-6 text-center">
+                <CountUp 
+                  end={85} 
+                  suffix="%" 
+                  duration={2000}
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
+                  labelClassName="text-xs md:text-sm text-white/80"
+                  label="Materiaal hergebruik"
+                />
+              </div>
+              <div className="bg-white/10 gsa-hoek-sm p-4 md:p-6 text-center">
+                <CountUp 
+                  end={40} 
+                  suffix="%" 
+                  duration={2000}
+                  delay={100}
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
+                  labelClassName="text-xs md:text-sm text-white/80"
+                  label="CO₂ reductie"
+                />
+              </div>
+              <div className="bg-white/10 gsa-hoek-sm p-4 md:p-6 text-center">
+                <CountUp 
+                  end={100} 
+                  suffix="%" 
+                  duration={2000}
+                  delay={200}
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
+                  labelClassName="text-xs md:text-sm text-white/80"
+                  label="Circulaire inkoop"
+                />
+              </div>
+              <div className="bg-white/10 gsa-hoek-sm p-4 md:p-6 text-center">
+                <CountUp 
+                  end={0} 
+                  duration={1500}
+                  delay={300}
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
+                  labelClassName="text-xs md:text-sm text-white/80"
+                  label="Afval naar stort"
+                />
+              </div>
             </div>
           </div>
         </section>
