@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import aboutTechnician from "@/assets/about-technician.jpg";
-import aboutManagers from "@/assets/about-managers.jpg";
-import aboutPlanning from "@/assets/about-planning.jpg";
+import gpgWorker from "@/assets/gpg-worker.jpg";
+import gpgOffice from "@/assets/gpg-office-interior.jpg";
+import gpgTeam from "@/assets/gpg-team.jpg";
 
 const AboutGallery = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -35,8 +35,8 @@ const AboutGallery = () => {
             }`}
           >
             <img
-              src={aboutTechnician}
-              alt="Technicus aan het werk"
+              src={gpgWorker}
+              alt="GPG medewerker aan het werk"
               className="w-full h-auto gsa-hoek-tr-lg shadow-card object-cover"
             />
           </div>
@@ -60,8 +60,8 @@ const AboutGallery = () => {
               }`}
             >
               <img
-                src={aboutPlanning}
-                alt="Team bij planning"
+                src={gpgOffice}
+                alt="Modern kantoorinterieur"
                 className="w-full h-auto gsa-hoek-bl-lg shadow-card object-cover"
               />
             </div>
@@ -74,8 +74,8 @@ const AboutGallery = () => {
             }`}
           >
             <img
-              src={aboutManagers}
-              alt="Managers bij het werk"
+              src={gpgTeam}
+              alt="GPG team"
               className="w-full h-auto gsa-hoek-tl-lg shadow-card object-cover"
             />
           </div>
