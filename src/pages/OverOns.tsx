@@ -134,7 +134,7 @@ const OverOns = () => {
               {/* Mobile: GSA logo block first, Desktop: second */}
               <RevealOnScroll variant="slide-right" className="order-1 md:order-2 lg:order-1">
                 <div className="space-y-4 md:space-y-6">
-                  <div className="bg-white gsa-hoek-lg p-4 md:p-6 lg:p-8 shadow-elegant">
+                  <div className="bg-white gsa-hoek-lg p-4 md:p-6 lg:p-8 shadow-elegant w-1/2 md:w-full">
                     <img
                       src={gsaLogo}
                       alt="GSA Groep logo"
@@ -151,7 +151,7 @@ const OverOns = () => {
                   <img
                     src={gsaOrganisatie}
                     alt="GSA Groep - Één groep, zeven specialismen"
-                    className="w-full gsa-hoek-lg shadow-elegant"
+                    className="w-full max-w-lg md:max-w-xl gsa-hoek-lg shadow-elegant"
                     loading="lazy"
                   />
                 </div>
@@ -176,11 +176,11 @@ const OverOns = () => {
                 </RevealOnScroll>
                 
                 <RevealOnScroll variant="fade-up" delay={300}>
-                  <div className="bg-muted/50 gsa-hoek-lg p-3 md:p-6">
+                  <div className="bg-white gsa-hoek-lg p-3 md:p-6 shadow-elegant">
                     <img
                       src={gsaDochtersImage}
                       alt="GSA Groep dochterondernemingen"
-                      className="w-full max-w-sm md:max-w-md object-contain"
+                      className="w-full max-w-xs md:max-w-sm object-contain"
                     />
                   </div>
                 </RevealOnScroll>
