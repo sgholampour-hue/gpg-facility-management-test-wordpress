@@ -41,7 +41,7 @@ const Contact = () => {
     
     toast({
       title: "Bericht verzonden!",
-      description: "Wij nemen zo snel mogelijk contact met u op.",
+      description: "Wij nemen zo snel mogelijk contact met je op.",
     });
 
     // Reset form after delay
@@ -110,7 +110,7 @@ const Contact = () => {
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={200}>
                 <p className="text-base md:text-xl text-white/80 leading-relaxed font-body">
-                  Heeft u vragen of wilt u meer informatie? Wij staan voor u klaar.
+                  Heb je vragen of wil je meer informatie? Wij staan voor je klaar.
                 </p>
               </RevealOnScroll>
             </div>
@@ -129,7 +129,7 @@ const Contact = () => {
                       Stuur ons een bericht
                     </h2>
                     <p className="text-muted-foreground mb-5 md:mb-8 font-body text-sm md:text-base">
-                      Vul het formulier in en wij nemen binnen 24 uur contact met u op.
+                      Vul het formulier in en wij nemen binnen 24 uur contact met je op.
                     </p>
 
                     {isSubmitted ? (
@@ -138,10 +138,10 @@ const Contact = () => {
                           <CheckCircle className="w-7 h-7 md:w-8 md:h-8 text-accent" />
                         </div>
                         <h3 className="text-lg md:text-xl font-bold text-primary mb-2">
-                          Bedankt voor uw bericht!
+                          Bedankt voor je bericht!
                         </h3>
                         <p className="text-muted-foreground font-body text-sm md:text-base">
-                          Wij nemen zo snel mogelijk contact met u op.
+                          Wij nemen zo snel mogelijk contact met je op.
                         </p>
                       </div>
                     ) : (
@@ -152,7 +152,7 @@ const Contact = () => {
                             <Input
                               id="naam"
                               name="naam"
-                              placeholder="Uw volledige naam"
+                              placeholder="Je volledige naam"
                               value={formData.naam}
                               onChange={handleChange}
                               required
@@ -192,7 +192,7 @@ const Contact = () => {
                             <Input
                               id="bedrijf"
                               name="bedrijf"
-                              placeholder="Uw bedrijfsnaam"
+                              placeholder="Je bedrijfsnaam"
                               value={formData.bedrijf}
                               onChange={handleChange}
                               className="h-11 md:h-12 field-focus text-base"
@@ -205,7 +205,7 @@ const Contact = () => {
                           <Input
                             id="onderwerp"
                             name="onderwerp"
-                            placeholder="Waar kunnen wij u mee helpen?"
+                            placeholder="Waar kunnen wij je mee helpen?"
                             value={formData.onderwerp}
                             onChange={handleChange}
                             required
@@ -218,7 +218,7 @@ const Contact = () => {
                           <Textarea
                             id="bericht"
                             name="bericht"
-                            placeholder="Beschrijf uw vraag of project..."
+                            placeholder="Beschrijf je vraag of project..."
                             value={formData.bericht}
                             onChange={handleChange}
                             required
@@ -256,7 +256,7 @@ const Contact = () => {
                       Contactgegevens
                     </h2>
                     <p className="text-muted-foreground font-body text-sm md:text-base">
-                      U kunt ons ook direct bereiken via onderstaande contactgegevens.
+                      Je kunt ons ook direct bereiken via onderstaande contactgegevens.
                     </p>
                   </div>
                 </RevealOnScroll>

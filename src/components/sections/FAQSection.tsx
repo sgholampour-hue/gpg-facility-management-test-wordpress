@@ -24,17 +24,17 @@ const faqs = [
   {
     question: "Hoe lang bestaat GPG Facility Management?",
     answer:
-      "GPG Facility Management is onderdeel van de GSA Groep, die sinds 1982 actief is. Met meer dan 40 jaar ervaring in facilitaire dienstverlening kunt u rekenen op bewezen expertise.",
+      "GPG Facility Management is onderdeel van de GSA Groep, die sinds 1982 actief is. Met meer dan 40 jaar ervaring in facilitaire dienstverlening kun je rekenen op bewezen expertise.",
   },
   {
     question: "Hoe kan ik contact opnemen?",
     answer:
-      "U kunt eenvoudig contact opnemen via ons contactformulier, telefonisch via 020 - 795 28 20 of per e-mail naar info@gpg-fm.nl. Wij reageren binnen 24 uur op uw aanvraag.",
+      "Je kunt eenvoudig contact opnemen via ons contactformulier, telefonisch via 020 - 795 28 20 of per e-mail naar info@gpg-fm.nl. Wij reageren binnen 24 uur op je aanvraag.",
   },
   {
     question: "Werken jullie met vaste prijzen of nacalculatie?",
     answer:
-      "Wij werken met heldere, vooraf afgesproken prijzen. Na een inventarisatie ontvangt u een transparant voorstel. Voor doorlopende dienstverlening bieden wij ook contractvormen aan.",
+      "Wij werken met heldere, vooraf afgesproken prijzen. Na een inventarisatie ontvang je een transparant voorstel. Voor doorlopende dienstverlening bieden wij ook contractvormen aan.",
   },
 ];
 

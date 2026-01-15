@@ -128,12 +128,12 @@ const Projecten = () => {
           <div className="container px-4 md:px-6 text-center">
             <RevealOnScroll variant="fade-up">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-foreground mb-3 md:mb-4">
-                Samen aan uw project werken?
+                Samen aan jouw project werken?
               </h2>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={100}>
               <p className="text-primary-foreground/80 mb-6 md:mb-8 max-w-lg mx-auto font-body text-sm md:text-base">
-                Neem contact op en ontdek hoe wij uw facilitaire uitdagingen kunnen oplossen.
+                Neem contact op en ontdek hoe wij jouw facilitaire uitdagingen kunnen oplossen.
               </p>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={200}>

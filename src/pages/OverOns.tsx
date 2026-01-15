@@ -277,7 +277,7 @@ const OverOns = () => {
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={100}>
               <p className="text-accent-foreground/80 mb-4 md:mb-5 max-w-md mx-auto text-sm font-body">
-                Ontdek wat wij voor uw organisatie kunnen betekenen.
+                Ontdek wat wij voor jouw organisatie kunnen betekenen.
               </p>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={200}>
