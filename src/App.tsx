@@ -12,6 +12,7 @@ import Diensten from "./pages/Diensten";
 import OverOns from "./pages/OverOns";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Preloader from "./components/ui/Preloader";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
 const AppRoutes = () => (
   <>
     <ScrollToTopOnNavigate />
+    <Preloader showOnNavigation={true} />
     <Routes>
       <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
       <Route path="/projecten" element={<PageWrapper><Projecten /></PageWrapper>} />

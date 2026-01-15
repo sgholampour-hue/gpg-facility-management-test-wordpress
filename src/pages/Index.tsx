@@ -12,14 +12,12 @@ import PartnerSection from "@/components/sections/PartnerSection";
 import FinalCTA from "@/components/sections/FinalCTA";
 import StickyContactButton from "@/components/ui/StickyContactButton";
 import ScrollToTop from "@/components/ui/ScrollToTop";
-import Preloader from "@/components/ui/Preloader";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import SEO from "@/components/SEO";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Preloader />
       <SEO
         title="Professionele Facilitaire Dienstverlening"
         description="GPG Facility Management is uw partner voor fit-outs, verhuizingen, handyman services en integrated facilities. Al 15+ jaar ervaring met projecten voor Schiphol, Booking.com en meer."
