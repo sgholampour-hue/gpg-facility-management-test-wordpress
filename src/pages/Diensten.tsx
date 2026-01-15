@@ -130,7 +130,7 @@ const ServiceSection = ({
           {/* Content */}
           <div className={`space-y-6 ${isReversed ? 'lg:order-2' : ''}`}>
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+              <div className="w-12 h-12 gsa-hoek-sm bg-accent/10 flex items-center justify-center">
                 <Icon className="w-6 h-6 text-accent" />
               </div>
               <span className="text-sm font-medium text-accent uppercase tracking-wider">
@@ -172,7 +172,7 @@ const ServiceSection = ({
           
           {/* Image */}
           <div className={`relative ${isReversed ? 'lg:order-1' : ''}`}>
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-elegant">
+            <div className="aspect-[4/3] gsa-hoek-lg overflow-hidden shadow-elegant">
               <img 
                 src={service.image} 
                 alt={service.title}
@@ -180,7 +180,7 @@ const ServiceSection = ({
               />
             </div>
             {/* Decorative element */}
-            <div className={`absolute -z-10 w-full h-full bg-accent/10 rounded-2xl ${isReversed ? '-left-4 -bottom-4' : '-right-4 -bottom-4'}`} />
+            <div className={`absolute -z-10 w-full h-full bg-accent/10 gsa-hoek-lg ${isReversed ? '-left-4 -bottom-4' : '-right-4 -bottom-4'}`} />
           </div>
         </div>
       </div>
@@ -218,7 +218,7 @@ const Diensten = () => {
                 <a
                   key={service.id}
                   href={`#${service.id}`}
-                  className="px-4 py-2 rounded-full text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-all duration-200"
+                  className="px-4 py-2 gsa-hoek-sm text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-all duration-200"
                 >
                   {service.title}
                 </a>

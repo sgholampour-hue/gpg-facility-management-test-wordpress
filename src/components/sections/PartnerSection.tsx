@@ -38,7 +38,7 @@ const PartnerSection = () => {
               <img
                 src={teamPhoto}
                 alt="GPG Team bij bedrijfsvoertuigen"
-                className="w-full h-auto rounded-lg shadow-card"
+                className="w-full h-auto gsa-hoek-br-lg shadow-card"
               />
             </div>
           </div>

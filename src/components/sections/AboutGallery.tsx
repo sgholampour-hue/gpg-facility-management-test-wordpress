@@ -37,7 +37,7 @@ const AboutGallery = () => {
             <img
               src={aboutTechnician}
               alt="Technicus aan het werk"
-              className="w-full h-auto rounded-lg shadow-card object-cover"
+              className="w-full h-auto gsa-hoek-br-lg shadow-card object-cover"
             />
           </div>
 
@@ -62,7 +62,7 @@ const AboutGallery = () => {
               <img
                 src={aboutPlanning}
                 alt="Team bij planning"
-                className="w-full h-auto rounded-lg shadow-card object-cover"
+                className="w-full h-auto gsa-hoek-bl-lg shadow-card object-cover"
               />
             </div>
           </div>
@@ -76,7 +76,7 @@ const AboutGallery = () => {
             <img
               src={aboutManagers}
               alt="Managers bij het werk"
-              className="w-full h-auto rounded-lg shadow-card object-cover"
+              className="w-full h-auto gsa-hoek-tl-lg shadow-card object-cover"
             />
           </div>
         </div>

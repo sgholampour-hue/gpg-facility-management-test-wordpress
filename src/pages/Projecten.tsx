@@ -65,7 +65,7 @@ const Projecten = () => {
                   to={`/projecten/${project.slug}`}
                   className="group block"
                 >
-                  <div className="relative overflow-hidden rounded-lg mb-4">
+                  <div className="relative overflow-hidden gsa-hoek-br-lg mb-4">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -86,7 +86,7 @@ const Projecten = () => {
                     {project.stats.map((stat) => (
                       <span
                         key={stat}
-                        className="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full"
+                        className="text-xs font-medium text-accent bg-accent/10 px-3 py-1 gsa-hoek-sm"
                       >
                         {stat}
                       </span>

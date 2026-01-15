@@ -61,7 +61,7 @@ const CTASection = () => {
         </div>
 
         <div className="container relative z-10">
-          <div className="ml-auto max-w-xl bg-background/95 backdrop-blur-sm p-8 md:p-12 rounded-lg">
+          <div className="ml-auto max-w-xl bg-background/95 backdrop-blur-sm p-8 md:p-12 gsa-hoek-lg">
             <h2
               className={`text-2xl md:text-3xl font-bold text-primary mb-6 transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"

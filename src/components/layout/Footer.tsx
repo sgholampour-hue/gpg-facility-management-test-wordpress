@@ -126,7 +126,7 @@ const Footer = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
+                className="w-10 h-10 gsa-hoek-sm border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -147,7 +147,7 @@ const Footer = () => {
                 <AccordionItem
                   key={index}
                   value={`footer-faq-${index}`}
-                  className="border border-primary-foreground/10 rounded-lg px-4 bg-primary-foreground/5"
+                  className="border border-primary-foreground/10 gsa-hoek-sm px-4 bg-primary-foreground/5"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-4 text-primary-foreground hover:text-accent text-sm">
                     {faq.question}

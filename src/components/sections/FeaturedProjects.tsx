@@ -71,7 +71,7 @@ const FeaturedProjects = () => {
             <Link
               key={project.slug}
               to={`/projecten/${project.slug}`}
-              className={`group block project-card focus-ring rounded-lg ${
+              className={`group block project-card focus-ring ${
                 visibleCards.includes(index)
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
@@ -80,7 +80,7 @@ const FeaturedProjects = () => {
                 transition: `opacity 450ms ease-in-out ${index * 100}ms, transform 450ms ease-in-out ${index * 100}ms`
               }}
             >
-              <div className="relative overflow-hidden rounded-lg mb-4">
+              <div className="relative overflow-hidden gsa-hoek-br-lg mb-4">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -98,7 +98,7 @@ const FeaturedProjects = () => {
                 {project.stats.map((stat) => (
                   <span
                     key={stat}
-                    className="text-xs font-medium text-accent bg-accent/10 px-3 py-1 rounded-full transition-colors duration-150 ease-in-out hover:bg-accent/20"
+                    className="text-xs font-medium text-accent bg-accent/10 px-3 py-1 gsa-hoek-sm transition-colors duration-150 ease-in-out hover:bg-accent/20"
                   >
                     {stat}
                   </span>
