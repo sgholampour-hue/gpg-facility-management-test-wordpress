@@ -37,7 +37,7 @@ const Footer = () => {
                 Facilitaire diensten voor engineering, realisatie en beheer
               </h3>
             </div>
-            <img src={gpgLogo} alt="GPG Facility Management" className="h-10 w-auto opacity-90" />
+            <img src={gpgLogo} alt="GPG Facility Management" className="h-16 w-auto" />
           </div>
 
           {/* Address */}
@@ -135,32 +135,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* FAQ Section in Footer */}
-      <div className="border-t border-primary-foreground/10">
-        <div className="container py-12">
-          <div className="max-w-2xl mx-auto">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-center mb-6">
-              Veelgestelde vragen
-            </h4>
-            <Accordion type="single" collapsible className="space-y-2">
-              {footerFaqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`footer-faq-${index}`}
-                  className="border border-primary-foreground/10 gsa-hoek-sm px-4 bg-primary-foreground/5"
-                >
-                  <AccordionTrigger className="text-left hover:no-underline py-4 text-primary-foreground hover:text-accent text-sm">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-4 text-primary-foreground/70 text-sm">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </div>
 
       {/* Bottom bar */}
       <div className="border-t border-primary-foreground/10">
