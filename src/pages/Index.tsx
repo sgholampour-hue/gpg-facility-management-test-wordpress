@@ -6,6 +6,7 @@ import ClientMarquee from "@/components/sections/ClientMarquee";
 import AboutGallery from "@/components/sections/AboutGallery";
 import WhyGPG from "@/components/sections/WhyGPG";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
+import Testimonials from "@/components/sections/Testimonials";
 import CTASection from "@/components/sections/CTASection";
 import PartnerSection from "@/components/sections/PartnerSection";
 import FinalCTA from "@/components/sections/FinalCTA";
@@ -21,6 +22,7 @@ const Index = () => {
         <AboutGallery />
         <WhyGPG />
         <FeaturedProjects />
+        <Testimonials />
         <CTASection />
         <PartnerSection />
         <FinalCTA />
