@@ -236,18 +236,18 @@ const Header = () => {
         <div className="hidden md:block bg-muted border-b border-border">
           <div className="container flex justify-end items-center py-3 gap-10 text-sm">
             <a
-              href="mailto:info@gpg-fm.nl"
+              href="mailto:info@gpgfacilities.nl"
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
             >
               <Mail className="w-4 h-4" />
-              <span>info@gpg-fm.nl</span>
+              <span>info@gpgfacilities.nl</span>
             </a>
             <a
-              href="tel:+31207952820"
+              href="tel:+31207952100"
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>020 - 795 28 20</span>
+              <span>+31(0)20 795 21 00</span>
             </a>
           </div>
         </div>

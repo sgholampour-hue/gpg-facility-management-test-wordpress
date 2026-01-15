@@ -86,12 +86,12 @@ const OverOns = () => {
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={200}>
                   <p className="text-muted-foreground leading-relaxed mb-3 md:mb-4 font-body text-sm md:text-base">
-                    GPG Facility Management is gespecialiseerd in handyman diensten, verhuizingen, integrated facilities en fit-out projecten. Van dagelijks onderhoud tot complete kantoorinrichtingen.
+                    GPG Facility Management is gespecialiseerd in handyman diensten, verhuizingen, integrated facilities en fit-out projecten. Van dagelijks onderhoud tot complete kantoorinrichtingen. Circulariteit staat bij ons voorop: we werken met duurzame materialen en hergebruik.
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={300}>
                   <p className="text-muted-foreground leading-relaxed mb-5 md:mb-6 font-body text-sm md:text-base">
-                    Onze kracht: vakmanschap, flexibiliteit en een no-nonsense aanpak.
+                    Onze kracht: vakmanschap, flexibiliteit en een no-nonsense aanpak met focus op circulaire oplossingen.
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={400}>
@@ -134,7 +134,7 @@ const OverOns = () => {
                   <img
                     src={gsaLogo}
                     alt="GSA Groep logo"
-                    className="h-24 md:h-32 w-auto mb-4 md:mb-6"
+                    className="h-16 md:h-20 w-auto mb-4 md:mb-6 object-contain"
                   />
                   <h3 className="text-lg md:text-xl font-bold text-primary mb-2 md:mb-3">
                     Verrassend Veelzijdig & Betrokken
@@ -162,11 +162,13 @@ const OverOns = () => {
                 </RevealOnScroll>
                 
                 <RevealOnScroll variant="fade-up" delay={300}>
-                  <img
-                    src={gsaDochtersImage}
-                    alt="GSA Groep dochterondernemingen"
-                    className="w-full max-w-xs md:max-w-sm"
-                  />
+                  <div className="bg-muted/50 gsa-hoek-lg p-4 md:p-6">
+                    <img
+                      src={gsaDochtersImage}
+                      alt="GSA Groep dochterondernemingen"
+                      className="w-full max-w-md object-contain"
+                    />
+                  </div>
                 </RevealOnScroll>
               </div>
             </div>
@@ -246,7 +248,7 @@ const OverOns = () => {
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={200}>
                 <p className="text-muted-foreground leading-relaxed mb-5 md:mb-6 font-body text-sm md:text-base">
-                  Wij focussen op circulaire economie, energiezuinige oplossingen en CO2-reductie.
+                  Circulariteit staat voorop in ons proces. Wij focussen op circulaire economie, energiezuinige oplossingen en CO2-reductie bij elk project.
                 </p>
               </RevealOnScroll>
               <div className="grid grid-cols-3 gap-3 md:gap-4">

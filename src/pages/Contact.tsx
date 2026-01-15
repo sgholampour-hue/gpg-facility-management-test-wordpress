@@ -62,14 +62,14 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Telefoon",
-      value: "+31 (0)20 123 4567",
-      link: "tel:+31201234567"
+      value: "+31(0)20 795 21 00",
+      link: "tel:+31207952100"
     },
     {
       icon: Mail,
       title: "E-mail",
-      value: "info@gpg-fm.nl",
-      link: "mailto:info@gpg-fm.nl"
+      value: "info@gpgfacilities.nl",
+      link: "mailto:info@gpgfacilities.nl"
     },
     {
       icon: MapPin,
@@ -89,7 +89,7 @@ const Contact = () => {
     <div className="min-h-screen">
       <SEO
         title="Contact"
-        description="Neem contact op met GPG Facility Management voor een vrijblijvend adviesgesprek. Bel +31 23 303 0684 of vul ons contactformulier in."
+        description="Neem contact op met GPG Facility Management voor een vrijblijvend adviesgesprek. Bel +31(0)20 795 21 00 of vul ons contactformulier in."
         canonical="https://gpg-facility.lovable.app/contact"
       />
       <Header />

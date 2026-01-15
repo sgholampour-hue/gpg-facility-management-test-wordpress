@@ -10,7 +10,7 @@ const footerFaqs = [{
   answer: "Wij zijn actief in heel Nederland met focus op de Randstad, met HUB-locaties in Schiphol, IJmuiden, Rotterdam en Oud Beijerland."
 }, {
   question: "Hoe kan ik een offerte aanvragen?",
-  answer: "Via ons contactformulier, telefonisch (020 - 795 28 20) of per e-mail (info@gpg-fm.nl). Wij reageren binnen 24 uur."
+  answer: "Via ons contactformulier, telefonisch (+31(0)20 795 21 00) of per e-mail (info@gpgfacilities.nl). Wij reageren binnen 24 uur."
 }];
 const Footer = () => {
   return <footer className="bg-primary text-primary-foreground">
@@ -40,14 +40,14 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-3 text-primary-foreground/80 text-sm md:text-base">
               <Phone className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
-              <a href="tel:+31207952820" className="hover:text-primary-foreground transition-colors">
-                020 - 795 28 20
+              <a href="tel:+31207952100" className="hover:text-primary-foreground transition-colors">
+                +31(0)20 795 21 00
               </a>
             </div>
             <div className="flex items-center gap-3 text-primary-foreground/80 text-sm md:text-base">
               <Mail className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
-              <a href="mailto:info@gpg-fm.nl" className="hover:text-primary-foreground transition-colors">
-                info@gpg-fm.nl
+              <a href="mailto:info@gpgfacilities.nl" className="hover:text-primary-foreground transition-colors">
+                info@gpgfacilities.nl
               </a>
             </div>
           </div>
