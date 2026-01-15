@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Users, Award, Calendar, RefreshCw } from "lucide-react";
-import teamPhoto from "@/assets/gpg-team-new.jpg";
+import teamPhoto from "@/assets/gpg-construction-team.jpg";
 
 const features = [
   {
