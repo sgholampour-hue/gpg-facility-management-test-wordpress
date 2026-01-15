@@ -9,6 +9,7 @@ import SEO from "@/components/SEO";
 import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
 import projectHub from "@/assets/project-hub.jpg";
+import projectHub2 from "@/assets/project-hub-2.jpg";
 
 const projectsData = {
   "cbre-booking": {
@@ -66,6 +67,7 @@ const projectsData = {
     title: "HUB Locaties",
     subtitle: "Bouwlogistieke ondersteuning",
     image: projectHub,
+    gallery: [projectHub, projectHub2],
     client: "Diverse opdrachtgevers",
     location: "Noord & Zuid Holland",
     period: "Doorlopend",
@@ -239,6 +241,26 @@ const ProjectDetail = () => {
                           </li>
                         ))}
                       </ul>
+                    </div>
+                  </RevealOnScroll>
+                )}
+
+                {"gallery" in project && Array.isArray((project as { gallery?: string[] }).gallery) && (project as { gallery: string[] }).gallery.length > 1 && (
+                  <RevealOnScroll variant="fade-up" delay={300}>
+                    <div>
+                      <h3 className="text-lg font-semibold text-primary mb-4">
+                        Galerij
+                      </h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        {((project as { gallery: string[] }).gallery).map((img, index) => (
+                          <img
+                            key={index}
+                            src={img}
+                            alt={`${project.title} afbeelding ${index + 1}`}
+                            className="w-full aspect-[4/3] object-cover gsa-hoek-sm"
+                          />
+                        ))}
+                      </div>
                     </div>
                   </RevealOnScroll>
                 )}
