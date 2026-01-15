@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, Wrench, Truck, Building2, HardHat, ShoppingCart, Palette, ChevronDown } from "lucide-react";
+import { Phone, Mail, Wrench, Truck, Building2, HardHat, ShoppingCart, Palette, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import gpgLogo from "@/assets/gpg-logo.png";
 
@@ -133,17 +133,17 @@ const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button - hamburger animation */}
           <button
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 relative w-10 h-10 flex items-center justify-center"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
-            ) : (
-              <Menu className="w-6 h-6 text-foreground" />
-            )}
+            <div className="hamburger-icon">
+              <span className={`hamburger-line ${mobileMenuOpen ? 'rotate-45 translate-y-[6px]' : ''}`}></span>
+              <span className={`hamburger-line ${mobileMenuOpen ? 'opacity-0 scale-0' : ''}`}></span>
+              <span className={`hamburger-line ${mobileMenuOpen ? '-rotate-45 -translate-y-[6px]' : ''}`}></span>
+            </div>
           </button>
         </nav>
 
@@ -210,9 +210,13 @@ const Header = () => {
         )}
       </header>
 
-      {/* Sub-header with contact info - static, always visible */}
+      {/* Sub-header with contact info - disappears on scroll */}
       <div 
-        className="fixed left-0 right-0 z-40"
+        className={`fixed left-0 right-0 z-40 transition-all duration-300 ease-out ${
+          isScrolled 
+            ? "opacity-0 -translate-y-full pointer-events-none" 
+            : "opacity-100 translate-y-0"
+        }`}
         style={{ top: "73px" }}
       >
         <div className="hidden md:block bg-muted border-b border-border">

@@ -23,10 +23,10 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-20 md:py-28 bg-secondary">
+    <section className="py-12 md:py-16 bg-secondary">
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-8 md:mb-10">
           <span className="text-subheading text-accent text-sm mb-4 block">
             Wat klanten zeggen
           </span>
@@ -54,7 +54,7 @@ const Testimonials = () => {
         </div>
 
         {/* Featured Quote */}
-        <div className="mt-16 md:mt-20 max-w-4xl mx-auto text-center">
+        <div className="mt-10 md:mt-12 max-w-4xl mx-auto text-center">
           <blockquote className="relative">
             <svg className="w-12 h-12 text-accent opacity-30 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
