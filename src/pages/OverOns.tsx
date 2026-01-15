@@ -140,7 +140,7 @@ const OverOns = () => {
                     loading="lazy"
                     className="gsa-hoek-lg shadow-elegant w-full"
                   />
-                  <div className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground gsa-hoek p-6 shadow-lg">
+                  <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground gsa-hoek p-6 shadow-lg">
                     <p className="text-4xl font-bold font-heading">
                       <CountUp end={40} suffix="+" duration={1000} />
                     </p>
@@ -161,7 +161,7 @@ const OverOns = () => {
                   <img
                     src={gsaLogo}
                     alt="GSA Groep logo"
-                    className="h-24 w-auto mb-8"
+                    className="h-48 w-auto mb-8"
                   />
                   <h3 className="text-2xl font-bold text-primary mb-4">
                     Verrassend Veelzijdig & Betrokken
