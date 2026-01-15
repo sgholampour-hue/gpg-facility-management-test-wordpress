@@ -8,8 +8,9 @@ import { CountUp } from "@/components/ui/CountUp";
 import SEO from "@/components/SEO";
 import gsaLogo from "@/assets/gsa-groep-logo.png";
 import teamPhoto from "@/assets/team-photo.jpg";
-import aboutTechnician from "@/assets/about-technician.jpg";
-import aboutManagers from "@/assets/about-managers.jpg";
+import gpgTeam from "@/assets/gpg-team.jpg";
+import gpgWorker from "@/assets/gpg-worker.jpg";
+import gpgMovers from "@/assets/gpg-movers.jpg";
 import gsaDochtersImage from "@/assets/gsa-groep-dochters.png";
 
 const kernwaarden = [
@@ -107,11 +108,18 @@ const OverOns = () => {
               </div>
               <RevealOnScroll variant="slide-left" delay={200}>
                 <div className="relative mt-4 lg:mt-0">
+                  {/* Desktop: teamPhoto, Mobile: gpgTeam for consistency with homepage */}
                   <img
                     src={teamPhoto}
                     alt="GPG team aan het werk"
                     loading="lazy"
-                    className="gsa-hoek-lg shadow-elegant w-full aspect-[4/3] object-cover"
+                    className="gsa-hoek-lg shadow-elegant w-full aspect-[4/3] object-cover hidden md:block"
+                  />
+                  <img
+                    src={gpgTeam}
+                    alt="GPG team aan het werk"
+                    loading="lazy"
+                    className="gsa-hoek-lg shadow-elegant w-full aspect-[4/3] object-cover md:hidden"
                   />
                   <div className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 bg-primary text-primary-foreground gsa-hoek-sm px-3 py-1.5 md:px-5 md:py-3 shadow-lg">
                     <p className="text-lg md:text-2xl font-bold font-heading">
@@ -129,7 +137,8 @@ const OverOns = () => {
         <section className="py-10 md:py-16 lg:py-20 bg-muted/30">
           <div className="container px-4 md:px-6">
             <div className="grid lg:grid-cols-2 gap-6 md:gap-10 lg:gap-16 items-center">
-              <RevealOnScroll variant="slide-right" className="order-2 lg:order-1">
+              {/* Mobile: GSA logo block first, Desktop: second */}
+              <RevealOnScroll variant="slide-right" className="order-1 md:order-2 lg:order-1">
                 <div className="bg-white gsa-hoek-lg p-4 md:p-6 lg:p-8 shadow-elegant">
                   <img
                     src={gsaLogo}
@@ -144,7 +153,9 @@ const OverOns = () => {
                   </p>
                 </div>
               </RevealOnScroll>
-              <div className="order-1 lg:order-2">
+              
+              {/* Mobile: Dochterondernemingen second, Desktop: first */}
+              <div className="order-2 md:order-1 lg:order-2">
                 <RevealOnScroll variant="fade-up">
                   <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-2">
                     Onderdeel van
@@ -213,7 +224,7 @@ const OverOns = () => {
               <div className="grid grid-cols-2 gap-2 md:gap-3">
                 <RevealOnScroll variant="scale-in">
                   <img
-                    src={aboutTechnician}
+                    src={gpgWorker}
                     alt="GPG technicus aan het werk"
                     loading="lazy"
                     className="gsa-hoek-tr-lg w-full h-28 sm:h-36 md:h-48 object-cover"
@@ -221,8 +232,8 @@ const OverOns = () => {
                 </RevealOnScroll>
                 <RevealOnScroll variant="scale-in" delay={150}>
                   <img
-                    src={aboutManagers}
-                    alt="GPG projectmanagers in overleg"
+                    src={gpgMovers}
+                    alt="GPG verhuizers aan het werk"
                     loading="lazy"
                     className="gsa-hoek-tl-lg w-full h-28 sm:h-36 md:h-48 object-cover mt-3 md:mt-6"
                   />
@@ -278,20 +289,20 @@ const OverOns = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-8 md:py-12 bg-accent">
+        <section className="py-8 md:py-12 bg-primary">
           <div className="container px-4 md:px-6 text-center">
             <RevealOnScroll variant="fade-up">
-              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-accent-foreground mb-2">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">
                 Samenwerken met GPG?
               </h2>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={100}>
-              <p className="text-accent-foreground/80 mb-4 max-w-md mx-auto text-sm font-body">
+              <p className="text-white/80 mb-4 max-w-md mx-auto text-sm font-body">
                 Ontdek wat wij voor jouw organisatie kunnen betekenen.
               </p>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={200}>
-              <Button size="sm" variant="outline-accent" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground hover:text-accent hover-lift w-full sm:w-auto" asChild>
+              <Button size="sm" variant="hero" className="hover-lift w-full sm:w-auto" asChild>
                 <Link to="/contact">Neem contact op</Link>
               </Button>
             </RevealOnScroll>
