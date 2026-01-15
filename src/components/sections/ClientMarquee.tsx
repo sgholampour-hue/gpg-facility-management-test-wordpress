@@ -8,10 +8,11 @@ import weworkLogo from "@/assets/clients/wework.png";
 import tiktokLogo from "@/assets/clients/tiktok.png";
 import cbreLogo from "@/assets/clients/cbre.png";
 import schipholLogo from "@/assets/clients/schiphol.png";
+import bookingLogo from "@/assets/clients/booking.png";
 
 const ClientLogo = ({ name, src }: { name: string; src: string }) => (
-  <div className="flex items-center justify-center px-6 md:px-10 lg:px-12">
-    <div className="w-24 md:w-32 lg:w-36 h-10 md:h-12 flex items-center justify-center">
+  <div className="flex items-center justify-center px-6 md:px-10 lg:px-14">
+    <div className="w-28 md:w-40 lg:w-44 h-12 md:h-14 flex items-center justify-center">
       <img 
         src={src} 
         alt={`${name} logo`}
@@ -26,6 +27,7 @@ const clients = [
   { name: "Schiphol", src: schipholLogo },
   { name: "Adyen", src: adyenLogo },
   { name: "CBRE", src: cbreLogo },
+  { name: "Booking.com", src: bookingLogo },
   { name: "WeWork", src: weworkLogo },
   { name: "TikTok", src: tiktokLogo },
   { name: "Dyson", src: dysonLogo },
