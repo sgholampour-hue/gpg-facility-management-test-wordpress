@@ -277,10 +277,11 @@
     display: flex;
     animation: marquee 40s linear infinite;
     width: max-content;
+    transition: animation-duration 0.5s ease-out;
   }
 
-  .marquee-content:hover {
-    animation-play-state: paused;
+  .marquee-content.marquee-slow {
+    animation-duration: 100s;
   }
 
   @media (prefers-reduced-motion: reduce) {

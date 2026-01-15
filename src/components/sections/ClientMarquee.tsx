@@ -34,7 +34,7 @@ const clients = [
 ];
 
 const ClientMarquee = () => {
-  const [isPaused, setIsPaused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -72,14 +72,13 @@ const ClientMarquee = () => {
       
       <div 
         className="marquee-container"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
-        onTouchEnd={() => setIsPaused(false)}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onTouchStart={() => setIsHovered(true)}
+        onTouchEnd={() => setIsHovered(false)}
       >
         <div 
-          className="marquee-content"
-          style={{ animationPlayState: isPaused ? "paused" : "running" }}
+          className={`marquee-content ${isHovered ? 'marquee-slow' : ''}`}
         >
           {/* Duplicate the list for seamless loop */}
           {[...clients, ...clients].map((client, index) => (
