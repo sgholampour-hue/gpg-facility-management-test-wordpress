@@ -25,12 +25,68 @@ const AboutGallery = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-28 bg-gpg-cream">
+    <section ref={sectionRef} className="py-12 md:py-28 bg-gpg-cream">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        {/* Mobile layout - matches reference image */}
+        <div className="lg:hidden">
+          {/* Top row: 2 images side by side */}
+          <div className="grid grid-cols-2 gap-3 mb-6">
+            <div
+              className={`transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            >
+              <img
+                src={gpgWorker}
+                alt="GPG medewerker aan het werk"
+                className="w-full aspect-[3/4] object-cover gsa-hoek-tr-lg shadow-card"
+              />
+            </div>
+            <div
+              className={`transition-all duration-700 delay-100 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            >
+              <img
+                src={gpgTeam}
+                alt="GPG team"
+                className="w-full aspect-[4/3] object-cover gsa-hoek-tl-lg shadow-card mt-8"
+              />
+            </div>
+          </div>
+
+          {/* Title with accent bar */}
+          <div
+            className={`mb-6 transition-all duration-700 delay-200 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <div className="accent-bar-left">
+              <h2 className="text-xl font-bold text-primary leading-tight">
+                WE NEMEN ALLES UIT HANDEN: VAN ENGINEERING TOT INSTALLATIE EN BEHEER.
+              </h2>
+            </div>
+          </div>
+
+          {/* Bottom image - full width */}
+          <div
+            className={`transition-all duration-700 delay-300 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <img
+              src={gpgOffice}
+              alt="Modern kantoorinterieur"
+              className="w-full aspect-[4/3] object-cover gsa-hoek-bl-lg shadow-card"
+            />
+          </div>
+        </div>
+
+        {/* Desktop layout - original grid */}
+        <div className="hidden lg:grid grid-cols-12 gap-8 items-center">
           {/* Left image */}
           <div
-            className={`lg:col-span-3 transition-all duration-700 ${
+            className={`col-span-3 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -42,7 +98,7 @@ const AboutGallery = () => {
           </div>
 
           {/* Center content + bottom image */}
-          <div className="lg:col-span-6 flex flex-col items-center">
+          <div className="col-span-6 flex flex-col items-center">
             <div
               className={`text-center mb-8 transition-all duration-700 delay-100 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -69,7 +125,7 @@ const AboutGallery = () => {
 
           {/* Right image */}
           <div
-            className={`lg:col-span-3 transition-all duration-700 delay-300 ${
+            className={`col-span-3 transition-all duration-700 delay-300 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
