@@ -48,20 +48,20 @@ const FAQSection = ({ variant = "light", showTitle = true }: FAQSectionProps) =>
 
   return (
     <section
-      className={`py-16 ${isDark ? "bg-primary" : "bg-muted/30"}`}
+      className={`py-12 md:py-16 ${isDark ? "bg-primary" : "bg-muted/30"}`}
     >
-      <div className="container">
+      <div className="container px-4 md:px-6">
         {showTitle && (
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-12">
             <p
-              className={`text-sm font-medium mb-2 uppercase tracking-wider ${
+              className={`text-xs md:text-sm font-medium mb-2 uppercase tracking-wider ${
                 isDark ? "text-accent" : "text-accent"
               }`}
             >
               Veelgestelde vragen
             </p>
             <h2
-              className={`text-3xl md:text-4xl font-bold ${
+              className={`text-2xl md:text-3xl lg:text-4xl font-bold ${
                 isDark ? "text-white" : "text-primary"
               }`}
             >
@@ -71,30 +71,30 @@ const FAQSection = ({ variant = "light", showTitle = true }: FAQSectionProps) =>
         )}
 
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className={`border gsa-hoek px-6 ${
+                className={`border gsa-hoek px-4 md:px-6 ${
                   isDark
                     ? "border-white/10 bg-white/5"
                     : "border-border bg-white"
                 }`}
               >
                 <AccordionTrigger
-                  className={`text-left hover:no-underline py-5 ${
+                  className={`text-left hover:no-underline py-4 md:py-5 ${
                     isDark
                       ? "text-white hover:text-accent"
                       : "text-primary hover:text-accent"
                   }`}
                 >
-                  <span className="font-semibold text-base pr-4">
+                  <span className="font-semibold text-sm md:text-base pr-4">
                     {faq.question}
                   </span>
                 </AccordionTrigger>
                 <AccordionContent
-                  className={`pb-5 text-base leading-relaxed ${
+                  className={`pb-4 md:pb-5 text-sm md:text-base leading-relaxed ${
                     isDark ? "text-white/70" : "text-muted-foreground"
                   }`}
                 >

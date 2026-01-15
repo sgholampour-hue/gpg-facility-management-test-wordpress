@@ -134,21 +134,37 @@ const Header = () => {
 
           {/* Mobile menu button - hamburger animation */}
           <button
-            className="lg:hidden p-2 relative w-10 h-10 flex items-center justify-center"
+            className="lg:hidden p-2 relative w-10 h-10 flex items-center justify-center group"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
           >
-            <div className="hamburger-icon">
-              <span className={`hamburger-line ${mobileMenuOpen ? 'rotate-45 translate-y-[6px]' : ''}`}></span>
-              <span className={`hamburger-line ${mobileMenuOpen ? 'opacity-0 scale-0' : ''}`}></span>
-              <span className={`hamburger-line ${mobileMenuOpen ? '-rotate-45 -translate-y-[6px]' : ''}`}></span>
+            <div className="flex flex-col justify-center items-center w-6 h-5">
+              <span 
+                className={`block h-0.5 w-6 bg-foreground rounded-full transition-all duration-300 ease-out ${
+                  mobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''
+                }`}
+              />
+              <span 
+                className={`block h-0.5 w-6 bg-foreground rounded-full transition-all duration-300 ease-out my-1.5 ${
+                  mobileMenuOpen ? 'opacity-0 scale-x-0' : ''
+                }`}
+              />
+              <span 
+                className={`block h-0.5 w-6 bg-foreground rounded-full transition-all duration-300 ease-out ${
+                  mobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''
+                }`}
+              />
             </div>
           </button>
         </nav>
 
         {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden bg-background border-t border-border animate-fade-in">
+        <div 
+          className={`lg:hidden bg-background border-t border-border overflow-hidden transition-all duration-300 ease-out ${
+            mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
             <div className="container py-6 flex flex-col gap-2">
               {navLinks.map((link) => (
                 <div key={link.href}>
@@ -206,7 +222,6 @@ const Header = () => {
               </Button>
             </div>
           </div>
-        )}
       </header>
 
       {/* Sub-header with contact info - disappears on scroll */}

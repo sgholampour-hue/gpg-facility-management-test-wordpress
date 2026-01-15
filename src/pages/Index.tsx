@@ -13,6 +13,7 @@ import FinalCTA from "@/components/sections/FinalCTA";
 import StickyContactButton from "@/components/ui/StickyContactButton";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import Preloader from "@/components/ui/Preloader";
+import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -27,15 +28,33 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <Services />
-        <ClientMarquee />
-        <AboutGallery />
-        <WhyGPG />
-        <FeaturedProjects />
-        <Testimonials />
-        <CTASection />
-        <PartnerSection />
-        <FinalCTA />
+        <RevealOnScroll variant="fade-up" delay={0}>
+          <Services />
+        </RevealOnScroll>
+        <RevealOnScroll variant="fade-in" delay={0}>
+          <ClientMarquee />
+        </RevealOnScroll>
+        <RevealOnScroll variant="fade-up" delay={0}>
+          <AboutGallery />
+        </RevealOnScroll>
+        <RevealOnScroll variant="fade-up" delay={0}>
+          <WhyGPG />
+        </RevealOnScroll>
+        <RevealOnScroll variant="fade-up" delay={0}>
+          <FeaturedProjects />
+        </RevealOnScroll>
+        <RevealOnScroll variant="fade-up" delay={0}>
+          <Testimonials />
+        </RevealOnScroll>
+        <RevealOnScroll variant="scale-in" delay={0}>
+          <CTASection />
+        </RevealOnScroll>
+        <RevealOnScroll variant="fade-up" delay={0}>
+          <PartnerSection />
+        </RevealOnScroll>
+        <RevealOnScroll variant="fade-up" delay={0}>
+          <FinalCTA />
+        </RevealOnScroll>
       </main>
       <Footer />
       <StickyContactButton />
