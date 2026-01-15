@@ -1,28 +1,30 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import gpgLogo from "@/assets/gpg-logo.png";
 
-interface PreloaderProps {
-  showOnNavigation?: boolean;
-}
+const SESSION_KEY = "gpg_preloader_shown";
 
-const Preloader = ({ showOnNavigation = true }: PreloaderProps) => {
-  const location = useLocation();
-  const [isVisible, setIsVisible] = useState(true);
-  const [isAnimating, setIsAnimating] = useState(true);
+const Preloader = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [progress, setProgress] = useState(0);
   const [logoScale, setLogoScale] = useState(0.8);
   const [logoOpacity, setLogoOpacity] = useState(0);
 
   useEffect(() => {
-    if (showOnNavigation) {
-      setIsVisible(true);
-      setIsAnimating(true);
-      setProgress(0);
-      setLogoScale(0.8);
-      setLogoOpacity(0);
+    // Check if preloader was already shown this session
+    const wasShown = sessionStorage.getItem(SESSION_KEY);
+    
+    if (wasShown) {
+      // Don't show preloader on navigation
+      setIsVisible(false);
+      return;
     }
-  }, [location.pathname, showOnNavigation]);
+
+    // First visit this session - show preloader
+    setIsVisible(true);
+    setIsAnimating(true);
+    sessionStorage.setItem(SESSION_KEY, "true");
+  }, []);
 
   useEffect(() => {
     if (!isAnimating) return;
@@ -68,7 +70,7 @@ const Preloader = ({ showOnNavigation = true }: PreloaderProps) => {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isAnimating, location.pathname]);
+  }, [isAnimating]);
 
   if (!isVisible) return null;
 

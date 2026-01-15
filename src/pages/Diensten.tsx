@@ -171,17 +171,17 @@ const ServiceSection = ({
             </div>
             
             {/* Image */}
-            <div className={`relative ${isReversed ? 'lg:order-1' : ''}`}>
-              <div className="gsa-hoek-lg overflow-hidden shadow-elegant">
+            <div className={`relative group ${isReversed ? 'lg:order-1' : ''}`}>
+              <div className="gsa-hoek-lg overflow-hidden shadow-elegant transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-1">
                 <LazyImage 
                   src={service.image} 
                   alt={service.title}
                   aspectRatio="4/3"
-                  className="hover:scale-105 transition-transform duration-500 ease-in-out"
+                  className="group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </div>
               {/* Decorative element - hidden on mobile for cleaner look */}
-              <div className={`absolute -z-10 w-full h-full bg-accent/10 gsa-hoek-lg hidden md:block ${isReversed ? '-left-4 -bottom-4' : '-right-4 -bottom-4'}`} />
+              <div className={`absolute -z-10 w-full h-full bg-accent/10 gsa-hoek-lg hidden md:block transition-all duration-500 group-hover:bg-accent/20 ${isReversed ? '-left-4 -bottom-4 group-hover:-left-5 group-hover:-bottom-5' : '-right-4 -bottom-4 group-hover:-right-5 group-hover:-bottom-5'}`} />
             </div>
           </div>
         </RevealOnScroll>
@@ -226,7 +226,7 @@ const Diensten = () => {
                 <a
                   key={service.id}
                   href={`#${service.id}`}
-                  className="px-3 md:px-4 py-2 gsa-hoek-sm text-xs md:text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-all duration-200 whitespace-nowrap flex-shrink-0"
+                  className="px-3 md:px-4 py-2 gsa-hoek-sm text-xs md:text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted/60 transition-all duration-300 whitespace-nowrap flex-shrink-0 hover:shadow-md"
                 >
                   {service.title}
                 </a>

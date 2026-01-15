@@ -45,7 +45,7 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
 const AppRoutes = () => (
   <>
     <ScrollToTopOnNavigate />
-    <Preloader showOnNavigation={true} />
+    <Preloader />
     <Routes>
       <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
       <Route path="/projecten" element={<PageWrapper><Projecten /></PageWrapper>} />
