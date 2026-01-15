@@ -37,7 +37,7 @@ const AboutGallery = () => {
             <img
               src={aboutTechnician}
               alt="Technicus aan het werk"
-              className="w-full h-auto gsa-hoek-br-lg shadow-card object-cover"
+              className="w-full h-auto gsa-hoek-tr-lg shadow-card object-cover"
             />
           </div>
 

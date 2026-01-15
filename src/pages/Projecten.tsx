@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import SEO from "@/components/SEO";
 import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
 import projectHub from "@/assets/project-hub.jpg";
@@ -39,6 +40,11 @@ const projects = [
 const Projecten = () => {
   return (
     <div className="min-h-screen page-enter">
+      <SEO
+        title="Projecten"
+        description="Bekijk onze projecten: van Booking.com fit-outs tot Schiphol werkplekbeheer. Ontdek wat GPG Facility Management voor uw organisatie kan betekenen."
+        canonical="https://gpg-facility.lovable.app/projecten"
+      />
       <Header />
       <main>
         {/* Hero section */}
@@ -76,7 +82,7 @@ const Projecten = () => {
                     to={`/projecten/${project.slug}`}
                     className="group block"
                   >
-                    <div className="relative overflow-hidden gsa-hoek-br-lg mb-4">
+                    <div className="relative overflow-hidden gsa-hoek-tr-lg mb-4">
                       <img
                         src={project.image}
                         alt={project.title}

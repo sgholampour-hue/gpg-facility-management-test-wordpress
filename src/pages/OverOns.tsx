@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, Users, Target, Award, Handshake, TrendingUp, Building2 } from "lucide-react";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { CountUp } from "@/components/ui/CountUp";
+import SEO from "@/components/SEO";
 import gpgLogo from "@/assets/gpg-logo.png";
 import gsaLogo from "@/assets/gsa-groep-logo.png";
 import teamPhoto from "@/assets/team-photo.jpg";
@@ -57,6 +58,11 @@ const gsaDochters = [
 const OverOns = () => {
   return (
     <div className="min-h-screen page-enter">
+      <SEO
+        title="Over Ons"
+        description="GPG Facility Management, onderdeel van de GSA Groep, levert al 40+ jaar professionele facilitaire diensten. Ontdek onze kernwaarden, team en dochterondernemingen."
+        canonical="https://gpg-facility.lovable.app/over-ons"
+      />
       <Header />
       <main>
         {/* Hero Section */}
@@ -290,7 +296,7 @@ const OverOns = () => {
                     src={aboutTechnician}
                     alt="GPG technicus aan het werk"
                     loading="lazy"
-                    className="gsa-hoek-br-lg w-full h-64 object-cover"
+                    className="gsa-hoek-tr-lg w-full h-64 object-cover"
                   />
                 </RevealOnScroll>
                 <RevealOnScroll variant="scale-in" delay={150}>

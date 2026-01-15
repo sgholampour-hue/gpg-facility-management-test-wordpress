@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import SEO from "@/components/SEO";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -86,6 +87,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen page-enter">
+      <SEO
+        title="Contact"
+        description="Neem contact op met GPG Facility Management voor een vrijblijvend adviesgesprek. Bel +31 23 303 0684 of vul ons contactformulier in."
+        canonical="https://gpg-facility.lovable.app/contact"
+      />
       <Header />
       <main>
         {/* Hero Section */}

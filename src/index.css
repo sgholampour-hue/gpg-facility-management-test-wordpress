@@ -221,10 +221,10 @@
     box-shadow: var(--shadow-card-hover);
   }
 
-  /* Service card with accent bar + GSA hoekje */
+  /* Service card with accent bar + GSA hoekje (top-right) */
   .service-card {
     @apply relative bg-card p-6 border border-border;
-    border-radius: 0 0 1.5rem 0;
+    border-radius: 0 1.5rem 0 0;
     box-shadow: var(--shadow-card);
     transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
   }
@@ -237,7 +237,7 @@
   .service-card::before {
     content: '';
     @apply absolute left-0 top-6 bottom-6 w-1;
-    border-radius: 0 0 0.25rem 0;
+    border-radius: 0 0.25rem 0 0;
     background: hsl(var(--accent));
   }
 
@@ -449,43 +449,43 @@
     font-family: 'Open Sans', system-ui, sans-serif;
   }
 
-  /* GSA Hoekje - One rounded corner (bottom-right by default) */
+  /* GSA Hoekje - One rounded corner (top-right by default) */
   /* Formula: border-radius = shortest side / 11 */
   /* With hover animation that grows the corner subtly */
   .gsa-hoek {
-    border-radius: 0 0 1.5rem 0;
+    border-radius: 0 1.5rem 0 0;
     transition: border-radius 250ms ease-out;
   }
 
   .gsa-hoek:hover {
-    border-radius: 0 0 2rem 0;
+    border-radius: 0 2rem 0 0;
   }
 
   .gsa-hoek-sm {
-    border-radius: 0 0 0.75rem 0;
+    border-radius: 0 0.75rem 0 0;
     transition: border-radius 250ms ease-out;
   }
 
   .gsa-hoek-sm:hover {
-    border-radius: 0 0 1rem 0;
+    border-radius: 0 1rem 0 0;
   }
 
   .gsa-hoek-lg {
-    border-radius: 0 0 2.5rem 0;
+    border-radius: 0 2.5rem 0 0;
     transition: border-radius 250ms ease-out;
   }
 
   .gsa-hoek-lg:hover {
-    border-radius: 0 0 3rem 0;
+    border-radius: 0 3rem 0 0;
   }
 
   .gsa-hoek-xl {
-    border-radius: 0 0 3.5rem 0;
+    border-radius: 0 3.5rem 0 0;
     transition: border-radius 250ms ease-out;
   }
 
   .gsa-hoek-xl:hover {
-    border-radius: 0 0 4rem 0;
+    border-radius: 0 4rem 0 0;
   }
 
   /* Hoekje variations for different corners */
@@ -560,6 +560,16 @@
 
   .gsa-hoek-br-lg:hover {
     border-radius: 0 0 3rem 0;
+  }
+
+  /* Default large (top-right) */
+  .gsa-hoek-lg-default {
+    border-radius: 0 2.5rem 0 0;
+    transition: border-radius 250ms ease-out;
+  }
+
+  .gsa-hoek-lg-default:hover {
+    border-radius: 0 3rem 0 0;
   }
 
   /* Animation delays */
