@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gpgWorker from "@/assets/gpg-worker.jpg";
-import gpgOffice from "@/assets/gpg-office-interior.jpg";
+import gpgConstruction from "@/assets/gpg-construction.jpg";
 import gpgTeam from "@/assets/gpg-team.jpg";
 
 const AboutGallery = () => {
@@ -75,8 +75,8 @@ const AboutGallery = () => {
             }`}
           >
             <img
-              src={gpgOffice}
-              alt="Modern kantoorinterieur"
+              src={gpgConstruction}
+              alt="Bouwteam aan het werk"
               className="w-full aspect-[4/3] object-cover gsa-hoek-bl-lg shadow-card"
             />
           </div>
@@ -116,8 +116,8 @@ const AboutGallery = () => {
               }`}
             >
               <img
-                src={gpgOffice}
-                alt="Modern kantoorinterieur"
+                src={gpgConstruction}
+                alt="Bouwteam aan het werk"
                 className="w-full h-auto gsa-hoek-bl-lg shadow-card object-cover"
               />
             </div>
