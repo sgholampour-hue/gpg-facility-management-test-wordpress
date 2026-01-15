@@ -22,7 +22,7 @@ const kernwaarden = [
 
 const OverOns = () => {
   return (
-    <div className="min-h-screen page-enter">
+    <div className="min-h-screen">
       <SEO
         title="Over Ons"
         description="GPG Facility Management, onderdeel van de GSA Groep, levert al 40+ jaar professionele facilitaire diensten."
@@ -31,21 +31,21 @@ const OverOns = () => {
       <Header />
       <main>
         {/* Hero Section - Compact */}
-        <section className="pt-28 pb-12 bg-primary">
-          <div className="container">
+        <section className="pt-24 md:pt-28 pb-10 md:pb-12 bg-primary">
+          <div className="container px-4 md:px-6">
             <div className="max-w-2xl">
               <RevealOnScroll variant="fade-up">
-                <p className="text-accent font-medium mb-3 uppercase tracking-wider text-xs font-heading">
+                <p className="text-accent font-medium mb-2 md:mb-3 uppercase tracking-wider text-xs font-heading">
                   Over Ons
                 </p>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={100}>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight">
                   Wij zijn GPG Facility Management
                 </h1>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={200}>
-                <p className="text-lg text-white/80 leading-relaxed font-body">
+                <p className="text-base md:text-lg text-white/80 leading-relaxed font-body">
                   Onderdeel van de GSA Groep – Al meer dan 40 jaar specialist in facilitaire dienstverlening.
                 </p>
               </RevealOnScroll>
@@ -54,14 +54,14 @@ const OverOns = () => {
         </section>
 
         {/* Kernwaarden Strip */}
-        <section className="py-6 bg-muted/50 border-b border-border">
-          <div className="container">
-            <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+        <section className="py-4 md:py-6 bg-muted/50 border-b border-border">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-10">
               {kernwaarden.map((waarde, index) => (
                 <RevealOnScroll key={index} variant="fade-up" delay={index * 50}>
-                  <div className="flex items-center gap-2 text-primary">
-                    <waarde.icon className="w-5 h-5 text-accent" />
-                    <span className="font-medium text-sm font-heading">{waarde.title}</span>
+                  <div className="flex items-center gap-1.5 md:gap-2 text-primary">
+                    <waarde.icon className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+                    <span className="font-medium text-xs md:text-sm font-heading">{waarde.title}</span>
                   </div>
                 </RevealOnScroll>
               ))}
@@ -70,36 +70,36 @@ const OverOns = () => {
         </section>
 
         {/* About Intro - Compact */}
-        <section className="py-16 lg:py-20">
-          <div className="container">
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <section className="py-12 md:py-16 lg:py-20">
+          <div className="container px-4 md:px-6">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-16 items-center">
               <div>
                 <RevealOnScroll variant="fade-up">
-                  <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-3">
+                  <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-2 md:mb-3">
                     Onze Missie
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={100}>
-                  <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-3 md:mb-4">
                     Ontzorgen van organisaties met facilitaire dienstverlening
                   </h2>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={200}>
-                  <p className="text-muted-foreground leading-relaxed mb-4 font-body">
+                  <p className="text-muted-foreground leading-relaxed mb-3 md:mb-4 font-body text-sm md:text-base">
                     GPG Facility Management is gespecialiseerd in handyman diensten, verhuizingen, integrated facilities en fit-out projecten. Van dagelijks onderhoud tot complete kantoorinrichtingen.
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={300}>
-                  <p className="text-muted-foreground leading-relaxed mb-6 font-body">
+                  <p className="text-muted-foreground leading-relaxed mb-5 md:mb-6 font-body text-sm md:text-base">
                     Onze kracht: vakmanschap, flexibiliteit en een no-nonsense aanpak.
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={400}>
-                  <div className="flex flex-wrap gap-3">
-                    <Button asChild size="sm" className="hover-lift">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button asChild size="sm" className="hover-lift w-full sm:w-auto">
                       <Link to="/contact">Neem contact op</Link>
                     </Button>
-                    <Button variant="outline" asChild size="sm" className="hover-lift">
+                    <Button variant="outline" asChild size="sm" className="hover-lift w-full sm:w-auto">
                       <Link to="/projecten">Bekijk projecten</Link>
                     </Button>
                   </div>
@@ -113,8 +113,8 @@ const OverOns = () => {
                     loading="lazy"
                     className="gsa-hoek-lg shadow-elegant w-full aspect-[4/3] object-cover"
                   />
-                  <div className="absolute -bottom-4 -left-4 bg-primary text-primary-foreground gsa-hoek-sm px-5 py-3 shadow-lg">
-                    <p className="text-2xl font-bold font-heading">
+                  <div className="absolute -bottom-3 -left-3 md:-bottom-4 md:-left-4 bg-primary text-primary-foreground gsa-hoek-sm px-4 py-2 md:px-5 md:py-3 shadow-lg">
+                    <p className="text-xl md:text-2xl font-bold font-heading">
                       <CountUp end={40} suffix="+" duration={1000} />
                     </p>
                     <p className="text-xs font-medium font-body">Jaar ervaring</p>
@@ -126,17 +126,17 @@ const OverOns = () => {
         </section>
 
         {/* GSA Groep Section - Compact */}
-        <section className="py-16 lg:py-20 bg-muted/30">
-          <div className="container">
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <section className="py-12 md:py-16 lg:py-20 bg-muted/30">
+          <div className="container px-4 md:px-6">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-16 items-center">
               <RevealOnScroll variant="slide-right" className="order-2 lg:order-1">
-                <div className="bg-white gsa-hoek-lg p-6 md:p-8 shadow-elegant">
+                <div className="bg-white gsa-hoek-lg p-5 md:p-6 lg:p-8 shadow-elegant">
                   <img
                     src={gsaLogo}
                     alt="GSA Groep logo"
-                    className="h-32 w-auto mb-6"
+                    className="h-24 md:h-32 w-auto mb-4 md:mb-6"
                   />
-                  <h3 className="text-xl font-bold text-primary mb-3">
+                  <h3 className="text-lg md:text-xl font-bold text-primary mb-2 md:mb-3">
                     Verrassend Veelzijdig & Betrokken
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed font-body">
@@ -146,17 +146,17 @@ const OverOns = () => {
               </RevealOnScroll>
               <div className="order-1 lg:order-2">
                 <RevealOnScroll variant="fade-up">
-                  <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-3">
+                  <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-2 md:mb-3">
                     Onderdeel van
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={100}>
-                  <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-3 md:mb-4">
                     De GSA Groep
                   </h2>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={200}>
-                  <p className="text-muted-foreground leading-relaxed mb-6 font-body">
+                  <p className="text-muted-foreground leading-relaxed mb-5 md:mb-6 font-body text-sm md:text-base">
                     GPG Facility Management is een trotse dochteronderneming van de GSA Groep.
                   </p>
                 </RevealOnScroll>
@@ -165,7 +165,7 @@ const OverOns = () => {
                   <img
                     src={gsaDochtersImage}
                     alt="GSA Groep dochterondernemingen"
-                    className="w-full max-w-sm"
+                    className="w-full max-w-xs md:max-w-sm"
                   />
                 </RevealOnScroll>
               </div>
@@ -174,22 +174,22 @@ const OverOns = () => {
         </section>
 
         {/* Team Section - Compact */}
-        <section className="py-16 lg:py-20 bg-primary">
-          <div className="container">
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <section className="py-12 md:py-16 lg:py-20 bg-primary">
+          <div className="container px-4 md:px-6">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center">
               <div>
                 <RevealOnScroll variant="fade-up">
-                  <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-3">
+                  <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-2 md:mb-3">
                     Ons Team
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={100}>
-                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">
                     Vakmanschap in de praktijk
                   </h2>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={200}>
-                  <p className="text-white/80 leading-relaxed mb-5 font-body">
+                  <p className="text-white/80 leading-relaxed mb-4 md:mb-5 font-body text-sm md:text-base">
                     Onze kracht zit in onze mensen. Van ervaren vakmensen tot projectmanagers.
                   </p>
                 </RevealOnScroll>
@@ -214,7 +214,7 @@ const OverOns = () => {
                     src={aboutTechnician}
                     alt="GPG technicus aan het werk"
                     loading="lazy"
-                    className="gsa-hoek-tr-lg w-full h-48 object-cover"
+                    className="gsa-hoek-tr-lg w-full h-36 md:h-48 object-cover"
                   />
                 </RevealOnScroll>
                 <RevealOnScroll variant="scale-in" delay={150}>
@@ -222,7 +222,7 @@ const OverOns = () => {
                     src={aboutManagers}
                     alt="GPG projectmanagers in overleg"
                     loading="lazy"
-                    className="gsa-hoek-tl-lg w-full h-48 object-cover mt-6"
+                    className="gsa-hoek-tl-lg w-full h-36 md:h-48 object-cover mt-4 md:mt-6"
                   />
                 </RevealOnScroll>
               </div>
@@ -231,33 +231,33 @@ const OverOns = () => {
         </section>
 
         {/* Duurzaamheid - Compact */}
-        <section className="py-16 lg:py-20">
-          <div className="container">
+        <section className="py-12 md:py-16 lg:py-20">
+          <div className="container px-4 md:px-6">
             <div className="max-w-2xl mx-auto text-center">
               <RevealOnScroll variant="fade-up">
-                <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-3">
+                <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-2 md:mb-3">
                   Duurzame Visie
                 </p>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={100}>
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-3 md:mb-4">
                   Werken aan de toekomst
                 </h2>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={200}>
-                <p className="text-muted-foreground leading-relaxed mb-6 font-body">
+                <p className="text-muted-foreground leading-relaxed mb-5 md:mb-6 font-body text-sm md:text-base">
                   Wij focussen op circulaire economie, energiezuinige oplossingen en CO2-reductie.
                 </p>
               </RevealOnScroll>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-3 md:gap-4">
                 {[
                   { value: "CO₂", label: "Reductie" },
                   { value: "100%", label: "Circulair" },
                   { value: "♻️", label: "Hergebruik" }
                 ].map((stat, index) => (
                   <RevealOnScroll key={index} variant="scale-in" delay={300 + index * 100}>
-                    <div className="p-4 gsa-hoek-sm bg-muted/50 hover-lift">
-                      <p className="text-2xl font-bold text-accent mb-1 font-heading">{stat.value}</p>
+                    <div className="p-3 md:p-4 gsa-hoek-sm bg-muted/50 hover-lift">
+                      <p className="text-xl md:text-2xl font-bold text-accent mb-1 font-heading">{stat.value}</p>
                       <p className="text-xs text-muted-foreground font-body">{stat.label}</p>
                     </div>
                   </RevealOnScroll>
@@ -268,20 +268,20 @@ const OverOns = () => {
         </section>
 
         {/* CTA - Compact */}
-        <section className="py-12 bg-accent">
-          <div className="container text-center">
+        <section className="py-10 md:py-12 bg-accent">
+          <div className="container px-4 md:px-6 text-center">
             <RevealOnScroll variant="fade-up">
-              <h2 className="text-xl md:text-2xl font-bold text-accent-foreground mb-3">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-accent-foreground mb-2 md:mb-3">
                 Samenwerken met GPG?
               </h2>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={100}>
-              <p className="text-accent-foreground/80 mb-5 max-w-md mx-auto text-sm font-body">
+              <p className="text-accent-foreground/80 mb-4 md:mb-5 max-w-md mx-auto text-sm font-body">
                 Ontdek wat wij voor uw organisatie kunnen betekenen.
               </p>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={200}>
-              <Button size="sm" variant="outline-accent" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground hover:text-accent hover-lift" asChild>
+              <Button size="sm" variant="outline-accent" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground hover:text-accent hover-lift w-full sm:w-auto" asChild>
                 <Link to="/contact">Neem contact op</Link>
               </Button>
             </RevealOnScroll>

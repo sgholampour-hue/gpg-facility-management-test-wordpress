@@ -2,8 +2,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { useEffect } from "react";
 import Index from "./pages/Index";
 import Projecten from "./pages/Projecten";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -14,6 +15,46 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Scroll to top on route change
+const ScrollToTopOnNavigate = () => {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
+  
+  return null;
+};
+
+// Page wrapper with transition
+const PageWrapper = ({ children }: { children: React.ReactNode }) => {
+  const location = useLocation();
+  
+  return (
+    <div 
+      key={location.pathname}
+      className="animate-page-enter"
+    >
+      {children}
+    </div>
+  );
+};
+
+const AppRoutes = () => (
+  <>
+    <ScrollToTopOnNavigate />
+    <Routes>
+      <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
+      <Route path="/projecten" element={<PageWrapper><Projecten /></PageWrapper>} />
+      <Route path="/projecten/:slug" element={<PageWrapper><ProjectDetail /></PageWrapper>} />
+      <Route path="/diensten" element={<PageWrapper><Diensten /></PageWrapper>} />
+      <Route path="/over-ons" element={<PageWrapper><OverOns /></PageWrapper>} />
+      <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+      <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+    </Routes>
+  </>
+);
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
@@ -21,16 +62,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/projecten" element={<Projecten />} />
-            <Route path="/projecten/:slug" element={<ProjectDetail />} />
-            <Route path="/diensten" element={<Diensten />} />
-            <Route path="/over-ons" element={<OverOns />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AppRoutes />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
