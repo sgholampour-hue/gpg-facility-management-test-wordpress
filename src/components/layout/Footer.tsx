@@ -1,31 +1,19 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Linkedin } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import gpgLogo from "@/assets/gpg-logo.png";
-
-const footerFaqs = [
-  {
-    question: "Wat doet GPG Facility Management?",
-    answer: "GPG is een facilitair dienstverlener gespecialiseerd in handyman diensten, verhuizingen, fit-outs en projectinrichting.",
-  },
-  {
-    question: "In welke regio's zijn jullie actief?",
-    answer: "Wij zijn actief in heel Nederland met focus op de Randstad, met HUB-locaties in Schiphol, IJmuiden, Rotterdam en Oud Beijerland.",
-  },
-  {
-    question: "Hoe kan ik contact opnemen?",
-    answer: "Via ons contactformulier, telefonisch (020 - 795 28 20) of per e-mail (info@gpg-fm.nl). Wij reageren binnen 24 uur.",
-  },
-];
-
+const footerFaqs = [{
+  question: "Wat doet GPG Facility Management?",
+  answer: "GPG is een facilitair dienstverlener gespecialiseerd in handyman diensten, verhuizingen, fit-outs en projectinrichting."
+}, {
+  question: "In welke regio's zijn jullie actief?",
+  answer: "Wij zijn actief in heel Nederland met focus op de Randstad, met HUB-locaties in Schiphol, IJmuiden, Rotterdam en Oud Beijerland."
+}, {
+  question: "Hoe kan ik een offerte aanvragen?",
+  answer: "Via ons contactformulier, telefonisch (020 - 795 28 20) of per e-mail (info@gpg-fm.nl). Wij reageren binnen 24 uur."
+}];
 const Footer = () => {
-  return (
-    <footer className="bg-primary text-primary-foreground">
+  return <footer className="bg-primary text-primary-foreground">
       {/* Main footer content */}
       <div className="container py-10 md:py-16 px-4 md:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
@@ -33,7 +21,7 @@ const Footer = () => {
           <div className="space-y-4 md:space-y-6 sm:col-span-2 lg:col-span-1">
             <div className="accent-bar-left">
               <p className="text-accent text-xs md:text-sm font-medium mb-1">GPG FACILITY MANAGEMENT:</p>
-              <h3 className="text-lg md:text-xl font-semibold leading-tight">
+              <h3 className="text-lg md:text-xl font-semibold leading-tight text-white">
                 Facilitaire diensten voor engineering, realisatie en beheer
               </h3>
             </div>
@@ -122,12 +110,7 @@ const Footer = () => {
               </li>
             </ul>
             <div className="flex items-center gap-4 pt-2 md:pt-4">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 md:w-10 md:h-10 gsa-hoek-sm border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
-              >
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 md:w-10 md:h-10 gsa-hoek-sm border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors">
                 <Linkedin className="w-4 h-4 md:w-5 md:h-5" />
               </a>
             </div>
@@ -150,8 +133,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
