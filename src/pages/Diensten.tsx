@@ -167,7 +167,7 @@ const ServiceSection = ({
               <div className="pt-2 md:pt-4">
                 <Button asChild size="lg" className="group w-full sm:w-auto">
                   <Link to="/contact">
-                    Vraag offerte aan
+                    Neem contact op
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                   </Link>
                 </Button>

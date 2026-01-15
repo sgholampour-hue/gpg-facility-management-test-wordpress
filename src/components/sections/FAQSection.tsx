@@ -27,14 +27,14 @@ const faqs = [
       "GPG Facility Management is onderdeel van de GSA Groep, die sinds 1982 actief is. Met meer dan 40 jaar ervaring in facilitaire dienstverlening kunt u rekenen op bewezen expertise.",
   },
   {
-    question: "Hoe kan ik een offerte aanvragen?",
+    question: "Hoe kan ik contact opnemen?",
     answer:
-      "U kunt eenvoudig een offerte aanvragen via ons contactformulier, telefonisch via 020 - 795 28 20 of per e-mail naar info@gpg-fm.nl. Wij reageren binnen 24 uur op uw aanvraag.",
+      "U kunt eenvoudig contact opnemen via ons contactformulier, telefonisch via 020 - 795 28 20 of per e-mail naar info@gpg-fm.nl. Wij reageren binnen 24 uur op uw aanvraag.",
   },
   {
     question: "Werken jullie met vaste prijzen of nacalculatie?",
     answer:
-      "Wij werken met heldere, vooraf afgesproken prijzen. Na een inventarisatie ontvangt u een transparante offerte. Voor doorlopende dienstverlening bieden wij ook contractvormen aan.",
+      "Wij werken met heldere, vooraf afgesproken prijzen. Na een inventarisatie ontvangt u een transparant voorstel. Voor doorlopende dienstverlening bieden wij ook contractvormen aan.",
   },
 ];
 

@@ -110,7 +110,7 @@ const Contact = () => {
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={200}>
                 <p className="text-base md:text-xl text-white/80 leading-relaxed font-body">
-                  Heeft u vragen of wilt u een vrijblijvende offerte? Wij staan voor u klaar.
+                  Heeft u vragen of wilt u meer informatie? Wij staan voor u klaar.
                 </p>
               </RevealOnScroll>
             </div>
