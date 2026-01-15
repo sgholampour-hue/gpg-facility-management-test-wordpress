@@ -112,9 +112,9 @@ const OverOns = () => {
                 <img
                   src={teamPhoto}
                   alt="GPG team aan het werk"
-                  className="rounded-2xl shadow-elegant w-full"
+                  className="gsa-hoek-lg shadow-elegant w-full"
                 />
-                <div className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground rounded-xl p-6 shadow-lg">
+                <div className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground gsa-hoek p-6 shadow-lg">
                   <p className="text-4xl font-bold">40+</p>
                   <p className="text-sm font-medium">Jaar ervaring</p>
                 </div>
@@ -128,7 +128,7 @@ const OverOns = () => {
           <div className="container">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <div className="order-2 lg:order-1">
-                <div className="bg-white rounded-2xl p-8 md:p-10 shadow-elegant">
+                <div className="bg-white gsa-hoek-lg p-8 md:p-10 shadow-elegant">
                   <img
                     src={gsaLogo}
                     alt="GSA Groep logo"
@@ -166,7 +166,7 @@ const OverOns = () => {
                   {gsaDochters.map((dochter, index) => (
                     <div
                       key={index}
-                      className="flex items-start gap-3 p-4 rounded-lg bg-white border border-border"
+                      className="flex items-start gap-3 p-4 gsa-hoek-sm bg-white border border-border"
                     >
                       <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                       <div>
@@ -201,9 +201,9 @@ const OverOns = () => {
               {kernwaarden.map((waarde, index) => (
                 <div
                   key={index}
-                  className="group p-8 rounded-2xl bg-white border border-border hover:shadow-elegant transition-all duration-300"
+                  className="group p-8 gsa-hoek bg-white border border-border hover:shadow-elegant transition-all duration-300"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+                  <div className="w-14 h-14 gsa-hoek-sm bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
                     <waarde.icon className="w-7 h-7 text-accent" />
                   </div>
                   <h3 className="text-xl font-bold text-primary mb-3">{waarde.title}</h3>
@@ -252,12 +252,12 @@ const OverOns = () => {
                 <img
                   src={aboutTechnician}
                   alt="GPG technicus aan het werk"
-                  className="rounded-xl w-full h-64 object-cover"
+                  className="gsa-hoek-br-lg w-full h-64 object-cover"
                 />
                 <img
                   src={aboutManagers}
                   alt="GPG projectmanagers in overleg"
-                  className="rounded-xl w-full h-64 object-cover mt-8"
+                  className="gsa-hoek-tl-lg w-full h-64 object-cover mt-8"
                 />
               </div>
             </div>
@@ -280,15 +280,15 @@ const OverOns = () => {
                 Daarnaast investeren wij in de duurzame inzetbaarheid van onze medewerkers.
               </p>
               <div className="grid sm:grid-cols-3 gap-6">
-                <div className="p-6 rounded-xl bg-muted/50">
+                <div className="p-6 gsa-hoek-sm bg-muted/50">
                   <p className="text-3xl font-bold text-accent mb-2">CO₂</p>
                   <p className="text-sm text-muted-foreground">Actieve reductie</p>
                 </div>
-                <div className="p-6 rounded-xl bg-muted/50">
+                <div className="p-6 gsa-hoek-sm bg-muted/50">
                   <p className="text-3xl font-bold text-accent mb-2">100%</p>
                   <p className="text-sm text-muted-foreground">Circulair denken</p>
                 </div>
-                <div className="p-6 rounded-xl bg-muted/50">
+                <div className="p-6 gsa-hoek-sm bg-muted/50">
                   <p className="text-3xl font-bold text-accent mb-2">♻️</p>
                   <p className="text-sm text-muted-foreground">Hergebruik materialen</p>
                 </div>

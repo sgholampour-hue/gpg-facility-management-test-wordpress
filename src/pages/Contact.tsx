@@ -110,7 +110,7 @@ const Contact = () => {
             <div className="grid lg:grid-cols-5 gap-12 lg:gap-20">
               {/* Contact Form */}
               <div className="lg:col-span-3">
-                <div className="bg-white rounded-2xl shadow-elegant p-8 md:p-10">
+                <div className="bg-white gsa-hoek-lg shadow-elegant p-8 md:p-10">
                   <h2 className="text-2xl font-bold text-primary mb-2">
                     Stuur ons een bericht
                   </h2>
@@ -120,7 +120,7 @@ const Contact = () => {
 
                   {isSubmitted ? (
                     <div className="text-center py-12">
-                      <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 bg-accent/10 gsa-hoek flex items-center justify-center mx-auto mb-4">
                         <CheckCircle className="w-8 h-8 text-accent" />
                       </div>
                       <h3 className="text-xl font-bold text-primary mb-2">
@@ -250,9 +250,9 @@ const Contact = () => {
                   {contactInfo.map((item, index) => (
                     <div 
                       key={index}
-                      className="flex items-start gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors duration-200"
+                      className="flex items-start gap-4 p-4 gsa-hoek-sm bg-muted/50 hover:bg-muted transition-colors duration-200"
                     >
-                      <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 gsa-hoek-sm bg-accent/10 flex items-center justify-center flex-shrink-0">
                         <item.icon className="w-5 h-5 text-accent" />
                       </div>
                       <div>
@@ -277,7 +277,7 @@ const Contact = () => {
                 </div>
 
                 {/* Map placeholder */}
-                <div className="aspect-square rounded-2xl overflow-hidden bg-muted mt-8">
+                <div className="aspect-square gsa-hoek-lg overflow-hidden bg-muted mt-8">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.5!2d4.762!3d52.309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSchiphol!5e0!3m2!1snl!2snl!4v1234567890"
                     width="100%"

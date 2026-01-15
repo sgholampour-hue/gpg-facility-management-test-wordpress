@@ -244,7 +244,7 @@ const ProjectDetail = () => {
               </div>
 
               <div className="space-y-6">
-                <div className="bg-gpg-cream p-6 rounded-lg">
+                <div className="bg-gpg-cream p-6 gsa-hoek">
                   <h3 className="text-lg font-semibold text-primary mb-4">
                     Kerncijfers
                   </h3>
@@ -262,7 +262,7 @@ const ProjectDetail = () => {
                   </div>
                 </div>
 
-                <div className="bg-primary p-6 rounded-lg">
+                <div className="bg-primary p-6 gsa-hoek">
                   <h3 className="text-lg font-semibold text-primary-foreground mb-4">
                     Resultaten
                   </h3>

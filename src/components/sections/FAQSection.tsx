@@ -76,7 +76,7 @@ const FAQSection = ({ variant = "light", showTitle = true }: FAQSectionProps) =>
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className={`border rounded-lg px-6 ${
+                className={`border gsa-hoek px-6 ${
                   isDark
                     ? "border-white/10 bg-white/5"
                     : "border-border bg-white"
