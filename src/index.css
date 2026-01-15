@@ -280,7 +280,7 @@
   }
 
   .marquee-container:hover .marquee-content {
-    animation-duration: 100s;
+    animation-play-state: paused;
   }
 
   @media (prefers-reduced-motion: reduce) {
