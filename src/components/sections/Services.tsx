@@ -56,44 +56,41 @@ const ServiceCard = ({ service, isVisible, index, prefersReducedMotion }: {
   index: number;
   prefersReducedMotion: boolean;
 }) => (
-  <div
-    className={`service-card group hover-lift transition-all duration-500 ease-out ${
+  <Link
+    to="/diensten"
+    className={`service-card group hover-lift transition-all duration-500 ease-out block cursor-pointer ${
       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
     }`}
     style={{ 
       transitionDelay: prefersReducedMotion ? "0ms" : `${index * 120}ms` 
     }}
   >
-  <div className="pl-4">
-      <div className="flex items-center gap-3 mb-2 md:mb-3">
-        <service.icon className="w-5 h-5 md:w-6 md:h-6 text-accent icon-hover flex-shrink-0" />
-        <h3 className="text-base md:text-lg font-semibold text-primary uppercase tracking-wide">
+    <div className="pl-3 md:pl-4">
+      <div className="flex items-start gap-2 md:gap-3 mb-2 md:mb-3">
+        <service.icon className="w-4 h-4 md:w-6 md:h-6 text-accent flex-shrink-0 mt-0.5 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:text-primary" />
+        <h3 className="text-sm md:text-lg font-semibold text-primary uppercase tracking-wide leading-tight">
           {service.title}
         </h3>
       </div>
-      <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-4 md:mb-6 line-clamp-3 md:line-clamp-none">
+      <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-3 md:mb-6 line-clamp-2 md:line-clamp-none">
         {service.description}
       </p>
       <div className="flex items-center justify-between">
-        <Link
-          to="/diensten"
-          className="text-xs md:text-sm font-medium text-primary uppercase tracking-wide hover:text-accent transition-colors"
-        >
+        <span className="text-xs md:text-sm font-medium text-primary uppercase tracking-wide group-hover:text-accent transition-colors">
           <span className="inline-flex items-center">
             Lees meer
-            <span className="ml-1 arrow-slide inline-block">→</span>
+            <span className="ml-1 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
           </span>
-        </Link>
-        <Link
-          to="/diensten"
-          className="arrow-button w-8 h-8 md:w-10 md:h-10"
+        </span>
+        <span
+          className="arrow-button w-7 h-7 md:w-10 md:h-10"
           aria-label={`Meer over ${service.title}`}
         >
-          <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
-        </Link>
+          <ArrowUpRight className="w-3.5 h-3.5 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </span>
       </div>
     </div>
-  </div>
+  </Link>
 );
 
 const Services = () => {
