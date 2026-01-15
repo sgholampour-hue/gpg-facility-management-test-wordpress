@@ -64,13 +64,13 @@ const ServiceCard = ({ service, isVisible, index, prefersReducedMotion }: {
       transitionDelay: prefersReducedMotion ? "0ms" : `${index * 120}ms` 
     }}
   >
-    <div className="pl-4">
-      <div className="flex items-start justify-between mb-3 md:mb-4">
-        <service.icon className="w-5 h-5 md:w-6 md:h-6 text-accent icon-hover" />
+  <div className="pl-4">
+      <div className="flex items-center gap-3 mb-2 md:mb-3">
+        <service.icon className="w-5 h-5 md:w-6 md:h-6 text-accent icon-hover flex-shrink-0" />
+        <h3 className="text-base md:text-lg font-semibold text-primary uppercase tracking-wide">
+          {service.title}
+        </h3>
       </div>
-      <h3 className="text-base md:text-lg font-semibold text-primary mb-2 md:mb-3 uppercase tracking-wide">
-        {service.title}
-      </h3>
       <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-4 md:mb-6 line-clamp-3 md:line-clamp-none">
         {service.description}
       </p>
