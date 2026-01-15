@@ -10,15 +10,17 @@ const Preloader = ({ showOnNavigation = true }: PreloaderProps) => {
   const location = useLocation();
   const [isVisible, setIsVisible] = useState(true);
   const [isAnimating, setIsAnimating] = useState(true);
-  const [truckX, setTruckX] = useState(-30);
   const [progress, setProgress] = useState(0);
+  const [logoScale, setLogoScale] = useState(0.8);
+  const [logoOpacity, setLogoOpacity] = useState(0);
 
   useEffect(() => {
     if (showOnNavigation) {
       setIsVisible(true);
       setIsAnimating(true);
-      setTruckX(-30);
       setProgress(0);
+      setLogoScale(0.8);
+      setLogoOpacity(0);
     }
   }, [location.pathname, showOnNavigation]);
 
@@ -27,34 +29,41 @@ const Preloader = ({ showOnNavigation = true }: PreloaderProps) => {
 
     document.body.style.overflow = "hidden";
 
+    // Logo fade in animation
+    setTimeout(() => setLogoOpacity(1), 100);
+    setTimeout(() => setLogoScale(1), 150);
+
     let startTime: number | null = null;
-    const duration = 2800; // Slower, more elegant
+    const duration = 2000;
 
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
       const rawProgress = Math.min(elapsed / duration, 1);
 
-      // Smooth ease-in-out
-      const eased = rawProgress < 0.5
-        ? 4 * rawProgress * rawProgress * rawProgress
-        : 1 - Math.pow(-2 * rawProgress + 2, 3) / 2;
-
-      setTruckX(-30 + eased * 160);
-      setProgress(Math.round(rawProgress * 100));
+      // Smooth ease-out
+      const eased = 1 - Math.pow(1 - rawProgress, 3);
+      setProgress(Math.round(eased * 100));
 
       if (rawProgress < 1) {
         requestAnimationFrame(animate);
       } else {
+        // Animate logo out
+        setLogoScale(1.1);
+        setLogoOpacity(0);
+        
         setTimeout(() => {
           setIsAnimating(false);
           document.body.style.overflow = "";
-          setTimeout(() => setIsVisible(false), 500);
-        }, 300);
+          setTimeout(() => setIsVisible(false), 300);
+        }, 400);
       }
     };
 
-    requestAnimationFrame(animate);
+    // Start progress animation after logo appears
+    setTimeout(() => {
+      requestAnimationFrame(animate);
+    }, 300);
 
     return () => {
       document.body.style.overflow = "";
@@ -65,58 +74,33 @@ const Preloader = ({ showOnNavigation = true }: PreloaderProps) => {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-opacity duration-500 ${
+      className={`fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-opacity duration-300 ${
         !isAnimating ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
-      {/* Logo at top */}
-      <div className="absolute top-12 left-1/2 -translate-x-1/2">
-        <img src={gpgLogo} alt="GPG" className="h-10 md:h-12 w-auto" />
-      </div>
-
-      {/* Minimal road line */}
-      <div className="absolute w-full" style={{ top: "58%" }}>
-        <div className="h-px bg-gray-200 w-full" />
-      </div>
-
-      {/* Elegant truck silhouette */}
-      <div
-        className="absolute"
+      {/* Centered logo with smooth animation */}
+      <div 
+        className="transition-all duration-700 ease-out"
         style={{
-          left: `${truckX}%`,
-          top: "48%",
-          transform: "translateY(-50%)",
+          opacity: logoOpacity,
+          transform: `scale(${logoScale})`,
         }}
       >
-        <svg width="120" height="50" viewBox="0 0 120 50" fill="none">
-          {/* Simple, elegant truck shape */}
-          <rect x="0" y="10" width="65" height="28" rx="2" fill="#1e3a5f" />
-          <path d="M65 15 L65 38 L90 38 L90 25 L80 15 Z" fill="#1e3a5f" />
-          
-          {/* Window */}
-          <path d="M68 18 L68 28 L84 28 L84 24 L77 18 Z" fill="white" opacity="0.3" />
-          
-          {/* Wheels */}
-          <circle cx="20" cy="42" r="7" fill="#1e3a5f" />
-          <circle cx="20" cy="42" r="4" fill="white" opacity="0.2" />
-          <circle cx="50" cy="42" r="7" fill="#1e3a5f" />
-          <circle cx="50" cy="42" r="4" fill="white" opacity="0.2" />
-          <circle cx="78" cy="42" r="6" fill="#1e3a5f" />
-          <circle cx="78" cy="42" r="3" fill="white" opacity="0.2" />
-        </svg>
+        <img 
+          src={gpgLogo} 
+          alt="GPG Facility Management" 
+          className="h-14 md:h-16 w-auto"
+        />
       </div>
 
-      {/* Progress indicator */}
-      <div className="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 w-48 md:w-64">
+      {/* Progress bar below logo */}
+      <div className="absolute bottom-1/3 left-1/2 -translate-x-1/2 w-48 md:w-56">
         <div className="h-0.5 bg-gray-100 rounded-full overflow-hidden">
           <div 
-            className="h-full bg-primary rounded-full transition-all duration-100 ease-out"
+            className="h-full bg-primary rounded-full transition-all duration-150 ease-out"
             style={{ width: `${progress}%` }}
           />
         </div>
-        <p className="text-center text-xs text-gray-400 mt-3 tracking-widest uppercase">
-          Laden
-        </p>
       </div>
     </div>
   );
