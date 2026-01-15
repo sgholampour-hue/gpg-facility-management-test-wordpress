@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
-import ctaImage from "@/assets/cta-worker.jpg";
+import gpgFleet from "@/assets/gpg-fleet.jpg";
 
 const CTASection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -53,8 +53,8 @@ const CTASection = () => {
       <section ref={sectionRef} className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <img
-            src={ctaImage}
-            alt="Professional at work"
+            src={gpgFleet}
+            alt="GPG wagenpark"
             className="w-full h-full object-cover"
           />
           <div className="cta-overlay absolute inset-0" />
