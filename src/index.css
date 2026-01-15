@@ -1,31 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* GPG Brand Colors */
+    /* GSA/GPG Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 227 52% 23%;
+    --foreground: 229 65% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 227 52% 23%;
+    --card-foreground: 229 65% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 227 52% 23%;
+    --popover-foreground: 229 65% 25%;
 
-    /* Primary: Deep Navy Blue from GPG logo */
-    --primary: 227 52% 23%;
+    /* Primary: GSA Dark Blue #16216a */
+    --primary: 229 65% 25%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary: Light gray-blue */
     --secondary: 220 20% 96%;
-    --secondary-foreground: 227 52% 23%;
+    --secondary-foreground: 229 65% 25%;
 
-    /* Accent: Olive Green from GPG logo */
-    --accent: 68 45% 42%;
+    /* Accent: GPG Purple #9f25b5 */
+    --accent: 289 65% 43%;
     --accent-foreground: 0 0% 100%;
 
     --muted: 220 20% 96%;
@@ -36,21 +34,21 @@
 
     --border: 220 20% 90%;
     --input: 220 20% 90%;
-    --ring: 68 45% 42%;
+    --ring: 289 65% 43%;
 
     --radius: 0.375rem;
 
-    /* Custom GPG tokens */
-    --gpg-navy: 227 52% 23%;
-    --gpg-navy-light: 227 45% 35%;
-    --gpg-olive: 68 45% 42%;
-    --gpg-olive-light: 68 40% 50%;
+    /* Custom GSA/GPG tokens */
+    --gsa-navy: 229 65% 25%;
+    --gsa-navy-light: 229 55% 35%;
+    --gpg-purple: 289 65% 43%;
+    --gpg-purple-light: 289 55% 55%;
     --gpg-cream: 40 30% 97%;
     --gpg-gray: 220 15% 50%;
 
     /* Shadows */
-    --shadow-card: 0 4px 20px -4px hsl(227 52% 23% / 0.1);
-    --shadow-card-hover: 0 12px 40px -8px hsl(227 52% 23% / 0.15);
+    --shadow-card: 0 4px 20px -4px hsl(229 65% 25% / 0.1);
+    --shadow-card-hover: 0 12px 40px -8px hsl(229 65% 25% / 0.15);
 
     /* Sidebar (keeping defaults) */
     --sidebar-background: 0 0% 98%;
@@ -64,33 +62,33 @@
   }
 
   .dark {
-    --background: 227 52% 10%;
+    --background: 229 65% 10%;
     --foreground: 0 0% 98%;
 
-    --card: 227 52% 14%;
+    --card: 229 65% 14%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 227 52% 14%;
+    --popover: 229 65% 14%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 0 0% 98%;
-    --primary-foreground: 227 52% 23%;
+    --primary-foreground: 229 65% 25%;
 
-    --secondary: 227 40% 20%;
+    --secondary: 229 40% 20%;
     --secondary-foreground: 0 0% 98%;
 
-    --accent: 68 45% 42%;
+    --accent: 289 65% 43%;
     --accent-foreground: 0 0% 100%;
 
-    --muted: 227 40% 20%;
+    --muted: 229 40% 20%;
     --muted-foreground: 220 15% 65%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 227 40% 20%;
-    --input: 227 40% 20%;
-    --ring: 68 45% 42%;
+    --border: 229 40% 20%;
+    --input: 229 40% 20%;
+    --ring: 289 65% 43%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -113,12 +111,60 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Open Sans', system-ui, sans-serif;
   }
 
+  /* Headings use Titillium Web, uppercase, GSA dark blue */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight text-primary;
+    font-family: 'Titillium Web', system-ui, sans-serif;
+    @apply font-bold tracking-tight text-primary uppercase;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply text-lg md:text-xl font-semibold;
+  }
+
+  /* Body text uses Open Sans */
+  p, span, li, a, label, input, textarea, button {
+    font-family: 'Open Sans', system-ui, sans-serif;
+  }
+
+  /* Intro/lead text - Open Sans Bold or Semibold */
+  .text-intro {
+    @apply text-lg font-semibold leading-relaxed;
+    font-family: 'Open Sans', system-ui, sans-serif;
+  }
+
+  /* Subheadings - Open Sans Bold/Semibold or Titillium Bold/Semibold */
+  .text-subheading {
+    font-family: 'Titillium Web', system-ui, sans-serif;
+    @apply font-semibold uppercase tracking-wide;
+  }
+
+  /* Quote text - Titillium Web Regular or Light */
+  .text-quote {
+    font-family: 'Titillium Web', system-ui, sans-serif;
+    @apply font-light text-xl md:text-2xl italic;
+    color: hsl(var(--gpg-purple));
+  }
+
+  /* Highlight text - Open Sans Light */
+  .text-highlight {
+    font-family: 'Open Sans', system-ui, sans-serif;
+    @apply font-light;
   }
 }
 
@@ -288,8 +334,8 @@
   .hero-overlay {
     background: linear-gradient(
       135deg,
-      hsl(var(--gpg-navy) / 0.85) 0%,
-      hsl(var(--gpg-navy) / 0.6) 50%,
+      hsl(var(--gsa-navy) / 0.85) 0%,
+      hsl(var(--gsa-navy) / 0.6) 50%,
       transparent 100%
     );
   }
@@ -299,8 +345,8 @@
     background: linear-gradient(
       to right,
       transparent 0%,
-      hsl(var(--gpg-navy) / 0.9) 50%,
-      hsl(var(--gpg-navy) / 0.95) 100%
+      hsl(var(--gsa-navy) / 0.9) 50%,
+      hsl(var(--gsa-navy) / 0.95) 100%
     );
   }
 
@@ -334,24 +380,35 @@
     text-wrap: balance;
   }
 
-  .bg-gpg-navy {
-    background-color: hsl(var(--gpg-navy));
+  /* GSA Navy utilities */
+  .bg-gsa-navy {
+    background-color: hsl(var(--gsa-navy));
   }
 
-  .text-gpg-navy {
-    color: hsl(var(--gpg-navy));
+  .text-gsa-navy {
+    color: hsl(var(--gsa-navy));
   }
 
-  .bg-gpg-olive {
-    background-color: hsl(var(--gpg-olive));
+  /* GPG Purple utilities */
+  .bg-gpg-purple {
+    background-color: hsl(var(--gpg-purple));
   }
 
-  .text-gpg-olive {
-    color: hsl(var(--gpg-olive));
+  .text-gpg-purple {
+    color: hsl(var(--gpg-purple));
   }
 
   .bg-gpg-cream {
     background-color: hsl(var(--gpg-cream));
+  }
+
+  /* Font utilities */
+  .font-heading {
+    font-family: 'Titillium Web', system-ui, sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Open Sans', system-ui, sans-serif;
   }
 
   .delay-100 {

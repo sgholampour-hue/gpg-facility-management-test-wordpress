@@ -14,7 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Open Sans', 'system-ui', 'sans-serif'],
+        heading: ['Titillium Web', 'system-ui', 'sans-serif'],
+        body: ['Open Sans', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -60,11 +62,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        gsa: {
+          navy: "hsl(var(--gsa-navy))",
+          "navy-light": "hsl(var(--gsa-navy-light))",
+        },
         gpg: {
-          navy: "hsl(var(--gpg-navy))",
-          "navy-light": "hsl(var(--gpg-navy-light))",
-          olive: "hsl(var(--gpg-olive))",
-          "olive-light": "hsl(var(--gpg-olive-light))",
+          purple: "hsl(var(--gpg-purple))",
+          "purple-light": "hsl(var(--gpg-purple-light))",
           cream: "hsl(var(--gpg-cream))",
           gray: "hsl(var(--gpg-gray))",
         },
