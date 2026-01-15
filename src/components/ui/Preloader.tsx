@@ -1,41 +1,49 @@
 import { useEffect, useState } from "react";
-import gpgLogo from "@/assets/gpg-logo.png";
 
 const Preloader = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [truckPosition, setTruckPosition] = useState(-20);
 
   useEffect(() => {
-    // Smooth progress animation
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 90) {
-          clearInterval(progressInterval);
-          return prev;
-        }
-        return prev + Math.random() * 15;
-      });
-    }, 100);
+    // Animate truck driving across the screen
+    const startTime = Date.now();
+    const duration = 2000; // 2 seconds to cross
+
+    const animateTruck = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth acceleration/deceleration
+      const easeInOutCubic = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+      
+      // Move from -20% to 120% of screen width
+      const newPosition = -20 + (easeInOutCubic * 140);
+      setTruckPosition(newPosition);
+
+      if (progress < 1) {
+        requestAnimationFrame(animateTruck);
+      }
+    };
+
+    requestAnimationFrame(animateTruck);
 
     const handleLoad = () => {
-      setProgress(100);
       setTimeout(() => {
         setIsExiting(true);
         setTimeout(() => {
           setIsLoading(false);
-        }, 800);
-      }, 400);
+        }, 600);
+      }, 1800);
     };
 
     if (document.readyState === "complete") {
       handleLoad();
     } else {
       window.addEventListener("load", handleLoad);
-      return () => {
-        window.removeEventListener("load", handleLoad);
-        clearInterval(progressInterval);
-      };
+      return () => window.removeEventListener("load", handleLoad);
     }
   }, []);
 
@@ -43,71 +51,102 @@ const Preloader = () => {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-primary via-primary to-primary/95 transition-all duration-800 ease-out ${
-        isExiting ? "opacity-0 scale-105 blur-sm" : "opacity-100 scale-100"
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-gradient-to-br from-primary via-primary to-primary/95 transition-all duration-600 ${
+        isExiting ? "opacity-0" : "opacity-100"
       }`}
     >
-      {/* Animated background gradients */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[100px] animate-pulse"
-          style={{ animationDuration: '3s' }}
-        />
-        <div 
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/10 rounded-full blur-[80px] animate-pulse"
-          style={{ animationDuration: '4s', animationDelay: '1s' }}
-        />
-        <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]"
-        />
+      {/* Road/ground line */}
+      <div className="absolute bottom-1/2 left-0 right-0 translate-y-16">
+        <div className="h-1 bg-white/10" />
+        <div className="h-px bg-white/20 mt-px" />
       </div>
 
-      <div className="relative flex flex-col items-center gap-8">
-        {/* Logo container with glow effect */}
-        <div 
-          className={`relative transition-all duration-700 ${
-            isExiting ? "scale-110 opacity-0" : "scale-100 opacity-100"
-          }`}
+      {/* Truck container */}
+      <div 
+        className="absolute bottom-1/2 translate-y-8 transition-none"
+        style={{ 
+          left: `${truckPosition}%`,
+          transform: 'translateY(8px)'
+        }}
+      >
+        {/* Truck SVG */}
+        <svg 
+          width="120" 
+          height="60" 
+          viewBox="0 0 120 60" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+          className="drop-shadow-2xl"
         >
-          {/* Glow ring */}
-          <div 
-            className="absolute inset-0 -m-4 rounded-full bg-accent/20 blur-xl animate-pulse"
-            style={{ animationDuration: '2s' }}
-          />
+          {/* Truck body/cargo area */}
+          <rect x="0" y="10" width="70" height="35" rx="3" fill="white" />
+          <rect x="2" y="12" width="66" height="31" rx="2" fill="hsl(var(--accent))" opacity="0.3" />
           
-          {/* Logo */}
-          <div className="relative">
-            <img 
-              src={gpgLogo} 
-              alt="GPG Logo" 
-              className="h-20 md:h-28 w-auto brightness-0 invert drop-shadow-2xl"
-            />
-          </div>
-        </div>
-        
-        {/* Progress bar container */}
-        <div className="w-56 md:w-64 space-y-3">
-          {/* Progress bar */}
-          <div className="h-1 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
-            <div 
-              className="h-full bg-gradient-to-r from-accent via-accent to-white/80 rounded-full transition-all duration-300 ease-out relative"
-              style={{ width: `${progress}%` }}
-            >
-              {/* Shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer bg-[length:200%_100%]" />
-            </div>
-          </div>
+          {/* GPG text on cargo */}
+          <text x="35" y="32" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold" fontFamily="sans-serif">
+            GPG
+          </text>
           
-          {/* Progress percentage */}
-          <div className="flex justify-between items-center">
-            <p className="text-white/40 text-xs tracking-[0.3em] uppercase font-light">
-              Loading
-            </p>
-            <p className="text-white/60 text-xs font-mono">
-              {Math.round(progress)}%
-            </p>
-          </div>
+          {/* Cabin */}
+          <path d="M70 20 L70 45 L95 45 L95 30 L85 20 Z" fill="white" />
+          <path d="M72 22 L72 43 L93 43 L93 31 L84 22 Z" fill="hsl(var(--primary))" opacity="0.3" />
+          
+          {/* Window */}
+          <path d="M75 25 L75 35 L88 35 L88 30 L82 25 Z" fill="hsl(var(--accent))" opacity="0.5" />
+          
+          {/* Front bumper */}
+          <rect x="93" y="40" width="7" height="5" rx="1" fill="white" opacity="0.8" />
+          
+          {/* Wheels with animation */}
+          <g className="animate-spin" style={{ transformOrigin: '22px 50px', animationDuration: '0.5s' }}>
+            <circle cx="22" cy="50" r="9" fill="white" opacity="0.9" />
+            <circle cx="22" cy="50" r="6" fill="hsl(var(--primary))" />
+            <circle cx="22" cy="50" r="2" fill="white" opacity="0.5" />
+          </g>
+          <g className="animate-spin" style={{ transformOrigin: '55px 50px', animationDuration: '0.5s' }}>
+            <circle cx="55" cy="50" r="9" fill="white" opacity="0.9" />
+            <circle cx="55" cy="50" r="6" fill="hsl(var(--primary))" />
+            <circle cx="55" cy="50" r="2" fill="white" opacity="0.5" />
+          </g>
+          <g className="animate-spin" style={{ transformOrigin: '85px 50px', animationDuration: '0.5s' }}>
+            <circle cx="85" cy="50" r="7" fill="white" opacity="0.9" />
+            <circle cx="85" cy="50" r="4.5" fill="hsl(var(--primary))" />
+            <circle cx="85" cy="50" r="1.5" fill="white" opacity="0.5" />
+          </g>
+          
+          {/* Headlight glow */}
+          <circle cx="98" cy="38" r="2" fill="hsl(var(--accent))" />
+          <circle cx="98" cy="38" r="4" fill="hsl(var(--accent))" opacity="0.3" />
+        </svg>
+
+        {/* Dust/smoke trail */}
+        <div className="absolute -left-8 bottom-1 flex gap-1">
+          <div className="w-3 h-3 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '0ms' }} />
+          <div className="w-2 h-2 bg-white/15 rounded-full animate-pulse" style={{ animationDelay: '100ms' }} />
+          <div className="w-1.5 h-1.5 bg-white/10 rounded-full animate-pulse" style={{ animationDelay: '200ms' }} />
         </div>
+      </div>
+
+      {/* Loading text */}
+      <div className="absolute bottom-1/3 text-center">
+        <p className="text-white/60 text-sm tracking-[0.3em] uppercase font-light mb-2">
+          GPG Facility Management
+        </p>
+        <div className="flex justify-center gap-1">
+          <span className="w-2 h-2 bg-accent rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+          <span className="w-2 h-2 bg-accent rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+          <span className="w-2 h-2 bg-accent rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+        </div>
+      </div>
+
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div 
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]"
+        />
+        <div 
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-[80px]"
+        />
       </div>
     </div>
   );
