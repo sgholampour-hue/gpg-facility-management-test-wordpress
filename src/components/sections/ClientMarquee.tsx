@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
+
 const ClientLogo = ({ name, children }: { name: string; children: React.ReactNode }) => (
   <div className="flex items-center justify-center px-8 md:px-12 lg:px-16">
-    <div className="h-8 md:h-10 opacity-40 hover:opacity-70 transition-opacity duration-200 ease-in-out grayscale hover:grayscale-0">
+    <div className="h-8 md:h-10 opacity-50 hover:opacity-90 transition-all duration-200 ease-out grayscale hover:grayscale-0 hover:scale-[1.02]">
       {children}
     </div>
   </div>
@@ -57,7 +59,7 @@ const WeWorkLogo = () => (
     <path d="M16.2 10l-4.5 16.3h-.1L7.1 10H0l8.9 22h6.1L19.2 17h.1l4.2 15h6.1L38.5 10h-7.1l-4.5 16.3h-.1L22.3 10h-6.1z"/>
     <path d="M51.7 14c-5.5 0-9.4 4-9.4 9.3s3.9 9.3 9.4 9.3c3.3 0 6-1.4 7.5-3.7l-4-2.4c-.8 1.2-2.1 1.9-3.6 1.9-2.1 0-3.7-1.2-4.2-3.2h12.7c.1-.7.2-1.4.2-2.1 0-5.4-3.9-9.1-8.6-9.1zm-4.2 7.5c.5-2 1.9-3.2 4-3.2s3.5 1.3 3.8 3.2h-7.8z"/>
     <path d="M74.5 10l-4.5 16.3h-.1L65.4 10h-7.1l8.9 22h6.1L77.5 17h.1l4.2 15h6.1L96.8 10h-7.1l-4.5 16.3h-.1L80.6 10h-6.1z"/>
-    <path d="M110.5 14c-5.5 0-9.4 4-9.4 9.3s3.9 9.3 9.4 9.3c5.5 0 9.4-4 9.4-9.3s-3.9-9.3-9.4-9.3zm0 14c-2.4 0-4.2-1.9-4.2-4.7s1.8-4.7 4.2-4.7 4.2 1.9 4.2 4.7-1.8 4.7-4.2 4.7z"/>
+    <path d="M110.5 14c-5.5 0-9.4 4-9.4 9.3s3.9 9.3 9.4 9.3 9.4-4 9.4-9.3-3.9-9.3-9.4-9.3zm0 14c-2.4 0-4.2-1.9-4.2-4.7s1.8-4.7 4.2-4.7 4.2 1.9 4.2 4.7-1.8 4.7-4.2 4.7z"/>
     <path d="M133.3 14c-2.2 0-4 1-5.1 2.5v-2.2h-5.1v18h5.1v-10c0-2.6 1.4-4.1 3.6-4.1.8 0 1.5.1 2.2.4l.7-4.4c-.5-.1-1-.2-1.4-.2z"/>
     <path d="M140 20.5h-2.5v-5.2h-5.1v5.2h-1.9v4.2h1.9v7.6h5.1v-7.6h2.5v-4.2z"/>
   </svg>
@@ -98,6 +100,36 @@ const clients = [
 ];
 
 const ClientMarquee = () => {
+  const [isPaused, setIsPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+  }, []);
+
+  // For reduced motion: show static grid
+  if (prefersReducedMotion) {
+    return (
+      <section className="py-12 bg-background border-y border-border">
+        <div className="container mb-4">
+          <p className="text-xs text-muted-foreground uppercase tracking-wider">
+            Alleen publiceren met toestemming
+          </p>
+        </div>
+        <div className="container">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8">
+            {clients.map((client) => (
+              <ClientLogo key={client.name} name={client.name}>
+                <client.Logo />
+              </ClientLogo>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-12 bg-background border-y border-border overflow-hidden">
       <div className="container mb-4">
@@ -106,8 +138,17 @@ const ClientMarquee = () => {
         </p>
       </div>
       
-      <div className="marquee-container">
-        <div className="marquee-content">
+      <div 
+        className="marquee-container"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
+      >
+        <div 
+          className="marquee-content"
+          style={{ animationPlayState: isPaused ? "paused" : "running" }}
+        >
           {/* Duplicate the list for seamless loop */}
           {[...clients, ...clients].map((client, index) => (
             <ClientLogo key={`${client.name}-${index}`} name={client.name}>

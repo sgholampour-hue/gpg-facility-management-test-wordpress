@@ -43,17 +43,31 @@ const services = [
 
 const Services = () => {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
+  const [headerVisible, setHeaderVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useRef(false);
+
+  useEffect(() => {
+    prefersReducedMotion.current = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          services.forEach((_, index) => {
-            setTimeout(() => {
-              setVisibleCards((prev) => [...prev, index]);
-            }, index * 100);
-          });
+          setHeaderVisible(true);
+          
+          if (prefersReducedMotion.current) {
+            setVisibleCards(services.map((_, i) => i));
+          } else {
+            services.forEach((_, index) => {
+              setTimeout(() => {
+                setVisibleCards((prev) => [...prev, index]);
+              }, 200 + index * 120);
+            });
+          }
         }
       },
       { threshold: 0.1 }
@@ -69,7 +83,11 @@ const Services = () => {
   return (
     <section ref={sectionRef} className="py-20 md:py-28 bg-gpg-cream">
       <div className="container">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 max-w-2xl">
+        <h2 
+          className={`text-3xl md:text-4xl font-bold text-primary mb-12 max-w-2xl transition-all duration-500 ease-out ${
+            headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}
+        >
           WAT WE ALS FACILITAIR BEDRIJF VOOR JE KUNNEN BETEKENEN
         </h2>
 
@@ -77,15 +95,18 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`service-card card-lift transition-all duration-500 ${
+              className={`service-card group hover-lift transition-all duration-500 ease-out ${
                 visibleCards.includes(index)
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
+                  : "opacity-0 translate-y-3"
               }`}
+              style={{ 
+                transitionDelay: prefersReducedMotion.current ? "0ms" : `${index * 120}ms` 
+              }}
             >
               <div className="pl-4">
                 <div className="flex items-start justify-between mb-4">
-                  <service.icon className="w-6 h-6 text-accent" />
+                  <service.icon className="w-6 h-6 text-accent icon-hover" />
                 </div>
                 <h3 className="text-lg font-semibold text-primary mb-3 uppercase tracking-wide">
                   {service.title}
@@ -98,7 +119,10 @@ const Services = () => {
                     to="/diensten"
                     className="text-sm font-medium text-primary uppercase tracking-wide hover:text-accent transition-colors"
                   >
-                    Lees meer
+                    <span className="inline-flex items-center">
+                      Lees meer
+                      <span className="ml-1 arrow-slide inline-block">→</span>
+                    </span>
                   </Link>
                   <Link
                     to="/diensten"
