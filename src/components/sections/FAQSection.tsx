@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "Hoe kan ik contact opnemen?",
     answer:
-      "Je kunt eenvoudig contact opnemen via ons contactformulier, telefonisch via 020 - 795 28 20 of per e-mail naar info@gpg-fm.nl. Wij reageren binnen 24 uur op je aanvraag.",
+      "Je kunt eenvoudig contact opnemen via ons contactformulier, telefonisch via +31(0)20 795 21 00 of per e-mail naar info@gpgfacilities.nl. Wij reageren binnen 24 uur op je aanvraag.",
   },
   {
     question: "Werken jullie met vaste prijzen of nacalculatie?",

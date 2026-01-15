@@ -37,14 +37,14 @@ export const SEO = ({
     description: defaultMeta.description,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Siriusdreef 17-27",
-      addressLocality: "Hoofddorp",
-      postalCode: "2132 WT",
+      streetAddress: "Valkweg 111",
+      addressLocality: "Schiphol",
+      postalCode: "1118 ED",
       addressCountry: "NL",
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+31-23-303-0684",
+      telephone: "+31-20-795-21-00",
       contactType: "customer service",
       availableLanguage: ["Dutch", "English"],
     },
