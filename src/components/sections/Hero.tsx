@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-office.jpg";
@@ -6,6 +6,8 @@ import heroImage from "@/assets/hero-office.jpg";
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -14,6 +16,22 @@ const Hero = () => {
     const timer = setTimeout(() => setIsVisible(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        if (rect.bottom > 0) {
+          setScrollY(window.scrollY);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prefersReducedMotion]);
 
   const getAnimationClasses = (delay: number) => {
     if (prefersReducedMotion) return "opacity-100";
@@ -27,58 +45,72 @@ const Hero = () => {
     return { transitionDelay: `${delay}ms` };
   };
 
+  const parallaxOffset = prefersReducedMotion ? 0 : scrollY * 0.3;
+
   return (
-    <section className="relative min-h-[85vh] flex items-center pt-32 md:pt-40">
-      {/* Background image */}
-      <div className="absolute inset-0">
+    <section 
+      ref={heroRef}
+      className="relative min-h-[100svh] md:min-h-[85vh] flex items-center pt-24 pb-8 md:pt-40 md:pb-0 overflow-hidden"
+    >
+      {/* Background image with parallax */}
+      <div 
+        className="absolute inset-0 will-change-transform"
+        style={{ 
+          transform: `translateY(${parallaxOffset}px) scale(1.1)`,
+          top: '-5%',
+          height: '110%'
+        }}
+      >
         <img 
           src={heroImage} 
           alt="Modern office environment" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
           loading="eager"
         />
-        <div className="hero-overlay absolute inset-0" />
       </div>
+      
+      {/* Overlay */}
+      <div className="hero-overlay absolute inset-0" />
 
       {/* Content */}
       <div className="container relative z-10">
         <div className="max-w-2xl">
           <div className={getAnimationClasses(0)} style={getAnimationStyle(0)}>
-            <p className="text-accent mb-4 tracking-wide font-semibold">
+            <p className="text-accent mb-3 md:mb-4 tracking-wide font-semibold text-sm md:text-base">
               GPG FACILITY MANAGEMENT:
             </p>
           </div>
 
           <h1 
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 ${getAnimationClasses(100)}`}
+            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 md:mb-6 ${getAnimationClasses(100)}`}
             style={getAnimationStyle(100)}
           >
             SPECIALIST IN FACILITAIRE DIENSTEN MÉT EEN PERSOONLIJKE BENADERING.
           </h1>
 
           <p 
-            className={`text-lg text-white/80 mb-8 max-w-lg ${getAnimationClasses(200)}`}
+            className={`text-base md:text-lg text-white/80 mb-6 md:mb-8 max-w-lg ${getAnimationClasses(200)}`}
             style={getAnimationStyle(200)}
           >
             Complete facilitaire ondersteuning waarmee je kunt vertrouwen op vakwerk, flexibiliteit en een partner die meedenkt.
           </p>
 
           <div 
-            className={`flex flex-wrap gap-4 ${getAnimationClasses(300)}`}
+            className={`flex flex-col sm:flex-row gap-3 sm:gap-4 ${getAnimationClasses(300)}`}
             style={getAnimationStyle(300)}
           >
             <Button 
               variant="hero" 
               size="lg" 
               asChild 
-              className="hover-lift focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+              className="hover-lift focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary w-full sm:w-auto"
             >
               <Link to="/contact">Vraag een offerte aan</Link>
             </Button>
             <Button 
               variant="ghost" 
               size="lg" 
-              className="text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white" 
+              className="text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white w-full sm:w-auto" 
               asChild
             >
               <Link to="/projecten">Bekijk projecten</Link>
@@ -87,6 +119,14 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Scroll indicator - hidden on mobile */}
+      <div 
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 ${getAnimationClasses(500)}`}
+        style={getAnimationStyle(500)}
+      >
+        <span className="text-white/60 text-xs uppercase tracking-widest">Scroll</span>
+        <div className="w-px h-8 bg-gradient-to-b from-white/60 to-transparent animate-pulse" />
+      </div>
     </section>
   );
 };
