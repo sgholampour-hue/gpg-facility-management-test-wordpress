@@ -9,10 +9,10 @@ import RevealOnScroll from "@/components/ui/RevealOnScroll";
 
 import dienstHandyman from "@/assets/dienst-handyman.jpg";
 import dienstVerhuizen from "@/assets/dienst-verhuizen.jpg";
-import dienstFacilities from "@/assets/dienst-facilities.jpg";
-import dienstFitout from "@/assets/dienst-fitout.jpg";
-import dienstInkoop from "@/assets/dienst-inkoop.jpg";
-import dienstStoffering from "@/assets/dienst-stoffering.jpg";
+import dienstFacilities from "@/assets/dienst-facilities-new.jpg";
+import dienstFitout from "@/assets/dienst-fitout-new.jpg";
+import dienstInkoop from "@/assets/dienst-inkoop-new.jpg";
+import dienstStoffering from "@/assets/dienst-stoffering-new.jpg";
 
 const services = [
   {
@@ -20,7 +20,7 @@ const services = [
     icon: Wrench,
     title: "Handyman dienstverlening",
     subtitle: "Professioneel onderhoud en reparatie",
-    description: "Van kleine reparaties tot uitgebreid onderhoud - onze vakkundige handymen zorgen ervoor dat uw kantoor altijd in topconditie blijft. Wij bieden snelle, betrouwbare service voor al uw facilitaire behoeften.",
+    description: "Van kleine reparaties tot uitgebreid onderhoud - onze vakkundige handymen zorgen ervoor dat jouw kantoor altijd in topconditie blijft. Wij bieden snelle, betrouwbare service voor al je facilitaire behoeften.",
     features: [
       "24/7 beschikbaarheid voor noodgevallen",
       "Preventief onderhoud en inspectie",
@@ -36,7 +36,7 @@ const services = [
     icon: Truck,
     title: "Verhuizen",
     subtitle: "Zorgeloze kantoorverhuizing",
-    description: "Een kantoorverhuizing vraagt om specialistische kennis en een strak gecoördineerde aanpak. GPG verzorgt uw complete verhuizing van A tot Z, zodat u zich kunt focussen op uw core business.",
+    description: "Een kantoorverhuizing vraagt om specialistische kennis en een strak gecoördineerde aanpak. GPG verzorgt jouw complete verhuizing van A tot Z, zodat je je kunt focussen op je core business.",
     features: [
       "Volledige projectcoördinatie",
       "Professionele in- en uitpak service",
@@ -52,7 +52,7 @@ const services = [
     icon: Building2,
     title: "Integrated Facilities",
     subtitle: "Complete facilitaire ontzorging",
-    description: "Eén aanspreekpunt voor al uw facilitaire diensten. Wij integreren alle aspecten van gebouwbeheer tot één naadloze service, waardoor u zich volledig kunt richten op uw kernactiviteiten.",
+    description: "Eén aanspreekpunt voor al jouw facilitaire diensten. Wij integreren alle aspecten van gebouwbeheer tot één naadloze service, waardoor je je volledig kunt richten op je kernactiviteiten.",
     features: [
       "Gebouwbeheer en -onderhoud",
       "Schoonmaak en hygiëne",
@@ -84,14 +84,14 @@ const services = [
     icon: ShoppingCart,
     title: "Inkoop van inrichtingscomponenten",
     subtitle: "Slim en voordelig inkopen",
-    description: "Profiteer van onze inkoopkracht en expertise. Wij leveren hoogwaardige kantoormeubilair en inrichtingscomponenten tegen scherpe prijzen, met advies over ergonomie en duurzaamheid.",
+    description: "Profiteer van onze inkoopkracht en expertise. Wij leveren hoogwaardige kantoormeubilair en inrichtingscomponenten tegen scherpe prijzen, met advies over ergonomie en duurzaamheid. Alle materialen zijn zorgvuldig geselecteerd en worden circulair ingezet voor een verantwoorde keuze.",
     features: [
       "Bureaus en werkpleksystemen",
       "Ergonomische bureaustoelen",
       "Vergadermeubilair",
       "Opbergsystemen en kasten",
       "Akoestische panelen",
-      "Planten en groenvoorziening"
+      "Circulaire en duurzame materialen"
     ],
     image: dienstInkoop
   },
@@ -100,7 +100,7 @@ const services = [
     icon: Palette,
     title: "Projectinrichting & stoffering",
     subtitle: "Sfeer en functionaliteit",
-    description: "De finishing touch voor uw kantoor. Onze stofferings- en inrichtingsspecialisten zorgen voor een professionele uitstraling die past bij uw bedrijfsidentiteit en bijdraagt aan het werkplezier.",
+    description: "De finishing touch voor jouw kantoor. Onze stofferings- en inrichtingsspecialisten zorgen voor een professionele uitstraling die past bij jouw bedrijfsidentiteit en bijdraagt aan het werkplezier.",
     features: [
       "Raambekleding op maat",
       "Vloerbedekking en tapijttegels",
@@ -138,7 +138,7 @@ const ServiceSection = ({
                   <Icon className="w-5 h-5 md:w-6 md:h-6 text-accent" />
                 </div>
                 <span className="text-xs md:text-sm font-medium text-accent uppercase tracking-wider">
-                  Dienst {index + 1}
+                  {service.title}
                 </span>
               </div>
               
@@ -223,7 +223,7 @@ const Diensten = () => {
         </section>
 
         {/* Quick Navigation */}
-        <section className="py-4 md:py-8 bg-background border-b border-border sticky top-20 z-40 backdrop-blur-sm bg-background/95">
+        <section className="py-4 md:py-8 bg-background border-b border-border">
           <div className="container px-4 md:px-6">
             <nav className="flex overflow-x-auto gap-2 md:gap-4 md:flex-wrap md:justify-center scrollbar-hide pb-2 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
               {services.map((service) => (
@@ -252,7 +252,7 @@ const Diensten = () => {
                 Klaar om te starten?
               </h2>
               <p className="text-base md:text-xl text-white/80 mb-6 md:mb-8 max-w-2xl mx-auto">
-                Neem contact met ons op voor een vrijblijvend gesprek over uw facilitaire behoeften.
+                Neem contact met ons op voor een vrijblijvend gesprek over jouw facilitaire behoeften.
               </p>
               <Button asChild size="xl" variant="hero" className="group w-full sm:w-auto">
                 <Link to="/contact">

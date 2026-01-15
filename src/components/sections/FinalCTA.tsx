@@ -19,7 +19,7 @@ const FinalCTA = () => {
           ONTDEK HOE WIJ JOUW PROJECT NAAR EEN HOGER NIVEAU TILLEN
         </h2>
         <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">
-          Neem contact met ons op voor een vrijblijvend adviesgesprek. Wij helpen u graag op weg.
+          Neem contact met ons op voor een vrijblijvend adviesgesprek. Wij helpen je graag op weg.
         </p>
         <Button variant="hero" size="xl" asChild>
           <Link to="/contact">Neem contact op</Link>
