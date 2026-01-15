@@ -252,19 +252,41 @@
     transform: scale(1.05);
   }
 
-  /* Client marquee */
+  /* Client marquee with gradient masks */
   .marquee-container {
     @apply overflow-hidden relative;
   }
 
+  .marquee-container::before,
+  .marquee-container::after {
+    content: '';
+    @apply absolute top-0 bottom-0 w-16 md:w-24 z-10 pointer-events-none;
+  }
+
+  .marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, hsl(var(--background)), transparent);
+  }
+
+  .marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, hsl(var(--background)), transparent);
+  }
+
   .marquee-content {
     display: flex;
-    animation: marquee 35s linear infinite;
+    animation: marquee 40s linear infinite;
     width: max-content;
   }
 
   .marquee-content:hover {
     animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-content {
+      animation: none;
+    }
   }
 
   @keyframes marquee {
@@ -429,56 +451,118 @@
 
   /* GSA Hoekje - One rounded corner (bottom-right by default) */
   /* Formula: border-radius = shortest side / 11 */
+  /* With hover animation that grows the corner subtly */
   .gsa-hoek {
     border-radius: 0 0 1.5rem 0;
+    transition: border-radius 250ms ease-out;
+  }
+
+  .gsa-hoek:hover {
+    border-radius: 0 0 2rem 0;
   }
 
   .gsa-hoek-sm {
     border-radius: 0 0 0.75rem 0;
+    transition: border-radius 250ms ease-out;
+  }
+
+  .gsa-hoek-sm:hover {
+    border-radius: 0 0 1rem 0;
   }
 
   .gsa-hoek-lg {
     border-radius: 0 0 2.5rem 0;
+    transition: border-radius 250ms ease-out;
+  }
+
+  .gsa-hoek-lg:hover {
+    border-radius: 0 0 3rem 0;
   }
 
   .gsa-hoek-xl {
     border-radius: 0 0 3.5rem 0;
+    transition: border-radius 250ms ease-out;
+  }
+
+  .gsa-hoek-xl:hover {
+    border-radius: 0 0 4rem 0;
   }
 
   /* Hoekje variations for different corners */
   .gsa-hoek-tl {
     border-radius: 1.5rem 0 0 0;
+    transition: border-radius 250ms ease-out;
+  }
+
+  .gsa-hoek-tl:hover {
+    border-radius: 2rem 0 0 0;
   }
 
   .gsa-hoek-tr {
     border-radius: 0 1.5rem 0 0;
+    transition: border-radius 250ms ease-out;
+  }
+
+  .gsa-hoek-tr:hover {
+    border-radius: 0 2rem 0 0;
   }
 
   .gsa-hoek-bl {
     border-radius: 0 0 0 1.5rem;
+    transition: border-radius 250ms ease-out;
+  }
+
+  .gsa-hoek-bl:hover {
+    border-radius: 0 0 0 2rem;
   }
 
   .gsa-hoek-br {
     border-radius: 0 0 1.5rem 0;
+    transition: border-radius 250ms ease-out;
+  }
+
+  .gsa-hoek-br:hover {
+    border-radius: 0 0 2rem 0;
   }
 
   /* Large variations for images */
   .gsa-hoek-tl-lg {
     border-radius: 2.5rem 0 0 0;
+    transition: border-radius 250ms ease-out;
+  }
+
+  .gsa-hoek-tl-lg:hover {
+    border-radius: 3rem 0 0 0;
   }
 
   .gsa-hoek-tr-lg {
     border-radius: 0 2.5rem 0 0;
+    transition: border-radius 250ms ease-out;
+  }
+
+  .gsa-hoek-tr-lg:hover {
+    border-radius: 0 3rem 0 0;
   }
 
   .gsa-hoek-bl-lg {
     border-radius: 0 0 0 2.5rem;
+    transition: border-radius 250ms ease-out;
+  }
+
+  .gsa-hoek-bl-lg:hover {
+    border-radius: 0 0 0 3rem;
   }
 
   .gsa-hoek-br-lg {
     border-radius: 0 0 2.5rem 0;
+    transition: border-radius 250ms ease-out;
   }
 
+  .gsa-hoek-br-lg:hover {
+    border-radius: 0 0 3rem 0;
+  }
+
+  /* Animation delays */
   .delay-100 {
     animation-delay: 100ms;
   }
@@ -493,5 +577,142 @@
 
   .delay-400 {
     animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .delay-600 {
+    animation-delay: 600ms;
+  }
+
+  /* Premium micro-interactions */
+  .hover-lift {
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -8px hsl(var(--gsa-navy) / 0.15);
+  }
+
+  .hover-lift:active {
+    transform: translateY(-2px) scale(0.99);
+  }
+
+  /* Icon micro-interactions */
+  .icon-hover {
+    transition: transform 200ms ease-out;
+  }
+
+  .icon-hover:hover {
+    transform: rotate(2deg) scale(1.03);
+  }
+
+  /* Arrow slide animation */
+  .arrow-slide {
+    transition: transform 200ms ease-out;
+  }
+
+  .group:hover .arrow-slide {
+    transform: translateX(4px);
+  }
+
+  /* Image zoom on hover (for project cards) */
+  .image-zoom {
+    transition: transform 500ms ease-out;
+  }
+
+  .group:hover .image-zoom {
+    transform: scale(1.03);
+  }
+
+  /* Blur-in effect for images */
+  .blur-in {
+    animation: blurIn 400ms ease-out forwards;
+  }
+
+  @keyframes blurIn {
+    from {
+      opacity: 0;
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  /* Form field focus glow */
+  .field-focus {
+    transition: border-color 150ms ease-out, box-shadow 150ms ease-out;
+  }
+
+  .field-focus:focus {
+    border-color: hsl(var(--accent));
+    box-shadow: 0 0 0 3px hsl(var(--accent) / 0.15);
+  }
+
+  /* Form error shake animation */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+
+  .shake-error {
+    animation: shake 300ms ease-out;
+  }
+
+  /* Page transition */
+  .page-enter {
+    animation: pageEnter 200ms ease-out forwards;
+  }
+
+  @keyframes pageEnter {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .gsa-hoek,
+    .gsa-hoek-sm,
+    .gsa-hoek-lg,
+    .gsa-hoek-xl,
+    .gsa-hoek-tl,
+    .gsa-hoek-tr,
+    .gsa-hoek-bl,
+    .gsa-hoek-br,
+    .gsa-hoek-tl-lg,
+    .gsa-hoek-tr-lg,
+    .gsa-hoek-bl-lg,
+    .gsa-hoek-br-lg,
+    .hover-lift,
+    .icon-hover,
+    .arrow-slide,
+    .image-zoom,
+    .field-focus {
+      transition: none;
+    }
+
+    .blur-in,
+    .shake-error,
+    .page-enter {
+      animation: none;
+    }
+
+    .hero-reveal,
+    .scroll-reveal,
+    .fade-in-up {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
   }
 }
