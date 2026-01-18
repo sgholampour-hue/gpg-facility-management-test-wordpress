@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 import { cn } from "@/lib/utils";
 
 interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
@@ -7,21 +7,27 @@ interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   skeletonClassName?: string;
   aspectRatio?: "auto" | "square" | "video" | "4/3" | "3/2" | "16/9";
+  priority?: boolean;
+  sizes?: string;
 }
 
-const LazyImage = ({
+const LazyImage = memo(({
   src,
   alt,
   className,
   skeletonClassName,
   aspectRatio = "auto",
+  priority = false,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   ...props
 }: LazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (priority) return;
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -30,7 +36,7 @@ const LazyImage = ({
         }
       },
       {
-        rootMargin: "100px",
+        rootMargin: "200px", // Increased for earlier loading
         threshold: 0.01,
       }
     );
@@ -40,7 +46,7 @@ const LazyImage = ({
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [priority]);
 
   const aspectRatioClass = {
     auto: "",
@@ -57,24 +63,29 @@ const LazyImage = ({
       className={cn("relative overflow-hidden", aspectRatioClass, className)}
     >
       {/* Skeleton loader */}
-      <div
-        className={cn(
-          "absolute inset-0 bg-gradient-to-r from-muted via-muted/70 to-muted animate-shimmer bg-[length:200%_100%]",
-          isLoaded && "opacity-0 transition-opacity duration-500",
-          skeletonClassName
-        )}
-      />
+      {!isLoaded && (
+        <div
+          className={cn(
+            "absolute inset-0 bg-gradient-to-r from-muted via-muted/70 to-muted animate-shimmer bg-[length:200%_100%]",
+            skeletonClassName
+          )}
+          aria-hidden="true"
+        />
+      )}
 
-      {/* Actual image */}
+      {/* Actual image with WebP support */}
       {isInView && (
         <img
           src={src}
           alt={alt}
-          loading="lazy"
+          loading={priority ? "eager" : "lazy"}
+          decoding={priority ? "sync" : "async"}
+          fetchPriority={priority ? "high" : "auto"}
+          sizes={sizes}
           onLoad={() => setIsLoaded(true)}
           className={cn(
-            "w-full h-full object-cover transition-all duration-700 ease-out",
-            isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105",
+            "w-full h-full object-cover transition-opacity duration-500 ease-out",
+            isLoaded ? "opacity-100" : "opacity-0",
             className
           )}
           {...props}
@@ -82,6 +93,8 @@ const LazyImage = ({
       )}
     </div>
   );
-};
+});
+
+LazyImage.displayName = "LazyImage";
 
 export default LazyImage;

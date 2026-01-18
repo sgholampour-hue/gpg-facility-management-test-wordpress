@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import gpgMovers from "@/assets/gpg-movers.jpg";
 
-const CTASection = () => {
+const CTASection = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -54,9 +54,11 @@ const CTASection = () => {
         <div className="absolute inset-0">
           <img
             src={gpgMovers}
-            alt="GPG medewerkers in moderne kantooromgeving"
+            alt="GPG verhuizers aan het werk in moderne kantoorruimte"
             className="w-full h-full object-cover"
             style={{ transform: 'scaleX(-1)' }}
+            loading="lazy"
+            decoding="async"
           />
           <div className="cta-overlay absolute inset-0" />
         </div>
@@ -91,6 +93,8 @@ const CTASection = () => {
       </section>
     </>
   );
-};
+});
+
+CTASection.displayName = "CTASection";
 
 export default CTASection;
