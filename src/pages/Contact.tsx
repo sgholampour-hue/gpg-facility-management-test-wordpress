@@ -9,7 +9,16 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
-import SEO from "@/components/SEO";
+import SEO, { createFAQSchema } from "@/components/SEO";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import StickyContactButton from "@/components/ui/StickyContactButton";
+
+// FAQ data for schema
+const faqData = [
+  { question: "Wat doet GPG Facility Management precies?", answer: "GPG Facility Management is een facilitair dienstverlener gespecialiseerd in handyman diensten, verhuizingen, integrated facilities, fit-out projecten, inkoop van inrichtingscomponenten en projectinrichting & stoffering." },
+  { question: "In welke regio's zijn jullie actief?", answer: "Wij zijn actief in heel Nederland met een focus op de Randstad. Onze HUB-locaties in Schiphol, IJmuiden, Rotterdam en Oud Beijerland zorgen voor optimale dekking." },
+  { question: "Hoe kan ik contact opnemen?", answer: "Je kunt contact opnemen via ons contactformulier, telefonisch via +31(0)20 795 21 00 of per e-mail naar info@gpgfacilities.nl. Wij reageren binnen 24 uur." },
+];
 
 const Contact = () => {
   const { toast } = useToast();
@@ -74,8 +83,8 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Adres",
-      value: "Schiphol Boulevard 127, 1118 BG Schiphol",
-      link: "https://maps.google.com/?q=Schiphol+Boulevard+127+Schiphol"
+      value: "Valkweg 111, 1118 ED Schiphol",
+      link: "https://maps.google.com/?q=Valkweg+111+1118+ED+Schiphol"
     },
     {
       icon: Clock,
@@ -91,6 +100,7 @@ const Contact = () => {
         title="Contact"
         description="Neem contact op met GPG Facility Management voor een vrijblijvend adviesgesprek. Bel +31(0)20 795 21 00 of vul ons contactformulier in."
         canonical="https://gpg-facility.lovable.app/contact"
+        structuredData={createFAQSchema(faqData)}
       />
       <Header />
       <main>
@@ -290,18 +300,18 @@ const Contact = () => {
                   ))}
                 </div>
 
-                {/* Map placeholder */}
+                {/* Map */}
                 <RevealOnScroll variant="scale-in" delay={400}>
                   <div className="aspect-video md:aspect-square gsa-hoek-lg overflow-hidden bg-muted mt-4 md:mt-8">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.5!2d4.762!3d52.309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSchiphol!5e0!3m2!1snl!2snl!4v1234567890"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.8!2d4.7556!3d52.3036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5e1e3f5c2e8d7%3A0x1234567890abcdef!2sValkweg%20111%2C%201118%20ED%20Schiphol!5e0!3m2!1snl!2snl!4v1705000000000"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      title="GPG Facility Management locatie"
+                      title="GPG Facility Management locatie - Valkweg 111, Schiphol"
                       className="grayscale hover:grayscale-0 transition-all duration-500"
                     />
                   </div>
@@ -315,6 +325,8 @@ const Contact = () => {
         <FAQSection variant="light" />
       </main>
       <Footer />
+      <StickyContactButton />
+      <ScrollToTop />
     </div>
   );
 };

@@ -12,6 +12,8 @@ import Diensten from "./pages/Diensten";
 import OverOns from "./pages/OverOns";
 import Duurzaamheid from "./pages/Duurzaamheid";
 import Contact from "./pages/Contact";
+import Voorwaarden from "./pages/Voorwaarden";
+import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 import Preloader from "./components/ui/Preloader";
 
@@ -54,6 +56,8 @@ const AppRoutes = () => (
       <Route path="/over-ons" element={<PageWrapper><OverOns /></PageWrapper>} />
       <Route path="/duurzaamheid" element={<PageWrapper><Duurzaamheid /></PageWrapper>} />
       <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+      <Route path="/voorwaarden" element={<PageWrapper><Voorwaarden /></PageWrapper>} />
+      <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
       <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
     </Routes>
   </>

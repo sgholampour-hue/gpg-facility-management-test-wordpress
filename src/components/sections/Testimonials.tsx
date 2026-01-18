@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
 import useEmblaCarousel from "embla-carousel-react";
 
 const testimonials = [
@@ -46,19 +45,14 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
 );
 
 const Testimonials = () => {
-  const isMobile = useIsMobile();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
 
   useEffect(() => {
     if (!emblaApi) return;
 
     const onSelect = () => {
       setSelectedIndex(emblaApi.selectedScrollSnap());
-      setCanScrollPrev(emblaApi.canScrollPrev());
-      setCanScrollNext(emblaApi.canScrollNext());
     };
 
     emblaApi.on("select", onSelect);
@@ -72,68 +66,61 @@ const Testimonials = () => {
   }, [emblaApi]);
 
   return (
-    <section className="py-8 md:py-10 bg-secondary">
+    <section className="py-8 md:py-12 bg-secondary">
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-4 md:mb-6">
           <span className="text-subheading text-accent text-sm mb-2 block">
             Wat klanten zeggen
           </span>
         </div>
 
-        {/* Mobile: Carousel */}
-        {isMobile ? (
-          <div className="relative max-w-3xl mx-auto">
-            <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex">
-                {testimonials.map((testimonial, index) => (
-                  <div key={index} className="flex-shrink-0 w-full">
-                    <TestimonialCard testimonial={testimonial} />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Navigation */}
-            <div className="flex items-center justify-center gap-4 mt-4">
-              <button
-                onClick={() => emblaApi?.scrollPrev()}
-                className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary disabled:opacity-30 hover:bg-primary hover:text-white transition-colors"
-                aria-label="Vorige testimonial"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              
-              <div className="flex gap-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => emblaApi?.scrollTo(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      selectedIndex === index 
-                        ? "bg-accent w-4" 
-                        : "bg-primary/30"
-                    }`}
-                    aria-label={`Ga naar testimonial ${index + 1}`}
-                  />
-                ))}
-              </div>
-
-              <button
-                onClick={() => emblaApi?.scrollNext()}
-                className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary disabled:opacity-30 hover:bg-primary hover:text-white transition-colors"
-                aria-label="Volgende testimonial"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
+        {/* Carousel for both mobile and desktop */}
+        <div className="relative max-w-4xl mx-auto">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="flex-shrink-0 w-full">
+                  <TestimonialCard testimonial={testimonial} />
+                </div>
+              ))}
             </div>
           </div>
-        ) : (
-          /* Desktop: Featured Quote */
-          <div className="max-w-3xl mx-auto">
-            <TestimonialCard testimonial={testimonials[0]} />
+
+          {/* Navigation */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <button
+              onClick={() => emblaApi?.scrollPrev()}
+              className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary disabled:opacity-30 hover:bg-primary hover:text-white transition-colors"
+              aria-label="Vorige testimonial"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            
+            <div className="flex gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => emblaApi?.scrollTo(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    selectedIndex === index 
+                      ? "bg-accent w-6" 
+                      : "bg-primary/30 hover:bg-primary/50"
+                  }`}
+                  aria-label={`Ga naar testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={() => emblaApi?.scrollNext()}
+              className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary disabled:opacity-30 hover:bg-primary hover:text-white transition-colors"
+              aria-label="Volgende testimonial"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

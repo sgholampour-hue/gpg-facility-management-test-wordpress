@@ -162,7 +162,7 @@ const Header = () => {
 
         {/* Mobile menu */}
         <div 
-          className={`lg:hidden bg-background border-t border-border overflow-hidden transition-all duration-300 ease-out ${
+          className={`lg:hidden bg-background border-t border-border overflow-hidden transition-all duration-200 ease-out ${
             mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >

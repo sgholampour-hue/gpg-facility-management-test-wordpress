@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO from "@/components/SEO";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import StickyContactButton from "@/components/ui/StickyContactButton";
 import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
 import projectHub from "@/assets/project-hub.jpg";
@@ -145,6 +147,8 @@ const Projecten = () => {
         </section>
       </main>
       <Footer />
+      <StickyContactButton />
+      <ScrollToTop />
     </div>
   );
 };
