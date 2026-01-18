@@ -6,6 +6,8 @@ import { ArrowRight, Wrench, Truck, Building2, HardHat, ShoppingCart, Palette } 
 import SEO, { serviceSchema } from "@/components/SEO";
 import LazyImage from "@/components/ui/LazyImage";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import StickyContactButton from "@/components/ui/StickyContactButton";
 
 import dienstHandyman from "@/assets/dienst-handyman-new.jpg";
 import dienstVerhuizen from "@/assets/dienst-verhuizen-new.jpg";
@@ -126,7 +128,7 @@ const ServiceSection = ({
   return (
     <section 
       id={service.id}
-      className={`py-12 md:py-20 lg:py-28 ${index % 2 === 0 ? 'bg-background' : 'bg-muted/30'}`}
+      className={`py-12 md:py-20 lg:py-28 scroll-mt-24 ${index % 2 === 0 ? 'bg-background' : 'bg-muted/30'}`}
     >
       <div className="container px-4 md:px-6">
         <RevealOnScroll>
@@ -261,6 +263,8 @@ const Diensten = () => {
         </section>
       </main>
       <Footer />
+      <StickyContactButton />
+      <ScrollToTop />
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, Linkedin } from "lucide-react";
-import gpgLogo from "@/assets/gpg-logo.png";
 
 const Footer = () => {
   return (
@@ -129,7 +128,7 @@ const Footer = () => {
           <p className="text-white/50 text-xs md:text-sm text-center md:text-left">
             © GPG Facility Management {new Date().getFullYear()}. Alle rechten voorbehouden.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 md:gap-6">
             <div className="flex gap-4 md:gap-6 text-xs md:text-sm text-white/50">
               <Link to="/voorwaarden" className="hover:text-white transition-colors">
                 Algemene voorwaarden
@@ -139,6 +138,15 @@ const Footer = () => {
                 Privacyverklaring
               </Link>
             </div>
+            <a 
+              href="https://www.linkedin.com/company/gpg-facility-management" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/50 hover:text-white transition-colors"
+              aria-label="Volg GPG op LinkedIn"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>

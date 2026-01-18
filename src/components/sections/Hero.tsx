@@ -108,9 +108,9 @@ const Hero = () => {
               <Link to="/contact">Neem contact op</Link>
             </Button>
             <Button 
-              variant="ghost" 
+              variant="outline" 
               size="lg" 
-              className="text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white w-full sm:w-auto text-sm md:text-base" 
+              className="border-white/60 text-white bg-white/10 hover:bg-white hover:text-primary focus-visible:ring-2 focus-visible:ring-white w-full sm:w-auto text-sm md:text-base gsa-hoek-sm" 
               asChild
             >
               <Link to="/projecten">Bekijk projecten</Link>

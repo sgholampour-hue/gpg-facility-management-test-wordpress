@@ -6,6 +6,8 @@ import { Recycle, Leaf, TrendingDown, Award, CheckCircle, ArrowRight } from "luc
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO from "@/components/SEO";
 import CountUp from "@/components/ui/CountUp";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import StickyContactButton from "@/components/ui/StickyContactButton";
 
 const circularPrincipes = [
   {
@@ -285,6 +287,8 @@ const Duurzaamheid = () => {
         </section>
       </main>
       <Footer />
+      <StickyContactButton />
+      <ScrollToTop />
     </div>
   );
 };

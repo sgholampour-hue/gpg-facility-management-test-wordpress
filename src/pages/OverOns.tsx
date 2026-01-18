@@ -6,6 +6,8 @@ import { CheckCircle, Users, Target, Award, Handshake, TrendingUp, ArrowRight } 
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { CountUp } from "@/components/ui/CountUp";
 import SEO from "@/components/SEO";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import StickyContactButton from "@/components/ui/StickyContactButton";
 import gsaLogo from "@/assets/gsa-groep-logo.png";
 import gpgTeamLobby from "@/assets/gpg-team-lobby-new.jpg";
 import gpgTeam from "@/assets/gpg-team.jpg";
@@ -134,7 +136,7 @@ const OverOns = () => {
               {/* Mobile: GSA logo block first, Desktop: second */}
               <RevealOnScroll variant="slide-right" className="order-1 md:order-2 lg:order-1">
                 <div className="space-y-4 md:space-y-6">
-                  <div className="bg-white gsa-hoek-lg p-4 md:p-6 lg:p-8 shadow-elegant w-1/2 md:w-full">
+                  <div className="bg-white gsa-hoek-lg p-4 md:p-6 lg:p-8 shadow-elegant w-2/3 md:w-full">
                     <img
                       src={gsaLogo}
                       alt="GSA Groep logo"
@@ -313,6 +315,8 @@ const OverOns = () => {
         </section>
       </main>
       <Footer />
+      <StickyContactButton />
+      <ScrollToTop />
     </div>
   );
 };
