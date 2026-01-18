@@ -113,8 +113,9 @@ const OverOns = () => {
                 <div className="relative mt-4 lg:mt-0">
                   <img
                     src={gpgTeamLobby}
-                    alt="GPG team aan het werk"
+                    alt="GPG team in overleg bij de receptie van het hoofdkantoor"
                     loading="lazy"
+                    decoding="async"
                     className="gsa-hoek-lg shadow-elegant w-full aspect-[4/3] object-cover"
                   />
                   <div className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 bg-primary gsa-hoek-sm px-3 py-1.5 md:px-5 md:py-3 shadow-lg">
@@ -139,8 +140,10 @@ const OverOns = () => {
                   <div className="bg-white gsa-hoek-lg p-4 md:p-6 lg:p-8 shadow-elegant w-2/3 md:w-full">
                     <img
                       src={gsaLogo}
-                      alt="GSA Groep logo"
+                      alt="GSA Groep - moederbedrijf van GPG Facility Management"
                       className="h-12 md:h-20 w-auto mb-3 md:mb-6 object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <h3 className="text-base md:text-xl font-bold text-primary mb-2">
                       Verrassend Veelzijdig & Betrokken
@@ -152,9 +155,10 @@ const OverOns = () => {
                   {/* GSA Organisatie afbeelding */}
                   <img
                     src={gsaOrganisatie}
-                    alt="GSA Groep - Één groep, zeven specialismen"
+                    alt="GSA Groep organogram - Eén groep met zeven specialismen waaronder GPG"
                     className="w-full max-w-lg md:max-w-xl gsa-hoek-lg shadow-elegant"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </RevealOnScroll>
@@ -181,8 +185,10 @@ const OverOns = () => {
                   <div className="bg-white gsa-hoek-lg p-3 md:p-6 shadow-elegant">
                     <img
                       src={gsaDochtersImage}
-                      alt="GSA Groep dochterondernemingen"
+                      alt="Overzicht dochterondernemingen GSA Groep met GPG, Flexas en GSA World"
                       className="w-full max-w-xs md:max-w-sm object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </RevealOnScroll>
@@ -230,16 +236,18 @@ const OverOns = () => {
                 <RevealOnScroll variant="scale-in">
                   <img
                     src={gpgWorker}
-                    alt="GPG technicus aan het werk"
+                    alt="GPG technicus installeert verlichting in kantoorruimte"
                     loading="lazy"
+                    decoding="async"
                     className="gsa-hoek-tr-lg w-full h-28 sm:h-36 md:h-48 object-cover"
                   />
                 </RevealOnScroll>
                 <RevealOnScroll variant="scale-in" delay={150}>
                   <img
                     src={gpgMovers}
-                    alt="GPG verhuizers aan het werk"
+                    alt="GPG verhuisteam verplaatst kantoormeubelen"
                     loading="lazy"
+                    decoding="async"
                     className="gsa-hoek-tl-lg w-full h-28 sm:h-36 md:h-48 object-cover mt-3 md:mt-6"
                   />
                 </RevealOnScroll>

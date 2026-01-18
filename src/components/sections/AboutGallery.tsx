@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import gpgWorker from "@/assets/gpg-worker.jpg";
 import gpgConstruction from "@/assets/gpg-construction.jpg";
 import gpgTeam from "@/assets/gpg-team.jpg";
 
-const AboutGallery = () => {
+const AboutGallery = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -38,8 +38,10 @@ const AboutGallery = () => {
             >
               <img
                 src={gpgWorker}
-                alt="GPG medewerker aan het werk"
+                alt="GPG technicus installeert kantoorverlichting"
                 className="w-full aspect-[3/4] object-cover gsa-hoek-tr-lg shadow-card"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div
@@ -49,8 +51,10 @@ const AboutGallery = () => {
             >
               <img
                 src={gpgTeam}
-                alt="GPG team"
+                alt="GPG team bij projectoverleg op kantoor"
                 className="w-full aspect-[4/3] object-cover gsa-hoek-tl-lg shadow-card mt-8"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -76,8 +80,10 @@ const AboutGallery = () => {
           >
             <img
               src={gpgConstruction}
-              alt="Bouwteam aan het werk"
+              alt="GPG bouwteam bij fit-out werkzaamheden"
               className="w-full aspect-[4/3] object-cover gsa-hoek-bl-lg shadow-card"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -92,8 +98,10 @@ const AboutGallery = () => {
           >
             <img
               src={gpgWorker}
-              alt="GPG medewerker aan het werk"
+              alt="GPG technicus installeert kantoorverlichting"
               className="w-full h-auto gsa-hoek-tr-lg shadow-card object-cover"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -117,8 +125,10 @@ const AboutGallery = () => {
             >
               <img
                 src={gpgConstruction}
-                alt="Bouwteam aan het werk"
+                alt="GPG bouwteam bij fit-out werkzaamheden"
                 className="w-full h-auto gsa-hoek-bl-lg shadow-card object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -131,14 +141,18 @@ const AboutGallery = () => {
           >
             <img
               src={gpgTeam}
-              alt="GPG team"
+              alt="GPG team bij projectoverleg op kantoor"
               className="w-full h-auto gsa-hoek-tl-lg shadow-card object-cover"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
       </div>
     </section>
   );
-};
+});
+
+AboutGallery.displayName = "AboutGallery";
 
 export default AboutGallery;

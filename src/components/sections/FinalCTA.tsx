@@ -1,15 +1,18 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ctaImage from "@/assets/cta-worker.jpg";
 
-const FinalCTA = () => {
+const FinalCTA = memo(() => {
   return (
     <section className="relative min-h-[400px] flex items-center">
       <div className="absolute inset-0">
         <img
           src={ctaImage}
-          alt="Vakman aan het werk"
+          alt="GPG vakman aan het werk met professionele gereedschap"
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-primary/80" />
       </div>
@@ -27,6 +30,8 @@ const FinalCTA = () => {
       </div>
     </section>
   );
-};
+});
+
+FinalCTA.displayName = "FinalCTA";
 
 export default FinalCTA;

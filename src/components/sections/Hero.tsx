@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-office.jpg";
+import heroImage from "@/assets/hero-office.jpg?format=webp&quality=85";
+import heroImageFallback from "@/assets/hero-office.jpg";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,7 +53,7 @@ const Hero = () => {
       ref={heroRef}
       className="relative min-h-[85svh] md:min-h-[85vh] flex items-center pt-20 pb-6 md:pt-40 md:pb-0 overflow-hidden"
     >
-      {/* Background image with parallax */}
+      {/* Background image with parallax - optimized with WebP */}
       <div 
         className="absolute inset-0 will-change-transform"
         style={{ 
@@ -61,12 +62,17 @@ const Hero = () => {
           height: '110%'
         }}
       >
-        <img 
-          src={heroImage} 
-          alt="Modern office environment" 
-          className="w-full h-full object-cover object-center"
-          loading="eager"
-        />
+        <picture>
+          <source srcSet={heroImage} type="image/webp" />
+          <img 
+            src={heroImageFallback} 
+            alt="Modern kantooromgeving met professionele faciliteiten"
+            className="w-full h-full object-cover object-center"
+            loading="eager"
+            decoding="sync"
+            fetchPriority="high"
+          />
+        </picture>
       </div>
       
       {/* Overlay */}
