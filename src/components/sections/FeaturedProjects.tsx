@@ -6,7 +6,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import useEmblaCarousel from "embla-carousel-react";
 import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
-import projectHub2 from "@/assets/project-hub-2.jpg";
+import gsaHubLocatie from "@/assets/gsa-hub-locatie.jpg";
 
 const projects = [
   {
@@ -27,7 +27,7 @@ const projects = [
     slug: "hub-locaties",
     title: "HUB Locaties",
     subtitle: "Bouwlogistieke ondersteuning",
-    image: projectHub2,
+    image: gsaHubLocatie,
     stats: ["4 locaties", "Noord & Zuid Holland"],
   },
 ];
