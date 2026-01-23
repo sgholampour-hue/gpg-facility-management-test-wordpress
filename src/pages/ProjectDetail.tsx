@@ -10,6 +10,7 @@ import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
 import projectHub from "@/assets/project-hub.jpg";
 import projectHub2 from "@/assets/project-hub-2.jpg";
+import gsaHubBuilding from "@/assets/gsa-hub-building.png";
 import schipholGallery1 from "@/assets/schiphol-gallery-1.png";
 import schipholGallery2 from "@/assets/schiphol-gallery-2.png";
 import schipholGallery3 from "@/assets/schiphol-gallery-3.png";
