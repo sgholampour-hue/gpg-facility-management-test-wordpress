@@ -10,10 +10,6 @@ import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
 import projectHub from "@/assets/project-hub.jpg";
 import projectHub2 from "@/assets/project-hub-2.jpg";
-import gsaHubBuilding from "@/assets/gsa-hub-building.png";
-import schipholGallery1 from "@/assets/schiphol-gallery-1.png";
-import schipholGallery2 from "@/assets/schiphol-gallery-2.png";
-import schipholGallery3 from "@/assets/schiphol-gallery-3.png";
 
 const projectsData = {
   "cbre-booking": {
@@ -46,7 +42,6 @@ const projectsData = {
     title: "HQ Schiphol",
     subtitle: "Refresh en werkplekbeheer (lopend)",
     image: projectSchiphol,
-    gallery: [schipholGallery1, schipholGallery2, schipholGallery3],
     client: "Schiphol Nederland B.V.",
     location: "Schiphol",
     period: "2025 - heden",
@@ -71,8 +66,8 @@ const projectsData = {
   "hub-locaties": {
     title: "HUB Locaties",
     subtitle: "Bouwlogistieke ondersteuning",
-    image: gsaHubBuilding,
-    gallery: [gsaHubBuilding, projectHub, projectHub2],
+    image: projectHub,
+    gallery: [projectHub, projectHub2],
     client: "Diverse opdrachtgevers",
     location: "Noord & Zuid Holland",
     period: "Doorlopend",
