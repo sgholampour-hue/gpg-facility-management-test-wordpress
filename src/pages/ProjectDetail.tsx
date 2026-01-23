@@ -71,8 +71,8 @@ const projectsData = {
   "hub-locaties": {
     title: "HUB Locaties",
     subtitle: "Bouwlogistieke ondersteuning",
-    image: projectHub,
-    gallery: [projectHub, projectHub2],
+    image: gsaHubBuilding,
+    gallery: [gsaHubBuilding, projectHub, projectHub2],
     client: "Diverse opdrachtgevers",
     location: "Noord & Zuid Holland",
     period: "Doorlopend",
