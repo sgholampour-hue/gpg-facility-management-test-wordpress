@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, memo } from "react";
-import gpgWorker from "@/assets/gpg-worker.jpg";
-import gpgConstruction from "@/assets/gpg-construction.jpg";
+import aboutCarpetInstall from "@/assets/about-carpet-install.jpg";
+import aboutDeskInstall from "@/assets/about-desk-install.jpg";
 import gpgTeam from "@/assets/gpg-team.jpg";
 const AboutGallery = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,10 +25,10 @@ const AboutGallery = memo(() => {
           {/* Top row: 2 images side by side */}
           <div className="grid grid-cols-2 gap-3 mb-6">
             <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              <img src={gpgWorker} alt="GPG technicus installeert kantoorverlichting" className="w-full aspect-[3/4] object-cover gsa-hoek-tr-lg shadow-card" loading="lazy" decoding="async" />
+              <img src={aboutCarpetInstall} alt="GPG technicus installeert tapijt" className="w-full aspect-[3/4] object-cover gsa-hoek-tr-lg shadow-card" loading="lazy" decoding="async" />
             </div>
             <div className={`transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              <img src={gpgTeam} alt="GPG team bij projectoverleg op kantoor" className="w-full aspect-[4/3] object-cover gsa-hoek-tl-lg shadow-card mt-8" loading="lazy" decoding="async" />
+              <img src={aboutDeskInstall} alt="GPG monteur installeert bureau" className="w-full aspect-[4/3] object-cover gsa-hoek-tl-lg shadow-card mt-8" loading="lazy" decoding="async" />
             </div>
           </div>
 
@@ -43,7 +43,7 @@ const AboutGallery = memo(() => {
 
           {/* Bottom image - full width */}
           <div className={`transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <img src={gpgConstruction} alt="GPG bouwteam bij fit-out werkzaamheden" className="w-full aspect-[4/3] object-cover gsa-hoek-bl-lg shadow-card" loading="lazy" decoding="async" />
+            <img src={gpgTeam} alt="GPG team bij projectoverleg op kantoor" className="w-full aspect-[4/3] object-cover gsa-hoek-bl-lg shadow-card" loading="lazy" decoding="async" />
           </div>
         </div>
 
@@ -51,7 +51,7 @@ const AboutGallery = memo(() => {
         <div className="hidden lg:grid grid-cols-12 gap-8 items-center">
           {/* Left image */}
           <div className={`col-span-3 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            
+            <img src={aboutCarpetInstall} alt="GPG technicus installeert tapijt" className="w-full h-auto gsa-hoek-tr-lg shadow-card object-cover" loading="lazy" decoding="async" />
           </div>
 
           {/* Center content + bottom image */}
@@ -64,7 +64,7 @@ const AboutGallery = memo(() => {
               </div>
             </div>
             <div className={`w-full max-w-md transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              <img src={gpgConstruction} alt="GPG bouwteam bij fit-out werkzaamheden" className="w-full h-auto gsa-hoek-bl-lg shadow-card object-cover" loading="lazy" decoding="async" />
+              <img src={aboutDeskInstall} alt="GPG monteur installeert bureau" className="w-full h-auto gsa-hoek-bl-lg shadow-card object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
 
