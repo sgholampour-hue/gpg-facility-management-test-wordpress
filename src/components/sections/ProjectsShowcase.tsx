@@ -12,13 +12,13 @@ const projects = [
     title: "Booking.com HQ",
     category: "Kantoorinrichting",
     image: projectBooking,
-    slug: "booking-com",
+    slug: "cbre-booking",
   },
   {
     title: "Schiphol Office",
     category: "Fit-out",
     image: projectSchiphol,
-    slug: "schiphol-kantoor",
+    slug: "schiphol-hq",
   },
   {
     title: "HUB Locaties",
@@ -30,7 +30,7 @@ const projects = [
     title: "GSA Groep Projecten",
     category: "Complete ontzorging",
     image: projectHub2,
-    slug: "gsa-groep-projecten",
+    slug: "gsa-groep",
     hasLogo: true,
   },
 ];

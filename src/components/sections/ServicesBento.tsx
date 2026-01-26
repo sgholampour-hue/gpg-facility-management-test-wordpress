@@ -70,15 +70,18 @@ const ServiceCard = ({
   return (
     <Link
       to={service.href}
-      className={`group relative bg-background border border-border/50 rounded-tr-2xl rounded-bl-none rounded-br-none rounded-tl-none p-5 md:p-6 pl-7 md:pl-8 transition-all duration-300 
+      className={`group relative bg-background border border-border/50 rounded-tr-2xl rounded-bl-none rounded-br-none rounded-tl-none p-5 md:p-6 pl-7 md:pl-8 transition-all duration-500 ease-out
         hover:shadow-[0_10px_40px_-10px_hsl(var(--accent)/0.25)] 
         hover:border-accent/40 
         hover:-translate-y-2 
         hover:bg-gradient-to-br hover:from-background hover:to-accent/5
         flex flex-col overflow-hidden ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
       }`}
-      style={{ transitionDelay: `${index * 80}ms` }}
+      style={{ 
+        transitionDelay: isVisible ? `${index * 120}ms` : '0ms',
+        transitionProperty: 'opacity, transform, box-shadow, border-color, background'
+      }}
     >
       {/* Green accent bar left */}
       <div className="absolute left-0 top-4 bottom-4 w-1 bg-accent rounded-r-full" />
