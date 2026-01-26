@@ -71,7 +71,7 @@ const HeaderNew = () => {
     <>
       {/* Top Utility Bar - Hidden on scroll */}
       <div 
-        className={`fixed top-0 left-0 right-0 z-50 bg-primary text-primary-foreground transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[60] bg-primary text-primary-foreground transition-all duration-300 ${
           isScrolled ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
         }`}
       >
@@ -95,9 +95,9 @@ const HeaderNew = () => {
         </div>
       </div>
 
-      {/* Main Navigation */}
+      {/* Main Navigation - Always sticky */}
       <header 
-        className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
             ? "top-0 bg-background/95 backdrop-blur-md shadow-lg border-b border-border/50" 
             : "top-[36px] bg-background border-b border-border"
