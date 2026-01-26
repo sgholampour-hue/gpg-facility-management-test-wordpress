@@ -6,31 +6,31 @@ import ctaMeetingImage from "@/assets/cta-meeting.jpg";
 
 const CTANew = memo(() => {
   return (
-    <section className="py-16 md:py-24 bg-muted/30 relative overflow-hidden">
+    <section className="py-12 md:py-20 lg:py-24 bg-muted/30 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="bg-background gsa-hoek-lg border border-border/50 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
             <div className="grid md:grid-cols-2">
               {/* Left: Content */}
-              <div className="p-8 md:p-12">
-                <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide mb-4">
+              <div className="p-6 sm:p-8 md:p-12">
+                <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide mb-3 md:mb-4">
                   Neem contact op
                 </span>
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-3 md:mb-4">
                   Klaar om te starten?
                 </h2>
-                <p className="text-muted-foreground mb-6 text-sm md:text-base">
+                <p className="text-muted-foreground mb-5 md:mb-6 text-sm md:text-base">
                   Neem vandaag nog contact met ons op voor een vrijblijvend adviesgesprek. 
                   Wij helpen je graag bij jouw volgende project.
                 </p>
 
-                <div className="space-y-3 mb-8">
+                <div className="space-y-2 sm:space-y-3 mb-6 md:mb-8">
                   <a 
                     href="tel:+31207952100" 
                     className="flex items-center gap-3 text-foreground hover:text-accent transition-all duration-300 group"

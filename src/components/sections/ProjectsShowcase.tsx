@@ -58,23 +58,23 @@ const ProjectsShowcase = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-muted/30">
-      <div className="container">
+    <section ref={sectionRef} className="py-12 md:py-20 lg:py-24 bg-muted/30">
+      <div className="container px-4 sm:px-6">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 md:mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 md:gap-4 mb-8 md:mb-14">
           <div className={`transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
-            <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide mb-4">
+            <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide mb-3 md:mb-4">
               Projecten
             </span>
-            <h2 className="text-2xl md:text-4xl font-bold text-primary">
+            <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-primary">
               Recente projecten
             </h2>
           </div>
           <Link 
             to="/projecten"
-            className={`inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors group ${
+            className={`inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors text-sm md:text-base ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -84,7 +84,7 @@ const ProjectsShowcase = () => {
         </div>
 
         {/* Projects Grid - 2x2 layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6">
           {projects.map((project, index) => (
             <Link
               key={project.slug}
