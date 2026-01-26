@@ -71,8 +71,8 @@ const HeaderNew = () => {
     <>
       {/* Top Utility Bar - Hidden on scroll */}
       <div 
-        className={`fixed top-0 left-0 right-0 z-[60] bg-primary text-primary-foreground transition-all duration-300 ${
-          isScrolled ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
+        className={`fixed top-0 left-0 right-0 z-[55] bg-primary text-primary-foreground transition-all duration-300 ${
+          isScrolled ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
         }`}
       >
         <div className="container">
@@ -95,16 +95,19 @@ const HeaderNew = () => {
         </div>
       </div>
 
-      {/* Main Navigation - Always sticky at top */}
+      {/* Main Navigation - ALWAYS sticky at top */}
       <header 
-        className={`fixed left-0 right-0 z-50 bg-background transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 bg-background transition-all duration-300 ease-out ${
           isScrolled 
-            ? "top-0 shadow-lg border-b border-border/50 backdrop-blur-md bg-background/95" 
-            : "top-[36px] md:top-[40px] border-b border-border"
+            ? "shadow-[0_4px_20px_-4px_rgba(0,0,0,0.15)] border-b border-border/30 backdrop-blur-md bg-background/98" 
+            : "shadow-none border-b border-transparent"
         }`}
+        style={{
+          transform: isScrolled ? 'translateY(0)' : 'translateY(36px)',
+        }}
       >
         <nav className="container">
-          <div className="flex items-center justify-between h-14 md:h-16 lg:h-18">
+          <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14 md:h-16' : 'h-16 md:h-18'}`}>
             {/* Logo */}
             <Link to="/" className="flex-shrink-0 relative z-10">
               <img 
