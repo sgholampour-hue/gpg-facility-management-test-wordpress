@@ -34,47 +34,70 @@ const services = [
   {
     icon: ShoppingBag,
     title: "Inkoop",
-    description: "Strategische inkoop van meubilair met scherpe prijzen.",
+    subtitle: "Inrichtingscomponenten",
+    description: "Strategische inkoop van meubilair en inrichting. Wij bieden scherpe prijzen en kwaliteitsgarantie.",
     href: "/diensten#inkoop",
     size: "small",
   },
   {
     icon: Sofa,
-    title: "Projectinrichting",
-    description: "Maatwerk inrichting en stoffering voor een optimale werkplek.",
+    title: "Projectinrichting &",
+    subtitle: "Stoffering",
+    description: "Maatwerk inrichting en stoffering voor een optimale werkplek. Van bureaus tot beplanting, alles uit één hand.",
     href: "/diensten#stoffering",
     size: "small",
   },
 ];
+
+interface ServiceType {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  subtitle?: string;
+  description: string;
+  href: string;
+  size: string;
+}
 
 const ServiceCard = ({ 
   service, 
   isVisible, 
   index 
 }: { 
-  service: typeof services[0]; 
+  service: ServiceType; 
   isVisible: boolean; 
   index: number;
 }) => {
   return (
     <Link
       to={service.href}
-      className={`group relative bg-background border border-border/50 gsa-hoek-sm p-5 md:p-6 transition-all duration-300 
+      className={`group relative bg-background border border-border/50 rounded-tr-2xl rounded-bl-none rounded-br-none rounded-tl-none p-5 md:p-6 pl-7 md:pl-8 transition-all duration-300 
         hover:shadow-[0_10px_40px_-10px_hsl(var(--accent)/0.25)] 
         hover:border-accent/40 
         hover:-translate-y-2 
         hover:bg-gradient-to-br hover:from-background hover:to-accent/5
-        flex flex-col ${
+        flex flex-col overflow-hidden ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
+      {/* Green accent bar left */}
+      <div className="absolute left-0 top-4 bottom-4 w-1 bg-accent rounded-r-full" />
+
       {/* Icon + Title Row */}
       <div className="flex items-start gap-3 mb-3">
-        <service.icon className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-        <h3 className="font-bold text-primary uppercase text-sm md:text-base tracking-wide group-hover:text-accent transition-colors leading-tight">
-          {service.title}
-        </h3>
+        <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg border-2 border-accent/30 bg-accent/5 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 group-hover:border-accent/50 transition-all duration-300">
+          <service.icon className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+        </div>
+        <div className="flex flex-col">
+          <h3 className="font-bold text-primary uppercase text-sm md:text-base tracking-wide group-hover:text-accent transition-colors leading-tight">
+            {service.title}
+          </h3>
+          {service.subtitle && (
+            <span className="font-bold text-primary uppercase text-sm md:text-base tracking-wide group-hover:text-accent transition-colors leading-tight">
+              {service.subtitle}
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Description */}
@@ -88,11 +111,13 @@ const ServiceCard = ({
           Lees meer
           <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
         </span>
-        <ArrowUpRight className="w-5 h-5 text-primary group-hover:text-accent transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <div className="w-9 h-9 rounded-full border-2 border-primary/30 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/5 transition-all duration-300">
+          <ArrowUpRight className="w-4 h-4 text-primary group-hover:text-accent transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </div>
       </div>
 
       {/* Hover border glow */}
-      <div className="absolute inset-0 gsa-hoek-sm border-2 border-transparent group-hover:border-accent/20 transition-colors pointer-events-none" />
+      <div className="absolute inset-0 rounded-tr-2xl border-2 border-transparent group-hover:border-accent/20 transition-colors pointer-events-none" />
     </Link>
   );
 };
