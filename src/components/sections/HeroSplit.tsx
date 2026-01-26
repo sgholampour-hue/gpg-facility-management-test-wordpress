@@ -48,7 +48,7 @@ const HeroSplit = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-[85svh] md:min-h-[85svh] lg:min-h-[95vh] pt-28 sm:pt-32 md:pt-36 lg:pt-28 pb-6 md:pb-12 lg:pb-0 bg-background overflow-hidden"
+      className="relative min-h-[85svh] md:min-h-[85svh] lg:min-h-[95vh] pt-8 sm:pt-12 md:pt-16 lg:pt-8 pb-6 md:pb-12 lg:pb-0 bg-background overflow-hidden"
     >
       {/* Gradient Mesh Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-muted/50">

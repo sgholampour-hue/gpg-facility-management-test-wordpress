@@ -31,20 +31,20 @@ const TestimonialsNew = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-20 lg:py-24 bg-primary relative overflow-hidden">
+    <section ref={sectionRef} className="py-12 md:py-20 lg:py-24 bg-background relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
       <div className="container relative z-10 px-4 sm:px-6">
         {/* Header */}
         <div className={`text-center mb-8 md:mb-14 transition-all duration-700 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-accent text-xs font-semibold uppercase tracking-wide mb-3 md:mb-4">
+          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-accent text-xs font-semibold uppercase tracking-wide mb-3 md:mb-4">
             Klantreviews
           </span>
-          <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-white">
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-primary">
             Wat klanten zeggen
           </h2>
         </div>
@@ -53,14 +53,14 @@ const TestimonialsNew = () => {
         <div className={`relative max-w-3xl mx-auto transition-all duration-700 delay-200 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          <div className="bg-white/10 backdrop-blur-sm gsa-hoek-lg p-6 sm:p-8 md:p-12 text-center transition-all duration-300 hover:bg-white/15">
+          <div className="bg-muted/50 border border-border/50 gsa-hoek-lg p-6 sm:p-8 md:p-12 text-center transition-all duration-300 hover:bg-muted/70 hover:border-accent/30">
             {/* Quote Icon */}
-            <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6 md:mb-8 transition-all duration-300 hover:scale-110 hover:bg-accent/30">
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6 md:mb-8 transition-all duration-300 hover:scale-110 hover:bg-accent/20">
               <Quote className="w-5 h-5 md:w-6 md:h-6 text-accent" />
             </div>
 
             {/* Quote Text */}
-            <p className="text-lg sm:text-xl md:text-2xl text-white leading-relaxed mb-8 md:mb-10">
+            <p className="text-lg sm:text-xl md:text-2xl text-primary leading-relaxed mb-8 md:mb-10">
               "{testimonial.quote}"
             </p>
 
@@ -70,8 +70,8 @@ const TestimonialsNew = () => {
                 {testimonial.initials}
               </div>
               <div className="text-left">
-                <p className="font-semibold text-white text-lg">{testimonial.author}</p>
-                <p className="text-sm text-white/70">{testimonial.role}, {testimonial.company}</p>
+                <p className="font-semibold text-primary text-lg">{testimonial.author}</p>
+                <p className="text-sm text-muted-foreground">{testimonial.role}, {testimonial.company}</p>
               </div>
             </div>
           </div>
