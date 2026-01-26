@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Users, Award, Calendar, RefreshCw } from "lucide-react";
-import teamPhoto from "@/assets/gpg-team-lobby.jpg";
+import teamWim from "@/assets/team-wim-gruijters.png";
+import teamDanny from "@/assets/team-danny-moeljoredjo.png";
+import teamPatricia from "@/assets/team-patricia-nijholt.png";
 
 const features = [
   {
@@ -98,34 +100,72 @@ const WhyGPG = () => {
             </div>
           </div>
 
-          {/* Right: Image - Hidden on mobile, shown on lg+ */}
+          {/* Right: Team Members - Hidden on mobile, shown on lg+ */}
           <div
             className={`relative transition-all duration-700 delay-300 hidden lg:block ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
             }`}
           >
-            <div className="relative">
-              <img
-                src={teamPhoto}
-                alt="GPG Team"
-                className="w-full h-auto gsa-hoek-tr-lg shadow-card"
-              />
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-accent/10 gsa-hoek-bl -z-10" />
-              <div className="absolute -top-4 -right-4 w-32 h-32 bg-primary/5 gsa-hoek-tr -z-10" />
+            <div className="grid grid-cols-3 gap-4">
+              <div className="text-center">
+                <img
+                  src={teamWim}
+                  alt="Wim Gruijters - GPG Management"
+                  className="w-full aspect-square object-cover rounded-full shadow-card mb-3"
+                />
+                <h4 className="font-semibold text-primary text-sm">Wim Gruijters</h4>
+              </div>
+              <div className="text-center">
+                <img
+                  src={teamDanny}
+                  alt="Danny Moeljoredjo - GPG Management"
+                  className="w-full aspect-square object-cover rounded-full shadow-card mb-3"
+                />
+                <h4 className="font-semibold text-primary text-sm">Danny Moeljoredjo</h4>
+              </div>
+              <div className="text-center">
+                <img
+                  src={teamPatricia}
+                  alt="Patricia Nijholt - GPG Management"
+                  className="w-full aspect-square object-cover rounded-full shadow-card mb-3"
+                />
+                <h4 className="font-semibold text-primary text-sm">Patricia Nijholt</h4>
+              </div>
             </div>
           </div>
 
-          {/* Mobile Image - Shown only on mobile */}
+          {/* Mobile Team Members - Shown only on mobile */}
           <div
             className={`relative transition-all duration-700 delay-300 lg:hidden ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <img
-              src={teamPhoto}
-              alt="GPG Team"
-              className="w-full h-auto rounded-lg shadow-card"
-            />
+            <div className="grid grid-cols-3 gap-3">
+              <div className="text-center">
+                <img
+                  src={teamWim}
+                  alt="Wim Gruijters"
+                  className="w-full aspect-square object-cover rounded-full shadow-card mb-2"
+                />
+                <h4 className="font-semibold text-primary text-xs">Wim Gruijters</h4>
+              </div>
+              <div className="text-center">
+                <img
+                  src={teamDanny}
+                  alt="Danny Moeljoredjo"
+                  className="w-full aspect-square object-cover rounded-full shadow-card mb-2"
+                />
+                <h4 className="font-semibold text-primary text-xs">Danny Moeljoredjo</h4>
+              </div>
+              <div className="text-center">
+                <img
+                  src={teamPatricia}
+                  alt="Patricia Nijholt"
+                  className="w-full aspect-square object-cover rounded-full shadow-card mb-2"
+                />
+                <h4 className="font-semibold text-primary text-xs">Patricia Nijholt</h4>
+              </div>
+            </div>
           </div>
         </div>
       </div>
