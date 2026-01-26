@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Mail, MapPin, Wrench, Truck, Building2, HardHat, ShoppingCart, Palette, ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -27,6 +27,8 @@ const HeaderNew = () => {
   const [mobileDienstenOpen, setMobileDienstenOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,13 +38,34 @@ const HeaderNew = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle clicking outside dropdown
   useEffect(() => {
-    const handleClickOutside = () => setDienstenOpen(false);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDienstenOpen(false);
+      }
+    };
+    
     if (dienstenOpen) {
-      document.addEventListener("click", handleClickOutside);
-      return () => document.removeEventListener("click", handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [dienstenOpen]);
+
+  // Delayed close for smooth dropdown interaction
+  const handleMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setDienstenOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setDienstenOpen(false);
+    }, 150); // Small delay to allow moving to dropdown
+  };
 
   return (
     <>
@@ -98,21 +121,20 @@ const HeaderNew = () => {
                   <div 
                     key={link.href}
                     className="relative"
-                    onMouseEnter={() => link.hasDropdown && setDienstenOpen(true)}
-                    onMouseLeave={() => link.hasDropdown && setDienstenOpen(false)}
+                    ref={link.hasDropdown ? dropdownRef : undefined}
+                    onMouseEnter={() => link.hasDropdown && handleMouseEnter()}
+                    onMouseLeave={() => link.hasDropdown && handleMouseLeave()}
                   >
                     {link.hasDropdown ? (
                       <>
-                        <button
+                        <Link
+                          to="/diensten"
                           className={`relative px-4 py-2 text-sm font-medium transition-all duration-200 flex items-center gap-1.5 group/nav ${
                             location.pathname.startsWith("/diensten")
                               ? "text-primary"
                               : "text-foreground"
                           }`}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setDienstenOpen(!dienstenOpen);
-                          }}
+                          onClick={() => setDienstenOpen(false)}
                         >
                           {link.label}
                           <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dienstenOpen ? 'rotate-180' : ''}`} />
@@ -120,42 +142,44 @@ const HeaderNew = () => {
                           <span className={`absolute bottom-0 left-4 right-4 h-0.5 bg-accent transition-transform duration-300 origin-left ${
                             location.pathname.startsWith("/diensten") ? "scale-x-100" : "scale-x-0 group-hover/nav:scale-x-100"
                           }`} />
-                        </button>
+                        </Link>
                         
-                        {/* Mega Menu Dropdown */}
-                        {dienstenOpen && (
-                          <div 
-                            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] z-50"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <div className="bg-background rounded-2xl shadow-2xl border border-border/50 p-4 animate-fade-in">
-                              <div className="grid grid-cols-2 gap-2">
-                                {dienstenLinks.map((dienst) => (
-                                  <Link
-                                    key={dienst.href}
-                                    to={dienst.href}
-                                    onClick={() => setDienstenOpen(false)}
-                                    className="flex items-center gap-3 p-3 rounded-xl text-sm text-foreground hover:bg-muted transition-all duration-200 group"
-                                  >
-                                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors">
-                                      <dienst.icon className="w-5 h-5 text-accent group-hover:text-white" />
-                                    </div>
-                                    <span className="font-medium">{dienst.label}</span>
-                                  </Link>
-                                ))}
-                              </div>
-                              <div className="border-t border-border mt-3 pt-3">
+                        {/* Mega Menu Dropdown with bridge element */}
+                        <div 
+                          className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[480px] z-50 transition-all duration-200 ${
+                            dienstenOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+                          }`}
+                        >
+                          {/* Invisible bridge to prevent gap */}
+                          <div className="absolute -top-2 left-0 right-0 h-4" />
+                          
+                          <div className="bg-background rounded-2xl shadow-2xl border border-border/50 p-4">
+                            <div className="grid grid-cols-2 gap-2">
+                              {dienstenLinks.map((dienst) => (
                                 <Link
-                                  to="/diensten"
+                                  key={dienst.href}
+                                  to={dienst.href}
                                   onClick={() => setDienstenOpen(false)}
-                                  className="flex items-center justify-center gap-2 py-2 text-sm font-semibold text-primary hover:text-accent transition-colors"
+                                  className="flex items-center gap-3 p-3 rounded-xl text-sm text-foreground hover:bg-muted transition-all duration-200 group"
                                 >
-                                  Bekijk alle diensten →
+                                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors">
+                                    <dienst.icon className="w-5 h-5 text-accent group-hover:text-white" />
+                                  </div>
+                                  <span className="font-medium">{dienst.label}</span>
                                 </Link>
-                              </div>
+                              ))}
+                            </div>
+                            <div className="border-t border-border mt-3 pt-3">
+                              <Link
+                                to="/diensten"
+                                onClick={() => setDienstenOpen(false)}
+                                className="flex items-center justify-center gap-2 py-2 text-sm font-semibold text-primary hover:text-accent transition-colors"
+                              >
+                                Bekijk alle diensten →
+                              </Link>
                             </div>
                           </div>
-                        )}
+                        </div>
                       </>
                     ) : (
                       <Link
@@ -178,8 +202,8 @@ const HeaderNew = () => {
               </div>
 
               <div className="ml-6 pl-6 border-l border-border">
-                <Button variant="default" size="default" className="rounded-full" asChild>
-                  <Link to="/contact">Contact</Link>
+                <Button variant="default" size="default" className="gsa-hoek-sm" asChild>
+                  <Link to="/contact">Neem contact op</Link>
                 </Button>
               </div>
             </div>
@@ -269,9 +293,9 @@ const HeaderNew = () => {
               </a>
             </div>
             
-            <Button variant="default" className="w-full mt-4 rounded-full" asChild>
+            <Button variant="default" className="w-full mt-4 gsa-hoek-sm" asChild>
               <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                Neem Contact Op
+                Neem contact op
               </Link>
             </Button>
           </div>

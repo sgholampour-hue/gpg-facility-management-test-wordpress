@@ -7,7 +7,7 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO from "@/components/SEO";
 import CountUp from "@/components/ui/CountUp";
 import ScrollToTop from "@/components/ui/ScrollToTop";
-import StickyContactButton from "@/components/ui/StickyContactButton";
+import MobileCTABar from "@/components/ui/MobileCTABar";
 
 const circularPrincipes = [
   {
@@ -65,7 +65,7 @@ const certificeringen = [
 
 const Duurzaamheid = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-16 md:pb-0">
       <SEO
         title="Duurzaamheid & Circulariteit"
         description="Ontdek onze circulaire aanpak bij GPG Facility Management. Circulariteit staat voorop in elk project: van duurzame materialen tot verantwoorde afvoer."
@@ -287,7 +287,7 @@ const Duurzaamheid = () => {
         </section>
       </main>
       <Footer />
-      <StickyContactButton />
+      <MobileCTABar />
       <ScrollToTop />
     </div>
   );

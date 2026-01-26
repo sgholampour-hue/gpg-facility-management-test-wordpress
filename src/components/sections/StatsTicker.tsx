@@ -60,29 +60,29 @@ const StatsTicker = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="py-8 md:py-12 bg-primary relative overflow-hidden"
+      className="py-6 md:py-10 lg:py-12 bg-primary relative overflow-hidden"
     >
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
-      <div className="container relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+      <div className="container relative z-10 px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {stats.map((stat, index) => (
             <div 
               key={stat.label}
               className={`text-center transition-all duration-700 group/stat cursor-default ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 mb-3 transition-all duration-300 group-hover/stat:bg-accent/20 group-hover/stat:scale-110">
-                <stat.icon className="w-5 h-5 text-accent transition-transform duration-300 group-hover/stat:rotate-12" />
+              <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 mb-2 md:mb-3 transition-all duration-300 group-hover/stat:bg-accent/20 group-hover/stat:scale-110 group-hover/stat:rotate-3">
+                <stat.icon className="w-4 h-4 md:w-5 md:h-5 text-accent transition-transform duration-300 group-hover/stat:rotate-12 group-hover/stat:scale-110" />
               </div>
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-300 group-hover/stat:scale-105">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-0.5 md:mb-1 transition-all duration-300 group-hover/stat:scale-105 group-hover/stat:text-accent">
                 {counts[index]}{stat.suffix}
               </div>
-              <div className="text-xs md:text-sm text-white/70 uppercase tracking-wide transition-colors duration-300 group-hover/stat:text-white/90">
+              <div className="text-[10px] sm:text-xs md:text-sm text-white/70 uppercase tracking-wide transition-colors duration-300 group-hover/stat:text-white/90">
                 {stat.label}
               </div>
             </div>

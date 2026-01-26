@@ -7,7 +7,7 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { CountUp } from "@/components/ui/CountUp";
 import SEO from "@/components/SEO";
 import ScrollToTop from "@/components/ui/ScrollToTop";
-import StickyContactButton from "@/components/ui/StickyContactButton";
+import MobileCTABar from "@/components/ui/MobileCTABar";
 import gsaLogo from "@/assets/gsa-groep-logo.png";
 import gpgTeamLobby from "@/assets/gpg-team-lobby-new.jpg";
 import gpgWorker from "@/assets/gpg-worker.jpg";
@@ -55,7 +55,7 @@ const kernwaarden = [
 
 const OverOns = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-16 md:pb-0">
       <SEO
         title="Over Ons"
         description="GPG Facility Management, onderdeel van de GSA Groep, levert al 40+ jaar professionele facilitaire diensten."
@@ -378,7 +378,7 @@ const OverOns = () => {
         </section>
       </main>
       <Footer />
-      <StickyContactButton />
+      <MobileCTABar />
       <ScrollToTop />
     </div>
   );

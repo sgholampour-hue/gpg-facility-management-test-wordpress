@@ -7,7 +7,7 @@ import SEO, { serviceSchema } from "@/components/SEO";
 import LazyImage from "@/components/ui/LazyImage";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import ScrollToTop from "@/components/ui/ScrollToTop";
-import StickyContactButton from "@/components/ui/StickyContactButton";
+import MobileCTABar from "@/components/ui/MobileCTABar";
 
 import dienstHandyman from "@/assets/dienst-handyman-new.jpg";
 import dienstVerhuizen from "@/assets/dienst-verhuizen-new.jpg";
@@ -194,7 +194,7 @@ const ServiceSection = ({
 
 const Diensten = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-16 md:pb-0">
       <SEO
         title="Diensten"
         description="Ontdek onze facilitaire diensten: handyman, verhuizingen, integrated facilities, fit-outs, inkoop en stoffering. Complete oplossingen voor uw organisatie."
@@ -263,7 +263,7 @@ const Diensten = () => {
         </section>
       </main>
       <Footer />
-      <StickyContactButton />
+      <MobileCTABar />
       <ScrollToTop />
     </div>
   );
