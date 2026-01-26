@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, Linkedin } from "lucide-react";
-
 const Footer = () => {
-  return (
-    <footer className="bg-primary text-primary-foreground">
+  return <footer className="bg-primary text-primary-foreground">
       {/* Main footer content */}
       <div className="container py-10 md:py-16 lg:py-20 px-4 md:px-6">
         {/* Top section with logo and tagline */}
@@ -14,7 +12,7 @@ const Footer = () => {
           <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white leading-tight max-w-md">
             Facilitaire diensten voor engineering, realisatie en beheer
           </h3>
-          <p className="text-white/60 text-xs sm:text-sm mt-1 md:mt-2">Onderdeel van GSA Groep</p>
+          <p className="text-white/60 text-xs sm:text-sm mt-1 md:mt-2">Onderdeel van GSA groep</p>
         </div>
 
         {/* Grid with columns */}
@@ -36,17 +34,11 @@ const Footer = () => {
               Contact
             </h4>
             <div className="space-y-2 text-white/70 text-sm">
-              <a 
-                href="tel:+31207952100" 
-                className="flex items-center gap-2 hover:text-white transition-colors"
-              >
+              <a href="tel:+31207952100" className="flex items-center gap-2 hover:text-white transition-colors">
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 020 - 795 21 00
               </a>
-              <a 
-                href="mailto:info@gpgfacilities.nl" 
-                className="flex items-center gap-2 hover:text-white transition-colors"
-              >
+              <a href="mailto:info@gpgfacilities.nl" className="flex items-center gap-2 hover:text-white transition-colors">
                 <Mail className="w-4 h-4 flex-shrink-0" />
                 info@gpgfacilities.nl
               </a>
@@ -138,20 +130,12 @@ const Footer = () => {
                 Privacyverklaring
               </Link>
             </div>
-            <a 
-              href="https://www.linkedin.com/company/gpg-facility-management" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white/50 hover:text-white transition-colors"
-              aria-label="Volg GPG op LinkedIn"
-            >
+            <a href="https://www.linkedin.com/company/gpg-facility-management" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors" aria-label="Volg GPG op LinkedIn">
               <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
