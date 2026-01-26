@@ -9,12 +9,12 @@ import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 
-import dienstHandyman from "@/assets/dienst-handyman.jpg";
+import dienstHandyman from "@/assets/dienst-handyman-new.jpg";
 import dienstVerhuizen from "@/assets/dienst-verhuizen.jpg";
 import dienstFacilities from "@/assets/dienst-facilities.jpg";
 import dienstFitout from "@/assets/dienst-fitout.jpg";
-import dienstInkoop from "@/assets/dienst-inkoop.jpg";
-import dienstStoffering from "@/assets/dienst-stoffering.jpg";
+import dienstInkoop from "@/assets/dienst-inkoop-new.jpg";
+import dienstStoffering from "@/assets/dienst-stoffering-new.jpg";
 
 const services = [
   {
