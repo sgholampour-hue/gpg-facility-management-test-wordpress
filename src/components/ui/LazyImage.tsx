@@ -51,8 +51,22 @@ const LazyImage = memo(({
       {/* Skeleton loader */}
       {!isLoaded && <div className={cn("absolute inset-0 bg-gradient-to-r from-muted via-muted/70 to-muted animate-shimmer bg-[length:200%_100%]", skeletonClassName)} aria-hidden="true" />}
 
-      {/* Actual image with WebP support */}
-      {isInView}
+      {/* Actual image */}
+      {isInView && (
+        <img
+          src={src}
+          alt={alt}
+          sizes={sizes}
+          onLoad={() => setIsLoaded(true)}
+          className={cn(
+            "w-full h-full object-cover transition-opacity duration-500",
+            isLoaded ? "opacity-100" : "opacity-0"
+          )}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          {...props}
+        />
+      )}
     </div>;
 });
 LazyImage.displayName = "LazyImage";

@@ -38,7 +38,7 @@ const services = [
     icon: Truck,
     title: "Verhuizen",
     subtitle: "Zorgeloze kantoorverhuizing",
-    description: "Een kantoorverhuizing vraagt om specialistische kennis en een strak gecoördineerde aanpak. GPG verzorgt jouw complete verhuizing van A tot Z, zodat je je kunt focussen op je core business.",
+    description: "Een kantoorverhuizing vraagt om specialistische kennis en een strak gecoördineerde aanpak, zodat je je kunt focussen op je core business.",
     features: [
       "Volledige projectcoördinatie",
       "Professionele in- en uitpak service",
@@ -54,7 +54,7 @@ const services = [
     icon: Building2,
     title: "Integrated Facilities",
     subtitle: "Complete facilitaire ontzorging",
-    description: "Eén aanspreekpunt voor al jouw facilitaire diensten. Wij integreren alle aspecten van gebouwbeheer tot één naadloze service, waardoor je je volledig kunt richten op je kernactiviteiten.",
+    description: "Eén aanspreekpunt voor al jouw facilitaire diensten. Wij integreren alle aspecten van gebouwbeheer tot één naadloze service, zorgvuldig en professioneel, waardoor je je volledig kunt richten op je kernactiviteiten.",
     features: [
       "Gebouwbeheer en -onderhoud",
       "Schoonmaak en hygiëne",
@@ -75,9 +75,9 @@ const services = [
       "Projectmanagement en coördinatie",
       "Bouwkundige werkzaamheden",
       "Elektrotechnische installaties",
-      "Klimaatbeheersing (HVAC)",
+      "Klimaattechniek (HVAC)",
       "Akoestische oplossingen",
-      "Brandveiligheid en compliance"
+      "Audiovisueel"
     ],
     image: dienstFitout
   },
@@ -86,13 +86,13 @@ const services = [
     icon: ShoppingCart,
     title: "Inkoop van inrichtingscomponenten",
     subtitle: "Slim en voordelig inkopen",
-    description: "Profiteer van onze inkoopkracht en expertise. Wij leveren hoogwaardige kantoormeubilair en inrichtingscomponenten tegen scherpe prijzen, met advies over ergonomie en duurzaamheid. Alle materialen zijn zorgvuldig geselecteerd en worden circulair ingezet voor een verantwoorde keuze.",
+    description: "Profiteer van onze inkoopkracht en expertise. Wij leveren hoogwaardige kantoormeubilair en inrichtingscomponenten tegen scherpe prijzen, met advies over ergonomie en duurzaamheid. Alle inrichtingscomponenten zijn zorgvuldig geselecteerd. Waar mogelijk verwerken we circulaire materialen en componenten in jouw projectvoorstel.",
     features: [
       "Bureaus en werkpleksystemen",
       "Ergonomische bureaustoelen",
       "Vergadermeubilair",
       "Opbergsystemen en kasten",
-      "Akoestische panelen",
+      "Interieurbouw",
       "Circulaire en duurzame materialen"
     ],
     image: dienstInkoop
@@ -104,12 +104,12 @@ const services = [
     subtitle: "Sfeer en functionaliteit",
     description: "De finishing touch voor jouw kantoor. Onze stofferings- en inrichtingsspecialisten zorgen voor een professionele uitstraling die past bij jouw bedrijfsidentiteit en bijdraagt aan het werkplezier.",
     features: [
+      "Interieur advies",
+      "Digitale ontwerptekening",
       "Raambekleding op maat",
       "Vloerbedekking en tapijttegels",
       "Meubelstoffering",
-      "Akoestische wandbekleding",
-      "Kunst en decoratie",
-      "Signing en wayfinding"
+      "Kunst en decoratie"
     ],
     image: dienstStoffering
   }
