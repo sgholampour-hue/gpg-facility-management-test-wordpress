@@ -1,0 +1,179 @@
+import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { CheckCircle2, ArrowRight } from "lucide-react";
+import heroImage from "@/assets/hero-office.jpg";
+
+const highlights = [
+  "15+ jaar ervaring",
+  "Eén vast aanspreekpunt",
+  "Flexibel & betrouwbaar",
+  "Premium kwaliteit"
+];
+
+const HeroSplit = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <section 
+      ref={heroRef}
+      className="relative min-h-[90svh] lg:min-h-[95vh] pt-32 md:pt-36 lg:pt-24 pb-12 lg:pb-0 bg-background"
+    >
+      {/* Gradient Mesh Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-muted/50">
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-accent/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-primary/5 to-transparent rounded-full blur-3xl" />
+      </div>
+
+      <div className="container relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center lg:min-h-[70vh]">
+          
+          {/* Left: Content */}
+          <div className="order-2 lg:order-1 space-y-6 lg:space-y-8">
+            {/* Badge */}
+            <div 
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-sm font-medium text-accent">GPG Facility Management</span>
+            </div>
+
+            {/* Headline */}
+            <h1 
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-[1.1] transition-all duration-700 delay-100 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
+              Facilitaire diensten met een{" "}
+              <span className="relative">
+                <span className="relative z-10">persoonlijke</span>
+                <span className="absolute bottom-2 left-0 w-full h-3 bg-accent/20 -z-0 rounded" />
+              </span>{" "}
+              benadering.
+            </h1>
+
+            {/* Subtitle */}
+            <p 
+              className={`text-base md:text-lg text-muted-foreground max-w-lg leading-relaxed transition-all duration-700 delay-200 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
+              Complete facilitaire ondersteuning voor kantoren en bedrijven. 
+              Vakwerk, flexibiliteit en een partner die meedenkt bij elk project.
+            </p>
+
+            {/* Highlights */}
+            <div 
+              className={`grid grid-cols-2 gap-3 transition-all duration-700 delay-300 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
+              {highlights.map((item, index) => (
+                <div 
+                  key={item}
+                  className="flex items-center gap-2 text-sm text-foreground/80"
+                  style={{ transitionDelay: `${300 + index * 50}ms` }}
+                >
+                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTAs */}
+            <div 
+              className={`flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 transition-all duration-700 delay-400 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
+              <Button 
+                variant="default" 
+                size="lg" 
+                className="rounded-full group" 
+                asChild
+              >
+                <Link to="/contact" className="flex items-center gap-2">
+                  Neem contact op
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="rounded-full"
+                asChild
+              >
+                <Link to="/projecten">Bekijk projecten</Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right: Visual */}
+          <div 
+            className={`order-1 lg:order-2 relative transition-all duration-1000 delay-200 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+            }`}
+          >
+            {/* Main Image Container */}
+            <div className="relative">
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-accent/30 rounded-3xl -z-10" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/5 rounded-3xl -z-10" />
+              
+              {/* Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src={heroImage} 
+                  alt="Modern kantooromgeving met professionele faciliteiten"
+                  className="w-full aspect-[4/3] lg:aspect-[4/5] object-cover"
+                  loading="eager"
+                  decoding="sync"
+                  fetchPriority="high"
+                />
+                
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
+              </div>
+
+              {/* Floating Stats Card */}
+              <div 
+                className={`absolute -bottom-6 -left-6 lg:-left-12 bg-background rounded-2xl shadow-xl border border-border/50 p-4 md:p-5 transition-all duration-700 delay-500 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-accent">15+</span>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Jaar ervaring</p>
+                    <p className="text-xs text-muted-foreground">in facility management</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Badge */}
+              <div 
+                className={`absolute -top-3 -right-3 lg:top-6 lg:-right-6 bg-accent text-white px-4 py-2 rounded-full shadow-lg transition-all duration-700 delay-600 ${
+                  isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                }`}
+              >
+                <span className="text-xs font-semibold uppercase tracking-wide">Premium kwaliteit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSplit;
