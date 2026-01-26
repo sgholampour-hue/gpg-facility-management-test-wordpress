@@ -26,7 +26,7 @@ const homeFAQs = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen pb-16 md:pb-0">
+    <div className="min-h-screen pb-16 md:pb-0 pt-[86px] md:pt-[96px]">
       <SEO
         title="Professionele Facilitaire Dienstverlening"
         description={pageMetaData.home.description}
