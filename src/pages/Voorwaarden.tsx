@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header";
+import HeaderNew from "@/components/layout/HeaderNew";
 import Footer from "@/components/layout/Footer";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO from "@/components/SEO";
@@ -11,7 +11,7 @@ const Voorwaarden = () => {
         description="Lees de algemene voorwaarden van GPG Facility Management voor onze facilitaire dienstverlening."
         canonical="https://gpg-facility.lovable.app/voorwaarden"
       />
-      <Header />
+      <HeaderNew />
       <main>
         {/* Hero Section */}
         <section className="pt-24 md:pt-32 pb-10 md:pb-16 bg-primary">

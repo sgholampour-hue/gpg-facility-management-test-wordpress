@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header";
+import HeaderNew from "@/components/layout/HeaderNew";
 import Footer from "@/components/layout/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -61,7 +61,7 @@ const OverOns = () => {
         description="GPG Facility Management, onderdeel van de GSA Groep, levert al 40+ jaar professionele facilitaire diensten."
         canonical="https://gpg-facility.lovable.app/over-ons"
       />
-      <Header />
+      <HeaderNew />
       <main>
         {/* Hero Section */}
         <section className="pt-20 md:pt-28 pb-8 md:pb-12 bg-primary">

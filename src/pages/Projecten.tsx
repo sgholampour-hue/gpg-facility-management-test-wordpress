@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header";
+import HeaderNew from "@/components/layout/HeaderNew";
 import Footer from "@/components/layout/Footer";
 import FAQSection from "@/components/sections/FAQSection";
 import { Link } from "react-router-dom";
@@ -47,7 +47,7 @@ const Projecten = () => {
         description="Bekijk onze projecten: van Booking.com fit-outs tot Schiphol werkplekbeheer. Ontdek wat GPG Facility Management voor uw organisatie kan betekenen."
         canonical="https://gpg-facility.lovable.app/projecten"
       />
-      <Header />
+      <HeaderNew />
       <main>
         {/* Hero section */}
         <section className="pt-24 md:pt-40 pb-12 md:pb-20 bg-gpg-cream">

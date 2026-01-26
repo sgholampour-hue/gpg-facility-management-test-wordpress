@@ -23,7 +23,7 @@ const HeroSplit = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-[90svh] lg:min-h-[95vh] pt-32 md:pt-36 lg:pt-24 pb-12 lg:pb-0 bg-background"
+      className="relative min-h-[85svh] md:min-h-[90svh] lg:min-h-[95vh] pt-28 md:pt-32 lg:pt-24 pb-8 md:pb-12 lg:pb-0 bg-background overflow-hidden"
     >
       {/* Gradient Mesh Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-muted/50">
@@ -48,7 +48,7 @@ const HeroSplit = () => {
 
             {/* Headline */}
             <h1 
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-[1.1] transition-all duration-700 delay-100 ${
+              className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary leading-[1.15] transition-all duration-700 delay-100 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >

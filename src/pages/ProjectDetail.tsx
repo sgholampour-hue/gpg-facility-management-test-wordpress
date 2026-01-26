@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import Header from "@/components/layout/Header";
+import HeaderNew from "@/components/layout/HeaderNew";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, MapPin, Calendar, Ruler, Building2 } from "lucide-react";
@@ -110,7 +110,7 @@ const ProjectDetail = () => {
   if (!project) {
     return (
       <div className="min-h-screen page-enter">
-        <Header />
+        <HeaderNew />
         <main className="pt-40 pb-20">
           <div className="container text-center">
             <h1 className="text-4xl font-bold text-primary mb-4">
@@ -134,7 +134,7 @@ const ProjectDetail = () => {
         canonical={`https://gpg-facility.lovable.app/projecten/${slug}`}
         type="article"
       />
-      <Header />
+      <HeaderNew />
       <main>
         {/* Hero */}
         <section className="relative min-h-[60vh] flex items-end pt-32">

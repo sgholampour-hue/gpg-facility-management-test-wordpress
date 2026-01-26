@@ -62,9 +62,9 @@ const ServiceCard = ({
   return (
     <Link
       to={service.href}
-      className={`group relative bg-background border border-border/50 gsa-hoek-sm p-6 transition-all duration-300 hover:shadow-xl hover:border-accent/30 hover:-translate-y-1 ${
+      className={`group relative bg-background border border-border/50 gsa-hoek-sm p-4 md:p-6 transition-all duration-300 hover:shadow-xl hover:border-accent/30 hover:-translate-y-1 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      } ${isLarge ? "md:col-span-2 md:row-span-2" : ""} ${isMedium ? "md:col-span-2" : ""}`}
+      } ${isLarge ? "sm:col-span-2 md:col-span-2 md:row-span-2" : ""} ${isMedium ? "sm:col-span-2 md:col-span-2" : ""}`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
       {/* Icon */}
@@ -79,13 +79,13 @@ const ServiceCard = ({
       </div>
 
       {/* Content */}
-      <h3 className={`font-bold text-primary mb-2 group-hover:text-accent transition-colors ${
-        isLarge ? "text-xl md:text-2xl" : "text-base md:text-lg"
+      <h3 className={`font-bold text-primary mb-1 md:mb-2 group-hover:text-accent transition-colors line-clamp-2 ${
+        isLarge ? "text-base sm:text-lg md:text-2xl" : "text-sm md:text-lg"
       }`}>
         {service.title}
       </h3>
-      <p className={`text-muted-foreground leading-relaxed ${
-        isLarge ? "text-sm md:text-base" : "text-xs md:text-sm"
+      <p className={`text-muted-foreground leading-relaxed line-clamp-3 ${
+        isLarge ? "text-xs sm:text-sm md:text-base" : "text-xs md:text-sm"
       }`}>
         {service.description}
       </p>
@@ -152,7 +152,7 @@ const ServicesBento = () => {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}
