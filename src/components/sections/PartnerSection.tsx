@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import gsaFleet from "@/assets/gsa-fleet.jpg";
+import gsaHubLocatie from "@/assets/gsa-hub-locatie.jpg";
 
 const PartnerSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,8 +36,8 @@ const PartnerSection = () => {
           >
             <div className="relative">
               <img
-                src={gsaFleet}
-                alt="GSA Groep wagenpark"
+                src={gsaHubLocatie}
+                alt="GPG HUB locatie met wagenpark"
                 className="w-full h-auto gsa-hoek-tr-lg shadow-card"
               />
             </div>

@@ -10,11 +10,13 @@ import ScrollToTop from "@/components/ui/ScrollToTop";
 import StickyContactButton from "@/components/ui/StickyContactButton";
 import gsaLogo from "@/assets/gsa-groep-logo.png";
 import gpgTeamLobby from "@/assets/gpg-team-lobby-new.jpg";
-import gpgTeam from "@/assets/gpg-team.jpg";
 import gpgWorker from "@/assets/gpg-worker.jpg";
 import gpgMovers from "@/assets/gpg-movers.jpg";
 import gsaDochtersImage from "@/assets/gsa-groep-dochters.png";
 import gsaOrganisatie from "@/assets/gsa-organisatie.png";
+import teamWim from "@/assets/team-wim-gruijters.png";
+import teamDanny from "@/assets/team-danny-moeljoredjo.png";
+import teamPatricia from "@/assets/team-patricia-nijholt.png";
 
 const kernwaarden = [
   { icon: Handshake, title: "Betrouwbaar" },
@@ -232,26 +234,64 @@ const OverOns = () => {
                   </ul>
                 </RevealOnScroll>
               </div>
-              <div className="grid grid-cols-2 gap-2 md:gap-3">
-                <RevealOnScroll variant="scale-in">
-                  <img
-                    src={gpgWorker}
-                    alt="GPG technicus installeert verlichting in kantoorruimte"
-                    loading="lazy"
-                    decoding="async"
-                    className="gsa-hoek-tr-lg w-full h-28 sm:h-36 md:h-48 object-cover"
-                  />
-                </RevealOnScroll>
-                <RevealOnScroll variant="scale-in" delay={150}>
-                  <img
-                    src={gpgMovers}
-                    alt="GPG verhuisteam verplaatst kantoormeubelen"
-                    loading="lazy"
-                    decoding="async"
-                    className="gsa-hoek-tl-lg w-full h-28 sm:h-36 md:h-48 object-cover mt-3 md:mt-6"
-                  />
-                </RevealOnScroll>
-              </div>
+              
+              {/* Team Member Photos */}
+              <RevealOnScroll variant="scale-in" delay={200}>
+                <div className="grid grid-cols-3 gap-3 md:gap-4">
+                  <div className="text-center">
+                    <img
+                      src={teamWim}
+                      alt="Wim Gruijters - GPG Management"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full aspect-square object-cover rounded-full shadow-card mb-2 md:mb-3"
+                    />
+                    <h4 className="font-semibold text-white text-xs md:text-sm">Wim Gruijters</h4>
+                  </div>
+                  <div className="text-center">
+                    <img
+                      src={teamDanny}
+                      alt="Danny Moeljoredjo - GPG Management"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full aspect-square object-cover rounded-full shadow-card mb-2 md:mb-3"
+                    />
+                    <h4 className="font-semibold text-white text-xs md:text-sm">Danny Moeljoredjo</h4>
+                  </div>
+                  <div className="text-center">
+                    <img
+                      src={teamPatricia}
+                      alt="Patricia Nijholt - GPG Management"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full aspect-square object-cover rounded-full shadow-card mb-2 md:mb-3"
+                    />
+                    <h4 className="font-semibold text-white text-xs md:text-sm">Patricia Nijholt</h4>
+                  </div>
+                </div>
+              </RevealOnScroll>
+            </div>
+            
+            {/* Team in action photos */}
+            <div className="grid grid-cols-2 gap-2 md:gap-4 mt-8 md:mt-12">
+              <RevealOnScroll variant="scale-in" delay={300}>
+                <img
+                  src={gpgWorker}
+                  alt="GPG technicus installeert verlichting in kantoorruimte"
+                  loading="lazy"
+                  decoding="async"
+                  className="gsa-hoek-tr-lg w-full h-28 sm:h-36 md:h-48 object-cover"
+                />
+              </RevealOnScroll>
+              <RevealOnScroll variant="scale-in" delay={400}>
+                <img
+                  src={gpgMovers}
+                  alt="GPG verhuisteam verplaatst kantoormeubelen"
+                  loading="lazy"
+                  decoding="async"
+                  className="gsa-hoek-tl-lg w-full h-28 sm:h-36 md:h-48 object-cover"
+                />
+              </RevealOnScroll>
             </div>
           </div>
         </section>

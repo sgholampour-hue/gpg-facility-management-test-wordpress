@@ -10,7 +10,7 @@ import ScrollToTop from "@/components/ui/ScrollToTop";
 import StickyContactButton from "@/components/ui/StickyContactButton";
 import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
-import projectHub from "@/assets/project-hub.jpg";
+import gsaHubLocatie from "@/assets/gsa-hub-locatie.jpg";
 
 const projects = [
   {
@@ -33,7 +33,7 @@ const projects = [
     slug: "hub-locaties",
     title: "HUB Locaties",
     subtitle: "Bouwlogistieke ondersteuning",
-    image: projectHub,
+    image: gsaHubLocatie,
     stats: ["4 locaties", "Noord & Zuid Holland"],
     period: "Doorlopend",
   },
