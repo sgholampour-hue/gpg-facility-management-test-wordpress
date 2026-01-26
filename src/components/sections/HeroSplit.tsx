@@ -95,7 +95,7 @@ const HeroSplit = () => {
               }`}
             >
               <Button 
-                variant="outline" 
+                variant="outline-accent" 
                 size="lg" 
                 className="gsa-hoek-sm group text-sm sm:text-base" 
                 asChild
@@ -107,7 +107,7 @@ const HeroSplit = () => {
               </Button>
               <Button 
                 size="lg" 
-                className="gsa-hoek-sm text-sm sm:text-base bg-white/10 backdrop-blur-md border-2 border-white/20 text-primary hover:bg-white/20 hover:border-white/30"
+                className="gsa-hoek-sm text-sm sm:text-base bg-white/10 backdrop-blur-md border-2 border-primary/20 text-primary hover:bg-white/20 hover:border-primary/40"
                 asChild
               >
                 <Link to="/projecten">Bekijk projecten</Link>

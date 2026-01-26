@@ -56,51 +56,34 @@ const ServiceCard = ({
   isVisible: boolean; 
   index: number;
 }) => {
-  const isLarge = service.size === "large";
-  const isMedium = service.size === "medium";
-  
   return (
     <Link
       to={service.href}
-      className={`group relative bg-background border border-border/50 gsa-hoek-sm p-4 md:p-6 transition-all duration-300 hover:shadow-xl hover:border-accent/30 hover:-translate-y-1 ${
+      className={`group relative bg-background border border-border/50 gsa-hoek-sm p-5 md:p-6 transition-all duration-300 hover:shadow-xl hover:border-accent/30 hover:-translate-y-1 flex flex-col ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      } ${isLarge ? "sm:col-span-2 md:col-span-2 md:row-span-2" : ""} ${isMedium ? "sm:col-span-2 md:col-span-2" : ""}`}
+      }`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      {/* Icon */}
-      <div className={`mb-4 ${isLarge ? "mb-6" : ""}`}>
-        <div className={`inline-flex items-center justify-center rounded-xl bg-accent/10 group-hover:bg-accent transition-colors duration-300 ${
-          isLarge ? "w-14 h-14" : "w-11 h-11"
-        }`}>
-          <service.icon className={`text-accent group-hover:text-white transition-colors duration-300 ${
-            isLarge ? "w-7 h-7" : "w-5 h-5"
-          }`} />
-        </div>
+      {/* Icon + Title Row */}
+      <div className="flex items-start gap-3 mb-3">
+        <service.icon className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+        <h3 className="font-bold text-primary uppercase text-sm md:text-base tracking-wide group-hover:text-accent transition-colors leading-tight">
+          {service.title}
+        </h3>
       </div>
 
-      {/* Content */}
-      <h3 className={`font-bold text-primary mb-1 md:mb-2 group-hover:text-accent transition-colors line-clamp-2 ${
-        isLarge ? "text-base sm:text-lg md:text-2xl" : "text-sm md:text-lg"
-      }`}>
-        {service.title}
-      </h3>
-      <p className={`text-muted-foreground leading-relaxed line-clamp-3 ${
-        isLarge ? "text-xs sm:text-sm md:text-base" : "text-xs md:text-sm"
-      }`}>
+      {/* Description */}
+      <p className="text-muted-foreground text-sm leading-relaxed flex-grow mb-4">
         {service.description}
       </p>
 
-      {/* Arrow */}
-      <div className={`mt-4 flex items-center justify-between text-primary group-hover:text-accent transition-colors ${
-        isLarge ? "mt-6" : ""
-      }`}>
+      {/* Arrow - Bottom */}
+      <div className="flex items-center justify-between text-primary group-hover:text-accent transition-colors mt-auto">
         <span className="text-xs font-semibold uppercase tracking-wide flex items-center gap-1">
           Lees meer
           <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
         </span>
-        <div className="w-9 h-9 border-2 border-primary/30 rounded-full flex items-center justify-center group-hover:border-accent transition-colors">
-          <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </div>
+        <ArrowUpRight className="w-5 h-5 text-primary group-hover:text-accent transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </div>
 
       {/* Hover border glow */}
@@ -156,8 +139,8 @@ const ServicesBento = () => {
           </p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+        {/* Grid - 3 columns like reference */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}
