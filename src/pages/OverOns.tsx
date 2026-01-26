@@ -9,7 +9,7 @@ import SEO from "@/components/SEO";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 import gsaLogo from "@/assets/gsa-groep-logo.png";
-import gpgTeamLobby from "@/assets/gpg-team-lobby-new.jpg";
+import gpgFullTeam from "@/assets/gpg-full-team.jpg";
 import gpgWorker from "@/assets/gpg-worker.jpg";
 import gpgMovers from "@/assets/gpg-movers.jpg";
 import gsaDochtersImage from "@/assets/gsa-groep-dochters.png";
@@ -141,11 +141,11 @@ const OverOns = () => {
               <RevealOnScroll variant="slide-left" delay={200}>
                 <div className="relative mt-4 lg:mt-0">
                   <img
-                    src={gpgTeamLobby}
-                    alt="GPG team in overleg bij de receptie van het hoofdkantoor"
+                    src={gpgFullTeam}
+                    alt="Het volledige GPG team - meer dan 50 professionals"
                     loading="lazy"
                     decoding="async"
-                    className="gsa-hoek-lg shadow-elegant w-full aspect-[4/3] object-cover"
+                    className="gsa-hoek-lg shadow-elegant w-full aspect-[16/9] object-cover"
                   />
                   <div className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 bg-primary gsa-hoek-sm px-3 py-1.5 md:px-5 md:py-3 shadow-lg">
                     <p className="text-lg md:text-2xl font-bold font-heading text-white">
@@ -227,27 +227,27 @@ const OverOns = () => {
         </section>
 
         {/* Team Section */}
-        <section className="py-10 md:py-16 lg:py-20 bg-primary">
+        <section className="py-10 md:py-16 lg:py-20 bg-muted/30">
           <div className="container px-4 md:px-6">
             <div className="grid lg:grid-cols-2 gap-6 md:gap-10 lg:gap-14 items-center">
               <div>
                 <RevealOnScroll variant="fade-up">
                   <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-2">
-                    Ons Team
+                    Ons Management Team
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={100}>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 md:mb-4">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-2 md:mb-4">
                     Vakmanschap in de praktijk
                   </h2>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={200}>
-                  <p className="text-white/80 leading-relaxed mb-3 md:mb-5 font-body text-sm md:text-base">
+                  <p className="text-muted-foreground leading-relaxed mb-3 md:mb-5 font-body text-sm md:text-base">
                     Onze kracht zit in onze mensen. Van ervaren vakmensen tot projectmanagers.
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={300}>
-                  <ul className="space-y-2 text-white/80">
+                  <ul className="space-y-2 text-muted-foreground">
                     {[
                       "Gecertificeerde medewerkers",
                       "Continue investering in opleiding",
@@ -262,27 +262,35 @@ const OverOns = () => {
                 </RevealOnScroll>
               </div>
               
-              {/* Team Member Photos with GPG Logo */}
+              {/* Team Member Photos with White Background */}
               <RevealOnScroll variant="scale-in" delay={200}>
-                <div>
+                <div className="bg-white gsa-hoek-lg p-6 md:p-8 shadow-elegant">
                   {/* GPG Logo above team photos */}
                   <div className="flex justify-center mb-4 md:mb-6">
                     <img
                       src={gpgLogo}
                       alt="GPG Facility Management"
-                      className="h-10 md:h-14 w-auto object-contain brightness-0 invert"
+                      className="h-10 md:h-14 w-auto object-contain"
                     />
                   </div>
+                  
+                  <h3 className="text-center text-primary font-bold text-sm md:text-base mb-4 uppercase tracking-wider">
+                    Ons Management Team
+                  </h3>
                   
                   <div className="grid grid-cols-3 gap-3 md:gap-4">
                     {teamMembers.map((member) => (
                       <TeamMemberCard
                         key={member.name}
                         member={member}
-                        variant="dark"
+                        variant="light"
                       />
                     ))}
                   </div>
+                  
+                  <p className="text-center text-muted-foreground text-xs mt-4">
+                    Klik op een teamlid voor contactgegevens
+                  </p>
                 </div>
               </RevealOnScroll>
             </div>
