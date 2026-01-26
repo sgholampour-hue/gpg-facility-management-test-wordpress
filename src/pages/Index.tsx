@@ -13,6 +13,7 @@ import CTANew from "@/components/sections/CTANew";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
+import CookieConsent from "@/components/ui/CookieConsent";
 import SEO, { pageMetaData, createFAQSchema } from "@/components/SEO";
 
 // FAQ data for structured data
@@ -56,6 +57,7 @@ const Index = () => {
       <Footer />
       <MobileCTABar />
       <ScrollToTop />
+      <CookieConsent />
     </div>
   );
 };

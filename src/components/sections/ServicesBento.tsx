@@ -91,11 +91,16 @@ const ServiceCard = ({
       </p>
 
       {/* Arrow */}
-      <div className={`mt-4 flex items-center gap-2 text-primary group-hover:text-accent transition-colors ${
+      <div className={`mt-4 flex items-center justify-between text-primary group-hover:text-accent transition-colors ${
         isLarge ? "mt-6" : ""
       }`}>
-        <span className="text-xs font-semibold uppercase tracking-wide">Meer info</span>
-        <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <span className="text-xs font-semibold uppercase tracking-wide flex items-center gap-1">
+          Lees meer
+          <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
+        </span>
+        <div className="w-9 h-9 border-2 border-primary/30 rounded-full flex items-center justify-center group-hover:border-accent transition-colors">
+          <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </div>
       </div>
 
       {/* Hover border glow */}
