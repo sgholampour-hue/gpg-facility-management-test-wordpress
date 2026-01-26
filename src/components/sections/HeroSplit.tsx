@@ -61,14 +61,15 @@ const HeroSplit = () => {
           
           {/* Left: Content */}
           <div className="order-2 lg:order-1 space-y-5 sm:space-y-6 lg:space-y-8">
-            {/* Badge */}
+            {/* Est. Badge */}
             <div 
-              className={`inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-accent/10 border border-accent/20 transition-all duration-700 ${
+              className={`inline-flex items-center gap-3 sm:gap-4 transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium text-accent">GPG Facility Management</span>
+              <span className="text-xs sm:text-sm font-medium text-muted-foreground tracking-wide">EST. 2008</span>
+              <span className="w-8 sm:w-12 h-px bg-border" />
+              <span className="text-xs sm:text-sm font-semibold text-accent tracking-wider uppercase">Facility Management</span>
             </div>
 
             {/* Headline */}
@@ -121,18 +122,18 @@ const HeroSplit = () => {
             >
               <Button 
                 variant="outline-accent" 
-                size="lg" 
-                className="gsa-hoek-sm group text-sm sm:text-base h-12 sm:h-auto" 
+                size="xl" 
+                className="gsa-hoek-sm group" 
                 asChild
               >
                 <Link to="/contact" className="flex items-center gap-2">
                   Neem contact op
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button 
-                size="lg" 
-                className="gsa-hoek-sm text-sm sm:text-base h-12 sm:h-auto bg-white/10 backdrop-blur-md border-2 border-primary/20 text-primary hover:bg-white/20 hover:border-primary/40"
+                size="xl" 
+                className="gsa-hoek-sm bg-white/10 backdrop-blur-md border-2 border-primary/20 text-primary hover:bg-white/20 hover:border-primary/40"
                 asChild
               >
                 <Link to="/projecten">Bekijk projecten</Link>
@@ -158,7 +159,7 @@ const HeroSplit = () => {
                 style={{ transform: `translateY(${parallaxOffset * -0.2}px)` }}
               />
               
-              {/* Image with parallax */}
+              {/* Image with parallax and strong gradient overlay */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <div 
                   className="will-change-transform"
@@ -176,8 +177,9 @@ const HeroSplit = () => {
                   />
                 </div>
                 
-                {/* Blue gradient overlay from bottom to top */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none" />
+                {/* Strong blue gradient overlay from bottom - like reference image */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent opacity-70 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Floating Stats Card */}
