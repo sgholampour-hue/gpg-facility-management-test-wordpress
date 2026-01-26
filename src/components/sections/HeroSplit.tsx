@@ -132,14 +132,14 @@ const HeroSplit = () => {
                 <img 
                   src={heroImage} 
                   alt="Modern kantooromgeving met professionele faciliteiten"
-                  className="w-full aspect-[4/3] lg:aspect-[4/5] object-cover"
+                  className="w-full aspect-[4/3] lg:aspect-[4/5] object-cover object-[70%_20%]"
                   loading="eager"
                   decoding="sync"
                   fetchPriority="high"
                 />
                 
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
+                {/* Blue gradient overlay from bottom to top */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent" />
               </div>
 
               {/* Floating Stats Card */}
