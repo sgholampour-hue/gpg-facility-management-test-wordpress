@@ -3,6 +3,33 @@ import { Users, Award, Calendar, RefreshCw } from "lucide-react";
 import teamWim from "@/assets/team-wim-gruijters.png";
 import teamDanny from "@/assets/team-danny-moeljoredjo.png";
 import teamPatricia from "@/assets/team-patricia-nijholt.png";
+import gpgLogo from "@/assets/gpg-logo.png";
+import TeamMemberCard from "@/components/ui/TeamMemberCard";
+
+const teamMembers = [
+  {
+    name: "Wim Gruijters",
+    role: "Directeur GPG",
+    image: teamWim,
+    mobile: "+31 (0)6 57 05 88 30",
+    phone: "020 - 795 2100",
+    email: "w.gruijters@gpgfacilities.nl",
+  },
+  {
+    name: "Danny Moeljoredjo",
+    role: "Facilitair Coördinator",
+    image: teamDanny,
+    mobile: "06 57 50 24 20",
+    email: "d.moeljoredjo@gsafacilities.nl",
+  },
+  {
+    name: "Patricia Nijholt",
+    role: "Algemeen Manager GPG",
+    image: teamPatricia,
+    phone: "+31 (0)20 795 2146",
+    mobile: "+31 (0)62 203 4985",
+  },
+];
 
 const features = [
   {
@@ -100,71 +127,29 @@ const WhyGPG = () => {
             </div>
           </div>
 
-          {/* Right: Team Members - Hidden on mobile, shown on lg+ */}
+          {/* Right: Team Members with GPG Logo */}
           <div
-            className={`relative transition-all duration-700 delay-300 hidden lg:block ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+            className={`relative transition-all duration-700 delay-300 ${
+              isVisible ? "opacity-100 translate-x-0 lg:translate-x-0" : "opacity-0 translate-y-4 lg:translate-x-8"
             }`}
           >
-            <div className="grid grid-cols-3 gap-4">
-              <div className="text-center">
-                <img
-                  src={teamWim}
-                  alt="Wim Gruijters - GPG Management"
-                  className="w-full aspect-square object-cover rounded-full shadow-card mb-3"
-                />
-                <h4 className="font-semibold text-primary text-sm">Wim Gruijters</h4>
-              </div>
-              <div className="text-center">
-                <img
-                  src={teamDanny}
-                  alt="Danny Moeljoredjo - GPG Management"
-                  className="w-full aspect-square object-cover rounded-full shadow-card mb-3"
-                />
-                <h4 className="font-semibold text-primary text-sm">Danny Moeljoredjo</h4>
-              </div>
-              <div className="text-center">
-                <img
-                  src={teamPatricia}
-                  alt="Patricia Nijholt - GPG Management"
-                  className="w-full aspect-square object-cover rounded-full shadow-card mb-3"
-                />
-                <h4 className="font-semibold text-primary text-sm">Patricia Nijholt</h4>
-              </div>
+            {/* GPG Logo above team photos */}
+            <div className="flex justify-center mb-4 md:mb-6">
+              <img
+                src={gpgLogo}
+                alt="GPG Facility Management"
+                className="h-10 md:h-14 w-auto object-contain"
+              />
             </div>
-          </div>
-
-          {/* Mobile Team Members - Shown only on mobile */}
-          <div
-            className={`relative transition-all duration-700 delay-300 lg:hidden ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-            <div className="grid grid-cols-3 gap-3">
-              <div className="text-center">
-                <img
-                  src={teamWim}
-                  alt="Wim Gruijters"
-                  className="w-full aspect-square object-cover rounded-full shadow-card mb-2"
+            
+            <div className="grid grid-cols-3 gap-3 md:gap-4">
+              {teamMembers.map((member) => (
+                <TeamMemberCard
+                  key={member.name}
+                  member={member}
+                  variant="light"
                 />
-                <h4 className="font-semibold text-primary text-xs">Wim Gruijters</h4>
-              </div>
-              <div className="text-center">
-                <img
-                  src={teamDanny}
-                  alt="Danny Moeljoredjo"
-                  className="w-full aspect-square object-cover rounded-full shadow-card mb-2"
-                />
-                <h4 className="font-semibold text-primary text-xs">Danny Moeljoredjo</h4>
-              </div>
-              <div className="text-center">
-                <img
-                  src={teamPatricia}
-                  alt="Patricia Nijholt"
-                  className="w-full aspect-square object-cover rounded-full shadow-card mb-2"
-                />
-                <h4 className="font-semibold text-primary text-xs">Patricia Nijholt</h4>
-              </div>
+              ))}
             </div>
           </div>
         </div>

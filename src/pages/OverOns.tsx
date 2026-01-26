@@ -17,6 +17,33 @@ import gsaOrganisatie from "@/assets/gsa-organisatie.png";
 import teamWim from "@/assets/team-wim-gruijters.png";
 import teamDanny from "@/assets/team-danny-moeljoredjo.png";
 import teamPatricia from "@/assets/team-patricia-nijholt.png";
+import gpgLogo from "@/assets/gpg-logo.png";
+import TeamMemberCard from "@/components/ui/TeamMemberCard";
+
+const teamMembers = [
+  {
+    name: "Wim Gruijters",
+    role: "Directeur GPG",
+    image: teamWim,
+    mobile: "+31 (0)6 57 05 88 30",
+    phone: "020 - 795 2100",
+    email: "w.gruijters@gpgfacilities.nl",
+  },
+  {
+    name: "Danny Moeljoredjo",
+    role: "Facilitair Coördinator",
+    image: teamDanny,
+    mobile: "06 57 50 24 20",
+    email: "d.moeljoredjo@gsafacilities.nl",
+  },
+  {
+    name: "Patricia Nijholt",
+    role: "Algemeen Manager GPG",
+    image: teamPatricia,
+    phone: "+31 (0)20 795 2146",
+    mobile: "+31 (0)62 203 4985",
+  },
+];
 
 const kernwaarden = [
   { icon: Handshake, title: "Betrouwbaar" },
@@ -235,38 +262,26 @@ const OverOns = () => {
                 </RevealOnScroll>
               </div>
               
-              {/* Team Member Photos */}
+              {/* Team Member Photos with GPG Logo */}
               <RevealOnScroll variant="scale-in" delay={200}>
-                <div className="grid grid-cols-3 gap-3 md:gap-4">
-                  <div className="text-center">
+                <div>
+                  {/* GPG Logo above team photos */}
+                  <div className="flex justify-center mb-4 md:mb-6">
                     <img
-                      src={teamWim}
-                      alt="Wim Gruijters - GPG Management"
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full aspect-square object-cover rounded-full shadow-card mb-2 md:mb-3"
+                      src={gpgLogo}
+                      alt="GPG Facility Management"
+                      className="h-10 md:h-14 w-auto object-contain brightness-0 invert"
                     />
-                    <h4 className="font-semibold text-white text-xs md:text-sm">Wim Gruijters</h4>
                   </div>
-                  <div className="text-center">
-                    <img
-                      src={teamDanny}
-                      alt="Danny Moeljoredjo - GPG Management"
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full aspect-square object-cover rounded-full shadow-card mb-2 md:mb-3"
-                    />
-                    <h4 className="font-semibold text-white text-xs md:text-sm">Danny Moeljoredjo</h4>
-                  </div>
-                  <div className="text-center">
-                    <img
-                      src={teamPatricia}
-                      alt="Patricia Nijholt - GPG Management"
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full aspect-square object-cover rounded-full shadow-card mb-2 md:mb-3"
-                    />
-                    <h4 className="font-semibold text-white text-xs md:text-sm">Patricia Nijholt</h4>
+                  
+                  <div className="grid grid-cols-3 gap-3 md:gap-4">
+                    {teamMembers.map((member) => (
+                      <TeamMemberCard
+                        key={member.name}
+                        member={member}
+                        variant="dark"
+                      />
+                    ))}
                   </div>
                 </div>
               </RevealOnScroll>
