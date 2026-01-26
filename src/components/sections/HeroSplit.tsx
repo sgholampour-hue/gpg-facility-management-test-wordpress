@@ -13,12 +13,37 @@ const highlights = [
 
 const HeroSplit = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+    
     const timer = setTimeout(() => setIsVisible(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  // Parallax scroll effect
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        if (rect.bottom > 0) {
+          setScrollY(window.scrollY);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prefersReducedMotion]);
+
+  const parallaxOffset = prefersReducedMotion ? 0 : scrollY * 0.15;
+  const parallaxScale = prefersReducedMotion ? 1 : 1 + scrollY * 0.0001;
 
   return (
     <section 
@@ -121,25 +146,38 @@ const HeroSplit = () => {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
             }`}
           >
-            {/* Main Image Container */}
+            {/* Main Image Container with Parallax */}
             <div className="relative">
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-accent/30 rounded-3xl -z-10" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/5 rounded-3xl -z-10" />
+              {/* Decorative elements with parallax */}
+              <div 
+                className="absolute -top-4 -right-4 w-24 h-24 border-2 border-accent/30 rounded-3xl -z-10 will-change-transform"
+                style={{ transform: `translateY(${parallaxOffset * 0.3}px)` }}
+              />
+              <div 
+                className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/5 rounded-3xl -z-10 will-change-transform"
+                style={{ transform: `translateY(${parallaxOffset * -0.2}px)` }}
+              />
               
-              {/* Image */}
+              {/* Image with parallax */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img 
-                  src={heroImage} 
-                  alt="Modern kantooromgeving met professionele faciliteiten"
-                  className="w-full aspect-[4/3] lg:aspect-[4/5] object-cover object-[70%_20%]"
-                  loading="eager"
-                  decoding="sync"
-                  fetchPriority="high"
-                />
+                <div 
+                  className="will-change-transform"
+                  style={{ 
+                    transform: `translateY(${parallaxOffset * 0.1}px) scale(${parallaxScale})`,
+                  }}
+                >
+                  <img 
+                    src={heroImage} 
+                    alt="Modern kantooromgeving met professionele faciliteiten"
+                    className="w-full aspect-[4/3] lg:aspect-[4/5] object-cover object-[70%_20%]"
+                    loading="eager"
+                    decoding="sync"
+                    fetchPriority="high"
+                  />
+                </div>
                 
                 {/* Blue gradient overlay from bottom to top */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none" />
               </div>
 
               {/* Floating Stats Card */}

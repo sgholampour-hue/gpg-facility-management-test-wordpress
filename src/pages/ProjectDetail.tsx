@@ -101,6 +101,37 @@ const projectsData = {
       "Dekking Noord & Zuid Holland",
     ],
   },
+  "gsa-groep": {
+    title: "GSA Groep Projecten",
+    subtitle: "Integrale facilitaire dienstverlening",
+    image: projectHub,
+    gallery: [projectHub, projectHub2, gsaHubLocatie],
+    client: "GSA Groep",
+    location: "Randstad",
+    period: "Doorlopend",
+    stats: [
+      { label: "Actieve projecten", value: "25+", numValue: 25, suffix: "+" },
+      { label: "Medewerkers", value: "150+", numValue: 150, suffix: "+" },
+      { label: "Klanten", value: "50+", numValue: 50, suffix: "+" },
+    ],
+    description: `GPG is onderdeel van GSA Groep, een familiebedrijf met meer dan 40 jaar ervaring in facilitaire dienstverlening. Samen met onze zusterondernemingen leveren we een breed scala aan diensten: van verhuizingen en handyman services tot complete kantoorinrichtingen en bouwlogistiek.`,
+    scope: [
+      "Handyman dienstverlening en kleine klussen",
+      "Kantoor- en bedrijfsverhuizingen",
+      "Integrated Facilities Management",
+      "Fit-out projecten en renovaties",
+      "Inkoop van meubilair en inrichtingscomponenten",
+      "Projectinrichting en stoffering",
+      "Bouwlogistiek en HUB-management",
+    ],
+    results: [
+      "Onderdeel van GSA Groep familiebedrijf",
+      "40+ jaar ervaring in de sector",
+      "Integrale aanpak van A tot Z",
+      "Vaste aanspreekpunten per klant",
+      "ISO-gecertificeerd kwaliteitsmanagement",
+    ],
+  },
 };
 
 const ProjectDetail = () => {

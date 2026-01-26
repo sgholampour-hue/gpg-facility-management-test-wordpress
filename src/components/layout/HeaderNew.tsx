@@ -6,9 +6,9 @@ import gpgLogo from "@/assets/gpg-logo.png";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/over-ons", label: "Over Ons" },
   { href: "/diensten", label: "Diensten", hasDropdown: true },
   { href: "/projecten", label: "Projecten" },
-  { href: "/over-ons", label: "Over Ons" },
   { href: "/duurzaamheid", label: "Duurzaamheid" },
 ];
 
@@ -202,7 +202,7 @@ const HeaderNew = () => {
               </div>
 
               <div className="ml-6 pl-6 border-l border-border">
-                <Button variant="default" size="default" className="gsa-hoek-sm" asChild>
+                <Button variant="outline-accent" size="default" className="gsa-hoek-sm" asChild>
                   <Link to="/contact">Neem contact op</Link>
                 </Button>
               </div>
