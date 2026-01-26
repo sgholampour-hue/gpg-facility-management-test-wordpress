@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
 import projectHub from "@/assets/gsa-hub-locatie.jpg";
@@ -14,7 +15,11 @@ const projects = [
     year: "2023",
     image: projectBooking,
     slug: "cbre-booking",
-    stats: ["65.000 m²", "3.500+ werkplekken"],
+    stats: [
+      { label: "Oppervlakte", value: "65.000 m²" },
+      { label: "Werkplekken", value: "3.500+" },
+      { label: "Verdiepingen", value: "12" },
+    ],
   },
   {
     title: "HQ SCHIPHOL",
@@ -22,7 +27,11 @@ const projects = [
     year: "Lopend",
     image: projectSchiphol,
     slug: "schiphol-hq",
-    stats: ["45.000 m²", "2.800+ werkplekken"],
+    stats: [
+      { label: "Oppervlakte", value: "45.000 m²" },
+      { label: "Werkplekken", value: "2.800+" },
+      { label: "Gebouwen", value: "3" },
+    ],
   },
   {
     title: "HUB LOCATIES",
@@ -30,7 +39,11 @@ const projects = [
     year: "2024",
     image: projectHub,
     slug: "hub-locaties",
-    stats: ["12 locaties", "Continue ondersteuning"],
+    stats: [
+      { label: "Locaties", value: "12" },
+      { label: "Onderhoud", value: "Continue" },
+      { label: "Medewerkers", value: "50+" },
+    ],
   },
   {
     title: "GSA GROEP",
@@ -38,18 +51,30 @@ const projects = [
     year: "2022",
     image: projectHub2,
     slug: "gsa-groep",
-    stats: ["Complete ontzorging", "Facilities partner"],
+    stats: [
+      { label: "Ontzorging", value: "100%" },
+      { label: "Services", value: "Full-service" },
+      { label: "Jaren", value: "5+" },
+    ],
   },
 ];
 
 const ProjectsShowcase = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: true, 
-    align: "center",
-    skipSnaps: false,
-  });
+  
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
+  
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { 
+      loop: true, 
+      align: "center",
+      skipSnaps: false,
+    },
+    [autoplayPlugin.current]
+  );
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
@@ -91,6 +116,10 @@ const ProjectsShowcase = () => {
 
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const scrollTo = useCallback((index: number) => {
+    if (emblaApi) emblaApi.scrollTo(index);
   }, [emblaApi]);
 
   return (
@@ -141,15 +170,22 @@ const ProjectsShowcase = () => {
               {projects.map((project, index) => (
                 <div 
                   key={project.slug} 
-                  className={`flex-shrink-0 px-2 sm:px-3 md:px-4 transition-all duration-500 ${
+                  className={`flex-shrink-0 px-2 sm:px-3 md:px-4 transition-all duration-500 cursor-pointer ${
                     selectedIndex === index 
                       ? "w-[85%] sm:w-[75%] md:w-[60%] lg:w-[55%]" 
                       : "w-[30%] sm:w-[25%] md:w-[22%] lg:w-[20%]"
                   }`}
+                  onClick={() => scrollTo(index)}
                 >
                   <Link
                     to={`/projecten/${project.slug}`}
                     className="group relative block rounded-2xl md:rounded-3xl overflow-hidden"
+                    onClick={(e) => {
+                      if (selectedIndex !== index) {
+                        e.preventDefault();
+                        scrollTo(index);
+                      }
+                    }}
                   >
                     <div className={`transition-all duration-500 ${
                       selectedIndex === index ? "aspect-[16/10]" : "aspect-[3/4]"
@@ -180,15 +216,16 @@ const ProjectsShowcase = () => {
                         {project.subtitle}
                       </p>
                       
-                      {/* Stats */}
+                      {/* Stats - Enhanced */}
                       <div className="flex flex-wrap gap-2 md:gap-3">
                         {project.stats.map((stat, i) => (
-                          <span 
+                          <div 
                             key={i}
-                            className="px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-xs md:text-sm font-medium"
+                            className="px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 backdrop-blur-sm"
                           >
-                            {stat}
-                          </span>
+                            <span className="text-white text-xs md:text-sm font-bold">{stat.value}</span>
+                            <span className="text-white/60 text-xs ml-1.5">{stat.label}</span>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -211,8 +248,26 @@ const ProjectsShowcase = () => {
           </div>
         </div>
 
+        {/* Dots Indicator */}
+        <div className={`flex justify-center gap-2 mt-8 transition-all duration-700 delay-300 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}>
+          {projects.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollTo(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                selectedIndex === index 
+                  ? "w-8 bg-accent" 
+                  : "bg-white/30 hover:bg-white/50"
+              }`}
+              aria-label={`Ga naar project ${index + 1}`}
+            />
+          ))}
+        </div>
+
         {/* View All Link */}
-        <div className={`text-center mt-10 md:mt-14 transition-all duration-700 delay-300 ${
+        <div className={`text-center mt-10 md:mt-14 transition-all duration-700 delay-400 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
           <Link 
