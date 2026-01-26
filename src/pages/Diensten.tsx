@@ -38,7 +38,7 @@ const services = [
     icon: Truck,
     title: "Verhuizen",
     subtitle: "Zorgeloze kantoorverhuizing",
-    description: "Een kantoorverhuizing vraagt om specialistische kennis en een strak gecoördineerde aanpak, zodat je je kunt focussen op je core business.",
+    description: "GPG verzorgt voor u de complete verhuizing van A tot Z, zorgvuldig en professioneel.",
     features: [
       "Volledige projectcoördinatie",
       "Professionele in- en uitpak service",
@@ -54,7 +54,7 @@ const services = [
     icon: Building2,
     title: "Integrated Facilities",
     subtitle: "Complete facilitaire ontzorging",
-    description: "Eén aanspreekpunt voor al jouw facilitaire diensten. Wij integreren alle aspecten van gebouwbeheer tot één naadloze service, zorgvuldig en professioneel, waardoor je je volledig kunt richten op je kernactiviteiten.",
+    description: "Eén aanspreekpunt voor al uw facilitaire diensten. Wij integreren alle aspecten van gebouwbeheer tot één naadloze service, zorgvuldig en professioneel.",
     features: [
       "Gebouwbeheer en -onderhoud",
       "Schoonmaak en hygiëne",
@@ -86,7 +86,7 @@ const services = [
     icon: ShoppingCart,
     title: "Inkoop van inrichtingscomponenten",
     subtitle: "Slim en voordelig inkopen",
-    description: "Profiteer van onze inkoopkracht en expertise. Wij leveren hoogwaardige kantoormeubilair en inrichtingscomponenten tegen scherpe prijzen, met advies over ergonomie en duurzaamheid. Alle inrichtingscomponenten zijn zorgvuldig geselecteerd. Waar mogelijk verwerken we circulaire materialen en componenten in jouw projectvoorstel.",
+    description: "Profiteer van onze inkoopkracht en expertise. Wij leveren hoogwaardige kantoormeubilair en inrichtingscomponenten tegen scherpe prijzen, met advies over ergonomie en duurzaamheid. Alle inrichtingscomponenten zijn zorgvuldig geselecteerd. Waar mogelijk verwerken we circulaire materialen en componenten in uw projectvoorstel.",
     features: [
       "Bureaus en werkpleksystemen",
       "Ergonomische bureaustoelen",
