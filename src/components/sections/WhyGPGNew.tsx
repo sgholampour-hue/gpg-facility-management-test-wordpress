@@ -76,44 +76,44 @@ const WhyGPGNew = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-background relative overflow-hidden">
+    <section ref={sectionRef} className="py-12 md:py-20 lg:py-24 bg-background relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-muted/50 to-transparent -z-10" />
 
-      <div className="container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="container px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left: Features in Tabs/Cards */}
           <div className={`transition-all duration-700 ${
             isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
           }`}>
-            <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide mb-4">
+            <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide mb-3 md:mb-4">
               Waarom GPG
             </span>
-            <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-3 md:mb-4">
               15+ jaar facilitaire expertise
             </h2>
-            <p className="text-muted-foreground mb-8 text-sm md:text-base">
+            <p className="text-muted-foreground mb-6 md:mb-8 text-sm md:text-base leading-relaxed">
               Bij GPG begrijpen we dat je behoefte hebt aan een betrouwbare partner 
               die jouw facilitaire diensten naar een hoger niveau tilt.
             </p>
 
             {/* Feature Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 md:gap-4">
               {features.map((feature, index) => (
                 <div 
                   key={feature.title}
-                  className={`group/feature p-4 gsa-hoek-sm border border-border bg-background hover:border-accent/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  className={`group/feature p-3 md:p-4 gsa-hoek-sm border border-border bg-background hover:border-accent/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default ${
+                    isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95"
                   }`}
                   style={{ transitionDelay: `${200 + index * 100}ms` }}
                 >
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3 transition-all duration-300 group-hover/feature:bg-accent group-hover/feature:scale-110">
-                    <feature.icon className="w-5 h-5 text-accent transition-all duration-300 group-hover/feature:text-white group-hover/feature:rotate-6" />
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-2 md:mb-3 transition-all duration-300 group-hover/feature:bg-accent group-hover/feature:scale-110 group-hover/feature:rotate-3">
+                    <feature.icon className="w-4 h-4 md:w-5 md:h-5 text-accent transition-all duration-300 group-hover/feature:text-white group-hover/feature:rotate-6 group-hover/feature:scale-110" />
                   </div>
-                  <h4 className="font-semibold text-primary text-sm mb-1 transition-colors duration-300 group-hover/feature:text-accent">
+                  <h4 className="font-semibold text-primary text-xs sm:text-sm mb-0.5 md:mb-1 transition-colors duration-300 group-hover/feature:text-accent line-clamp-1">
                     {feature.title}
                   </h4>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-[10px] sm:text-xs text-muted-foreground leading-relaxed line-clamp-2">
                     {feature.description}
                   </p>
                 </div>

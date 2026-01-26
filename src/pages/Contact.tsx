@@ -11,7 +11,7 @@ import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO, { createFAQSchema } from "@/components/SEO";
 import ScrollToTop from "@/components/ui/ScrollToTop";
-import StickyContactButton from "@/components/ui/StickyContactButton";
+import MobileCTABar from "@/components/ui/MobileCTABar";
 
 // FAQ data for schema
 const faqData = [
@@ -95,7 +95,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-16 md:pb-0">
       <SEO
         title="Contact"
         description="Neem contact op met GPG Facility Management voor een vrijblijvend adviesgesprek. Bel +31(0)20 795 21 00 of vul ons contactformulier in."
@@ -325,7 +325,7 @@ const Contact = () => {
         <FAQSection variant="light" />
       </main>
       <Footer />
-      <StickyContactButton />
+      <MobileCTABar />
       <ScrollToTop />
     </div>
   );

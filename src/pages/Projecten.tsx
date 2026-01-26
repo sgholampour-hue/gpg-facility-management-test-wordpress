@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO from "@/components/SEO";
 import ScrollToTop from "@/components/ui/ScrollToTop";
-import StickyContactButton from "@/components/ui/StickyContactButton";
+import MobileCTABar from "@/components/ui/MobileCTABar";
 import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
 import gsaHubLocatie from "@/assets/gsa-hub-locatie.jpg";
@@ -41,7 +41,7 @@ const projects = [
 
 const Projecten = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-16 md:pb-0">
       <SEO
         title="Projecten"
         description="Bekijk onze projecten: van Booking.com fit-outs tot Schiphol werkplekbeheer. Ontdek wat GPG Facility Management voor uw organisatie kan betekenen."
@@ -147,7 +147,7 @@ const Projecten = () => {
         </section>
       </main>
       <Footer />
-      <StickyContactButton />
+      <MobileCTABar />
       <ScrollToTop />
     </div>
   );

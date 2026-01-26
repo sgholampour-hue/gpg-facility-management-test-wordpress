@@ -5,16 +5,16 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
       {/* Main footer content */}
-      <div className="container py-12 md:py-16 lg:py-20 px-4 md:px-6">
+      <div className="container py-10 md:py-16 lg:py-20 px-4 md:px-6">
         {/* Top section with logo and tagline */}
-        <div className="border-l-4 border-accent pl-4 md:pl-6 mb-10 md:mb-14">
-          <p className="text-accent text-xs md:text-sm font-medium uppercase tracking-wider mb-1">
+        <div className="border-l-4 border-accent pl-3 md:pl-6 mb-8 md:mb-14">
+          <p className="text-accent text-[10px] sm:text-xs md:text-sm font-medium uppercase tracking-wider mb-0.5 md:mb-1">
             GPG Facility Management:
           </p>
-          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white leading-tight max-w-md">
+          <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white leading-tight max-w-md">
             Facilitaire diensten voor engineering, realisatie en beheer
           </h3>
-          <p className="text-white/60 text-sm mt-2">Onderdeel van GSA Groep</p>
+          <p className="text-white/60 text-xs sm:text-sm mt-1 md:mt-2">Onderdeel van GSA Groep</p>
         </div>
 
         {/* Grid with columns */}
@@ -122,14 +122,14 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom bar */}
+      {/* Bottom bar - extra padding for mobile CTA bar */}
       <div className="border-t border-white/10">
-        <div className="container py-5 md:py-6 px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/50 text-xs md:text-sm text-center md:text-left">
+        <div className="container py-4 md:py-6 px-4 md:px-6 pb-20 md:pb-6 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
+          <p className="text-white/50 text-[10px] sm:text-xs md:text-sm text-center md:text-left">
             © GPG Facility Management {new Date().getFullYear()}. Alle rechten voorbehouden.
           </p>
-          <div className="flex items-center gap-4 md:gap-6">
-            <div className="flex gap-4 md:gap-6 text-xs md:text-sm text-white/50">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 md:gap-6">
+            <div className="flex gap-3 sm:gap-4 md:gap-6 text-[10px] sm:text-xs md:text-sm text-white/50">
               <Link to="/voorwaarden" className="hover:text-white transition-colors">
                 Algemene voorwaarden
               </Link>
@@ -145,7 +145,7 @@ const Footer = () => {
               className="text-white/50 hover:text-white transition-colors"
               aria-label="Volg GPG op LinkedIn"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
           </div>
         </div>
