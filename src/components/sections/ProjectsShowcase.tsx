@@ -70,8 +70,9 @@ const ProjectsShowcase = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
       loop: true, 
-      align: "center",
+      align: "start",
       skipSnaps: false,
+      containScroll: false,
     },
     [autoplayPlugin.current]
   );
@@ -165,16 +166,12 @@ const ProjectsShowcase = () => {
         <div className={`transition-all duration-700 delay-200 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          <div className="overflow-hidden -mx-4 sm:-mx-6 md:-mx-12 lg:-mx-24" ref={emblaRef}>
+          <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {projects.map((project, index) => (
                 <div 
                   key={project.slug} 
-                  className={`flex-shrink-0 px-2 sm:px-3 md:px-4 transition-all duration-500 cursor-pointer ${
-                    selectedIndex === index 
-                      ? "w-[85%] sm:w-[75%] md:w-[60%] lg:w-[55%]" 
-                      : "w-[30%] sm:w-[25%] md:w-[22%] lg:w-[20%]"
-                  }`}
+                  className="flex-[0_0_80%] sm:flex-[0_0_60%] md:flex-[0_0_45%] lg:flex-[0_0_35%] min-w-0 pl-4 first:pl-0 cursor-pointer"
                   onClick={() => scrollTo(index)}
                 >
                   <Link
@@ -187,13 +184,13 @@ const ProjectsShowcase = () => {
                       }
                     }}
                   >
-                    <div className={`transition-all duration-500 ${
-                      selectedIndex === index ? "aspect-[16/10]" : "aspect-[3/4]"
-                    }`}>
+                    <div className="aspect-[4/3] md:aspect-[16/10]">
                       <img 
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        className={`w-full h-full object-cover transition-all duration-500 ${
+                          selectedIndex === index ? "scale-100" : "scale-95 opacity-60"
+                        } group-hover:scale-105`}
                       />
                     </div>
                     
@@ -230,16 +227,21 @@ const ProjectsShowcase = () => {
                       </div>
                     </div>
 
-                    {/* Minimal content for inactive slides */}
-                    <div className={`absolute bottom-4 left-4 right-4 transition-opacity duration-300 ${
-                      selectedIndex === index ? "opacity-0" : "opacity-100"
-                    }`}>
-                      <span className="inline-block px-2 py-0.5 rounded bg-accent/60 text-white text-[10px] font-medium mb-2">
+                    {/* Title always visible */}
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <span className="inline-block px-2 py-0.5 rounded bg-accent/80 text-white text-[10px] md:text-xs font-medium mb-2">
                         {project.year}
                       </span>
-                      <p className="text-xs text-white/60 truncate">
-                        {project.subtitle}
-                      </p>
+                      <h3 className={`font-bold text-white transition-all duration-300 ${
+                        selectedIndex === index ? "text-xl sm:text-2xl md:text-3xl" : "text-sm md:text-base"
+                      }`}>
+                        {project.title}
+                      </h3>
+                      {selectedIndex !== index && (
+                        <p className="text-xs text-white/60 truncate mt-1">
+                          {project.subtitle}
+                        </p>
+                      )}
                     </div>
                   </Link>
                 </div>
