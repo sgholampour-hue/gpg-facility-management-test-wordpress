@@ -100,9 +100,9 @@ const TestimonialsNew = () => {
             <div className="flex">
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="flex-shrink-0 w-full px-4">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-10 text-center">
+                  <div className="bg-white/10 backdrop-blur-sm gsa-hoek-lg p-6 md:p-10 text-center transition-all duration-300 hover:bg-white/15">
                     {/* Quote Icon */}
-                    <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
+                    <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6 transition-all duration-300 hover:scale-110 hover:bg-accent/30">
                       <Quote className="w-5 h-5 text-accent" />
                     </div>
 
@@ -112,8 +112,8 @@ const TestimonialsNew = () => {
                     </p>
 
                     {/* Author */}
-                    <div className="flex items-center justify-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white font-bold">
+                    <div className="flex items-center justify-center gap-4 group/author">
+                      <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white font-bold transition-transform duration-300 group-hover/author:scale-110">
                         {testimonial.initials}
                       </div>
                       <div className="text-left">
@@ -131,10 +131,10 @@ const TestimonialsNew = () => {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={() => emblaApi?.scrollPrev()}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:scale-110 hover:border-accent/50 transition-all duration-300"
               aria-label="Vorige testimonial"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-5 h-5 transition-transform duration-300 hover:-translate-x-0.5" />
             </button>
             
             <div className="flex gap-2">
@@ -154,10 +154,10 @@ const TestimonialsNew = () => {
 
             <button
               onClick={() => emblaApi?.scrollNext()}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:scale-110 hover:border-accent/50 transition-all duration-300"
               aria-label="Volgende testimonial"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-5 h-5 transition-transform duration-300 hover:translate-x-0.5" />
             </button>
           </div>
         </div>

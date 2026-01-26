@@ -102,15 +102,15 @@ const WhyGPGNew = () => {
               {features.map((feature, index) => (
                 <div 
                   key={feature.title}
-                  className={`p-4 rounded-xl border border-border bg-background hover:border-accent/30 hover:shadow-md transition-all duration-300 ${
+                  className={`group/feature p-4 gsa-hoek-sm border border-border bg-background hover:border-accent/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                   style={{ transitionDelay: `${200 + index * 100}ms` }}
                 >
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3">
-                    <feature.icon className="w-5 h-5 text-accent" />
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3 transition-all duration-300 group-hover/feature:bg-accent group-hover/feature:scale-110">
+                    <feature.icon className="w-5 h-5 text-accent transition-all duration-300 group-hover/feature:text-white group-hover/feature:rotate-6" />
                   </div>
-                  <h4 className="font-semibold text-primary text-sm mb-1">
+                  <h4 className="font-semibold text-primary text-sm mb-1 transition-colors duration-300 group-hover/feature:text-accent">
                     {feature.title}
                   </h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">
@@ -125,7 +125,7 @@ const WhyGPGNew = () => {
           <div className={`transition-all duration-700 delay-300 ${
             isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
           }`}>
-            <div className="bg-muted/50 rounded-3xl p-6 md:p-8 border border-border/50">
+            <div className="bg-muted/50 gsa-hoek-lg p-6 md:p-8 border border-border/50 transition-all duration-300 hover:shadow-lg hover:border-accent/20">
               {/* GPG Logo */}
               <div className="flex justify-center mb-6">
                 <img

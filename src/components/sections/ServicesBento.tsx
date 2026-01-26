@@ -62,7 +62,7 @@ const ServiceCard = ({
   return (
     <Link
       to={service.href}
-      className={`group relative bg-background border border-border/50 rounded-2xl p-6 transition-all duration-500 hover:shadow-xl hover:border-accent/30 hover:-translate-y-1 ${
+      className={`group relative bg-background border border-border/50 gsa-hoek-sm p-6 transition-all duration-300 hover:shadow-xl hover:border-accent/30 hover:-translate-y-1 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       } ${isLarge ? "md:col-span-2 md:row-span-2" : ""} ${isMedium ? "md:col-span-2" : ""}`}
       style={{ transitionDelay: `${index * 80}ms` }}
@@ -99,7 +99,7 @@ const ServiceCard = ({
       </div>
 
       {/* Hover border glow */}
-      <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-accent/20 transition-colors pointer-events-none" />
+      <div className="absolute inset-0 gsa-hoek-sm border-2 border-transparent group-hover:border-accent/20 transition-colors pointer-events-none" />
     </Link>
   );
 };

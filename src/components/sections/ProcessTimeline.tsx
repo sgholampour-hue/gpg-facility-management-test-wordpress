@@ -106,21 +106,21 @@ const ProcessTimeline = () => {
                 )}
 
                 {/* Step Card */}
-                <div className="relative bg-background border border-border rounded-2xl p-6 hover:shadow-lg hover:border-accent/30 transition-all duration-300 md:text-center">
+                <div className="group/step relative bg-background border border-border gsa-hoek-sm p-6 hover:shadow-lg hover:border-accent/30 hover:-translate-y-1 transition-all duration-300 md:text-center">
                   {/* Number Badge */}
-                  <span className="absolute -top-3 right-4 md:left-1/2 md:-translate-x-1/2 text-5xl font-bold text-muted/20">
+                  <span className="absolute -top-3 right-4 md:left-1/2 md:-translate-x-1/2 text-5xl font-bold text-muted/20 transition-colors duration-300 group-hover/step:text-accent/20">
                     {step.number}
                   </span>
 
                   {/* Icon */}
-                  <div className={`relative z-10 inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 transition-colors duration-300 ${
+                  <div className={`relative z-10 inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 transition-all duration-300 group-hover/step:scale-110 ${
                     activeStep >= index ? "bg-accent text-white" : "bg-muted text-muted-foreground"
                   }`}>
-                    <step.icon className="w-5 h-5" />
+                    <step.icon className="w-5 h-5 transition-transform duration-300 group-hover/step:rotate-6" />
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-lg font-bold text-primary mb-2">
+                  <h3 className="text-lg font-bold text-primary mb-2 transition-colors duration-300 group-hover/step:text-accent">
                     {step.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">

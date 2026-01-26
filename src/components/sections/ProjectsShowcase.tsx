@@ -79,7 +79,7 @@ const ProjectsShowcase = () => {
           {/* Large Project */}
           <Link
             to={`/projecten/${projects[0].slug}`}
-            className={`md:col-span-7 group relative rounded-2xl overflow-hidden transition-all duration-700 ${
+            className={`md:col-span-7 group relative gsa-hoek-sm overflow-hidden transition-all duration-700 hover:shadow-2xl ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             onMouseEnter={() => setHoveredIndex(0)}
@@ -89,21 +89,21 @@ const ProjectsShowcase = () => {
               <img 
                 src={projects[0].image}
                 alt={projects[0].title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent transition-opacity duration-300 group-hover:from-primary/90" />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-              <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-medium mb-3">
+              <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-medium mb-3 transition-all duration-300 group-hover:bg-accent group-hover:text-white">
                 {projects[0].category}
               </span>
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2 transition-transform duration-300 group-hover:translate-x-1">
                 {projects[0].title}
               </h3>
               <div className={`flex items-center gap-2 text-white/80 text-sm transition-all duration-300 ${
-                hoveredIndex === 0 ? "translate-x-2" : ""
+                hoveredIndex === 0 ? "translate-x-2 text-white" : ""
               }`}>
-                Bekijk project <ArrowUpRight className="w-4 h-4" />
+                Bekijk project <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" />
               </div>
             </div>
           </Link>
@@ -114,7 +114,7 @@ const ProjectsShowcase = () => {
               <Link
                 key={project.slug}
                 to={`/projecten/${project.slug}`}
-                className={`group relative rounded-2xl overflow-hidden flex-1 min-h-[200px] transition-all duration-700 ${
+                className={`group relative gsa-hoek-sm overflow-hidden flex-1 min-h-[200px] transition-all duration-700 hover:shadow-xl ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: `${(index + 1) * 150}ms` }}
@@ -124,14 +124,14 @@ const ProjectsShowcase = () => {
                 <img 
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent transition-opacity duration-300 group-hover:from-primary/90" />
                 <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-                  <span className="inline-block px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-medium mb-2">
+                  <span className="inline-block px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-medium mb-2 transition-all duration-300 group-hover:bg-accent">
                     {project.category}
                   </span>
-                  <h3 className="text-lg font-bold text-white">
+                  <h3 className="text-lg font-bold text-white transition-transform duration-300 group-hover:translate-x-1">
                     {project.title}
                   </h3>
                 </div>

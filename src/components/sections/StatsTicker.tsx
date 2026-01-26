@@ -71,18 +71,18 @@ const StatsTicker = () => {
           {stats.map((stat, index) => (
             <div 
               key={stat.label}
-              className={`text-center transition-all duration-700 ${
+              className={`text-center transition-all duration-700 group/stat cursor-default ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 mb-3">
-                <stat.icon className="w-5 h-5 text-accent" />
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 mb-3 transition-all duration-300 group-hover/stat:bg-accent/20 group-hover/stat:scale-110">
+                <stat.icon className="w-5 h-5 text-accent transition-transform duration-300 group-hover/stat:rotate-12" />
               </div>
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1 transition-transform duration-300 group-hover/stat:scale-105">
                 {counts[index]}{stat.suffix}
               </div>
-              <div className="text-xs md:text-sm text-white/70 uppercase tracking-wide">
+              <div className="text-xs md:text-sm text-white/70 uppercase tracking-wide transition-colors duration-300 group-hover/stat:text-white/90">
                 {stat.label}
               </div>
             </div>

@@ -79,11 +79,11 @@ const HeroSplit = () => {
               {highlights.map((item, index) => (
                 <div 
                   key={item}
-                  className="flex items-center gap-2 text-sm text-foreground/80"
+                  className="flex items-center gap-2 text-sm text-foreground/80 group/item cursor-default"
                   style={{ transitionDelay: `${300 + index * 50}ms` }}
                 >
-                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
-                  <span>{item}</span>
+                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 transition-transform duration-200 group-hover/item:scale-110" />
+                  <span className="transition-colors duration-200 group-hover/item:text-foreground">{item}</span>
                 </div>
               ))}
             </div>
@@ -145,12 +145,12 @@ const HeroSplit = () => {
 
               {/* Floating Stats Card */}
               <div 
-                className={`absolute -bottom-6 -left-6 lg:-left-12 bg-background rounded-2xl shadow-xl border border-border/50 p-4 md:p-5 transition-all duration-700 delay-500 ${
+                className={`absolute -bottom-6 -left-6 lg:-left-12 bg-background gsa-hoek-sm shadow-xl border border-border/50 p-4 md:p-5 transition-all duration-700 delay-500 hover:shadow-2xl hover:-translate-y-1 hover:border-accent/30 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center transition-colors duration-200 group-hover:bg-accent/20">
                     <span className="text-2xl font-bold text-accent">15+</span>
                   </div>
                   <div>
@@ -162,7 +162,7 @@ const HeroSplit = () => {
 
               {/* Floating Badge */}
               <div 
-                className={`absolute -top-3 -right-3 lg:top-6 lg:-right-6 bg-accent text-white px-4 py-2 rounded-full shadow-lg transition-all duration-700 delay-600 ${
+                className={`absolute -top-3 -right-3 lg:top-6 lg:-right-6 bg-accent text-white px-4 py-2 rounded-full shadow-lg transition-all duration-700 delay-600 hover:scale-105 hover:shadow-xl cursor-default ${
                   isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
                 }`}
               >

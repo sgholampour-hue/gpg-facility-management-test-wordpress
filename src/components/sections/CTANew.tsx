@@ -14,7 +14,7 @@ const CTANew = memo(() => {
 
       <div className="container relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-background rounded-3xl border border-border/50 shadow-xl overflow-hidden">
+          <div className="bg-background gsa-hoek-lg border border-border/50 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
             <div className="grid md:grid-cols-2">
               {/* Left: Content */}
               <div className="p-8 md:p-12">
@@ -32,21 +32,21 @@ const CTANew = memo(() => {
                 <div className="space-y-3 mb-8">
                   <a 
                     href="tel:+31207952100" 
-                    className="flex items-center gap-3 text-foreground hover:text-accent transition-colors group"
+                    className="flex items-center gap-3 text-foreground hover:text-accent transition-all duration-300 group"
                   >
-                    <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center group-hover:bg-accent/10 transition-colors">
-                      <Phone className="w-4 h-4 text-accent" />
+                    <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                      <Phone className="w-4 h-4 text-accent group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <span className="font-medium">+31(0)20 795 21 00</span>
+                    <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">+31(0)20 795 21 00</span>
                   </a>
                   <a 
                     href="mailto:info@gpgfacilities.nl" 
-                    className="flex items-center gap-3 text-foreground hover:text-accent transition-colors group"
+                    className="flex items-center gap-3 text-foreground hover:text-accent transition-all duration-300 group"
                   >
-                    <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center group-hover:bg-accent/10 transition-colors">
-                      <Mail className="w-4 h-4 text-accent" />
+                    <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                      <Mail className="w-4 h-4 text-accent group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <span className="font-medium">info@gpgfacilities.nl</span>
+                    <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">info@gpgfacilities.nl</span>
                   </a>
                 </div>
 
