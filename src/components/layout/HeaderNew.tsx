@@ -104,10 +104,10 @@ const HeaderNew = () => {
                     {link.hasDropdown ? (
                       <>
                         <button
-                          className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 flex items-center gap-1.5 ${
+                          className={`relative px-4 py-2 text-sm font-medium transition-all duration-200 flex items-center gap-1.5 group/nav ${
                             location.pathname.startsWith("/diensten")
-                              ? "bg-primary/10 text-primary"
-                              : "text-foreground hover:bg-muted"
+                              ? "text-primary"
+                              : "text-foreground"
                           }`}
                           onClick={(e) => {
                             e.stopPropagation();
@@ -116,6 +116,10 @@ const HeaderNew = () => {
                         >
                           {link.label}
                           <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dienstenOpen ? 'rotate-180' : ''}`} />
+                          {/* Underline animation */}
+                          <span className={`absolute bottom-0 left-4 right-4 h-0.5 bg-accent transition-transform duration-300 origin-left ${
+                            location.pathname.startsWith("/diensten") ? "scale-x-100" : "scale-x-0 group-hover/nav:scale-x-100"
+                          }`} />
                         </button>
                         
                         {/* Mega Menu Dropdown */}
@@ -156,13 +160,17 @@ const HeaderNew = () => {
                     ) : (
                       <Link
                         to={link.href}
-                        className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+                        className={`relative px-4 py-2 text-sm font-medium transition-all duration-200 group/nav ${
                           location.pathname === link.href
-                            ? "bg-primary/10 text-primary"
-                            : "text-foreground hover:bg-muted"
+                            ? "text-primary"
+                            : "text-foreground"
                         }`}
                       >
                         {link.label}
+                        {/* Underline animation */}
+                        <span className={`absolute bottom-0 left-4 right-4 h-0.5 bg-accent transition-transform duration-300 origin-left ${
+                          location.pathname === link.href ? "scale-x-100" : "scale-x-0 group-hover/nav:scale-x-100"
+                        }`} />
                       </Link>
                     )}
                   </div>

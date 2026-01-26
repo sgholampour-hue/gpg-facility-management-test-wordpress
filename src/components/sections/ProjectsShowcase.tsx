@@ -75,7 +75,7 @@ const ProjectsShowcase = () => {
         </div>
 
         {/* Projects Grid - Asymmetric */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6">
           {/* Large Project */}
           <Link
             to={`/projecten/${projects[0].slug}`}
