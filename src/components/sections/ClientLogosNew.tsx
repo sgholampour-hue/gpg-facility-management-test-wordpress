@@ -42,11 +42,11 @@ const ClientLogosNew = memo(() => {
         <div className="container">
           <div className="grid grid-cols-4 md:grid-cols-8 gap-8">
             {clients.map((client) => (
-              <div key={client.name} className="flex items-center justify-center h-12 md:h-14">
+              <div key={client.name} className="flex items-center justify-center h-16 md:h-20">
                 <img 
                   src={client.src} 
                   alt={client.name}
-                  className="max-h-10 md:max-h-12 max-w-[100px] md:max-w-[140px] w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300"
+                  className="max-h-[60px] md:max-h-[72px] max-w-[150px] md:max-w-[210px] w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300"
                 />
               </div>
             ))}
@@ -62,12 +62,12 @@ const ClientLogosNew = memo(() => {
             {[...clients, ...clients, ...clients].map((client, index) => (
               <div 
                 key={`${client.name}-${index}`} 
-                className="flex-shrink-0 px-10 md:px-16 flex items-center justify-center h-12 md:h-14"
+                className="flex-shrink-0 px-12 md:px-20 flex items-center justify-center h-16 md:h-20"
               >
                 <img 
                   src={client.src} 
                   alt={client.name}
-                  className="max-h-10 md:max-h-12 max-w-[100px] md:max-w-[140px] w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300"
+                  className="max-h-[60px] md:max-h-[72px] max-w-[150px] md:max-w-[210px] w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300"
                 />
               </div>
             ))}
