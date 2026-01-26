@@ -59,7 +59,12 @@ const ServiceCard = ({
   return (
     <Link
       to={service.href}
-      className={`group relative bg-background border border-border/50 gsa-hoek-sm p-5 md:p-6 transition-all duration-300 hover:shadow-xl hover:border-accent/30 hover:-translate-y-1 flex flex-col ${
+      className={`group relative bg-background border border-border/50 gsa-hoek-sm p-5 md:p-6 transition-all duration-300 
+        hover:shadow-[0_10px_40px_-10px_hsl(var(--accent)/0.25)] 
+        hover:border-accent/40 
+        hover:-translate-y-2 
+        hover:bg-gradient-to-br hover:from-background hover:to-accent/5
+        flex flex-col ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
       style={{ transitionDelay: `${index * 80}ms` }}
