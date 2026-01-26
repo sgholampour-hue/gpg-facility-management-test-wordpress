@@ -95,16 +95,16 @@ const HeaderNew = () => {
         </div>
       </div>
 
-      {/* Main Navigation - Always sticky */}
+      {/* Main Navigation - Always sticky at top */}
       <header 
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed left-0 right-0 z-50 bg-background transition-all duration-300 ${
           isScrolled 
-            ? "top-0 bg-background/95 backdrop-blur-md shadow-lg border-b border-border/50" 
-            : "top-[36px] bg-background border-b border-border"
+            ? "top-0 shadow-lg border-b border-border/50 backdrop-blur-md bg-background/95" 
+            : "top-[36px] md:top-[40px] border-b border-border"
         }`}
       >
         <nav className="container">
-          <div className="flex items-center justify-between h-16 md:h-18">
+          <div className="flex items-center justify-between h-14 md:h-16 lg:h-18">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0 relative z-10">
               <img 

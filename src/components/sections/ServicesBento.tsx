@@ -147,7 +147,7 @@ const ServicesBento = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-muted/30 relative overflow-hidden">
+    <section ref={sectionRef} className="py-12 md:py-20 lg:py-24 bg-muted/30 relative overflow-hidden">
       {/* Subtle pattern overlay */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0" style={{
@@ -156,15 +156,15 @@ const ServicesBento = () => {
         }} />
       </div>
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-4 sm:px-6">
         {/* Header */}
-        <div className={`max-w-2xl mb-10 md:mb-14 transition-all duration-700 ${
+        <div className={`max-w-2xl mb-8 md:mb-14 transition-all duration-700 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide mb-4">
+          <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide mb-3 md:mb-4">
             Onze diensten
           </span>
-          <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-primary mb-3 md:mb-4">
             Complete facilitaire ondersteuning
           </h2>
           <p className="text-muted-foreground text-sm md:text-base">
@@ -173,7 +173,7 @@ const ServicesBento = () => {
         </div>
 
         {/* Grid - 3 columns like reference */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}

@@ -74,20 +74,20 @@ const TestimonialsNew = () => {
   }, [emblaApi]);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-primary relative overflow-hidden">
+    <section ref={sectionRef} className="py-12 md:py-20 lg:py-24 bg-primary relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-4 sm:px-6">
         {/* Header */}
-        <div className={`text-center mb-10 md:mb-14 transition-all duration-700 ${
+        <div className={`text-center mb-8 md:mb-14 transition-all duration-700 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-accent text-xs font-semibold uppercase tracking-wide mb-4">
+          <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-accent text-xs font-semibold uppercase tracking-wide mb-3 md:mb-4">
             Klantreviews
           </span>
-          <h2 className="text-2xl md:text-4xl font-bold text-white">
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-white">
             Wat klanten zeggen
           </h2>
         </div>
@@ -99,15 +99,15 @@ const TestimonialsNew = () => {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="flex-shrink-0 w-full px-4">
-                  <div className="bg-white/10 backdrop-blur-sm gsa-hoek-lg p-6 md:p-10 text-center transition-all duration-300 hover:bg-white/15">
+                <div key={index} className="flex-shrink-0 w-full px-2 sm:px-4">
+                  <div className="bg-white/10 backdrop-blur-sm gsa-hoek-lg p-5 sm:p-6 md:p-10 text-center transition-all duration-300 hover:bg-white/15">
                     {/* Quote Icon */}
-                    <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6 transition-all duration-300 hover:scale-110 hover:bg-accent/30">
-                      <Quote className="w-5 h-5 text-accent" />
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-4 md:mb-6 transition-all duration-300 hover:scale-110 hover:bg-accent/30">
+                      <Quote className="w-4 h-4 md:w-5 md:h-5 text-accent" />
                     </div>
 
                     {/* Quote Text */}
-                    <p className="text-lg md:text-xl text-white leading-relaxed mb-8">
+                    <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed mb-6 md:mb-8">
                       "{testimonial.quote}"
                     </p>
 

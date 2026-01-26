@@ -48,7 +48,7 @@ const HeroSplit = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-[80svh] md:min-h-[85svh] lg:min-h-[95vh] pt-24 sm:pt-28 md:pt-32 lg:pt-24 pb-6 md:pb-12 lg:pb-0 bg-background overflow-hidden"
+      className="relative min-h-[85svh] md:min-h-[85svh] lg:min-h-[95vh] pt-28 sm:pt-32 md:pt-36 lg:pt-28 pb-6 md:pb-12 lg:pb-0 bg-background overflow-hidden"
     >
       {/* Gradient Mesh Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-muted/50">
@@ -56,11 +56,11 @@ const HeroSplit = () => {
         <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-primary/5 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="container relative z-10 px-4">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center lg:min-h-[70vh]">
+      <div className="container relative z-10 px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center lg:min-h-[70vh]">
           
           {/* Left: Content */}
-          <div className="order-2 lg:order-1 space-y-4 sm:space-y-5 lg:space-y-8">
+          <div className="order-2 lg:order-1 space-y-5 sm:space-y-6 lg:space-y-8">
             {/* Badge */}
             <div 
               className={`inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-accent/10 border border-accent/20 transition-all duration-700 ${
@@ -73,7 +73,7 @@ const HeroSplit = () => {
 
             {/* Headline */}
             <h1 
-              className={`text-[1.625rem] leading-tight sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary transition-all duration-700 delay-100 ${
+              className={`text-[1.75rem] leading-[1.15] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary transition-all duration-700 delay-100 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
@@ -115,14 +115,14 @@ const HeroSplit = () => {
 
             {/* CTAs */}
             <div 
-              className={`flex flex-col sm:flex-row gap-2.5 sm:gap-4 pt-1 sm:pt-2 transition-all duration-700 delay-400 ${
+              className={`flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 transition-all duration-700 delay-400 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
               <Button 
                 variant="outline-accent" 
                 size="lg" 
-                className="gsa-hoek-sm group text-sm sm:text-base" 
+                className="gsa-hoek-sm group text-sm sm:text-base h-12 sm:h-auto" 
                 asChild
               >
                 <Link to="/contact" className="flex items-center gap-2">
@@ -132,7 +132,7 @@ const HeroSplit = () => {
               </Button>
               <Button 
                 size="lg" 
-                className="gsa-hoek-sm text-sm sm:text-base bg-white/10 backdrop-blur-md border-2 border-primary/20 text-primary hover:bg-white/20 hover:border-primary/40"
+                className="gsa-hoek-sm text-sm sm:text-base h-12 sm:h-auto bg-white/10 backdrop-blur-md border-2 border-primary/20 text-primary hover:bg-white/20 hover:border-primary/40"
                 asChild
               >
                 <Link to="/projecten">Bekijk projecten</Link>
