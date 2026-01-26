@@ -61,6 +61,7 @@ const projects = [
 
 const ProjectsShowcase = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [parallaxOffset, setParallaxOffset] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   
   const autoplayPlugin = useRef(
@@ -70,13 +71,34 @@ const ProjectsShowcase = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
       loop: true, 
-      align: "start",
+      align: "center",
       skipSnaps: false,
       containScroll: false,
     },
     [autoplayPlugin.current]
   );
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+  // Parallax scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Calculate how far the section is from center of viewport
+      const sectionCenter = rect.top + rect.height / 2;
+      const viewportCenter = windowHeight / 2;
+      const offset = (sectionCenter - viewportCenter) * 0.15;
+      
+      setParallaxOffset(offset);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -125,9 +147,34 @@ const ProjectsShowcase = () => {
 
   return (
     <section ref={sectionRef} className="py-16 md:py-24 lg:py-32 bg-primary relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      {/* Parallax Background Elements */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ transform: `translateY(${parallaxOffset}px)` }}
+      >
+        {/* Large gradient orbs */}
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+        <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        
+        {/* Subtle grid pattern overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}
+        />
+      </div>
+      
+      {/* Secondary parallax layer (slower) */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ transform: `translateY(${parallaxOffset * 0.5}px)` }}
+      >
+        <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-white/5 rounded-full" />
+        <div className="absolute bottom-1/3 left-1/4 w-48 h-48 border border-accent/10 rounded-full" />
+      </div>
 
       <div className="container relative z-10 px-4 sm:px-6">
         {/* Header */}
@@ -166,23 +213,23 @@ const ProjectsShowcase = () => {
         <div className={`transition-all duration-700 delay-200 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          <div className="overflow-hidden -mx-4 sm:mx-0" ref={emblaRef}>
-            <div className="flex">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-4 md:gap-6">
               {projects.map((project, index) => {
                 const isActive = selectedIndex === index;
                 return (
                   <div 
                     key={project.slug} 
-                    className={`min-w-0 pl-4 first:pl-0 cursor-pointer transition-all duration-500 ${
+                    className={`min-w-0 shrink-0 cursor-pointer transition-all duration-500 ease-out ${
                       isActive 
-                        ? "flex-[0_0_85%] sm:flex-[0_0_70%] md:flex-[0_0_55%] lg:flex-[0_0_50%]" 
-                        : "flex-[0_0_35%] sm:flex-[0_0_25%] md:flex-[0_0_20%] lg:flex-[0_0_18%]"
+                        ? "basis-[70%] sm:basis-[60%] md:basis-[50%] lg:basis-[45%]" 
+                        : "basis-[20%] sm:basis-[18%] md:basis-[16%] lg:basis-[14%]"
                     }`}
                     onClick={() => scrollTo(index)}
                   >
                     <Link
                       to={`/projecten/${project.slug}`}
-                      className="group relative block gsa-hoek-lg overflow-hidden transition-all duration-300 hover:shadow-2xl"
+                      className="group relative block gsa-hoek-lg overflow-hidden transition-all duration-300 hover:shadow-2xl h-full"
                       onClick={(e) => {
                         if (!isActive) {
                           e.preventDefault();
@@ -190,12 +237,14 @@ const ProjectsShowcase = () => {
                         }
                       }}
                     >
-                      <div className={`transition-all duration-500 ${isActive ? "aspect-[4/3]" : "aspect-[3/4]"}`}>
+                      <div className={`transition-all duration-500 ${isActive ? "aspect-[4/3]" : "aspect-[2/3]"}`}>
                         <img 
                           src={project.image}
                           alt={project.title}
                           className={`w-full h-full object-cover transition-all duration-500 ${
-                            isActive ? "scale-100 opacity-100" : "scale-110 opacity-50 grayscale-[30%]"
+                            isActive 
+                              ? "scale-100 opacity-100" 
+                              : "scale-105 opacity-60 grayscale-[20%]"
                           } group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0`}
                         />
                       </div>
@@ -204,27 +253,29 @@ const ProjectsShowcase = () => {
                       <div className={`absolute inset-0 transition-opacity duration-300 ${
                         isActive 
                           ? "bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" 
-                          : "bg-gradient-to-t from-primary/95 via-primary/60 to-primary/30"
+                          : "bg-gradient-to-t from-primary/80 via-primary/40 to-transparent"
                       }`} />
                       
                       {/* Content */}
-                      <div className={`absolute inset-0 p-4 sm:p-5 md:p-6 flex flex-col justify-end transition-all duration-300`}>
+                      <div className="absolute inset-0 p-3 sm:p-4 md:p-6 flex flex-col justify-end transition-all duration-300">
                         {/* Year badge - always visible */}
-                        <span className={`inline-block self-start px-3 py-1 gsa-hoek-sm bg-accent text-white font-semibold mb-2 transition-all duration-300 ${
-                          isActive ? "text-xs" : "text-[10px]"
+                        <span className={`inline-block self-start px-2 sm:px-3 py-1 gsa-hoek-sm bg-accent text-white font-semibold mb-2 transition-all duration-300 ${
+                          isActive ? "text-xs" : "text-[8px] sm:text-[10px]"
                         }`}>
                           {project.year}
                         </span>
                         
-                        <h3 className={`font-bold text-white mb-1 transition-all duration-300 ${
-                          isActive ? "text-xl sm:text-2xl md:text-3xl" : "text-xs sm:text-sm"
+                        <h3 className={`font-bold text-white mb-1 transition-all duration-300 leading-tight ${
+                          isActive ? "text-lg sm:text-xl md:text-2xl lg:text-3xl" : "text-[10px] sm:text-xs"
                         }`}>
                           {project.title}
                         </h3>
                         
                         {/* Subtitle - visible on active or hover */}
                         <p className={`text-white/70 transition-all duration-300 ${
-                          isActive ? "text-sm md:text-base opacity-100 mb-4" : "text-xs opacity-0 group-hover:opacity-100 mb-2"
+                          isActive 
+                            ? "text-sm md:text-base opacity-100 mb-3 md:mb-4" 
+                            : "text-[8px] sm:text-xs opacity-70 mb-0"
                         }`}>
                           {project.subtitle}
                         </p>
@@ -235,10 +286,10 @@ const ProjectsShowcase = () => {
                             {project.stats.map((stat, i) => (
                               <div 
                                 key={i}
-                                className="px-3 py-1.5 md:px-4 md:py-2 gsa-hoek-sm bg-white/10 backdrop-blur-sm transition-all duration-200 hover:bg-white/20"
+                                className="px-2 py-1 md:px-4 md:py-2 gsa-hoek-sm bg-white/10 backdrop-blur-sm transition-all duration-200 hover:bg-white/20"
                               >
                                 <span className="text-white text-xs md:text-sm font-bold">{stat.value}</span>
-                                <span className="text-white/60 text-xs ml-1.5">{stat.label}</span>
+                                <span className="text-white/60 text-[10px] md:text-xs ml-1 md:ml-1.5">{stat.label}</span>
                               </div>
                             ))}
                           </div>
