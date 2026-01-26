@@ -46,7 +46,7 @@ const ClientLogosNew = memo(() => {
                 <img 
                   src={client.src} 
                   alt={client.name}
-                  className="h-8 md:h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-200"
+                  className="h-8 md:h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300"
                 />
               </div>
             ))}
@@ -67,7 +67,7 @@ const ClientLogosNew = memo(() => {
                 <img 
                   src={client.src} 
                   alt={client.name}
-                  className="h-8 md:h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-200"
+                  className="h-8 md:h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300"
                 />
               </div>
             ))}
