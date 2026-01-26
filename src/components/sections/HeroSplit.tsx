@@ -8,7 +8,6 @@ const highlights = [
   "15+ jaar ervaring",
   "Eén vast aanspreekpunt",
   "Flexibel & betrouwbaar",
-  "Premium kwaliteit"
 ];
 
 const HeroSplit = () => {
@@ -160,7 +159,7 @@ const HeroSplit = () => {
               />
               
               {/* Image with parallax and strong gradient overlay */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative gsa-hoek-lg overflow-hidden shadow-2xl">
                 <div 
                   className="will-change-transform"
                   style={{ 
@@ -180,32 +179,33 @@ const HeroSplit = () => {
                 {/* Strong blue gradient overlay from bottom - like reference image */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent opacity-70 pointer-events-none" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent pointer-events-none" />
-              </div>
-
-              {/* Floating Stats Card */}
-              <div 
-                className={`absolute -bottom-6 -left-6 lg:-left-12 bg-background gsa-hoek-sm shadow-xl border border-border/50 p-4 md:p-5 transition-all duration-700 delay-500 hover:shadow-2xl hover:-translate-y-1 hover:border-accent/30 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center transition-colors duration-200 group-hover:bg-accent/20">
-                    <span className="text-2xl font-bold text-accent">15+</span>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">Jaar ervaring</p>
-                    <p className="text-xs text-muted-foreground">in facility management</p>
+                
+                {/* Content overlay like reference - positioned at bottom */}
+                <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                  {/* Badge */}
+                  <span className="inline-block px-4 py-1.5 bg-accent text-white text-xs font-semibold uppercase tracking-wide gsa-hoek-sm mb-4">
+                    15+ jaar ervaring
+                  </span>
+                  
+                  {/* Title */}
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">
+                    COMPLETE ONTZORGING
+                  </h3>
+                  
+                  {/* Description and Button Row */}
+                  <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                    <p className="text-sm md:text-base text-white/80 max-w-xs">
+                      Van fit-out tot verhuizing, van handyman tot integrated facilities.
+                    </p>
+                    <Link 
+                      to="/projecten" 
+                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/30 text-white text-sm font-semibold gsa-hoek-sm hover:bg-white/20 transition-all duration-200"
+                    >
+                      Projecten
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
-              </div>
-
-              {/* Floating Badge */}
-              <div 
-                className={`absolute -top-3 -right-3 lg:top-6 lg:-right-6 bg-accent text-white px-4 py-2 rounded-full shadow-lg transition-all duration-700 delay-600 hover:scale-105 hover:shadow-xl cursor-default ${
-                  isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
-                }`}
-              >
-                <span className="text-xs font-semibold uppercase tracking-wide">Premium kwaliteit</span>
               </div>
             </div>
           </div>

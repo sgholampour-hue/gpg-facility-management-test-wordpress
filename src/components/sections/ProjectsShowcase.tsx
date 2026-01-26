@@ -166,86 +166,88 @@ const ProjectsShowcase = () => {
         <div className={`transition-all duration-700 delay-200 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          <div className="overflow-hidden" ref={emblaRef}>
+          <div className="overflow-hidden -mx-4 sm:mx-0" ref={emblaRef}>
             <div className="flex">
-              {projects.map((project, index) => (
-                <div 
-                  key={project.slug} 
-                  className="flex-[0_0_80%] sm:flex-[0_0_60%] md:flex-[0_0_45%] lg:flex-[0_0_35%] min-w-0 pl-4 first:pl-0 cursor-pointer"
-                  onClick={() => scrollTo(index)}
-                >
-                  <Link
-                    to={`/projecten/${project.slug}`}
-                    className="group relative block rounded-2xl md:rounded-3xl overflow-hidden"
-                    onClick={(e) => {
-                      if (selectedIndex !== index) {
-                        e.preventDefault();
-                        scrollTo(index);
-                      }
-                    }}
+              {projects.map((project, index) => {
+                const isActive = selectedIndex === index;
+                return (
+                  <div 
+                    key={project.slug} 
+                    className={`min-w-0 pl-4 first:pl-0 cursor-pointer transition-all duration-500 ${
+                      isActive 
+                        ? "flex-[0_0_85%] sm:flex-[0_0_70%] md:flex-[0_0_55%] lg:flex-[0_0_50%]" 
+                        : "flex-[0_0_35%] sm:flex-[0_0_25%] md:flex-[0_0_20%] lg:flex-[0_0_18%]"
+                    }`}
+                    onClick={() => scrollTo(index)}
                   >
-                    <div className="aspect-[4/3] md:aspect-[16/10]">
-                      <img 
-                        src={project.image}
-                        alt={project.title}
-                        className={`w-full h-full object-cover transition-all duration-500 ${
-                          selectedIndex === index ? "scale-100" : "scale-95 opacity-60"
-                        } group-hover:scale-105`}
-                      />
-                    </div>
-                    
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
-                    
-                    {/* Content - Only visible on active slide */}
-                    <div className={`absolute inset-0 p-4 sm:p-5 md:p-8 flex flex-col justify-end transition-opacity duration-300 ${
-                      selectedIndex === index ? "opacity-100" : "opacity-0"
-                    }`}>
-                      {/* Year badge */}
-                      <span className="inline-block self-start px-3 py-1 rounded bg-accent/80 text-white text-xs font-semibold mb-3">
-                        {project.year}
-                      </span>
-                      
-                      <h3 className="text-xl sm:text-2xl md:text-4xl font-bold text-white mb-1 md:mb-2">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-white/70 mb-4">
-                        {project.subtitle}
-                      </p>
-                      
-                      {/* Stats - Enhanced */}
-                      <div className="flex flex-wrap gap-2 md:gap-3">
-                        {project.stats.map((stat, i) => (
-                          <div 
-                            key={i}
-                            className="px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 backdrop-blur-sm"
-                          >
-                            <span className="text-white text-xs md:text-sm font-bold">{stat.value}</span>
-                            <span className="text-white/60 text-xs ml-1.5">{stat.label}</span>
-                          </div>
-                        ))}
+                    <Link
+                      to={`/projecten/${project.slug}`}
+                      className="group relative block gsa-hoek-lg overflow-hidden transition-all duration-300 hover:shadow-2xl"
+                      onClick={(e) => {
+                        if (!isActive) {
+                          e.preventDefault();
+                          scrollTo(index);
+                        }
+                      }}
+                    >
+                      <div className={`transition-all duration-500 ${isActive ? "aspect-[4/3]" : "aspect-[3/4]"}`}>
+                        <img 
+                          src={project.image}
+                          alt={project.title}
+                          className={`w-full h-full object-cover transition-all duration-500 ${
+                            isActive ? "scale-100 opacity-100" : "scale-110 opacity-50 grayscale-[30%]"
+                          } group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0`}
+                        />
                       </div>
-                    </div>
-
-                    {/* Title always visible */}
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <span className="inline-block px-2 py-0.5 rounded bg-accent/80 text-white text-[10px] md:text-xs font-medium mb-2">
-                        {project.year}
-                      </span>
-                      <h3 className={`font-bold text-white transition-all duration-300 ${
-                        selectedIndex === index ? "text-xl sm:text-2xl md:text-3xl" : "text-sm md:text-base"
-                      }`}>
-                        {project.title}
-                      </h3>
-                      {selectedIndex !== index && (
-                        <p className="text-xs text-white/60 truncate mt-1">
+                      
+                      {/* Gradient overlay */}
+                      <div className={`absolute inset-0 transition-opacity duration-300 ${
+                        isActive 
+                          ? "bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" 
+                          : "bg-gradient-to-t from-primary/95 via-primary/60 to-primary/30"
+                      }`} />
+                      
+                      {/* Content */}
+                      <div className={`absolute inset-0 p-4 sm:p-5 md:p-6 flex flex-col justify-end transition-all duration-300`}>
+                        {/* Year badge - always visible */}
+                        <span className={`inline-block self-start px-3 py-1 gsa-hoek-sm bg-accent text-white font-semibold mb-2 transition-all duration-300 ${
+                          isActive ? "text-xs" : "text-[10px]"
+                        }`}>
+                          {project.year}
+                        </span>
+                        
+                        <h3 className={`font-bold text-white mb-1 transition-all duration-300 ${
+                          isActive ? "text-xl sm:text-2xl md:text-3xl" : "text-xs sm:text-sm"
+                        }`}>
+                          {project.title}
+                        </h3>
+                        
+                        {/* Subtitle - visible on active or hover */}
+                        <p className={`text-white/70 transition-all duration-300 ${
+                          isActive ? "text-sm md:text-base opacity-100 mb-4" : "text-xs opacity-0 group-hover:opacity-100 mb-2"
+                        }`}>
                           {project.subtitle}
                         </p>
-                      )}
-                    </div>
-                  </Link>
-                </div>
-              ))}
+                        
+                        {/* Stats - Only visible on active slide */}
+                        {isActive && (
+                          <div className="flex flex-wrap gap-2 md:gap-3 animate-fade-in">
+                            {project.stats.map((stat, i) => (
+                              <div 
+                                key={i}
+                                className="px-3 py-1.5 md:px-4 md:py-2 gsa-hoek-sm bg-white/10 backdrop-blur-sm transition-all duration-200 hover:bg-white/20"
+                              >
+                                <span className="text-white text-xs md:text-sm font-bold">{stat.value}</span>
+                                <span className="text-white/60 text-xs ml-1.5">{stat.label}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
