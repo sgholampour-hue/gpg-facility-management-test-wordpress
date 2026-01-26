@@ -2,6 +2,7 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail } from "lucide-react";
+import ctaMeetingImage from "@/assets/cta-meeting.jpg";
 
 const CTANew = memo(() => {
   return (
@@ -13,7 +14,7 @@ const CTANew = memo(() => {
       </div>
 
       <div className="container relative z-10">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="bg-background gsa-hoek-lg border border-border/50 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
             <div className="grid md:grid-cols-2">
               {/* Left: Content */}
@@ -50,7 +51,7 @@ const CTANew = memo(() => {
                   </a>
                 </div>
 
-                <Button variant="default" size="lg" className="rounded-full group" asChild>
+                <Button variant="outline" size="lg" className="gsa-hoek-sm group" asChild>
                   <Link to="/contact" className="flex items-center gap-2">
                     Neem contact op
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -58,16 +59,21 @@ const CTANew = memo(() => {
                 </Button>
               </div>
 
-              {/* Right: Visual */}
-              <div className="relative bg-primary p-8 md:p-12 flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-accent/30" />
-                <div className="relative z-10 text-center">
-                  <div className="text-6xl md:text-7xl font-bold text-white/10 mb-4">
-                    GPG
-                  </div>
-                  <p className="text-white/80 text-sm md:text-base max-w-xs mx-auto">
-                    Jouw partner voor professionele facilitaire dienstverlening
-                  </p>
+              {/* Right: Image */}
+              <div className="relative min-h-[250px] md:min-h-0">
+                <img 
+                  src={ctaMeetingImage} 
+                  alt="Professioneel overleg met het GPG team"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent" />
+                
+                {/* Floating badge */}
+                <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm gsa-hoek-sm px-4 py-3 shadow-lg">
+                  <p className="text-xs font-semibold text-primary">Jouw partner voor</p>
+                  <p className="text-sm font-bold text-accent">professionele facilitaire dienstverlening</p>
                 </div>
               </div>
             </div>
