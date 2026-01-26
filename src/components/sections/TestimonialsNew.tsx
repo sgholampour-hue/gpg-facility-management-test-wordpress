@@ -1,41 +1,15 @@
 import { useState, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import useEmblaCarousel from "embla-carousel-react";
+import { Quote } from "lucide-react";
 
-const testimonials = [
-  {
-    quote: "Samen met GPG bouwen we aan werkplekken waar mensen graag komen. Hun expertise en betrokkenheid maken het verschil.",
-    author: "Frank van Schaik",
-    role: "Directeur",
-    company: "GSA Groep",
-    initials: "FS",
-  },
-  {
-    quote: "GPG heeft ons kantoor volledig getransformeerd. De aandacht voor detail en de professionele aanpak hebben onze verwachtingen overtroffen.",
-    author: "Sarah van der Berg",
-    role: "Facility Manager",
-    company: "Booking.com",
-    initials: "SB",
-  },
-  {
-    quote: "Al jaren vertrouwen wij op GPG voor onze verhuizingen en facility services. Betrouwbaar, flexibel en altijd op tijd.",
-    author: "Mark Jansen",
-    role: "Operations Director",
-    company: "Schiphol Group",
-    initials: "MJ",
-  },
-  {
-    quote: "De samenwerking met GPG verloopt uitstekend. Ze denken proactief mee en leveren consistente kwaliteit.",
-    author: "Linda de Vries",
-    role: "Office Manager",
-    company: "Rabobank",
-    initials: "LV",
-  },
-];
+const testimonial = {
+  quote: "Samen met GPG bouwen we aan werkplekken waar mensen graag komen. Hun expertise en betrokkenheid maken het verschil.",
+  author: "Frank van Schaik",
+  role: "Directeur",
+  company: "GSA Groep",
+  initials: "FS",
+};
 
 const TestimonialsNew = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
-  const [selectedIndex, setSelectedIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -56,23 +30,6 @@ const TestimonialsNew = () => {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-    };
-
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-    onSelect();
-
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
-    };
-  }, [emblaApi]);
-
   return (
     <section ref={sectionRef} className="py-12 md:py-20 lg:py-24 bg-primary relative overflow-hidden">
       {/* Decorative elements */}
@@ -92,73 +49,31 @@ const TestimonialsNew = () => {
           </h2>
         </div>
 
-        {/* Carousel */}
-        <div className={`relative max-w-4xl mx-auto transition-all duration-700 delay-200 ${
+        {/* Single Testimonial */}
+        <div className={`relative max-w-3xl mx-auto transition-all duration-700 delay-200 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="flex-shrink-0 w-full px-2 sm:px-4">
-                  <div className="bg-white/10 backdrop-blur-sm gsa-hoek-lg p-5 sm:p-6 md:p-10 text-center transition-all duration-300 hover:bg-white/15">
-                    {/* Quote Icon */}
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-4 md:mb-6 transition-all duration-300 hover:scale-110 hover:bg-accent/30">
-                      <Quote className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-                    </div>
-
-                    {/* Quote Text */}
-                    <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed mb-6 md:mb-8">
-                      "{testimonial.quote}"
-                    </p>
-
-                    {/* Author */}
-                    <div className="flex items-center justify-center gap-4 group/author">
-                      <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white font-bold transition-transform duration-300 group-hover/author:scale-110">
-                        {testimonial.initials}
-                      </div>
-                      <div className="text-left">
-                        <p className="font-semibold text-white">{testimonial.author}</p>
-                        <p className="text-sm text-white/70">{testimonial.role}, {testimonial.company}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <button
-              onClick={() => emblaApi?.scrollPrev()}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:scale-110 hover:border-accent/50 transition-all duration-300"
-              aria-label="Vorige testimonial"
-            >
-              <ChevronLeft className="w-5 h-5 transition-transform duration-300 hover:-translate-x-0.5" />
-            </button>
-            
-            <div className="flex gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => emblaApi?.scrollTo(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    selectedIndex === index 
-                      ? "bg-accent w-6" 
-                      : "bg-white/30 w-2 hover:bg-white/50"
-                  }`}
-                  aria-label={`Ga naar testimonial ${index + 1}`}
-                />
-              ))}
+          <div className="bg-white/10 backdrop-blur-sm gsa-hoek-lg p-6 sm:p-8 md:p-12 text-center transition-all duration-300 hover:bg-white/15">
+            {/* Quote Icon */}
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6 md:mb-8 transition-all duration-300 hover:scale-110 hover:bg-accent/30">
+              <Quote className="w-5 h-5 md:w-6 md:h-6 text-accent" />
             </div>
 
-            <button
-              onClick={() => emblaApi?.scrollNext()}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:scale-110 hover:border-accent/50 transition-all duration-300"
-              aria-label="Volgende testimonial"
-            >
-              <ChevronRight className="w-5 h-5 transition-transform duration-300 hover:translate-x-0.5" />
-            </button>
+            {/* Quote Text */}
+            <p className="text-lg sm:text-xl md:text-2xl text-white leading-relaxed mb-8 md:mb-10">
+              "{testimonial.quote}"
+            </p>
+
+            {/* Author */}
+            <div className="flex items-center justify-center gap-4 group/author">
+              <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover/author:scale-110">
+                {testimonial.initials}
+              </div>
+              <div className="text-left">
+                <p className="font-semibold text-white text-lg">{testimonial.author}</p>
+                <p className="text-sm text-white/70">{testimonial.role}, {testimonial.company}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

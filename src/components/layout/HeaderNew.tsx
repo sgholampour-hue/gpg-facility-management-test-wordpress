@@ -95,17 +95,8 @@ const HeaderNew = () => {
         </div>
       </div>
 
-      {/* Main Navigation - ALWAYS sticky at top */}
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 bg-background transition-all duration-300 ease-out ${
-          isScrolled 
-            ? "shadow-[0_4px_20px_-4px_rgba(0,0,0,0.15)] border-b border-border/30 backdrop-blur-md bg-background/98" 
-            : "shadow-none border-b border-transparent"
-        }`}
-        style={{
-          transform: isScrolled ? 'translateY(0)' : 'translateY(36px)',
-        }}
-      >
+      {/* Main Navigation - Static (not sticky) */}
+      <header className="relative z-40 bg-background border-b border-border">
         <nav className="container">
           <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14 md:h-16' : 'h-16 md:h-18'}`}>
             {/* Logo */}

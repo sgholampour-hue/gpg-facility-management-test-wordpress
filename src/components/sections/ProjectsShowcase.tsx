@@ -1,44 +1,56 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
 import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
 import projectHub from "@/assets/gsa-hub-locatie.jpg";
 import projectHub2 from "@/assets/project-hub-2.jpg";
-import gsaGroepLogo from "@/assets/gsa-groep-logo.png";
 
 const projects = [
   {
-    title: "Booking.com HQ",
-    category: "Kantoorinrichting",
+    title: "BOOKING.COM",
+    subtitle: "Amsterdam, Nederland",
+    year: "2023",
     image: projectBooking,
     slug: "cbre-booking",
+    stats: ["65.000 m²", "3.500+ werkplekken"],
   },
   {
-    title: "Schiphol Office",
-    category: "Fit-out",
+    title: "HQ SCHIPHOL",
+    subtitle: "Schiphol, Nederland",
+    year: "Lopend",
     image: projectSchiphol,
     slug: "schiphol-hq",
+    stats: ["45.000 m²", "2.800+ werkplekken"],
   },
   {
-    title: "HUB Locaties",
-    category: "Integrated Facilities",
+    title: "HUB LOCATIES",
+    subtitle: "Diverse locaties",
+    year: "2024",
     image: projectHub,
     slug: "hub-locaties",
+    stats: ["12 locaties", "Continue ondersteuning"],
   },
   {
-    title: "GSA Groep Projecten",
-    category: "Complete ontzorging",
+    title: "GSA GROEP",
+    subtitle: "Hoofdkantoor, Nederland",
+    year: "2022",
     image: projectHub2,
     slug: "gsa-groep",
-    hasLogo: true,
+    stats: ["Complete ontzorging", "Facilities partner"],
   },
 ];
 
 const ProjectsShowcase = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true, 
+    align: "center",
+    skipSnaps: false,
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -57,98 +69,159 @@ const ProjectsShowcase = () => {
     return () => observer.disconnect();
   }, []);
 
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi, onSelect]);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
   return (
-    <section ref={sectionRef} className="py-12 md:py-20 lg:py-24 bg-muted/30">
-      <div className="container px-4 sm:px-6">
+    <section ref={sectionRef} className="py-16 md:py-24 lg:py-32 bg-primary relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+
+      <div className="container relative z-10 px-4 sm:px-6">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 md:gap-4 mb-8 md:mb-14">
-          <div className={`transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}>
-            <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide mb-3 md:mb-4">
-              Projecten
+        <div className={`flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-8 mb-10 md:mb-16 transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}>
+          <div>
+            <span className="inline-block text-accent text-xs font-semibold uppercase tracking-widest mb-3 md:mb-4">
+              Uitgelichte werken
             </span>
-            <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-primary">
-              Recente projecten
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white">
+              RECENTE PROJECTEN
             </h2>
           </div>
-          <Link 
-            to="/projecten"
-            className={`inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors text-sm md:text-base ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            Alle projecten bekijken
-            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          
+          {/* Navigation Arrows */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={scrollPrev}
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300"
+              aria-label="Vorig project"
+            >
+              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+            </button>
+            <button
+              onClick={scrollNext}
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300"
+              aria-label="Volgend project"
+            >
+              <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+            </button>
+          </div>
         </div>
 
-        {/* Projects Grid - 2x2 layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6">
-          {projects.map((project, index) => (
-            <Link
-              key={project.slug}
-              to={`/projecten/${project.slug}`}
-              className={`group relative gsa-hoek-sm overflow-hidden transition-all duration-700 hover:shadow-2xl ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <div className="aspect-[4/3]">
-                <img 
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent transition-opacity duration-300 group-hover:from-primary/90" />
-              
-              {/* GSA Groep Logo for last card */}
-              {'hasLogo' in project && project.hasLogo && (
-                <div className="absolute bottom-4 left-4 z-10">
-                  <img 
-                    src={gsaGroepLogo} 
-                    alt="GSA Groep" 
-                    className="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-90"
-                  />
+        {/* Carousel */}
+        <div className={`transition-all duration-700 delay-200 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}>
+          <div className="overflow-hidden -mx-4 sm:-mx-6 md:-mx-12 lg:-mx-24" ref={emblaRef}>
+            <div className="flex">
+              {projects.map((project, index) => (
+                <div 
+                  key={project.slug} 
+                  className={`flex-shrink-0 px-2 sm:px-3 md:px-4 transition-all duration-500 ${
+                    selectedIndex === index 
+                      ? "w-[85%] sm:w-[75%] md:w-[60%] lg:w-[55%]" 
+                      : "w-[30%] sm:w-[25%] md:w-[22%] lg:w-[20%]"
+                  }`}
+                >
+                  <Link
+                    to={`/projecten/${project.slug}`}
+                    className="group relative block rounded-2xl md:rounded-3xl overflow-hidden"
+                  >
+                    <div className={`transition-all duration-500 ${
+                      selectedIndex === index ? "aspect-[16/10]" : "aspect-[3/4]"
+                    }`}>
+                      <img 
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </div>
+                    
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
+                    
+                    {/* Content - Only visible on active slide */}
+                    <div className={`absolute inset-0 p-4 sm:p-5 md:p-8 flex flex-col justify-end transition-opacity duration-300 ${
+                      selectedIndex === index ? "opacity-100" : "opacity-0"
+                    }`}>
+                      {/* Year badge */}
+                      <span className="inline-block self-start px-3 py-1 rounded bg-accent/80 text-white text-xs font-semibold mb-3">
+                        {project.year}
+                      </span>
+                      
+                      <h3 className="text-xl sm:text-2xl md:text-4xl font-bold text-white mb-1 md:mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-white/70 mb-4">
+                        {project.subtitle}
+                      </p>
+                      
+                      {/* Stats */}
+                      <div className="flex flex-wrap gap-2 md:gap-3">
+                        {project.stats.map((stat, i) => (
+                          <span 
+                            key={i}
+                            className="px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-xs md:text-sm font-medium"
+                          >
+                            {stat}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Minimal content for inactive slides */}
+                    <div className={`absolute bottom-4 left-4 right-4 transition-opacity duration-300 ${
+                      selectedIndex === index ? "opacity-0" : "opacity-100"
+                    }`}>
+                      <span className="inline-block px-2 py-0.5 rounded bg-accent/60 text-white text-[10px] font-medium mb-2">
+                        {project.year}
+                      </span>
+                      <p className="text-xs text-white/60 truncate">
+                        {project.subtitle}
+                      </p>
+                    </div>
+                  </Link>
                 </div>
-              )}
-              
-              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-                {'hasLogo' in project && project.hasLogo ? (
-                  <div className="ml-auto max-w-[60%] text-right">
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-medium mb-2 transition-all duration-300 group-hover:bg-accent group-hover:text-white">
-                      {project.category}
-                    </span>
-                    <h3 className="text-lg md:text-xl font-bold text-white mb-1 transition-transform duration-300 group-hover:translate-x-1">
-                      {project.title}
-                    </h3>
-                    <div className={`flex items-center gap-2 text-white/80 text-sm justify-end transition-all duration-300 ${
-                      hoveredIndex === index ? "translate-x-2 text-white" : ""
-                    }`}>
-                      Bekijk project <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" />
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-medium mb-2 transition-all duration-300 group-hover:bg-accent group-hover:text-white">
-                      {project.category}
-                    </span>
-                    <h3 className="text-lg md:text-xl font-bold text-white mb-1 transition-transform duration-300 group-hover:translate-x-1">
-                      {project.title}
-                    </h3>
-                    <div className={`flex items-center gap-2 text-white/80 text-sm transition-all duration-300 ${
-                      hoveredIndex === index ? "translate-x-2 text-white" : ""
-                    }`}>
-                      Bekijk project <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" />
-                    </div>
-                  </>
-                )}
-              </div>
-            </Link>
-          ))}
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* View All Link */}
+        <div className={`text-center mt-10 md:mt-14 transition-all duration-700 delay-300 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}>
+          <Link 
+            to="/projecten"
+            className="inline-flex items-center gap-2 text-white font-semibold uppercase tracking-wide hover:text-accent transition-colors group"
+          >
+            Bekijk alle projecten
+            <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
     </section>
