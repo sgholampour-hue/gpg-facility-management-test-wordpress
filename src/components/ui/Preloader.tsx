@@ -36,7 +36,7 @@ const Preloader = () => {
     setTimeout(() => setLogoScale(1), 150);
 
     let startTime: number | null = null;
-    const duration = 2000;
+    const duration = 1200; // Shortened for faster loading
 
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;

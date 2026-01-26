@@ -872,4 +872,24 @@
   .duration-400 {
     transition-duration: 400ms;
   }
+
+  /* Slow marquee for client logos */
+  @keyframes marquee-slow {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-33.333%);
+    }
+  }
+
+  .animate-marquee-slow {
+    animation: marquee-slow 30s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee-slow {
+      animation: none;
+    }
+  }
 }

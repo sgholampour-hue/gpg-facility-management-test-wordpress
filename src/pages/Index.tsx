@@ -1,15 +1,14 @@
-import Header from "@/components/layout/Header";
+import HeaderNew from "@/components/layout/HeaderNew";
 import Footer from "@/components/layout/Footer";
-import Hero from "@/components/sections/Hero";
-import Services from "@/components/sections/Services";
-import ClientMarquee from "@/components/sections/ClientMarquee";
-import AboutGallery from "@/components/sections/AboutGallery";
-import WhyGPG from "@/components/sections/WhyGPG";
-import FeaturedProjects from "@/components/sections/FeaturedProjects";
-import Testimonials from "@/components/sections/Testimonials";
-import CTASection from "@/components/sections/CTASection";
-import PartnerSection from "@/components/sections/PartnerSection";
-import FinalCTA from "@/components/sections/FinalCTA";
+import HeroSplit from "@/components/sections/HeroSplit";
+import ClientLogosNew from "@/components/sections/ClientLogosNew";
+import ServicesBento from "@/components/sections/ServicesBento";
+import StatsTicker from "@/components/sections/StatsTicker";
+import WhyGPGNew from "@/components/sections/WhyGPGNew";
+import ProcessTimeline from "@/components/sections/ProcessTimeline";
+import ProjectsShowcase from "@/components/sections/ProjectsShowcase";
+import TestimonialsNew from "@/components/sections/TestimonialsNew";
+import CTANew from "@/components/sections/CTANew";
 import StickyContactButton from "@/components/ui/StickyContactButton";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
@@ -23,36 +22,25 @@ const Index = () => {
         description="GPG Facility Management is uw partner voor fit-outs, verhuizingen, handyman services en integrated facilities. Al 15+ jaar ervaring met projecten voor Schiphol, Booking.com en meer."
         canonical="https://gpg-facility.lovable.app/"
       />
-      <Header />
+      <HeaderNew />
       <main>
-        <Hero />
+        <HeroSplit />
+        <ClientLogosNew />
         <RevealOnScroll variant="fade-up" delay={0}>
-          <Services />
+          <ServicesBento />
         </RevealOnScroll>
-        <RevealOnScroll variant="fade-in" delay={0}>
-          <ClientMarquee />
-        </RevealOnScroll>
+        <StatsTicker />
         <RevealOnScroll variant="fade-up" delay={0}>
-          <AboutGallery />
-        </RevealOnScroll>
-        <RevealOnScroll variant="fade-up" delay={0}>
-          <WhyGPG />
+          <WhyGPGNew />
         </RevealOnScroll>
         <RevealOnScroll variant="fade-up" delay={0}>
-          <FeaturedProjects />
+          <ProcessTimeline />
         </RevealOnScroll>
         <RevealOnScroll variant="fade-up" delay={0}>
-          <Testimonials />
+          <ProjectsShowcase />
         </RevealOnScroll>
-        <RevealOnScroll variant="scale-in" delay={0}>
-          <CTASection />
-        </RevealOnScroll>
-        <RevealOnScroll variant="fade-up" delay={0}>
-          <PartnerSection />
-        </RevealOnScroll>
-        <RevealOnScroll variant="fade-up" delay={0}>
-          <FinalCTA />
-        </RevealOnScroll>
+        <TestimonialsNew />
+        <CTANew />
       </main>
       <Footer />
       <StickyContactButton />
