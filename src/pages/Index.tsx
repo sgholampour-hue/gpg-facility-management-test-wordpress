@@ -1,4 +1,3 @@
-import HeaderNew from "@/components/layout/HeaderNew";
 import Footer from "@/components/layout/Footer";
 import HeroSplit from "@/components/sections/HeroSplit";
 import ClientLogosNew from "@/components/sections/ClientLogosNew";
@@ -33,7 +32,6 @@ const Index = () => {
         canonical="https://gpg-facility.lovable.app/"
         structuredData={createFAQSchema(homeFAQs)}
       />
-      <HeaderNew />
       <main>
         <HeroSplit />
         <ClientLogosNew />

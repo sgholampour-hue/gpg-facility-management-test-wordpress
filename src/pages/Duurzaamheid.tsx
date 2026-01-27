@@ -1,4 +1,3 @@
-import HeaderNew from "@/components/layout/HeaderNew";
 import Footer from "@/components/layout/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -71,7 +70,7 @@ const Duurzaamheid = () => {
         description="Ontdek onze circulaire aanpak bij GPG Facility Management. Circulariteit staat voorop in elk project: van duurzame materialen tot verantwoorde afvoer."
         canonical="https://gpg-facility.lovable.app/duurzaamheid"
       />
-      <HeaderNew />
+      
       <main>
         {/* Hero Section */}
         <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-primary">
