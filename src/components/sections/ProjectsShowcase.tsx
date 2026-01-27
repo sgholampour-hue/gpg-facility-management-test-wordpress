@@ -220,7 +220,7 @@ const ProjectsShowcase = () => {
                 return (
                   <div 
                     key={project.slug} 
-                    className={`min-w-0 shrink-0 cursor-pointer transition-all duration-500 ease-out ${
+                    className={`min-w-0 shrink-0 cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
                       isActive 
                         ? "basis-[70%] sm:basis-[60%] md:basis-[50%] lg:basis-[45%]" 
                         : "basis-[20%] sm:basis-[18%] md:basis-[16%] lg:basis-[14%]"
@@ -237,11 +237,11 @@ const ProjectsShowcase = () => {
                         }
                       }}
                     >
-                      <div className={`transition-all duration-500 ${isActive ? "aspect-[4/3]" : "aspect-[2/3]"}`}>
+                      <div className={`transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${isActive ? "aspect-[4/3]" : "aspect-[2/3]"}`}>
                         <img 
                           src={project.image}
                           alt={project.title}
-                          className={`w-full h-full object-cover transition-all duration-500 ${
+                          className={`w-full h-full object-cover transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
                             isActive 
                               ? "scale-100 opacity-100" 
                               : "scale-105 opacity-60 grayscale-[20%]"
