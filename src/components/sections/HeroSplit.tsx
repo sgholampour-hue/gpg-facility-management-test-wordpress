@@ -5,7 +5,7 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-office.jpg";
 
 const highlights = [
-  "15+ jaar ervaring",
+  "Onderdeel GSA groep",
   "Eén vast aanspreekpunt",
   "Flexibel & betrouwbaar",
 ];
@@ -184,7 +184,7 @@ const HeroSplit = () => {
                 <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
                   {/* Badge */}
                   <span className="inline-block px-4 py-1.5 bg-accent text-white text-xs font-semibold uppercase tracking-wide gsa-hoek-sm mb-4">
-                    15+ jaar ervaring
+                    Onderdeel GSA groep
                   </span>
                   
                   {/* Title */}
