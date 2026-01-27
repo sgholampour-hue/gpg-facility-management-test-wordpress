@@ -128,17 +128,29 @@ const HeaderNew = () => {
                         <div className="bg-background rounded-2xl shadow-2xl border border-border/50 p-4">
                           <div className="grid grid-cols-2 gap-2">
                             {dienstenLinks.map((dienst) => (
-                              <Link
+                              <a
                                 key={dienst.href}
-                                to={dienst.href}
-                                onClick={() => setDienstenOpen(false)}
-                                className="flex items-center gap-3 p-3 rounded-xl text-sm text-foreground hover:bg-muted transition-all duration-200 group"
+                                href={dienst.href}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  setDienstenOpen(false);
+                                  const targetId = dienst.href.split('#')[1];
+                                  if (location.pathname === '/diensten') {
+                                    const element = document.getElementById(targetId);
+                                    if (element) {
+                                      element.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                  } else {
+                                    window.location.href = dienst.href;
+                                  }
+                                }}
+                                className="flex items-center gap-3 p-3 rounded-xl text-sm text-foreground hover:bg-muted transition-all duration-200 group cursor-pointer"
                               >
                                 <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors">
                                   <dienst.icon className="w-5 h-5 text-accent group-hover:text-white" />
                                 </div>
                                 <span className="font-medium">{dienst.label}</span>
-                              </Link>
+                              </a>
                             ))}
                           </div>
                           <div className="border-t border-border mt-3 pt-3">
@@ -221,18 +233,28 @@ const HeaderNew = () => {
                   <div className={`overflow-hidden transition-all duration-300 ${mobileDienstenOpen ? 'max-h-[400px] mt-2' : 'max-h-0'}`}>
                     <div className="pl-4 space-y-1">
                       {dienstenLinks.map((dienst) => (
-                        <Link
+                        <a
                           key={dienst.href}
-                          to={dienst.href}
-                          onClick={() => {
+                          href={dienst.href}
+                          onClick={(e) => {
+                            e.preventDefault();
                             setMobileMenuOpen(false);
                             setMobileDienstenOpen(false);
+                            const targetId = dienst.href.split('#')[1];
+                            if (location.pathname === '/diensten') {
+                              const element = document.getElementById(targetId);
+                              if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' });
+                              }
+                            } else {
+                              window.location.href = dienst.href;
+                            }
                           }}
-                          className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                          className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer"
                         >
                           <dienst.icon className="w-4 h-4 text-accent" />
                           {dienst.label}
-                        </Link>
+                        </a>
                       ))}
                     </div>
                   </div>

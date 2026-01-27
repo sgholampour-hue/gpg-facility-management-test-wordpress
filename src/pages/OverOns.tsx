@@ -24,23 +24,20 @@ const teamMembers = [
     name: "Wim Gruijters",
     role: "Directeur GPG",
     image: teamWim,
-    mobile: "+31 (0)6 57 05 88 30",
     phone: "020 - 795 2100",
     email: "w.gruijters@gpgfacilities.nl",
   },
   {
     name: "Danny Moeljoredjo",
-    role: "Facilitair Coördinator",
+    role: "Facility Coördinator/Planner",
     image: teamDanny,
-    mobile: "06 57 50 24 20",
     email: "d.moeljoredjo@gsafacilities.nl",
   },
   {
     name: "Patricia Nijholt",
     role: "Algemeen Manager GPG",
     image: teamPatricia,
-    phone: "+31 (0)20 795 2146",
-    mobile: "+31 (0)62 203 4985",
+    phone: "020 - 795 2146",
   },
 ];
 
@@ -232,7 +229,7 @@ const OverOns = () => {
               <div>
                 <RevealOnScroll variant="fade-up">
                   <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-2">
-                    Ons Management Team
+                    Ons Team
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={100}>
@@ -274,7 +271,7 @@ const OverOns = () => {
                   </div>
                   
                   <h3 className="text-center text-primary font-bold text-sm md:text-base mb-4 uppercase tracking-wider">
-                    Ons Management Team
+                    Ons Team
                   </h3>
                   
                   <div className="grid grid-cols-3 gap-3 md:gap-4">

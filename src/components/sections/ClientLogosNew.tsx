@@ -62,12 +62,12 @@ const ClientLogosNew = memo(() => {
             {[...clients, ...clients, ...clients].map((client, index) => (
               <div 
                 key={`${client.name}-${index}`} 
-                className="flex-shrink-0 px-12 md:px-20 flex items-center justify-center h-16 md:h-20"
+                className="flex-shrink-0 px-8 md:px-12 flex items-center justify-center h-16 md:h-20 min-w-[120px] md:min-w-[160px]"
               >
                 <img 
                   src={client.src} 
                   alt={client.name}
-                  className="max-h-[60px] md:max-h-[72px] max-w-[150px] md:max-w-[210px] w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300"
+                  className="h-8 md:h-10 w-auto max-w-[100px] md:max-w-[140px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300"
                 />
               </div>
             ))}

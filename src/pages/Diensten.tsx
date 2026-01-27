@@ -85,7 +85,7 @@ const services = [
     icon: ShoppingCart,
     title: "Inkoop van inrichtingscomponenten",
     subtitle: "Slim en voordelig inkopen",
-    description: "Profiteer van onze inkoopkracht en expertise. Wij leveren hoogwaardige kantoormeubilair en inrichtingscomponenten tegen scherpe prijzen, met advies over ergonomie en duurzaamheid. Alle inrichtingscomponenten zijn zorgvuldig geselecteerd. Waar mogelijk verwerken we circulaire materialen en componenten in uw projectvoorstel.",
+    description: "Profiteer van onze inkoopkracht en expertise. Wij leveren hoogwaardig kantoormeubilair en inrichtingscomponenten tegen scherpe prijzen, met advies over ergonomie en duurzaamheid. Met toegang tot meer dan 600 verschillende merken kunnen wij altijd de juiste oplossing voor u vinden. Alle inrichtingscomponenten zijn zorgvuldig geselecteerd. Waar mogelijk verwerken we circulaire materialen en componenten in uw projectvoorstel.",
     features: [
       "Bureaus en werkpleksystemen",
       "Ergonomische bureaustoelen",
