@@ -1,4 +1,3 @@
-import HeaderNew from "@/components/layout/HeaderNew";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -201,7 +200,7 @@ const Diensten = () => {
         canonical="https://gpg-facility.lovable.app/diensten"
         structuredData={serviceSchema}
       />
-      <HeaderNew />
+      
       <main>
         {/* Hero Section */}
         <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-primary">

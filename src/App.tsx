@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { useEffect } from "react";
+import HeaderNew from "@/components/layout/HeaderNew";
 import Index from "./pages/Index";
 import Projecten from "./pages/Projecten";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -48,6 +49,7 @@ const AppRoutes = () => (
   <>
     <ScrollToTopOnNavigate />
     <Preloader />
+    <HeaderNew />
     <Routes>
       <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
       <Route path="/projecten" element={<PageWrapper><Projecten /></PageWrapper>} />

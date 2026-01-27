@@ -1,5 +1,4 @@
 import { useState } from "react";
-import HeaderNew from "@/components/layout/HeaderNew";
 import Footer from "@/components/layout/Footer";
 import FAQSection from "@/components/sections/FAQSection";
 import { Button } from "@/components/ui/button";
@@ -102,7 +101,7 @@ const Contact = () => {
         canonical="https://gpg-facility.lovable.app/contact"
         structuredData={createFAQSchema(faqData)}
       />
-      <HeaderNew />
+      
       <main>
         {/* Hero Section */}
         <section className="pt-24 md:pt-32 pb-10 md:pb-16 bg-primary">
