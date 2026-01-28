@@ -177,6 +177,8 @@ const HeroSplit = () => {
                   />
                 </div>
                 
+                {/* Blue tint overlay for unified look */}
+                <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
                 {/* Strong blue gradient overlay from bottom - like reference image */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent opacity-70 pointer-events-none" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent pointer-events-none" />

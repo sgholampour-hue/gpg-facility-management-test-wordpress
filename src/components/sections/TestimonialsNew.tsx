@@ -37,17 +37,7 @@ const TestimonialsNew = () => {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
       <div className="container relative z-10 px-4 sm:px-6">
-        {/* Header */}
-        <div className={`text-center mb-8 md:mb-14 transition-all duration-700 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}>
-          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-accent text-xs font-semibold uppercase tracking-wide mb-3 md:mb-4">
-            Klantreviews
-          </span>
-          <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-primary">
-            Wat klanten zeggen
-          </h2>
-        </div>
+        {/* Quote section without header */}
 
         {/* Single Testimonial */}
         <div className={`relative max-w-3xl mx-auto transition-all duration-700 delay-200 ${

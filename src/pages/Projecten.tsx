@@ -22,7 +22,7 @@ const projects = [
   },
   {
     slug: "schiphol-hq",
-    title: "HQ Schiphol",
+    title: "Schiphol Hoofdkantoor",
     subtitle: "Refresh en werkplekbeheer (lopend)",
     image: projectSchiphol,
     stats: ["17.000 m²", "7 verdiepingen"],
@@ -90,6 +90,8 @@ const Projecten = () => {
                         loading="lazy"
                         className="w-full aspect-[4/3] object-cover image-zoom"
                       />
+                      {/* Blue tint overlay */}
+                      <div className="absolute inset-0 bg-primary/25 mix-blend-multiply" />
                       <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300" />
                     </div>
                     <span className="text-xs text-muted-foreground uppercase tracking-wider font-heading">

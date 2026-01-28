@@ -67,7 +67,9 @@ const CTANew = memo(() => {
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
                 />
-                {/* Overlay gradient */}
+                {/* Blue tint overlay */}
+                <div className="absolute inset-0 bg-primary/40 mix-blend-multiply" />
+                {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent" />
                 
                 {/* Floating badge */}

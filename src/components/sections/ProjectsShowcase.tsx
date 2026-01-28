@@ -22,7 +22,7 @@ const projects = [
     ],
   },
   {
-    title: "HQ SCHIPHOL",
+    title: "SCHIPHOL HOOFDKANTOOR",
     subtitle: "Schiphol, Nederland",
     year: "Lopend",
     image: projectSchiphol,
@@ -248,6 +248,9 @@ const ProjectsShowcase = () => {
                           } group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0`}
                         />
                       </div>
+                      
+                      {/* Blue tint overlay */}
+                      <div className="absolute inset-0 bg-primary/30 mix-blend-multiply" />
                       
                       {/* Gradient overlay */}
                       <div className={`absolute inset-0 transition-opacity duration-300 ${

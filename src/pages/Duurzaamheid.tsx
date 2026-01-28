@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Recycle, Leaf, TrendingDown, Award, CheckCircle, ArrowRight } from "lucide-react";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO from "@/components/SEO";
-import CountUp from "@/components/ui/CountUp";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 
@@ -55,11 +54,11 @@ const aanpakStappen = [
 ];
 
 const certificeringen = [
-  "ISO 14001 - Milieumanagementsysteem",
-  "MVO Prestatieladder",
-  "CO₂ Prestatieladder",
-  "Circulair Inkopen Certificaat",
-  "Erkend Leerbedrijf Duurzaamheid"
+  { name: "ISO 14001 - Milieumanagementsysteem", hasLogo: true },
+  { name: "MVO Prestatieladder", hasLogo: false },
+  { name: "CO₂ Prestatieladder", hasLogo: false },
+  { name: "Circulair Inkopen Certificaat", hasLogo: false },
+  { name: "Erkend Leerbedrijf Duurzaamheid", hasLogo: false }
 ];
 
 const Duurzaamheid = () => {
@@ -173,7 +172,7 @@ const Duurzaamheid = () => {
               <RevealOnScroll variant="slide-left" delay={200}>
                 <div className="bg-primary gsa-hoek-lg p-6 md:p-8 lg:p-10">
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">
-                    Onze certificeringen
+                    Onze certificeringen & registraties
                   </h3>
                   <p className="text-white/80 mb-6 text-sm md:text-base leading-relaxed">
                     Wij voldoen aan de hoogste duurzaamheidsstandaarden en werken continu aan verbetering.
@@ -182,7 +181,7 @@ const Duurzaamheid = () => {
                     {certificeringen.map((cert, index) => (
                       <li key={index} className="flex items-start gap-3 text-white/90">
                         <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-sm md:text-base">{cert}</span>
+                        <span className="text-sm md:text-base">{cert.name}</span>
                       </li>
                     ))}
                   </ul>
@@ -192,74 +191,6 @@ const Duurzaamheid = () => {
           </div>
         </section>
 
-        {/* Impact Cijfers */}
-        <section className="py-10 md:py-16 lg:py-20 bg-muted/30">
-          <div className="container px-4 md:px-6">
-            <RevealOnScroll variant="fade-up">
-              <div className="text-center mb-6 md:mb-10">
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-2">
-                  Onze duurzame impact
-                </h2>
-                <p className="text-muted-foreground max-w-lg mx-auto text-sm md:text-base">
-                  Concrete resultaten van onze circulaire aanpak
-                </p>
-              </div>
-            </RevealOnScroll>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-              <RevealOnScroll variant="scale-in" delay={0}>
-                <div className="bg-primary gsa-hoek-sm p-4 md:p-6 text-center">
-                  <CountUp 
-                    end={85} 
-                    suffix="%" 
-                    duration={2000}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
-                    labelClassName="text-xs md:text-sm text-white/80"
-                    label="Materiaal hergebruik"
-                  />
-                </div>
-              </RevealOnScroll>
-              <RevealOnScroll variant="scale-in" delay={100}>
-                <div className="bg-primary gsa-hoek-sm p-4 md:p-6 text-center">
-                  <CountUp 
-                    end={40} 
-                    suffix="%" 
-                    duration={2000}
-                    delay={100}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
-                    labelClassName="text-xs md:text-sm text-white/80"
-                    label="CO₂ reductie"
-                  />
-                </div>
-              </RevealOnScroll>
-              <RevealOnScroll variant="scale-in" delay={200}>
-                <div className="bg-primary gsa-hoek-sm p-4 md:p-6 text-center">
-                  <CountUp 
-                    end={100} 
-                    suffix="%" 
-                    duration={2000}
-                    delay={200}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
-                    labelClassName="text-xs md:text-sm text-white/80"
-                    label="Circulaire inkoop"
-                  />
-                </div>
-              </RevealOnScroll>
-              <RevealOnScroll variant="scale-in" delay={300}>
-                <div className="bg-primary gsa-hoek-sm p-4 md:p-6 text-center">
-                  <CountUp 
-                    end={0} 
-                    duration={1500}
-                    delay={300}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
-                    labelClassName="text-xs md:text-sm text-white/80"
-                    label="Afval naar stort"
-                  />
-                </div>
-              </RevealOnScroll>
-            </div>
-          </div>
-        </section>
 
         {/* CTA Section */}
         <section className="py-10 md:py-16 lg:py-20 bg-primary">
