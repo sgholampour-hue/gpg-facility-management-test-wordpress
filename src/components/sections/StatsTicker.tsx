@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Building, Users, Calendar, Award } from "lucide-react";
 
 const stats = [
-  { icon: Calendar, value: "40+", label: "Jaar ervaring", suffix: "" },
+  { icon: Calendar, value: "40", label: "Jaar ervaring", suffix: "+" },
   { icon: Building, value: "600", label: "Interieur producten", suffix: "+" },
   { icon: Users, value: "50", label: "Professionals", suffix: "+" },
   { icon: Award, value: "98", label: "Klanttevredenheid", suffix: "%" },

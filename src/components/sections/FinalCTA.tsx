@@ -14,6 +14,8 @@ const FinalCTA = memo(() => {
           loading="lazy"
           decoding="async"
         />
+        {/* Blue tint overlay */}
+        <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
         <div className="absolute inset-0 bg-primary/80" />
       </div>
 
