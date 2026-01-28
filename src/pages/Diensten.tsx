@@ -179,8 +179,9 @@ const ServiceSection = ({
                   aspectRatio="4/3"
                   className="group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                {/* Blue tint overlay */}
-                <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none" />
+                {/* Blue tint overlay - consistent brand styling */}
+                <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none" />
               </div>
               {/* Decorative element - hidden on mobile for cleaner look */}
               <div className={`absolute -z-10 w-full h-full bg-accent/10 gsa-hoek-lg hidden md:block transition-all duration-500 group-hover:bg-accent/20 ${isReversed ? '-left-4 -bottom-4 group-hover:-left-5 group-hover:-bottom-5' : '-right-4 -bottom-4 group-hover:-right-5 group-hover:-bottom-5'}`} />

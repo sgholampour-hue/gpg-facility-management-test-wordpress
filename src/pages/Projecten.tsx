@@ -90,8 +90,9 @@ const Projecten = () => {
                         loading="lazy"
                         className="w-full aspect-[4/3] object-cover image-zoom"
                       />
-                      {/* Blue tint overlay */}
-                      <div className="absolute inset-0 bg-primary/25 mix-blend-multiply" />
+                      {/* Blue tint overlay - consistent brand styling */}
+                      <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none" />
                       <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300" />
                     </div>
                     <span className="text-xs text-muted-foreground uppercase tracking-wider font-heading">
