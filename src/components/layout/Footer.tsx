@@ -41,8 +41,8 @@ const Footer = () => {
                     className="gsa-hoek-sm bg-white text-primary hover:bg-white/90 group"
                     asChild
                   >
-                    <Link to="/over-ons" className="flex items-center gap-2">
-                      Meer over onze aanpak
+                    <Link to="/contact" className="flex items-center gap-2">
+                      Neem contact op
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Button>
