@@ -9,8 +9,8 @@ import ScrollToTop from "@/components/ui/ScrollToTop";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 import gsaLogo from "@/assets/gsa-groep-logo.png";
 import gpgFullTeam from "@/assets/gpg-full-team.jpg";
-import gpgWorker from "@/assets/gpg-worker.jpg";
-import gpgMovers from "@/assets/gpg-movers.jpg";
+import teamWorkingTogether from "@/assets/team-working-together.jpg";
+import businessInteriorPerson from "@/assets/business-interior-person.jpg";
 import gsaDochtersImage from "@/assets/gsa-groep-dochters.png";
 import gsaOrganisatie from "@/assets/gsa-organisatie.png";
 import teamWim from "@/assets/team-wim-gruijters.png";
@@ -115,12 +115,12 @@ const OverOns = () => {
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={200}>
                   <p className="text-muted-foreground leading-relaxed mb-3 font-body text-sm md:text-base">
-                    GPG Facility Management is gespecialiseerd in handyman diensten, verhuizingen, integrated facilities en fit-out projecten. Van dagelijks onderhoud tot complete kantoorinrichtingen. Circulariteit staat bij ons voorop: we werken met duurzame materialen en hergebruik.
+                    GPG Facility Management is gespecialiseerd in handyman diensten, verhuizingen, integrated facilities en fit-out projecten. Of het nu gaat om dagelijks onderhoud of complete kantoorinrichtingen—circulariteit staat altijd voorop met duurzame materialen en slim hergebruik.
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={300}>
                   <p className="text-muted-foreground leading-relaxed mb-4 md:mb-6 font-body text-sm md:text-base">
-                    Onze kracht: vakmanschap, flexibiliteit en een no-nonsense aanpak met focus op circulaire oplossingen.
+                    Onze kracht? Vakmanschap gecombineerd met een no-nonsense aanpak en focus op circulaire oplossingen.
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={400}>
@@ -295,8 +295,8 @@ const OverOns = () => {
             <div className="grid grid-cols-2 gap-2 md:gap-4 mt-8 md:mt-12">
               <RevealOnScroll variant="scale-in" delay={300}>
                 <img
-                  src={gpgWorker}
-                  alt="GPG technicus installeert verlichting in kantoorruimte"
+                  src={teamWorkingTogether}
+                  alt="Divers team van facility professionals werkt samen aan een project"
                   loading="lazy"
                   decoding="async"
                   className="gsa-hoek-tr-lg w-full h-28 sm:h-36 md:h-48 object-cover"
@@ -304,8 +304,8 @@ const OverOns = () => {
               </RevealOnScroll>
               <RevealOnScroll variant="scale-in" delay={400}>
                 <img
-                  src={gpgMovers}
-                  alt="GPG verhuisteam verplaatst kantoormeubelen"
+                  src={businessInteriorPerson}
+                  alt="Professioneel kantoorinterieur met gastvrije medewerker"
                   loading="lazy"
                   decoding="async"
                   className="gsa-hoek-tl-lg w-full h-28 sm:h-36 md:h-48 object-cover"

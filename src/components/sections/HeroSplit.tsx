@@ -8,6 +8,7 @@ const highlights = [
   "Onderdeel GSA groep",
   "Eén vast aanspreekpunt",
   "Flexibel & betrouwbaar",
+  "Landelijke dekking",
 ];
 
 const HeroSplit = () => {
@@ -91,8 +92,8 @@ const HeroSplit = () => {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Complete facilitaire ondersteuning voor kantoren en bedrijven. 
-              Vakwerk, flexibiliteit en een partner die meedenkt bij elk project.
+              Wij ondersteunen kantoren en bedrijven met professionele facilitaire diensten. 
+              Altijd vakwerk, altijd flexibel, en een partner die écht meedenkt.
             </p>
 
             {/* Highlights */}
@@ -195,7 +196,7 @@ const HeroSplit = () => {
                   {/* Description and Button Row */}
                   <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
                     <p className="text-sm md:text-base text-white/80 max-w-xs">
-                      Van fit-out tot verhuizing, van handyman tot integrated facilities.
+                      Van verhuizing tot fit-out, van handyman dienstverlening tot integrated facilities.
                     </p>
                     <Link 
                       to="/projecten" 
