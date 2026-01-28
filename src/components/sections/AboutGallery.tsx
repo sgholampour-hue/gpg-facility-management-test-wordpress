@@ -24,11 +24,13 @@ const AboutGallery = memo(() => {
         <div className="lg:hidden">
           {/* Top row: 2 images side by side */}
           <div className="grid grid-cols-2 gap-3 mb-6">
-            <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            <div className={`relative transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <img src={aboutCarpetInstall} alt="GPG technicus installeert tapijt" className="w-full aspect-[3/4] object-cover gsa-hoek-tr-lg shadow-card" loading="lazy" decoding="async" />
+              <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none gsa-hoek-tr-lg" />
             </div>
-            <div className={`transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            <div className={`relative transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <img src={aboutDeskInstall} alt="GPG monteur installeert bureau" className="w-full aspect-[4/3] object-cover gsa-hoek-tl-lg shadow-card mt-8" loading="lazy" decoding="async" />
+              <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none gsa-hoek-tl-lg mt-8" />
             </div>
           </div>
 
@@ -42,16 +44,18 @@ const AboutGallery = memo(() => {
           </div>
 
           {/* Bottom image - full width */}
-          <div className={`transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className={`relative transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <img src={gpgTeam} alt="GPG team bij projectoverleg op kantoor" className="w-full aspect-[4/3] object-cover gsa-hoek-bl-lg shadow-card" loading="lazy" decoding="async" />
+            <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none gsa-hoek-bl-lg" />
           </div>
         </div>
 
         {/* Desktop layout - original grid */}
         <div className="hidden lg:grid grid-cols-12 gap-8 items-center">
           {/* Left image */}
-          <div className={`col-span-3 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className={`col-span-3 relative transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <img src={aboutCarpetInstall} alt="GPG technicus installeert tapijt" className="w-full h-auto gsa-hoek-tr-lg shadow-card object-cover" loading="lazy" decoding="async" />
+            <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none gsa-hoek-tr-lg" />
           </div>
 
           {/* Center content + bottom image */}
@@ -63,14 +67,16 @@ const AboutGallery = memo(() => {
                 </h2>
               </div>
             </div>
-            <div className={`w-full max-w-md transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            <div className={`w-full max-w-md relative transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <img src={aboutDeskInstall} alt="GPG monteur installeert bureau" className="w-full h-auto gsa-hoek-bl-lg shadow-card object-cover" loading="lazy" decoding="async" />
+              <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none gsa-hoek-bl-lg" />
             </div>
           </div>
 
           {/* Right image */}
-          <div className={`col-span-3 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className={`col-span-3 relative transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <img src={gpgTeam} alt="GPG team bij projectoverleg op kantoor" className="w-full h-auto gsa-hoek-tl-lg shadow-card object-cover" loading="lazy" decoding="async" />
+            <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none gsa-hoek-tl-lg" />
           </div>
         </div>
       </div>

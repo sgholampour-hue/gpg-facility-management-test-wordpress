@@ -52,6 +52,8 @@ const ProjectCard = ({ project, isVisible, index }: {
         alt={project.title}
         className="w-full aspect-[4/3] object-cover"
       />
+      {/* Blue tint overlay */}
+      <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none" />
       <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-200 ease-in-out" />
     </div>
     <h3 className="text-lg md:text-xl font-bold text-primary mb-1 group-hover:text-accent transition-colors duration-200 ease-in-out">
