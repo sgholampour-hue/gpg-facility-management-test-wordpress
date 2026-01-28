@@ -42,7 +42,7 @@ const projectsData = {
     ],
   },
   "schiphol-hq": {
-    title: "HQ Schiphol",
+    title: "Schiphol Hoofdkantoor",
     subtitle: "Refresh en werkplekbeheer (lopend)",
     image: projectSchiphol,
     gallery: [projectSchiphol, schipholKantoor1, schipholKantoor2, schipholKantoor3],
@@ -173,6 +173,8 @@ const ProjectDetail = () => {
               alt={project.title}
               className="w-full h-full object-cover"
             />
+            {/* Blue tint overlay */}
+            <div className="absolute inset-0 bg-primary/30 mix-blend-multiply" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
           </div>
 
@@ -287,12 +289,15 @@ const ProjectDetail = () => {
                       </h3>
                       <div className="grid grid-cols-2 gap-4">
                         {((project as { gallery: string[] }).gallery).map((img, index) => (
-                          <img
-                            key={index}
-                            src={img}
-                            alt={`${project.title} afbeelding ${index + 1}`}
-                            className="w-full aspect-[4/3] object-cover gsa-hoek-sm"
-                          />
+                          <div key={index} className="relative gsa-hoek-sm overflow-hidden">
+                            <img
+                              src={img}
+                              alt={`${project.title} afbeelding ${index + 1}`}
+                              className="w-full aspect-[4/3] object-cover"
+                            />
+                            {/* Blue tint overlay */}
+                            <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
+                          </div>
                         ))}
                       </div>
                     </div>

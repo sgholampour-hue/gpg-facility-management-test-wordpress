@@ -23,12 +23,11 @@ const services = [
     subtitle: "Professioneel onderhoud en reparatie",
     description: "Van kleine reparaties tot uitgebreid onderhoud - onze vakkundige handymen zorgen ervoor dat jouw kantoor altijd in topconditie blijft. Wij bieden snelle, betrouwbare service voor al je facilitaire behoeften.",
     features: [
-      "24/7 beschikbaarheid voor noodgevallen",
       "Preventief onderhoud en inspectie",
       "Elektra en verlichtingswerk",
-      "Sanitair en loodgieterswerk",
       "Meubelreparatie en montage",
-      "Schilderwerk en afwerking"
+      "Schilderwerk en afwerking",
+      "24/7 beschikbaarheid voor noodgevallen"
     ],
     image: dienstHandyman
   },
@@ -37,10 +36,10 @@ const services = [
     icon: Truck,
     title: "Verhuizen",
     subtitle: "Zorgeloze kantoorverhuizing",
-    description: "GPG verzorgt voor u de complete verhuizing van A tot Z, zorgvuldig en professioneel.",
+    description: "GPG verzorgt voor je de complete verhuizing van A tot Z, zorgvuldig en professioneel.",
     features: [
       "Volledige projectcoördinatie",
-      "Professionele in- en uitpak service",
+      "Professionele inpak- en uitpakservice",
       "IT-apparatuur en serververhuizing",
       "Weekendverhuizingen mogelijk",
       "Tijdelijke opslag faciliteiten",
@@ -53,13 +52,13 @@ const services = [
     icon: Building2,
     title: "Integrated Facilities",
     subtitle: "Complete facilitaire ontzorging",
-    description: "Eén aanspreekpunt voor al uw facilitaire diensten. Wij integreren alle aspecten van gebouwbeheer tot één naadloze service, zorgvuldig en professioneel.",
+    description: "Eén aanspreekpunt voor al jouw facilitaire diensten. Wij integreren alle aspecten van gebouwbeheer tot één naadloze service, zorgvuldig en professioneel.",
     features: [
       "Gebouwbeheer en -onderhoud",
-      "Schoonmaak en hygiëne",
+      "Technisch onderhoud",
       "Beveiliging en toegangsbeheer",
       "Receptie en hospitality",
-      "Catering ondersteuning",
+      "Werkplekbeheer",
       "Duurzaamheidsadvies"
     ],
     image: dienstFacilities
@@ -85,7 +84,7 @@ const services = [
     icon: ShoppingCart,
     title: "Inkoop van inrichtingscomponenten",
     subtitle: "Slim en voordelig inkopen",
-    description: "Profiteer van onze inkoopkracht en expertise. Wij leveren hoogwaardig kantoormeubilair en inrichtingscomponenten tegen scherpe prijzen, met advies over ergonomie en duurzaamheid. Met toegang tot meer dan 600 verschillende merken kunnen wij altijd de juiste oplossing voor u vinden. Alle inrichtingscomponenten zijn zorgvuldig geselecteerd. Waar mogelijk verwerken we circulaire materialen en componenten in uw projectvoorstel.",
+    description: "Profiteer van onze inkoopkracht en expertise. Wij leveren tot 600+ verschillende merken hoogwaardig kantoormeubilair en inrichtingscomponenten tegen scherpe prijzen. Met advies over ergonomie en duurzaamheid. Alle inrichtingscomponenten zijn zorgvuldig geselecteerd. Waar mogelijk verwerken we circulaire materialen en componenten in uw projectvoorstel.",
     features: [
       "Bureaus en werkpleksystemen",
       "Ergonomische bureaustoelen",
@@ -101,14 +100,14 @@ const services = [
     icon: Palette,
     title: "Projectinrichting & stoffering",
     subtitle: "Sfeer en functionaliteit",
-    description: "De finishing touch voor jouw kantoor. Onze stofferings- en inrichtingsspecialisten zorgen voor een professionele uitstraling die past bij jouw bedrijfsidentiteit en bijdraagt aan het werkplezier.",
+    description: "De finishing touch voor jouw kantoor. Onze stofferings- en inrichtingsspecialisten zorgen voor een professionele uitstraling die past bij jouw bedrijfsidentiteit en bijdraagt aan het werkplezier. Interieuradvies wordt waar mogelijk circulair aangepakt.",
     features: [
-      "Interieur advies",
+      "Interieuradvies",
       "Digitale ontwerptekening",
       "Raambekleding op maat",
       "Vloerbedekking en tapijttegels",
       "Meubelstoffering",
-      "Kunst en decoratie"
+      "Zonwering"
     ],
     image: dienstStoffering
   }
@@ -173,13 +172,15 @@ const ServiceSection = ({
             
             {/* Image */}
             <div className={`relative group ${isReversed ? 'lg:order-1' : ''}`}>
-              <div className="gsa-hoek-lg overflow-hidden shadow-elegant transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-1">
+              <div className="gsa-hoek-lg overflow-hidden shadow-elegant transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-1 relative">
                 <LazyImage 
                   src={service.image} 
                   alt={service.title}
                   aspectRatio="4/3"
                   className="group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
+                {/* Blue tint overlay */}
+                <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none" />
               </div>
               {/* Decorative element - hidden on mobile for cleaner look */}
               <div className={`absolute -z-10 w-full h-full bg-accent/10 gsa-hoek-lg hidden md:block transition-all duration-500 group-hover:bg-accent/20 ${isReversed ? '-left-4 -bottom-4 group-hover:-left-5 group-hover:-bottom-5' : '-right-4 -bottom-4 group-hover:-right-5 group-hover:-bottom-5'}`} />

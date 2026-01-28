@@ -136,13 +136,17 @@ const OverOns = () => {
               </div>
               <RevealOnScroll variant="slide-left" delay={200}>
                 <div className="relative mt-4 lg:mt-0">
-                  <img
-                    src={gpgFullTeam}
-                    alt="Het volledige GPG team - meer dan 50 professionals"
-                    loading="lazy"
-                    decoding="async"
-                    className="gsa-hoek-lg shadow-elegant w-full aspect-[16/9] object-cover"
-                  />
+                  <div className="relative gsa-hoek-lg shadow-elegant overflow-hidden">
+                    <img
+                      src={gpgFullTeam}
+                      alt="Het volledige GPG team - meer dan 50 professionals"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full aspect-[16/9] object-cover"
+                    />
+                    {/* Blue tint overlay */}
+                    <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none" />
+                  </div>
                   <div className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 bg-primary gsa-hoek-sm px-3 py-1.5 md:px-5 md:py-3 shadow-lg">
                     <p className="text-lg md:text-2xl font-bold font-heading text-white">
                       <CountUp end={40} suffix="+" duration={1000} className="text-white" />
@@ -294,22 +298,30 @@ const OverOns = () => {
             {/* Team in action photos */}
             <div className="grid grid-cols-2 gap-2 md:gap-4 mt-8 md:mt-12">
               <RevealOnScroll variant="scale-in" delay={300}>
-                <img
-                  src={teamWorkingTogether}
-                  alt="Divers team van facility professionals werkt samen aan een project"
-                  loading="lazy"
-                  decoding="async"
-                  className="gsa-hoek-tr-lg w-full h-28 sm:h-36 md:h-48 object-cover"
-                />
+                <div className="relative gsa-hoek-tr-lg overflow-hidden">
+                  <img
+                    src={teamWorkingTogether}
+                    alt="Divers team van facility professionals werkt samen aan een project"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-28 sm:h-36 md:h-48 object-cover"
+                  />
+                  {/* Blue tint overlay */}
+                  <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none" />
+                </div>
               </RevealOnScroll>
               <RevealOnScroll variant="scale-in" delay={400}>
-                <img
-                  src={businessInteriorPerson}
-                  alt="Professioneel kantoorinterieur met gastvrije medewerker"
-                  loading="lazy"
-                  decoding="async"
-                  className="gsa-hoek-tl-lg w-full h-28 sm:h-36 md:h-48 object-cover"
-                />
+                <div className="relative gsa-hoek-tl-lg overflow-hidden">
+                  <img
+                    src={businessInteriorPerson}
+                    alt="Professioneel kantoorinterieur met gastvrije medewerker"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-28 sm:h-36 md:h-48 object-cover"
+                  />
+                  {/* Blue tint overlay */}
+                  <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none" />
+                </div>
               </RevealOnScroll>
             </div>
           </div>

@@ -90,7 +90,7 @@ const WhyGPGNew = () => {
               Waarom GPG
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-3 md:mb-4">
-              15+ jaar facilitaire expertise
+              40+ jaar facilitaire expertise
             </h2>
             <p className="text-muted-foreground mb-6 md:mb-8 text-sm md:text-base leading-relaxed">
               Bij GPG begrijpen we dat je behoefte hebt aan een betrouwbare partner 
@@ -136,7 +136,7 @@ const WhyGPGNew = () => {
               </div>
 
               <h3 className="text-center text-lg font-semibold text-primary mb-6">
-                Ons Management Team
+                Ons Team
               </h3>
 
               {/* Team Grid */}
