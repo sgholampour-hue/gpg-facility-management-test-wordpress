@@ -7,19 +7,10 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO from "@/components/SEO";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import MobileCTABar from "@/components/ui/MobileCTABar";
-import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
 import gsaHubLocatie from "@/assets/gsa-hub-locatie.jpg";
 
 const projects = [
-  {
-    slug: "cbre-booking",
-    title: "Booking.com",
-    subtitle: "Fit-out en facilitair inhuispakket (via CBRE)",
-    image: projectBooking,
-    stats: ["65.000 m²", "15.000 m³", "3.500+ werkplekken"],
-    period: "2018 - 2023",
-  },
   {
     slug: "schiphol-hq",
     title: "Schiphol Hoofdkantoor",
