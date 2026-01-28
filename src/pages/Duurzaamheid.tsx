@@ -53,12 +53,12 @@ const aanpakStappen = [
   }
 ];
 
+import certIso14001 from "@/assets/cert-iso-14001.png";
+import certMvoRegister from "@/assets/cert-mvo-register.png";
+
 const certificeringen = [
-  { name: "ISO 14001 - Milieumanagementsysteem", hasLogo: true },
-  { name: "MVO Prestatieladder", hasLogo: false },
-  { name: "CO₂ Prestatieladder", hasLogo: false },
-  { name: "Circulair Inkopen Certificaat", hasLogo: false },
-  { name: "Erkend Leerbedrijf Duurzaamheid", hasLogo: false }
+  { name: "ISO 14001 – Milieumanagementsysteem", logo: certIso14001 },
+  { name: "MVO register", logo: certMvoRegister }
 ];
 
 const Duurzaamheid = () => {
@@ -177,14 +177,14 @@ const Duurzaamheid = () => {
                   <p className="text-white/80 mb-6 text-sm md:text-base leading-relaxed">
                     Wij voldoen aan de hoogste duurzaamheidsstandaarden en werken continu aan verbetering.
                   </p>
-                  <ul className="space-y-3">
+                  <div className="space-y-4">
                     {certificeringen.map((cert, index) => (
-                      <li key={index} className="flex items-start gap-3 text-white/90">
-                        <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-sm md:text-base">{cert.name}</span>
-                      </li>
+                      <div key={index} className="flex items-center gap-4 bg-white/10 gsa-hoek-sm p-3">
+                        <img src={cert.logo} alt={cert.name} className="w-12 h-12 object-contain bg-white rounded p-1" />
+                        <span className="text-sm md:text-base text-white/90">{cert.name}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </RevealOnScroll>
             </div>
