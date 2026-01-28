@@ -2,23 +2,28 @@ import { useEffect, useRef, useState, memo } from "react";
 import aboutCarpetInstall from "@/assets/about-carpet-install.jpg";
 import aboutDeskInstall from "@/assets/about-desk-install.jpg";
 import gpgTeam from "@/assets/gpg-team.jpg";
+
 const AboutGallery = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        setIsVisible(true);
-      }
-    }, {
-      threshold: 0.1
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
     return () => observer.disconnect();
   }, []);
-  return <section ref={sectionRef} className="py-12 md:py-28 bg-gpg-cream">
+
+  return (
+    <section ref={sectionRef} className="py-12 md:py-28 bg-gpg-cream">
       <div className="container">
         {/* Mobile layout - matches reference image */}
         <div className="lg:hidden">
@@ -26,11 +31,13 @@ const AboutGallery = memo(() => {
           <div className="grid grid-cols-2 gap-3 mb-6">
             <div className={`relative transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <img src={aboutCarpetInstall} alt="GPG technicus installeert tapijt" className="w-full aspect-[3/4] object-cover gsa-hoek-tr-lg shadow-card" loading="lazy" decoding="async" />
-              <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none gsa-hoek-tr-lg" />
+              <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none gsa-hoek-tr-lg" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none gsa-hoek-tr-lg" />
             </div>
             <div className={`relative transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <img src={aboutDeskInstall} alt="GPG monteur installeert bureau" className="w-full aspect-[4/3] object-cover gsa-hoek-tl-lg shadow-card mt-8" loading="lazy" decoding="async" />
-              <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none gsa-hoek-tl-lg mt-8" />
+              <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none gsa-hoek-tl-lg mt-8" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none gsa-hoek-tl-lg mt-8" />
             </div>
           </div>
 
@@ -46,7 +53,8 @@ const AboutGallery = memo(() => {
           {/* Bottom image - full width */}
           <div className={`relative transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <img src={gpgTeam} alt="GPG team bij projectoverleg op kantoor" className="w-full aspect-[4/3] object-cover gsa-hoek-bl-lg shadow-card" loading="lazy" decoding="async" />
-            <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none gsa-hoek-bl-lg" />
+            <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none gsa-hoek-bl-lg" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none gsa-hoek-bl-lg" />
           </div>
         </div>
 
@@ -55,7 +63,8 @@ const AboutGallery = memo(() => {
           {/* Left image */}
           <div className={`col-span-3 relative transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <img src={aboutCarpetInstall} alt="GPG technicus installeert tapijt" className="w-full h-auto gsa-hoek-tr-lg shadow-card object-cover" loading="lazy" decoding="async" />
-            <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none gsa-hoek-tr-lg" />
+            <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none gsa-hoek-tr-lg" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none gsa-hoek-tr-lg" />
           </div>
 
           {/* Center content + bottom image */}
@@ -69,18 +78,22 @@ const AboutGallery = memo(() => {
             </div>
             <div className={`w-full max-w-md relative transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <img src={aboutDeskInstall} alt="GPG monteur installeert bureau" className="w-full h-auto gsa-hoek-bl-lg shadow-card object-cover" loading="lazy" decoding="async" />
-              <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none gsa-hoek-bl-lg" />
+              <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none gsa-hoek-bl-lg" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none gsa-hoek-bl-lg" />
             </div>
           </div>
 
           {/* Right image */}
           <div className={`col-span-3 relative transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <img src={gpgTeam} alt="GPG team bij projectoverleg op kantoor" className="w-full h-auto gsa-hoek-tl-lg shadow-card object-cover" loading="lazy" decoding="async" />
-            <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none gsa-hoek-tl-lg" />
+            <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none gsa-hoek-tl-lg" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none gsa-hoek-tl-lg" />
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 });
+
 AboutGallery.displayName = "AboutGallery";
 export default AboutGallery;

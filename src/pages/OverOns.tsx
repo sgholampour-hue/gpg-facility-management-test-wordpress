@@ -144,8 +144,9 @@ const OverOns = () => {
                       decoding="async"
                       className="w-full aspect-[16/9] object-cover"
                     />
-                    {/* Blue tint overlay */}
-                    <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none" />
+                    {/* Blue tint overlay - consistent brand styling */}
+                    <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none" />
                   </div>
                   <div className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 bg-primary gsa-hoek-sm px-3 py-1.5 md:px-5 md:py-3 shadow-lg">
                     <p className="text-lg md:text-2xl font-bold font-heading text-white">
@@ -306,8 +307,9 @@ const OverOns = () => {
                     decoding="async"
                     className="w-full h-28 sm:h-36 md:h-48 object-cover"
                   />
-                  {/* Blue tint overlay */}
-                  <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none" />
+                  {/* Blue tint overlay - consistent brand styling */}
+                  <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none" />
                 </div>
               </RevealOnScroll>
               <RevealOnScroll variant="scale-in" delay={400}>
@@ -319,8 +321,9 @@ const OverOns = () => {
                     decoding="async"
                     className="w-full h-28 sm:h-36 md:h-48 object-cover"
                   />
-                  {/* Blue tint overlay */}
-                  <div className="absolute inset-0 bg-primary/20 mix-blend-multiply pointer-events-none" />
+                  {/* Blue tint overlay - consistent brand styling */}
+                  <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none" />
                 </div>
               </RevealOnScroll>
             </div>
