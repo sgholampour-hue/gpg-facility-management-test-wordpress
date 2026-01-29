@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     question: "In welke regio's zijn jullie actief?",
-    answer: "Wij zijn actief in heel Nederland met focus op de Randstad. Onze HUB-locaties in Schiphol, IJmuiden, Rotterdam en Oud Beijerland zorgen voor optimale dekking en snelle responstijden in Noord- en Zuid-Holland."
+    answer: "Wij zijn actief in heel Nederland met focus op de Randstad."
   },
   {
     question: "Hoe werkt het aanvraagproces?",

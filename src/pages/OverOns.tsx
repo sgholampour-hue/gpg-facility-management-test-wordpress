@@ -305,7 +305,7 @@ const OverOns = () => {
                     alt="Divers team van facility professionals werkt samen aan een project"
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-28 sm:h-36 md:h-48 object-cover"
+                    className="w-full h-28 sm:h-36 md:h-48 object-cover object-top"
                   />
                   {/* Blue tint overlay - consistent brand styling */}
                   <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
@@ -319,7 +319,7 @@ const OverOns = () => {
                     alt="Professioneel kantoorinterieur met gastvrije medewerker"
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-28 sm:h-36 md:h-48 object-cover"
+                    className="w-full h-28 sm:h-36 md:h-48 object-cover object-top"
                   />
                   {/* Blue tint overlay - consistent brand styling */}
                   <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
