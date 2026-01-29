@@ -16,7 +16,7 @@ const teamMembers = [
   },
   {
     name: "Danny Moeljoredjo",
-    role: "Facilitair Coördinator",
+    role: "Teamleider Facilitair",
     image: teamDanny,
     phone: "020 - 795 2100",
     email: "d.moeljoredjo@gsafacilities.nl",

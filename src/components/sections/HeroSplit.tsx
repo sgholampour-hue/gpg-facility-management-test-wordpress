@@ -198,7 +198,7 @@ const HeroSplit = () => {
                   {/* Description and Button Row */}
                   <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
                     <p className="text-sm md:text-base text-white/80 max-w-xs">
-                      Van verhuizing tot fit-out, van handyman dienstverlening tot integrated facilities.
+                      Van verhuizing tot fit-out, van huismeesterdiensten tot integrated facilities.
                     </p>
                     <Link 
                       to="/projecten" 

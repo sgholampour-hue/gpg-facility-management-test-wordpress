@@ -9,7 +9,7 @@ const faqs = [
   {
     question: "Wat doet GPG Facility Management precies?",
     answer:
-      "GPG Facility Management is een facilitair dienstverlener gespecialiseerd in handyman diensten, verhuizingen, integrated facilities, fit-out projecten, inkoop van inrichtingscomponenten en projectinrichting & stoffering. Wij ontzorgen organisaties bij al hun facilitaire vraagstukken.",
+      "GPG Facility Management is een facilitair dienstverlener gespecialiseerd in huismeesterdiensten, verhuizingen, integrated facilities, fit-out projecten, inkoop van inrichtingscomponenten en projectinrichting & stoffering. Wij ontzorgen organisaties bij al hun facilitaire vraagstukken.",
   },
   {
     question: "In welke regio's zijn jullie actief?",
