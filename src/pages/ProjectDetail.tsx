@@ -13,6 +13,7 @@ import schipholKantoor1 from "@/assets/schiphol-kantoor-1.jpg";
 import schipholKantoor2 from "@/assets/schiphol-kantoor-2.jpg";
 import schipholKantoor3 from "@/assets/schiphol-kantoor-3.jpg";
 import gsaHubLocatie from "@/assets/gsa-hub-locatie.jpg";
+import gsaHubVliegtuig from "@/assets/gsa-hub-vliegtuig.jpg";
 
 const projectsData = {
   "cbre-booking": {
@@ -70,7 +71,7 @@ const projectsData = {
   "hub-locaties": {
     title: "HUB Locaties",
     subtitle: "Bouwlogistieke ondersteuning",
-    image: gsaHubLocatie,
+    image: gsaHubVliegtuig,
     gallery: [gsaHubLocatie, projectHub, projectHub2],
     client: "Diverse opdrachtgevers",
     location: "Noord & Zuid Holland",
