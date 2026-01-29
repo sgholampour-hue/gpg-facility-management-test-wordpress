@@ -14,12 +14,18 @@ import schipholKantoor2 from "@/assets/schiphol-kantoor-2.jpg";
 import schipholKantoor3 from "@/assets/schiphol-kantoor-3.jpg";
 import gsaHubLocatie from "@/assets/gsa-hub-locatie.jpg";
 import gsaHubVliegtuig from "@/assets/gsa-hub-vliegtuig.jpg";
+import bookingExterior1 from "@/assets/booking-exterior-1.jpg";
+import bookingExterior2 from "@/assets/booking-exterior-2.jpg";
+import bookingInterior1 from "@/assets/booking-interior-1.jpg";
+import bookingInterior2 from "@/assets/booking-interior-2.jpg";
+import bookingPanorama from "@/assets/booking-panorama.jpg";
 
 const projectsData = {
   "cbre-booking": {
     title: "Booking.com",
     subtitle: "Fit-out en facilitair inhuispakket (via CBRE)",
     image: projectBooking,
+    gallery: [projectBooking, bookingExterior1, bookingExterior2, bookingInterior1, bookingInterior2, bookingPanorama],
     client: "CBRE / Booking.com",
     location: "Amsterdam",
     period: "2018 - 2023",
