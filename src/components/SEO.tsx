@@ -11,7 +11,7 @@ interface SEOProps {
 
 const defaultMeta = {
   title: "GPG Facility Management",
-  description: "Professionele facilitaire dienstverlening voor fit-outs, verhuizingen, handyman services en integrated facilities. Uw betrouwbare partner voor complete projecten.",
+  description: "Professionele facilitaire dienstverlening voor fit-outs, verhuizingen, huismeesterdiensten en integrated facilities. Jouw betrouwbare partner voor complete projecten.",
   siteUrl: "https://gpg-facility.lovable.app",
 };
 
@@ -21,11 +21,11 @@ const defaultOGImage = "https://gpg-facility.lovable.app/og-image.jpg";
 // Page-specific OG images and descriptions
 export const pageMetaData: Record<string, { description: string; image: string }> = {
   home: {
-    description: "GPG Facility Management biedt complete facilitaire ondersteuning: fit-outs, verhuizingen, handyman services en integrated facilities. Al 15+ jaar partner van Schiphol, Booking.com en meer.",
+    description: "GPG Facility Management biedt complete facilitaire ondersteuning: fit-outs, verhuizingen, huismeesterdiensten en integrated facilities. Al 15+ jaar partner van Schiphol en meer.",
     image: defaultOGImage,
   },
   diensten: {
-    description: "Ontdek onze facilitaire diensten: handyman, verhuizingen, fit-outs, integrated facilities, inkoop en stoffering. Complete oplossingen voor kantoren en bedrijven.",
+    description: "Ontdek onze facilitaire diensten: huismeesterdiensten, verhuizingen, fit-outs, integrated facilities, inkoop en stoffering. Complete oplossingen voor kantoren en bedrijven.",
     image: defaultOGImage,
   },
   projecten: {
@@ -161,7 +161,7 @@ export const serviceSchema = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Handyman Services",
+          name: "Huismeesterdiensten",
           description: "Onderhoud en kleine reparaties door vakbekwame technici",
         },
       },

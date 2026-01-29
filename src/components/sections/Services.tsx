@@ -7,9 +7,9 @@ import useEmblaCarousel from "embla-carousel-react";
 const services = [
   {
     icon: Wrench,
-    title: "Handyman dienstverlening",
+    title: "Huismeesterdiensten",
     description:
-      "Van kleine reparaties tot complexe klussen: onze handymen staan voor je klaar met vakmanschap en snelle service.",
+      "Van kleine reparaties tot complexe klussen: onze huismeesters staan voor je klaar met vakmanschap en snelle service.",
   },
   {
     icon: Truck,

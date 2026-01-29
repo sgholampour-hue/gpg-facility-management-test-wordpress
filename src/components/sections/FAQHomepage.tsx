@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     question: "Welke diensten bieden jullie aan?",
-    answer: "Wij bieden complete facilitaire ondersteuning: handyman services, kantoorverhuizingen, integrated facilities management, fit-out projecten, inkoop van meubilair en projectinrichting. Alles onder één dak, van kleine reparaties tot volledige kantoorinrichtingen."
+    answer: "Wij bieden complete facilitaire ondersteuning: huismeesterdiensten, kantoorverhuizingen, integrated facilities management, fit-out projecten, inkoop van meubilair en projectinrichting. Alles onder één dak, van kleine reparaties tot volledige kantoorinrichtingen."
   },
   {
     question: "In welke regio's zijn jullie actief?",

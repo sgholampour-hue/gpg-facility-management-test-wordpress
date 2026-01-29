@@ -5,9 +5,9 @@ import { ArrowUpRight, Wrench, Truck, Building2, PenTool, ShoppingBag, Sofa } fr
 const services = [
   {
     icon: Wrench,
-    title: "Handyman dienstverlening",
+    title: "Huismeesterdiensten",
     description: "Van kleine reparaties tot complexe klussen: vakmanschap en snelle service.",
-    href: "/diensten#handyman",
+    href: "/diensten#huismeesterdiensten",
     size: "large",
   },
   {

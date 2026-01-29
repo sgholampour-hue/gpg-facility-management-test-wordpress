@@ -17,11 +17,11 @@ import dienstStoffering from "@/assets/dienst-stoffering-new.jpg";
 
 const services = [
   {
-    id: "handyman",
+    id: "huismeesterdiensten",
     icon: Wrench,
-    title: "Handyman dienstverlening",
+    title: "Huismeesterdiensten",
     subtitle: "Professioneel onderhoud en reparatie",
-    description: "Van kleine reparaties tot uitgebreid onderhoud - onze vakkundige handymen zorgen ervoor dat jouw kantoor altijd in topconditie blijft. Wij bieden snelle, betrouwbare service voor al je facilitaire behoeften.",
+    description: "Van kleine reparaties tot uitgebreid onderhoud - onze vakkundige huismeesters zorgen ervoor dat jouw kantoor altijd in topconditie blijft. Wij bieden snelle, betrouwbare service voor al je facilitaire behoeften.",
     features: [
       "Preventief onderhoud en inspectie",
       "Elektra en verlichtingswerk",
@@ -197,7 +197,7 @@ const Diensten = () => {
     <div className="min-h-screen pb-16 md:pb-0">
       <SEO
         title="Diensten"
-        description="Ontdek onze facilitaire diensten: handyman, verhuizingen, integrated facilities, fit-outs, inkoop en stoffering. Complete oplossingen voor uw organisatie."
+        description="Ontdek onze facilitaire diensten: huismeesterdiensten, verhuizingen, integrated facilities, fit-outs, inkoop en stoffering. Complete oplossingen voor jouw organisatie."
         canonical="https://gpg-facility.lovable.app/diensten"
         structuredData={serviceSchema}
       />
@@ -214,7 +214,7 @@ const Diensten = () => {
                 Complete facilitaire dienstverlening
               </h1>
               <p className="text-base md:text-xl text-white/80 leading-relaxed">
-                Van handyman services tot complete fit-out projecten. GPG Facility Management is uw partner voor alle facilitaire vraagstukken.
+                Van huismeesterdiensten tot complete fit-out projecten. GPG Facility Management is jouw partner voor alle facilitaire vraagstukken.
               </p>
             </div>
           </div>

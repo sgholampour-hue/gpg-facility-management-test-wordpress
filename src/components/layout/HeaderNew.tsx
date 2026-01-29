@@ -13,7 +13,7 @@ const navLinks = [
 ];
 
 const dienstenLinks = [
-  { href: "/diensten#handyman", label: "Handyman dienstverlening", icon: Wrench },
+  { href: "/diensten#huismeesterdiensten", label: "Huismeesterdiensten", icon: Wrench },
   { href: "/diensten#verhuizen", label: "Verhuizen", icon: Truck },
   { href: "/diensten#integrated-facilities", label: "Integrated Facilities", icon: Building2 },
   { href: "/diensten#fitouts", label: "Fit-out's", icon: HardHat },
