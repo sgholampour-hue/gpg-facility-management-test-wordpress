@@ -11,7 +11,6 @@ const teamMembers = [
     name: "Wim Gruijters",
     role: "Directeur GPG",
     image: teamWim,
-    mobile: "+31 (0)6 57 05 88 30",
     phone: "020 - 795 2100",
     email: "w.gruijters@gpgfacilities.nl",
   },
@@ -19,15 +18,15 @@ const teamMembers = [
     name: "Danny Moeljoredjo",
     role: "Facilitair Coördinator",
     image: teamDanny,
-    mobile: "06 57 50 24 20",
+    phone: "020 - 795 2100",
     email: "d.moeljoredjo@gsafacilities.nl",
   },
   {
     name: "Patricia Nijholt",
     role: "Algemeen Manager GPG",
     image: teamPatricia,
-    phone: "+31 (0)20 795 2146",
-    mobile: "+31 (0)62 203 4985",
+    phone: "020 - 795 2100",
+    email: "p.nijholt@gpgfacilities.nl",
   },
 ];
 
