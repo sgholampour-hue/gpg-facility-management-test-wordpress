@@ -9,8 +9,8 @@ import ScrollToTop from "@/components/ui/ScrollToTop";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 import gsaLogo from "@/assets/gsa-groep-logo.png";
 import gpgFullTeam from "@/assets/gpg-full-team.jpg";
-import teamWorkingTogether from "@/assets/team-working-together.jpg";
-import businessInteriorPerson from "@/assets/business-interior-person.jpg";
+import teamColleagues1 from "@/assets/team-colleagues-1.jpg";
+import teamMeeting from "@/assets/team-meeting.jpg";
 import gsaDochtersImage from "@/assets/gsa-groep-dochters.png";
 import gsaOrganisatie from "@/assets/gsa-organisatie.png";
 import teamWim from "@/assets/team-wim-gruijters.png";
@@ -301,11 +301,11 @@ const OverOns = () => {
               <RevealOnScroll variant="scale-in" delay={300}>
                 <div className="relative gsa-hoek-tr-lg overflow-hidden">
                   <img
-                    src={teamWorkingTogether}
-                    alt="Divers team van facility professionals werkt samen aan een project"
+                    src={teamColleagues1}
+                    alt="Collega's in gesprek op kantoor"
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-28 sm:h-36 md:h-48 object-cover object-top"
+                    className="w-full h-40 sm:h-52 md:h-72 object-cover object-top"
                   />
                   {/* Blue tint overlay - consistent brand styling */}
                   <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
@@ -315,11 +315,11 @@ const OverOns = () => {
               <RevealOnScroll variant="scale-in" delay={400}>
                 <div className="relative gsa-hoek-tl-lg overflow-hidden">
                   <img
-                    src={businessInteriorPerson}
-                    alt="Professioneel kantoorinterieur met gastvrije medewerker"
+                    src={teamMeeting}
+                    alt="Team vergadering met collega's"
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-28 sm:h-36 md:h-48 object-cover object-top"
+                    className="w-full h-40 sm:h-52 md:h-72 object-cover object-top"
                   />
                   {/* Blue tint overlay - consistent brand styling */}
                   <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
