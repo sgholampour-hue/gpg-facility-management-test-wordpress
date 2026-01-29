@@ -14,6 +14,7 @@ import schipholKantoor2 from "@/assets/schiphol-kantoor-2.jpg";
 import schipholKantoor3 from "@/assets/schiphol-kantoor-3.jpg";
 import gsaHubLocatie from "@/assets/gsa-hub-locatie.jpg";
 import gsaHubVliegtuig from "@/assets/gsa-hub-vliegtuig.jpg";
+import hubAerial from "@/assets/hub-aerial.jpg";
 import bookingExterior1 from "@/assets/booking-exterior-1.jpg";
 import bookingExterior2 from "@/assets/booking-exterior-2.jpg";
 import bookingInterior1 from "@/assets/booking-interior-1.jpg";
@@ -78,7 +79,7 @@ const projectsData = {
     title: "HUB Locaties",
     subtitle: "Bouwlogistieke ondersteuning",
     image: gsaHubVliegtuig,
-    gallery: [gsaHubLocatie, projectHub, projectHub2],
+    gallery: [gsaHubVliegtuig, hubAerial],
     client: "Diverse opdrachtgevers",
     location: "Noord & Zuid Holland",
     period: "Doorlopend",
