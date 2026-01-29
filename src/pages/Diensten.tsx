@@ -39,7 +39,6 @@ const services = [
     description: "GPG verzorgt voor je de complete verhuizing van A tot Z, zorgvuldig en professioneel.",
     features: [
       "Volledige projectcoördinatie",
-      "Professionele inpak- en uitpakservice",
       "IT-apparatuur en serververhuizing",
       "Weekendverhuizingen mogelijk",
       "Tijdelijke opslag faciliteiten",
@@ -84,7 +83,7 @@ const services = [
     icon: ShoppingCart,
     title: "Inkoop van inrichtingscomponenten",
     subtitle: "Slim en voordelig inkopen",
-    description: "Profiteer van onze inkoopkracht en expertise. Wij leveren tot 600+ verschillende merken hoogwaardig kantoormeubilair en inrichtingscomponenten tegen scherpe prijzen. Met advies over ergonomie en duurzaamheid. Alle inrichtingscomponenten zijn zorgvuldig geselecteerd. Waar mogelijk verwerken we circulaire materialen en componenten in uw projectvoorstel.",
+    description: "Profiteer van onze inkoopkracht en expertise. Wij leveren tot 600+ verschillende merken hoogwaardig kantoormeubilair en inrichtingscomponenten tegen scherpe prijzen. Met advies over ergonomie en duurzaamheid. Alle inrichtingscomponenten zijn zorgvuldig geselecteerd. Waar mogelijk verwerken we circulaire materialen en componenten in je projectvoorstel.",
     features: [
       "Bureaus en werkpleksystemen",
       "Ergonomische bureaustoelen",
