@@ -101,7 +101,7 @@ const projectsData = {
     ],
   },
   "gsa-groep": {
-    title: "GSA Groep Projecten",
+    title: "GSA groep",
     subtitle: "Integrale facilitaire dienstverlening",
     image: projectHub,
     gallery: [projectHub, projectHub2, gsaHubLocatie],
