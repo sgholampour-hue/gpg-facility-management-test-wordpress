@@ -121,9 +121,9 @@ const projectsData = {
       { label: "Medewerkers", value: "150+", numValue: 150, suffix: "+" },
       { label: "Klanten", value: "50+", numValue: 50, suffix: "+" },
     ],
-    description: `GPG is onderdeel van GSA Groep, een familiebedrijf met meer dan 40 jaar ervaring in facilitaire dienstverlening. Samen met onze zusterondernemingen leveren we een breed scala aan diensten: van verhuizingen en handyman services tot complete kantoorinrichtingen en bouwlogistiek.`,
+    description: `GPG is onderdeel van GSA Groep, een familiebedrijf met meer dan 40 jaar ervaring in facilitaire dienstverlening. Samen met onze zusterondernemingen leveren we een breed scala aan diensten: van verhuizingen en huismeesterdiensten tot complete kantoorinrichtingen en bouwlogistiek.`,
     scope: [
-      "Handyman dienstverlening en kleine klussen",
+      "Huismeesterdiensten en kleine klussen",
       "Kantoor- en bedrijfsverhuizingen",
       "Integrated Facilities Management",
       "Fit-out projecten en renovaties",

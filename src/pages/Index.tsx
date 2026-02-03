@@ -18,7 +18,7 @@ import SEO, { pageMetaData, createFAQSchema } from "@/components/SEO";
 // FAQ data for structured data
 const homeFAQs = [
   { question: "Wat maakt GPG anders dan andere facilitaire dienstverleners?", answer: "GPG combineert meer dan 40 jaar ervaring met een persoonlijke aanpak. Jij krijgt één vast aanspreekpunt, flexibele oplossingen en we denken proactief mee." },
-  { question: "Welke diensten bieden jullie aan?", answer: "Wij bieden complete facilitaire ondersteuning: handyman services, kantoorverhuizingen, integrated facilities management, fit-out projecten, inkoop van meubilair en projectinrichting." },
+  { question: "Welke diensten bieden jullie aan?", answer: "Wij bieden complete facilitaire ondersteuning: huismeesterdiensten, kantoorverhuizingen, integrated facilities management, fit-out projecten, inkoop van meubilair en projectinrichting." },
   { question: "In welke regio's zijn jullie actief?", answer: "Wij zijn actief in heel Nederland met focus op de Randstad. Onze HUB-locaties in Schiphol, IJmuiden, Rotterdam en Oud Beijerland zorgen voor optimale dekking." },
   { question: "Hoe werkt het aanvraagproces?", answer: "Neem contact op via telefoon, e-mail of ons contactformulier. We plannen een kennismaking, inventariseren je wensen en leveren een helder voorstel." },
 ];
