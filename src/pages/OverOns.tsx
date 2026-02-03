@@ -29,7 +29,7 @@ const teamMembers = [
   },
   {
     name: "Danny Moeljoredjo",
-    role: "Facility Coördinator/Planner",
+    role: "Teamleider Facilitair",
     image: teamDanny,
     email: "d.moeljoredjo@gsafacilities.nl",
   },
@@ -115,7 +115,7 @@ const OverOns = () => {
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={200}>
                   <p className="text-muted-foreground leading-relaxed mb-3 font-body text-sm md:text-base">
-                    GPG Facility Management is gespecialiseerd in handyman diensten, verhuizingen, integrated facilities en fit-out projecten. Of het nu gaat om dagelijks onderhoud of complete kantoorinrichtingen—circulariteit staat altijd voorop met duurzame materialen en slim hergebruik.
+                    GPG Facility Management is gespecialiseerd in huismeesterdiensten, verhuizingen, integrated facilities en fit-out projecten. Of het nu gaat om dagelijks onderhoud of complete kantoorinrichtingen—circulariteit staat altijd voorop met duurzame materialen en slim hergebruik.
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={300}>

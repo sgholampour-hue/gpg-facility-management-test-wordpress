@@ -14,7 +14,7 @@ import MobileCTABar from "@/components/ui/MobileCTABar";
 
 // FAQ data for schema
 const faqData = [
-  { question: "Wat doet GPG Facility Management precies?", answer: "GPG Facility Management is een facilitair dienstverlener gespecialiseerd in handyman diensten, verhuizingen, integrated facilities, fit-out projecten, inkoop van inrichtingscomponenten en projectinrichting & stoffering." },
+  { question: "Wat doet GPG Facility Management precies?", answer: "GPG Facility Management is een facilitair dienstverlener gespecialiseerd in huismeesterdiensten, verhuizingen, integrated facilities, fit-out projecten, inkoop van inrichtingscomponenten en projectinrichting & stoffering." },
   { question: "In welke regio's zijn jullie actief?", answer: "Wij zijn actief in heel Nederland met een focus op de Randstad. Onze HUB-locaties in Schiphol, IJmuiden, Rotterdam en Oud Beijerland zorgen voor optimale dekking." },
   { question: "Hoe kan ik contact opnemen?", answer: "Je kunt contact opnemen via ons contactformulier, telefonisch via +31(0)20 795 21 00 of per e-mail naar info@gpgfacilities.nl. Wij reageren binnen 24 uur." },
 ];
