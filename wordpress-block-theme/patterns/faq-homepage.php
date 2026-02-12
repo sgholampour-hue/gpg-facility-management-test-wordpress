@@ -13,31 +13,31 @@ $faqs = array(
 );
 ?>
 
-<section class="gpg-faq scroll-reveal" id="faq">
+<section class="gpg-faq gpg-scroll-reveal" id="faq">
   <div class="gpg-container">
-    <div class="gpg-faq__grid">
+    <div class="gpg-faq-grid">
       <!-- Left: Header -->
-      <div class="gpg-faq__header">
-        <span class="gpg-badge gpg-badge--accent">FAQ</span>
+      <div class="gpg-faq-header">
+        <span class="gpg-badge">FAQ</span>
         <h2>Veelgestelde vragen</h2>
-        <p>Heb je vragen over onze diensten of werkwijze? Hier vind je antwoorden op de meest gestelde vragen.</p>
-        <a href="/contact/" class="gpg-faq__contact-link">
+        <p style="color:var(--gpg-gray);margin-bottom:1.5rem;">Heb je vragen over onze diensten of werkwijze? Hier vind je antwoorden op de meest gestelde vragen.</p>
+        <a href="/contact/" style="display:inline-flex;align-items:center;gap:0.5rem;font-weight:600;font-size:0.875rem;color:var(--gpg-olive);">
           Heb je andere vragen? Neem contact op
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
       </div>
 
       <!-- Right: Accordion -->
-      <div class="gpg-faq__items">
+      <div class="gpg-faq-items">
         <?php foreach ( $faqs as $faq ) : ?>
         <div class="gpg-faq-item gsa-hoek-sm">
-          <button class="gpg-faq-item__question" aria-expanded="false">
+          <button class="gpg-faq-question" aria-expanded="false">
             <span><?php echo esc_html( $faq['q'] ); ?></span>
-            <span class="gpg-faq-item__toggle gsa-hoek-sm">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path class="gpg-faq-item__plus-v" d="M12 5v14"/></svg>
+            <span class="toggle-icon gsa-hoek-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path class="gpg-faq-plus-v" d="M12 5v14"/></svg>
             </span>
           </button>
-          <div class="gpg-faq-item__answer">
+          <div class="gpg-faq-answer">
             <p><?php echo esc_html( $faq['a'] ); ?></p>
           </div>
         </div>
