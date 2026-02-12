@@ -13,16 +13,16 @@ $stats = array(
 );
 ?>
 
-<section class="gpg-stats scroll-reveal" id="cijfers">
-  <div class="gpg-stats__deco-1"></div>
-  <div class="gpg-stats__deco-2"></div>
+<section class="gpg-stats gpg-scroll-reveal" id="cijfers">
+  <div class="deco-circle-1"></div>
+  <div class="deco-circle-2"></div>
   <div class="gpg-container">
-    <div class="gpg-stats__grid">
+    <div class="gpg-stats-grid">
       <?php foreach ( $stats as $stat ) : ?>
       <div class="gpg-stat-item">
-        <div class="gpg-stat-item__icon"><?php echo $stat['icon']; ?></div>
-        <div class="gpg-stat-item__number" data-target="<?php echo esc_attr( $stat['value'] ); ?>" data-suffix="<?php echo esc_attr( $stat['suffix'] ); ?>">0<?php echo esc_html( $stat['suffix'] ); ?></div>
-        <div class="gpg-stat-item__label"><?php echo esc_html( $stat['label'] ); ?></div>
+        <div class="stat-icon-wrap"><?php echo $stat['icon']; ?></div>
+        <div class="gpg-stat-number" data-target="<?php echo esc_attr( $stat['value'] ); ?>" data-suffix="<?php echo esc_attr( $stat['suffix'] ); ?>">0<?php echo esc_html( $stat['suffix'] ); ?></div>
+        <div class="gpg-stat-label"><?php echo esc_html( $stat['label'] ); ?></div>
       </div>
       <?php endforeach; ?>
     </div>

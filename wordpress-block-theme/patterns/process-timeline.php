@@ -13,21 +13,21 @@ $steps = array(
 );
 ?>
 
-<section class="gpg-process scroll-reveal" id="werkwijze">
+<section class="gpg-process gpg-scroll-reveal" id="werkwijze">
   <div class="gpg-container">
-    <div class="gpg-process__header">
+    <div style="text-align:center;margin-bottom:2.5rem;">
       <span class="gpg-badge gpg-badge--primary">Onze werkwijze</span>
       <h2>Van plan naar realisatie</h2>
-      <p>Een helder proces met vaste stappen zorgt voor een voorspelbaar en succesvol resultaat.</p>
+      <p style="color:var(--gpg-gray);max-width:36rem;margin:0 auto;">Een helder proces met vaste stappen zorgt voor een voorspelbaar en succesvol resultaat.</p>
     </div>
 
-    <div class="gpg-process__grid">
-      <div class="gpg-process__line"><div class="gpg-process__line-fill"></div></div>
+    <div class="gpg-process-grid">
+      <div class="gpg-process-line"><div class="fill"></div></div>
 
       <?php foreach ( $steps as $index => $step ) : ?>
       <div class="gpg-step-card gsa-hoek-sm" data-step="<?php echo $index; ?>">
-        <span class="gpg-step-card__num"><?php echo esc_html( $step['num'] ); ?></span>
-        <div class="gpg-step-card__icon"><?php echo $step['icon']; ?></div>
+        <span class="step-num"><?php echo esc_html( $step['num'] ); ?></span>
+        <div class="step-icon"><?php echo $step['icon']; ?></div>
         <h3><?php echo esc_html( $step['title'] ); ?></h3>
         <p><?php echo esc_html( $step['desc'] ); ?></p>
       </div>

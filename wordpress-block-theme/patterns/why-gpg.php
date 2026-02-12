@@ -19,20 +19,20 @@ $team = array(
 );
 ?>
 
-<section class="gpg-why scroll-reveal" id="waarom-gpg">
-  <div class="gpg-why__bg-gradient"></div>
+<section class="gpg-why gpg-scroll-reveal" id="waarom-gpg">
+  <div class="bg-gradient"></div>
   <div class="gpg-container">
-    <div class="gpg-why__grid">
+    <div class="gpg-why-grid">
       <!-- Left: Features -->
-      <div class="gpg-why__features">
-        <span class="gpg-badge gpg-badge--accent">Waarom GPG</span>
+      <div>
+        <span class="gpg-badge">Waarom GPG</span>
         <h2>40+ jaar facilitaire expertise</h2>
-        <p class="gpg-why__intro">Bij GPG begrijpen we dat je behoefte hebt aan een betrouwbare partner die jouw facilitaire diensten naar een hoger niveau tilt.</p>
+        <p style="color:var(--gpg-gray);margin-bottom:1.5rem;">Bij GPG begrijpen we dat je behoefte hebt aan een betrouwbare partner die jouw facilitaire diensten naar een hoger niveau tilt.</p>
 
-        <div class="gpg-why__feature-grid">
+        <div class="gpg-feature-grid">
           <?php foreach ( $features as $feature ) : ?>
           <div class="gpg-feature-card gsa-hoek-sm">
-            <div class="gpg-feature-card__icon"><?php echo $feature['icon']; ?></div>
+            <div class="feature-icon"><?php echo $feature['icon']; ?></div>
             <h4><?php echo esc_html( $feature['title'] ); ?></h4>
             <p><?php echo esc_html( $feature['desc'] ); ?></p>
           </div>
@@ -41,24 +41,24 @@ $team = array(
       </div>
 
       <!-- Right: Team Panel -->
-      <div class="gpg-why__team">
+      <div>
         <div class="gpg-team-panel gsa-hoek-lg">
-          <div class="gpg-team-panel__logo">
-            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gpg-logo.png' ); ?>" alt="GPG Facility Management">
+          <div style="text-align:center;margin-bottom:1rem;">
+            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gpg-logo.png' ); ?>" alt="GPG Facility Management" style="height:2.5rem;width:auto;">
           </div>
-          <h3 class="gpg-team-panel__title">Ons Team</h3>
+          <h3 style="text-align:center;margin-bottom:1.5rem;">Ons Team</h3>
 
-          <div class="gpg-team-panel__grid">
+          <div class="gpg-team-grid">
             <?php foreach ( $team as $member ) : ?>
             <div class="gpg-team-member">
               <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $member['img'] ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>">
-              <p class="gpg-team-member__name"><?php echo esc_html( $member['name'] ); ?></p>
-              <p class="gpg-team-member__role"><?php echo esc_html( $member['role'] ); ?></p>
+              <p class="name"><?php echo esc_html( $member['name'] ); ?></p>
+              <p class="role"><?php echo esc_html( $member['role'] ); ?></p>
             </div>
             <?php endforeach; ?>
           </div>
 
-          <p class="gpg-team-panel__hint">Klik op een teamlid voor contactgegevens</p>
+          <p style="text-align:center;font-size:0.75rem;color:var(--gpg-gray);margin-top:1rem;">Klik op een teamlid voor contactgegevens</p>
         </div>
       </div>
     </div>
