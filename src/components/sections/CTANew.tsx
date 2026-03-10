@@ -3,8 +3,17 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import ctaMeetingImage from "@/assets/cta-meeting.jpg";
+import { usePageContent } from "@/hooks/useCmsContent";
+import { useSiteSettings } from "@/hooks/useCmsContent";
 
 const CTANew = memo(() => {
+  const { sections } = usePageContent("home");
+  const { settings } = useSiteSettings();
+  const cta = sections?.cta;
+  const headline = cta?.headline || "Klaar om te starten?";
+  const description = cta?.description || "Neem vandaag nog contact met ons op voor een vrijblijvend adviesgesprek.";
+  const phone = settings?.phone || "+31(0)20 795 21 00";
+  const email = settings?.email || "info@gpgfacilities.nl";
   return (
     <section className="py-12 md:py-20 lg:py-24 bg-muted/30 relative overflow-hidden">
       {/* Decorative background */}
