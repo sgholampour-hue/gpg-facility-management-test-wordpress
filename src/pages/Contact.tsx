@@ -11,6 +11,8 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO, { createFAQSchema } from "@/components/SEO";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import MobileCTABar from "@/components/ui/MobileCTABar";
+import { usePageContent } from "@/hooks/useCmsContent";
+import PreviewBanner from "@/components/ui/PreviewBanner";
 
 // FAQ data for schema
 const faqData = [
@@ -21,6 +23,9 @@ const faqData = [
 
 const Contact = () => {
   const { toast } = useToast();
+  const { sections: cms, seo, isPreview } = usePageContent("contact");
+  const hero = cms?.hero;
+  const form = cms?.form;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -40,64 +45,32 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500));
-
     setIsSubmitting(false);
     setIsSubmitted(true);
-    
     toast({
       title: "Bericht verzonden!",
       description: "Wij nemen zo snel mogelijk contact met je op.",
     });
-
-    // Reset form after delay
     setTimeout(() => {
-      setFormData({
-        naam: "",
-        email: "",
-        telefoon: "",
-        bedrijf: "",
-        onderwerp: "",
-        bericht: ""
-      });
+      setFormData({ naam: "", email: "", telefoon: "", bedrijf: "", onderwerp: "", bericht: "" });
       setIsSubmitted(false);
     }, 3000);
   };
 
   const contactInfo = [
-    {
-      icon: Phone,
-      title: "Telefoon",
-      value: "+31(0)20 795 21 00",
-      link: "tel:+31207952100"
-    },
-    {
-      icon: Mail,
-      title: "E-mail",
-      value: "info@gpgfacilities.nl",
-      link: "mailto:info@gpgfacilities.nl"
-    },
-    {
-      icon: MapPin,
-      title: "Adres",
-      value: "Valkweg 111, 1118 ED Schiphol",
-      link: "https://maps.google.com/?q=Valkweg+111+1118+ED+Schiphol"
-    },
-    {
-      icon: Clock,
-      title: "Openingstijden",
-      value: "Ma - Vr: 08:00 - 17:00",
-      link: null
-    }
+    { icon: Phone, title: "Telefoon", value: "+31(0)20 795 21 00", link: "tel:+31207952100" },
+    { icon: Mail, title: "E-mail", value: "info@gpgfacilities.nl", link: "mailto:info@gpgfacilities.nl" },
+    { icon: MapPin, title: "Adres", value: "Valkweg 111, 1118 ED Schiphol", link: "https://maps.google.com/?q=Valkweg+111+1118+ED+Schiphol" },
+    { icon: Clock, title: "Openingstijden", value: "Ma - Vr: 08:00 - 17:00", link: null }
   ];
 
   return (
-    <div className="min-h-screen pb-16 md:pb-0">
+    <div className={`min-h-screen pb-16 md:pb-0 ${isPreview ? "pt-8" : ""}`}>
+      {isPreview && <PreviewBanner />}
       <SEO
-        title="Contact"
-        description="Neem contact op met GPG Facility Management voor een vrijblijvend adviesgesprek. Bel +31(0)20 795 21 00 of vul ons contactformulier in."
+        title={seo?.seo_title || "Contact"}
+        description={seo?.seo_description || "Neem contact op met GPG Facility Management voor een vrijblijvend adviesgesprek."}
         canonical="https://gpg-facility.lovable.app/contact"
         structuredData={createFAQSchema(faqData)}
       />
@@ -109,7 +82,17 @@ const Contact = () => {
             <div className="max-w-3xl">
               <RevealOnScroll variant="fade-up">
                 <p className="text-accent font-medium mb-2 md:mb-4 uppercase tracking-wider text-xs md:text-sm font-heading">
-                  Contact
+                  {hero?.label || "Contact"}
+                </p>
+              </RevealOnScroll>
+              <RevealOnScroll variant="fade-up" delay={100}>
+                <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6">
+                  {hero?.headline || "Neem contact met ons op"}
+                </h1>
+              </RevealOnScroll>
+              <RevealOnScroll variant="fade-up" delay={200}>
+                <p className="text-base md:text-xl text-white/80 leading-relaxed font-body">
+                  {hero?.subheadline || "Heb je vragen of wil je meer informatie? Wij staan voor je klaar."}
                 </p>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={100}>
@@ -135,10 +118,10 @@ const Contact = () => {
                 <RevealOnScroll variant="fade-up">
                   <div className="bg-white gsa-hoek-lg shadow-elegant p-5 md:p-8 lg:p-10">
                     <h2 className="text-xl md:text-2xl font-bold text-primary mb-1 md:mb-2">
-                      Stuur ons een bericht
+                      {form?.title || "Stuur ons een bericht"}
                     </h2>
                     <p className="text-muted-foreground mb-5 md:mb-8 font-body text-sm md:text-base">
-                      Vul het formulier in en wij nemen binnen 24 uur contact met je op.
+                      {form?.subtitle || "Vul het formulier in en wij nemen binnen 24 uur contact met je op."}
                     </p>
 
                     {isSubmitted ? (

@@ -6,6 +6,8 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { CountUp } from "@/components/ui/CountUp";
 import SEO from "@/components/SEO";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import { usePageContent } from "@/hooks/useCmsContent";
+import PreviewBanner from "@/components/ui/PreviewBanner";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 import gsaLogo from "@/assets/gsa-groep-logo.png";
 import gpgFullTeam from "@/assets/gpg-full-team.jpg";
@@ -50,11 +52,17 @@ const kernwaarden = [
 ];
 
 const OverOns = () => {
+  const { sections: cms, seo, isPreview } = usePageContent("over-ons");
+  const hero = cms?.hero;
+  const intro = cms?.intro;
+  const duurzaamheid = cms?.duurzaamheid;
+
   return (
-    <div className="min-h-screen pb-16 md:pb-0">
+    <div className={`min-h-screen pb-16 md:pb-0 ${isPreview ? "pt-8" : ""}`}>
+      {isPreview && <PreviewBanner />}
       <SEO
-        title="Over Ons"
-        description="GPG Facility Management, onderdeel van de GSA Groep, levert al 40+ jaar professionele facilitaire diensten."
+        title={seo?.seo_title || "Over Ons"}
+        description={seo?.seo_description || "GPG Facility Management, onderdeel van de GSA Groep, levert al 40+ jaar professionele facilitaire diensten."}
         canonical="https://gpg-facility.lovable.app/over-ons"
       />
       
@@ -65,17 +73,17 @@ const OverOns = () => {
             <div className="max-w-2xl">
               <RevealOnScroll variant="fade-up">
                 <p className="text-accent font-medium mb-2 uppercase tracking-wider text-xs font-heading">
-                  Over Ons
+                  {hero?.label || "Over Ons"}
                 </p>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={100}>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight">
-                  Wij zijn GPG Facility Management
+                  {hero?.headline || "Wij zijn GPG Facility Management"}
                 </h1>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={200}>
                 <p className="text-sm md:text-lg text-white/80 leading-relaxed font-body">
-                  Onderdeel van de GSA Groep – Al meer dan 40 jaar specialist in facilitaire dienstverlening.
+                  {hero?.subheadline || "Onderdeel van de GSA Groep – Al meer dan 40 jaar specialist in facilitaire dienstverlening."}
                 </p>
               </RevealOnScroll>
             </div>
@@ -105,22 +113,22 @@ const OverOns = () => {
               <div>
                 <RevealOnScroll variant="fade-up">
                   <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-2">
-                    Onze Missie
+                    {intro?.label || "Onze Missie"}
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={100}>
                   <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-3">
-                    Ontzorgen van organisaties met facilitaire dienstverlening
+                    {intro?.headline || "Ontzorgen van organisaties met facilitaire dienstverlening"}
                   </h2>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={200}>
                   <p className="text-muted-foreground leading-relaxed mb-3 font-body text-sm md:text-base">
-                    GPG Facility Management is gespecialiseerd in huismeesterdiensten, verhuizingen, integrated facilities en fit-out projecten. Of het nu gaat om dagelijks onderhoud of complete kantoorinrichtingen—circulariteit staat altijd voorop met duurzame materialen en slim hergebruik.
+                    {intro?.text || "GPG Facility Management is gespecialiseerd in huismeesterdiensten, verhuizingen, integrated facilities en fit-out projecten. Of het nu gaat om dagelijks onderhoud of complete kantoorinrichtingen—circulariteit staat altijd voorop met duurzame materialen en slim hergebruik."}
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={300}>
                   <p className="text-muted-foreground leading-relaxed mb-4 md:mb-6 font-body text-sm md:text-base">
-                    Onze kracht? Vakmanschap gecombineerd met een no-nonsense aanpak en focus op circulaire oplossingen.
+                    {intro?.text2 || "Onze kracht? Vakmanschap gecombineerd met een no-nonsense aanpak en focus op circulaire oplossingen."}
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={400}>
@@ -336,17 +344,17 @@ const OverOns = () => {
             <div className="max-w-2xl mx-auto text-center">
               <RevealOnScroll variant="fade-up">
                 <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-2">
-                  Duurzame Visie
+                  {duurzaamheid?.label || "Duurzame Visie"}
                 </p>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={100}>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-2 md:mb-4">
-                  Werken aan de toekomst
+                  {duurzaamheid?.headline || "Werken aan de toekomst"}
                 </h2>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={200}>
                 <p className="text-muted-foreground leading-relaxed mb-4 md:mb-6 font-body text-sm md:text-base">
-                  Circulariteit staat voorop in ons proces. Wij focussen op circulaire economie, energiezuinige oplossingen en CO2-reductie bij elk project.
+                  {duurzaamheid?.text || "Circulariteit staat voorop in ons proces. Wij focussen op circulaire economie, energiezuinige oplossingen en CO2-reductie bij elk project."}
                 </p>
               </RevealOnScroll>
               <div className="grid grid-cols-3 gap-2 md:gap-4 mb-6">

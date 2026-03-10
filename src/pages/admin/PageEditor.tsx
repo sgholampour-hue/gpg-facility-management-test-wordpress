@@ -118,9 +118,9 @@ const PageEditor = () => {
         </div>
         <div className="flex gap-2">
           <Button variant="outline" size="sm" asChild>
-            <a href={`/${page.page_slug === "home" ? "" : page.page_slug}`} target="_blank" rel="noopener noreferrer">
+            <a href={`/${page.page_slug === "home" ? "" : page.page_slug}?preview=true`} target="_blank" rel="noopener noreferrer">
               <Eye className="w-4 h-4 mr-1" />
-              Preview
+              Preview concept
             </a>
           </Button>
           {page.status === "published" && (
