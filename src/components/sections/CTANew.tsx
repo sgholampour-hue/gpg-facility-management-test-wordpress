@@ -32,11 +32,10 @@ const CTANew = memo(() => {
                   Neem contact op
                 </span>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-3 md:mb-4">
-                  Klaar om te starten?
+                  {headline}
                 </h2>
                 <p className="text-muted-foreground mb-5 md:mb-6 text-sm md:text-base">
-                  Neem vandaag nog contact met ons op voor een vrijblijvend adviesgesprek. 
-                  Wij helpen je graag bij jouw volgende project.
+                  {description}
                 </p>
 
                 <div className="space-y-2 sm:space-y-3 mb-6 md:mb-8">
