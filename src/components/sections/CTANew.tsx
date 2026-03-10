@@ -40,22 +40,22 @@ const CTANew = memo(() => {
 
                 <div className="space-y-2 sm:space-y-3 mb-6 md:mb-8">
                   <a 
-                    href="tel:+31207952100" 
+                    href={`tel:${phone.replace(/[^+\d]/g, "")}`}
                     className="flex items-center gap-3 text-foreground hover:text-accent transition-all duration-300 group"
                   >
                     <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                       <Phone className="w-4 h-4 text-accent group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">+31(0)20 795 21 00</span>
+                    <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">{phone}</span>
                   </a>
                   <a 
-                    href="mailto:info@gpgfacilities.nl" 
+                    href={`mailto:${email}`}
                     className="flex items-center gap-3 text-foreground hover:text-accent transition-all duration-300 group"
                   >
                     <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                       <Mail className="w-4 h-4 text-accent group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">info@gpgfacilities.nl</span>
+                    <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">{email}</span>
                   </a>
                 </div>
 
