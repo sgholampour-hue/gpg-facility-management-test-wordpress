@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 
-// Hook to fetch CMS page content
+// Hook to fetch CMS page content (supports ?preview=true for drafts)
 export const usePageContent = (pageSlug: string) => {
   const [sections, setSections] = useState<Record<string, any> | null>(null);
   const [seo, setSeo] = useState<{
@@ -12,14 +13,32 @@ export const usePageContent = (pageSlug: string) => {
   } | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // Check for preview mode via URL param
+  let isPreview = false;
+  try {
+    const params = new URLSearchParams(window.location.search);
+    isPreview = params.get("preview") === "true";
+  } catch {}
+
   useEffect(() => {
-    const fetch = async () => {
-      const { data } = await supabase
+    const fetchContent = async () => {
+      let query = supabase
         .from("page_content")
-        .select("sections, seo_title, seo_description, og_title, og_description")
+        .select("sections, seo_title, seo_description, og_title, og_description, status")
         .eq("page_slug", pageSlug)
-        .eq("status", "published")
         .single();
+
+      // If not preview mode, only fetch published content
+      if (!isPreview) {
+        query = supabase
+          .from("page_content")
+          .select("sections, seo_title, seo_description, og_title, og_description, status")
+          .eq("page_slug", pageSlug)
+          .eq("status", "published")
+          .single();
+      }
+
+      const { data } = await query;
 
       if (data) {
         setSections(data.sections as Record<string, any>);
@@ -32,10 +51,10 @@ export const usePageContent = (pageSlug: string) => {
       }
       setLoading(false);
     };
-    fetch();
-  }, [pageSlug]);
+    fetchContent();
+  }, [pageSlug, isPreview]);
 
-  return { sections, seo, loading };
+  return { sections, seo, loading, isPreview };
 };
 
 // Hook to fetch site settings

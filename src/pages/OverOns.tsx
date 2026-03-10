@@ -6,6 +6,8 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { CountUp } from "@/components/ui/CountUp";
 import SEO from "@/components/SEO";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import { usePageContent } from "@/hooks/useCmsContent";
+import PreviewBanner from "@/components/ui/PreviewBanner";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 import gsaLogo from "@/assets/gsa-groep-logo.png";
 import gpgFullTeam from "@/assets/gpg-full-team.jpg";
