@@ -99,11 +99,6 @@ const HeroSplit = () => {
                 </>
               ) : headline}
             </h1>
-                <span className="relative z-10">persoonlijke</span>
-                <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 bg-accent/20 -z-0 rounded" />
-              </span>{" "}
-              benadering.
-            </h1>
 
             {/* Subtitle */}
             <p 
@@ -111,8 +106,7 @@ const HeroSplit = () => {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Wij ondersteunen kantoren en bedrijven met professionele facilitaire diensten. 
-              Altijd vakwerk, altijd flexibel, en een partner die écht meedenkt.
+              {subheadline}
             </p>
 
             {/* Highlights */}
