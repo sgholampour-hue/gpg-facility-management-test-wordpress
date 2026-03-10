@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Quote } from "lucide-react";
+import { usePageContent } from "@/hooks/useCmsContent";
 
-const testimonial = {
+const defaultTestimonial = {
   quote: "Samen met GPG bouwen we aan werkplekken waar mensen graag komen. Hun expertise en betrokkenheid maken het verschil.",
   author: "Frank van Schaik",
   role: "Directeur",
