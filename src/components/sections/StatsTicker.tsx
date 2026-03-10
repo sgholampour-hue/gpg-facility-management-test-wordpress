@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Building, Users, Calendar, Award } from "lucide-react";
+import { usePageContent } from "@/hooks/useCmsContent";
 
-const stats = [
+const defaultStats = [
   { icon: Calendar, value: "40", label: "Jaar ervaring", suffix: "+" },
   { icon: Building, value: "600", label: "Interieur producten", suffix: "+" },
   { icon: Users, value: "50", label: "Professionals", suffix: "+" },
   { icon: Award, value: "98", label: "Klanttevredenheid", suffix: "%" },
 ];
+
+const iconMap: Record<number, any> = { 0: Calendar, 1: Building, 2: Users, 3: Award };
 
 const StatsTicker = () => {
   const [isVisible, setIsVisible] = useState(false);
