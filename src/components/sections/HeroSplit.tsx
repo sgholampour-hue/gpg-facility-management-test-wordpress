@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-office.jpg";
+import { usePageContent } from "@/hooks/useCmsContent";
 
-const highlights = [
+const defaultHighlights = [
   "Onderdeel GSA groep",
   "Eén vast aanspreekpunt",
   "Flexibel & betrouwbaar",
@@ -12,6 +13,15 @@ const highlights = [
 ];
 
 const HeroSplit = () => {
+  const { sections } = usePageContent("home");
+  const hero = sections?.hero;
+  const highlights = hero?.highlights || defaultHighlights;
+  const headline = hero?.headline || "Facilitaire diensten met een persoonlijke benadering.";
+  const subheadline = hero?.subheadline || "Wij ondersteunen kantoren en bedrijven met professionele facilitaire diensten. Altijd vakwerk, altijd flexibel, en een partner die écht meedenkt.";
+  const buttonLabel = hero?.button_label || "Neem contact op";
+  const buttonLink = hero?.button_link || "/contact";
+  const buttonSecondaryLabel = hero?.button_secondary_label || "Bekijk projecten";
+  const buttonSecondaryLink = hero?.button_secondary_link || "/projecten";
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -78,12 +88,16 @@ const HeroSplit = () => {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Facilitaire diensten met een{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10">persoonlijke</span>
-                <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 bg-accent/20 -z-0 rounded" />
-              </span>{" "}
-              benadering.
+              {headline.split("persoonlijke").length > 1 ? (
+                <>
+                  {headline.split("persoonlijke")[0]}
+                  <span className="relative inline-block">
+                    <span className="relative z-10">persoonlijke</span>
+                    <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 bg-accent/20 -z-0 rounded" />
+                  </span>
+                  {headline.split("persoonlijke")[1]}
+                </>
+              ) : headline}
             </h1>
 
             {/* Subtitle */}
@@ -92,8 +106,7 @@ const HeroSplit = () => {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Wij ondersteunen kantoren en bedrijven met professionele facilitaire diensten. 
-              Altijd vakwerk, altijd flexibel, en een partner die écht meedenkt.
+              {subheadline}
             </p>
 
             {/* Highlights */}
@@ -126,8 +139,8 @@ const HeroSplit = () => {
                 className="gsa-hoek-sm group" 
                 asChild
               >
-                <Link to="/contact" className="flex items-center gap-2">
-                  Neem contact op
+                <Link to={buttonLink} className="flex items-center gap-2">
+                  {buttonLabel}
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -136,7 +149,7 @@ const HeroSplit = () => {
                 className="gsa-hoek-sm bg-white/10 backdrop-blur-md border-2 border-primary/20 text-primary hover:bg-white/20 hover:border-primary/40"
                 asChild
               >
-                <Link to="/projecten">Bekijk projecten</Link>
+                <Link to={buttonSecondaryLink}>{buttonSecondaryLabel}</Link>
               </Button>
             </div>
           </div>

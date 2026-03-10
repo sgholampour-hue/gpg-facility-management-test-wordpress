@@ -2,27 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { usePageContent } from "@/hooks/useCmsContent";
 
-const faqs = [
-  {
-    question: "Wat maakt GPG anders dan andere facilitaire dienstverleners?",
-    answer: "GPG combineert meer dan 40 jaar ervaring met een persoonlijke aanpak. Jij krijgt één vast aanspreekpunt, flexibele oplossingen en we denken proactief mee. Als onderdeel van GSA Groep hebben we de schaalgrootte voor grote projecten én de wendbaarheid voor maatwerk."
-  },
-  {
-    question: "Welke diensten bieden jullie aan?",
-    answer: "Wij bieden complete facilitaire ondersteuning: huismeesterdiensten, kantoorverhuizingen, integrated facilities management, fit-out projecten, inkoop van meubilair en projectinrichting. Alles onder één dak, van kleine reparaties tot volledige kantoorinrichtingen."
-  },
-  {
-    question: "In welke regio's zijn jullie actief?",
-    answer: "Wij zijn actief in heel Nederland met focus op de Randstad."
-  },
-  {
-    question: "Hoe werkt het aanvraagproces?",
-    answer: "Eenvoudig: neem contact op via telefoon, e-mail of ons contactformulier. We plannen een kennismaking, inventariseren je wensen en leveren een helder voorstel. Na akkoord gaan we direct aan de slag met jouw project."
-  },
+const defaultFaqs = [
+  { question: "Wat maakt GPG anders dan andere facilitaire dienstverleners?", answer: "GPG combineert meer dan 40 jaar ervaring met een persoonlijke aanpak." },
+  { question: "Welke diensten bieden jullie aan?", answer: "Wij bieden complete facilitaire ondersteuning." },
+  { question: "In welke regio's zijn jullie actief?", answer: "Wij zijn actief in heel Nederland met focus op de Randstad." },
+  { question: "Hoe werkt het aanvraagproces?", answer: "Neem contact op via telefoon, e-mail of ons contactformulier." },
 ];
 
 const FAQHomepage = () => {
+  const { sections } = usePageContent("home");
+  const faqs = (sections?.faq as any[]) || defaultFaqs;
   const [isVisible, setIsVisible] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);

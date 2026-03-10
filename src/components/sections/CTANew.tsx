@@ -3,8 +3,17 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import ctaMeetingImage from "@/assets/cta-meeting.jpg";
+import { usePageContent } from "@/hooks/useCmsContent";
+import { useSiteSettings } from "@/hooks/useCmsContent";
 
 const CTANew = memo(() => {
+  const { sections } = usePageContent("home");
+  const { settings } = useSiteSettings();
+  const cta = sections?.cta;
+  const headline = cta?.headline || "Klaar om te starten?";
+  const description = cta?.description || "Neem vandaag nog contact met ons op voor een vrijblijvend adviesgesprek.";
+  const phone = settings?.phone || "+31(0)20 795 21 00";
+  const email = settings?.email || "info@gpgfacilities.nl";
   return (
     <section className="py-12 md:py-20 lg:py-24 bg-muted/30 relative overflow-hidden">
       {/* Decorative background */}
@@ -23,31 +32,30 @@ const CTANew = memo(() => {
                   Neem contact op
                 </span>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-3 md:mb-4">
-                  Klaar om te starten?
+                  {headline}
                 </h2>
                 <p className="text-muted-foreground mb-5 md:mb-6 text-sm md:text-base">
-                  Neem vandaag nog contact met ons op voor een vrijblijvend adviesgesprek. 
-                  Wij helpen je graag bij jouw volgende project.
+                  {description}
                 </p>
 
                 <div className="space-y-2 sm:space-y-3 mb-6 md:mb-8">
                   <a 
-                    href="tel:+31207952100" 
+                    href={`tel:${phone.replace(/[^+\d]/g, "")}`}
                     className="flex items-center gap-3 text-foreground hover:text-accent transition-all duration-300 group"
                   >
                     <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                       <Phone className="w-4 h-4 text-accent group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">+31(0)20 795 21 00</span>
+                    <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">{phone}</span>
                   </a>
                   <a 
-                    href="mailto:info@gpgfacilities.nl" 
+                    href={`mailto:${email}`}
                     className="flex items-center gap-3 text-foreground hover:text-accent transition-all duration-300 group"
                   >
                     <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                       <Mail className="w-4 h-4 text-accent group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">info@gpgfacilities.nl</span>
+                    <span className="font-medium group-hover:translate-x-1 transition-transform duration-300">{email}</span>
                   </a>
                 </div>
 

@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Quote } from "lucide-react";
+import { usePageContent } from "@/hooks/useCmsContent";
 
-const testimonial = {
+const defaultTestimonial = {
   quote: "Samen met GPG bouwen we aan werkplekken waar mensen graag komen. Hun expertise en betrokkenheid maken het verschil.",
   author: "Frank van Schaik",
   role: "Directeur",
@@ -10,6 +11,15 @@ const testimonial = {
 };
 
 const TestimonialsNew = () => {
+  const { sections } = usePageContent("home");
+  const cmsTestimonial = sections?.testimonial;
+  const testimonial = {
+    ...defaultTestimonial,
+    ...(cmsTestimonial || {}),
+    initials: cmsTestimonial?.author
+      ? cmsTestimonial.author.split(" ").map((n: string) => n[0]).join("").substring(0, 2).toUpperCase()
+      : defaultTestimonial.initials,
+  };
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
