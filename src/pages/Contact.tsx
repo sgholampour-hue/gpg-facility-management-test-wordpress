@@ -11,6 +11,8 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO, { createFAQSchema } from "@/components/SEO";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import MobileCTABar from "@/components/ui/MobileCTABar";
+import { usePageContent } from "@/hooks/useCmsContent";
+import PreviewBanner from "@/components/ui/PreviewBanner";
 
 // FAQ data for schema
 const faqData = [
