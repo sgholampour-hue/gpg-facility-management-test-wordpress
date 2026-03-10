@@ -113,22 +113,22 @@ const OverOns = () => {
               <div>
                 <RevealOnScroll variant="fade-up">
                   <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-2">
-                    Onze Missie
+                    {intro?.label || "Onze Missie"}
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={100}>
                   <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-3">
-                    Ontzorgen van organisaties met facilitaire dienstverlening
+                    {intro?.headline || "Ontzorgen van organisaties met facilitaire dienstverlening"}
                   </h2>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={200}>
                   <p className="text-muted-foreground leading-relaxed mb-3 font-body text-sm md:text-base">
-                    GPG Facility Management is gespecialiseerd in huismeesterdiensten, verhuizingen, integrated facilities en fit-out projecten. Of het nu gaat om dagelijks onderhoud of complete kantoorinrichtingen—circulariteit staat altijd voorop met duurzame materialen en slim hergebruik.
+                    {intro?.text || "GPG Facility Management is gespecialiseerd in huismeesterdiensten, verhuizingen, integrated facilities en fit-out projecten. Of het nu gaat om dagelijks onderhoud of complete kantoorinrichtingen—circulariteit staat altijd voorop met duurzame materialen en slim hergebruik."}
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={300}>
                   <p className="text-muted-foreground leading-relaxed mb-4 md:mb-6 font-body text-sm md:text-base">
-                    Onze kracht? Vakmanschap gecombineerd met een no-nonsense aanpak en focus op circulaire oplossingen.
+                    {intro?.text2 || "Onze kracht? Vakmanschap gecombineerd met een no-nonsense aanpak en focus op circulaire oplossingen."}
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={400}>
