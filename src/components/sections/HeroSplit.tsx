@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-office.jpg";
+import { usePageContent } from "@/hooks/useCmsContent";
 
-const highlights = [
+const defaultHighlights = [
   "Onderdeel GSA groep",
   "Eén vast aanspreekpunt",
   "Flexibel & betrouwbaar",
