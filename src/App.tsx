@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { useEffect } from "react";
+import { AuthProvider } from "@/contexts/AuthContext";
 import HeaderNew from "@/components/layout/HeaderNew";
 import Index from "./pages/Index";
 import Projecten from "./pages/Projecten";
@@ -17,6 +18,16 @@ import Voorwaarden from "./pages/Voorwaarden";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 import Preloader from "./components/ui/Preloader";
+
+// Admin pages
+import Login from "./pages/admin/Login";
+import Dashboard from "./pages/admin/Dashboard";
+import PagesList from "./pages/admin/PagesList";
+import PageEditor from "./pages/admin/PageEditor";
+import GlobalSettings from "./pages/admin/GlobalSettings";
+import MediaManager from "./pages/admin/MediaManager";
+import UserManager from "./pages/admin/UserManager";
+import AdminLayout from "./components/admin/AdminLayout";
 
 const queryClient = new QueryClient();
 
@@ -45,7 +56,8 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const AppRoutes = () => (
+// Public routes with header
+const PublicRoutes = () => (
   <>
     <ScrollToTopOnNavigate />
     <Preloader />
@@ -65,15 +77,37 @@ const AppRoutes = () => (
   </>
 );
 
+// Admin routes (no public header/footer)
+const AdminRoutes = () => (
+  <Routes>
+    <Route path="login" element={<Login />} />
+    <Route path="" element={<AdminLayout><Dashboard /></AdminLayout>} />
+    <Route path="paginas" element={<AdminLayout><PagesList /></AdminLayout>} />
+    <Route path="paginas/:slug" element={<AdminLayout><PageEditor /></AdminLayout>} />
+    <Route path="instellingen" element={<AdminLayout><GlobalSettings /></AdminLayout>} />
+    <Route path="media" element={<AdminLayout><MediaManager /></AdminLayout>} />
+    <Route path="gebruikers" element={<AdminLayout><UserManager /></AdminLayout>} />
+  </Routes>
+);
+
+const AppRoutes = () => {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith("/admin");
+
+  return isAdmin ? <AdminRoutes /> : <PublicRoutes />;
+};
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
+        <AuthProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <AppRoutes />
+          </BrowserRouter>
+        </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
   </HelmetProvider>
