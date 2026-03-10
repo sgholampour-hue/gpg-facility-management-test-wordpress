@@ -88,8 +88,17 @@ const HeroSplit = () => {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Facilitaire diensten met een{" "}
-              <span className="relative inline-block">
+              {headline.split("persoonlijke").length > 1 ? (
+                <>
+                  {headline.split("persoonlijke")[0]}
+                  <span className="relative inline-block">
+                    <span className="relative z-10">persoonlijke</span>
+                    <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 bg-accent/20 -z-0 rounded" />
+                  </span>
+                  {headline.split("persoonlijke")[1]}
+                </>
+              ) : headline}
+            </h1>
                 <span className="relative z-10">persoonlijke</span>
                 <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 bg-accent/20 -z-0 rounded" />
               </span>{" "}
