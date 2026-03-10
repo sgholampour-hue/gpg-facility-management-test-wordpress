@@ -195,11 +195,16 @@ const ServiceSection = ({
 };
 
 const Diensten = () => {
+  const { sections: cms, seo, isPreview } = usePageContent("diensten");
+  const hero = cms?.hero;
+  const cta = cms?.cta;
+
   return (
-    <div className="min-h-screen pb-16 md:pb-0">
+    <div className={`min-h-screen pb-16 md:pb-0 ${isPreview ? "pt-8" : ""}`}>
+      {isPreview && <PreviewBanner />}
       <SEO
-        title="Diensten"
-        description="Ontdek onze facilitaire diensten: huismeesterdiensten, verhuizingen, integrated facilities, fit-outs, inkoop en stoffering. Complete oplossingen voor jouw organisatie."
+        title={seo?.seo_title || "Diensten"}
+        description={seo?.seo_description || "Ontdek onze facilitaire diensten: huismeesterdiensten, verhuizingen, integrated facilities, fit-outs, inkoop en stoffering."}
         canonical="https://gpg-facility.lovable.app/diensten"
         structuredData={serviceSchema}
       />
@@ -210,13 +215,13 @@ const Diensten = () => {
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl">
               <p className="text-accent font-medium mb-3 md:mb-4 uppercase tracking-wider text-xs md:text-sm">
-                Onze diensten
+                {hero?.label || "Onze diensten"}
               </p>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6">
-                Complete facilitaire dienstverlening
+                {hero?.headline || "Complete facilitaire dienstverlening"}
               </h1>
               <p className="text-base md:text-xl text-white/80 leading-relaxed">
-                Van huismeesterdiensten tot complete fit-out projecten. GPG Facility Management is jouw partner voor alle facilitaire vraagstukken.
+                {hero?.subheadline || "Van huismeesterdiensten tot complete fit-out projecten. GPG Facility Management is jouw partner voor alle facilitaire vraagstukken."}
               </p>
             </div>
           </div>
@@ -249,14 +254,14 @@ const Diensten = () => {
           <div className="container px-4 md:px-6 text-center">
             <RevealOnScroll>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6">
-                Klaar om te starten?
+                {cta?.headline || "Klaar om te starten?"}
               </h2>
               <p className="text-base md:text-xl text-white/80 mb-6 md:mb-8 max-w-2xl mx-auto">
-                Neem contact met ons op voor een vrijblijvend gesprek over jouw facilitaire behoeften.
+                {cta?.text || "Neem contact met ons op voor een vrijblijvend gesprek over jouw facilitaire behoeften."}
               </p>
               <Button asChild size="xl" variant="hero" className="group w-full sm:w-auto">
-                <Link to="/contact">
-                  Neem contact op
+                <Link to={cta?.button_link || "/contact"}>
+                  {cta?.button_label || "Neem contact op"}
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </Link>
               </Button>

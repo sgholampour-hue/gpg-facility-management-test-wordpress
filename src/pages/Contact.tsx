@@ -118,10 +118,10 @@ const Contact = () => {
                 <RevealOnScroll variant="fade-up">
                   <div className="bg-white gsa-hoek-lg shadow-elegant p-5 md:p-8 lg:p-10">
                     <h2 className="text-xl md:text-2xl font-bold text-primary mb-1 md:mb-2">
-                      Stuur ons een bericht
+                      {form?.title || "Stuur ons een bericht"}
                     </h2>
                     <p className="text-muted-foreground mb-5 md:mb-8 font-body text-sm md:text-base">
-                      Vul het formulier in en wij nemen binnen 24 uur contact met je op.
+                      {form?.subtitle || "Vul het formulier in en wij nemen binnen 24 uur contact met je op."}
                     </p>
 
                     {isSubmitted ? (
