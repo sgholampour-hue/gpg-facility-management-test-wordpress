@@ -13,6 +13,15 @@ const defaultHighlights = [
 ];
 
 const HeroSplit = () => {
+  const { sections } = usePageContent("home");
+  const hero = sections?.hero;
+  const highlights = hero?.highlights || defaultHighlights;
+  const headline = hero?.headline || "Facilitaire diensten met een persoonlijke benadering.";
+  const subheadline = hero?.subheadline || "Wij ondersteunen kantoren en bedrijven met professionele facilitaire diensten. Altijd vakwerk, altijd flexibel, en een partner die écht meedenkt.";
+  const buttonLabel = hero?.button_label || "Neem contact op";
+  const buttonLink = hero?.button_link || "/contact";
+  const buttonSecondaryLabel = hero?.button_secondary_label || "Bekijk projecten";
+  const buttonSecondaryLink = hero?.button_secondary_link || "/projecten";
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
