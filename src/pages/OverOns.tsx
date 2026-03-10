@@ -344,17 +344,17 @@ const OverOns = () => {
             <div className="max-w-2xl mx-auto text-center">
               <RevealOnScroll variant="fade-up">
                 <p className="text-accent font-medium uppercase tracking-wider text-xs font-heading mb-2">
-                  Duurzame Visie
+                  {duurzaamheid?.label || "Duurzame Visie"}
                 </p>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={100}>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-2 md:mb-4">
-                  Werken aan de toekomst
+                  {duurzaamheid?.headline || "Werken aan de toekomst"}
                 </h2>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={200}>
                 <p className="text-muted-foreground leading-relaxed mb-4 md:mb-6 font-body text-sm md:text-base">
-                  Circulariteit staat voorop in ons proces. Wij focussen op circulaire economie, energiezuinige oplossingen en CO2-reductie bij elk project.
+                  {duurzaamheid?.text || "Circulariteit staat voorop in ons proces. Wij focussen op circulaire economie, energiezuinige oplossingen en CO2-reductie bij elk project."}
                 </p>
               </RevealOnScroll>
               <div className="grid grid-cols-3 gap-2 md:gap-4 mb-6">
