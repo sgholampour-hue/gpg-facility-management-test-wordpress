@@ -52,11 +52,17 @@ const kernwaarden = [
 ];
 
 const OverOns = () => {
+  const { sections: cms, seo, isPreview } = usePageContent("over-ons");
+  const hero = cms?.hero;
+  const intro = cms?.intro;
+  const duurzaamheid = cms?.duurzaamheid;
+
   return (
-    <div className="min-h-screen pb-16 md:pb-0">
+    <div className={`min-h-screen pb-16 md:pb-0 ${isPreview ? "pt-8" : ""}`}>
+      {isPreview && <PreviewBanner />}
       <SEO
-        title="Over Ons"
-        description="GPG Facility Management, onderdeel van de GSA Groep, levert al 40+ jaar professionele facilitaire diensten."
+        title={seo?.seo_title || "Over Ons"}
+        description={seo?.seo_description || "GPG Facility Management, onderdeel van de GSA Groep, levert al 40+ jaar professionele facilitaire diensten."}
         canonical="https://gpg-facility.lovable.app/over-ons"
       />
       
@@ -67,17 +73,17 @@ const OverOns = () => {
             <div className="max-w-2xl">
               <RevealOnScroll variant="fade-up">
                 <p className="text-accent font-medium mb-2 uppercase tracking-wider text-xs font-heading">
-                  Over Ons
+                  {hero?.label || "Over Ons"}
                 </p>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={100}>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight">
-                  Wij zijn GPG Facility Management
+                  {hero?.headline || "Wij zijn GPG Facility Management"}
                 </h1>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={200}>
                 <p className="text-sm md:text-lg text-white/80 leading-relaxed font-body">
-                  Onderdeel van de GSA Groep – Al meer dan 40 jaar specialist in facilitaire dienstverlening.
+                  {hero?.subheadline || "Onderdeel van de GSA Groep – Al meer dan 40 jaar specialist in facilitaire dienstverlening."}
                 </p>
               </RevealOnScroll>
             </div>
