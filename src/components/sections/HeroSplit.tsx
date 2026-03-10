@@ -139,8 +139,8 @@ const HeroSplit = () => {
                 className="gsa-hoek-sm group" 
                 asChild
               >
-                <Link to="/contact" className="flex items-center gap-2">
-                  Neem contact op
+                <Link to={buttonLink} className="flex items-center gap-2">
+                  {buttonLabel}
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -149,7 +149,7 @@ const HeroSplit = () => {
                 className="gsa-hoek-sm bg-white/10 backdrop-blur-md border-2 border-primary/20 text-primary hover:bg-white/20 hover:border-primary/40"
                 asChild
               >
-                <Link to="/projecten">Bekijk projecten</Link>
+                <Link to={buttonSecondaryLink}>{buttonSecondaryLabel}</Link>
               </Button>
             </div>
           </div>
