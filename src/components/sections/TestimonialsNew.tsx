@@ -11,6 +11,15 @@ const defaultTestimonial = {
 };
 
 const TestimonialsNew = () => {
+  const { sections } = usePageContent("home");
+  const cmsTestimonial = sections?.testimonial;
+  const testimonial = {
+    ...defaultTestimonial,
+    ...(cmsTestimonial || {}),
+    initials: cmsTestimonial?.author
+      ? cmsTestimonial.author.split(" ").map((n: string) => n[0]).join("").substring(0, 2).toUpperCase()
+      : defaultTestimonial.initials,
+  };
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 

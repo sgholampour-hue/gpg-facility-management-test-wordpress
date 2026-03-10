@@ -12,6 +12,8 @@ const defaultFaqs = [
 ];
 
 const FAQHomepage = () => {
+  const { sections } = usePageContent("home");
+  const faqs = (sections?.faq as any[]) || defaultFaqs;
   const [isVisible, setIsVisible] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
