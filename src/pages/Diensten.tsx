@@ -7,6 +7,8 @@ import LazyImage from "@/components/ui/LazyImage";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import MobileCTABar from "@/components/ui/MobileCTABar";
+import { usePageContent } from "@/hooks/useCmsContent";
+import PreviewBanner from "@/components/ui/PreviewBanner";
 
 import dienstHandyman from "@/assets/dienst-handyman-new.jpg";
 import dienstVerhuizen from "@/assets/dienst-verhuizen-new.jpg";
