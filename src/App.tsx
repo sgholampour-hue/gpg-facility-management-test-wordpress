@@ -77,25 +77,19 @@ const PublicRoutes = () => (
   </>
 );
 
-// Admin routes (no public header/footer)
-const AdminRoutes = () => (
+
+const AppRoutes = () => (
   <Routes>
-    <Route path="login" element={<Login />} />
-    <Route path="" element={<AdminLayout><Dashboard /></AdminLayout>} />
-    <Route path="paginas" element={<AdminLayout><PagesList /></AdminLayout>} />
-    <Route path="paginas/:slug" element={<AdminLayout><PageEditor /></AdminLayout>} />
-    <Route path="instellingen" element={<AdminLayout><GlobalSettings /></AdminLayout>} />
-    <Route path="media" element={<AdminLayout><MediaManager /></AdminLayout>} />
-    <Route path="gebruikers" element={<AdminLayout><UserManager /></AdminLayout>} />
+    <Route path="/admin/login" element={<Login />} />
+    <Route path="/admin" element={<AdminLayout><Dashboard /></AdminLayout>} />
+    <Route path="/admin/paginas" element={<AdminLayout><PagesList /></AdminLayout>} />
+    <Route path="/admin/paginas/:slug" element={<AdminLayout><PageEditor /></AdminLayout>} />
+    <Route path="/admin/instellingen" element={<AdminLayout><GlobalSettings /></AdminLayout>} />
+    <Route path="/admin/media" element={<AdminLayout><MediaManager /></AdminLayout>} />
+    <Route path="/admin/gebruikers" element={<AdminLayout><UserManager /></AdminLayout>} />
+    <Route path="/*" element={<PublicRoutes />} />
   </Routes>
 );
-
-const AppRoutes = () => {
-  const location = useLocation();
-  const isAdmin = location.pathname.startsWith("/admin");
-
-  return isAdmin ? <AdminRoutes /> : <PublicRoutes />;
-};
 
 const App = () => (
   <HelmetProvider>
