@@ -77,18 +77,6 @@ const PublicRoutes = () => (
   </>
 );
 
-// Admin routes (no public header/footer)
-const AdminRoutes = () => (
-  <Routes>
-    <Route path="login" element={<Login />} />
-    <Route path="" element={<AdminLayout><Dashboard /></AdminLayout>} />
-    <Route path="paginas" element={<AdminLayout><PagesList /></AdminLayout>} />
-    <Route path="paginas/:slug" element={<AdminLayout><PageEditor /></AdminLayout>} />
-    <Route path="instellingen" element={<AdminLayout><GlobalSettings /></AdminLayout>} />
-    <Route path="media" element={<AdminLayout><MediaManager /></AdminLayout>} />
-    <Route path="gebruikers" element={<AdminLayout><UserManager /></AdminLayout>} />
-  </Routes>
-);
 
 const AppRoutes = () => (
   <Routes>
