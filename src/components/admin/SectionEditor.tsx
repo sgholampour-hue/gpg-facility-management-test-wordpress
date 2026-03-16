@@ -72,6 +72,14 @@ const sectionLabels: Record<string, string> = {
   faq: "Veelgestelde vragen",
   cta: "Call-to-Action",
   intro: "Introductie",
+  duurzaamheid: "Duurzaamheid",
+  projects: "Projecten",
+  principes_intro: "Principes introductie",
+  principes: "Circulaire principes",
+  aanpak_intro: "Aanpak introductie",
+  aanpak: "Aanpak stappen",
+  certificeringen_intro: "Certificeringen",
+  form: "Formulier",
 };
 
 const SectionEditor = ({ pageSlug, sections, onUpdate }: SectionEditorProps) => {
