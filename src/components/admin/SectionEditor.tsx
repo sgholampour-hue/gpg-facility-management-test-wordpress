@@ -54,6 +54,14 @@ const fieldLabels: Record<string, string> = {
   label: "Label",
   suffix: "Achtervoegsel",
   title: "Titel",
+  subtitle: "Subtitel",
+  slug: "Slug (URL)",
+  period: "Periode",
+  nummer: "Nummer",
+  titel: "Titel",
+  beschrijving: "Beschrijving",
+  stats: "Statistieken",
+  image: "Afbeelding URL",
 };
 
 const getLabel = (key: string) => fieldLabels[key] || key.replace(/_/g, " ");
