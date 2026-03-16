@@ -7,52 +7,33 @@ import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO from "@/components/SEO";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import MobileCTABar from "@/components/ui/MobileCTABar";
+import { usePageContent } from "@/hooks/useCmsContent";
+import PreviewBanner from "@/components/ui/PreviewBanner";
 import projectBooking from "@/assets/project-booking.jpg";
 import projectSchiphol from "@/assets/project-schiphol.jpg";
 import gsaHubVliegtuig from "@/assets/gsa-hub-vliegtuig.jpg";
 import projectHub from "@/assets/project-hub.jpg";
 
-const projects = [
-  {
-    slug: "cbre-booking",
-    title: "Booking.com",
-    subtitle: "Fit-out en facilitair inhuispakket (via CBRE)",
-    image: projectBooking,
-    stats: ["65.000 m²", "3.500+ werkplekken"],
-    period: "2018 - 2023",
-  },
-  {
-    slug: "schiphol-hq",
-    title: "Schiphol Hoofdkantoor",
-    subtitle: "Refresh en werkplekbeheer (lopend)",
-    image: projectSchiphol,
-    stats: ["17.000 m²", "7 verdiepingen"],
-    period: "2025 - heden",
-  },
-  {
-    slug: "hub-locaties",
-    title: "HUB Locaties",
-    subtitle: "Bouwlogistieke ondersteuning",
-    image: gsaHubVliegtuig,
-    stats: ["4 locaties", "Noord & Zuid Holland"],
-    period: "Doorlopend",
-  },
-  {
-    slug: "gsa-groep",
-    title: "GSA groep",
-    subtitle: "Integrale facilitaire dienstverlening",
-    image: projectHub,
-    stats: ["25+ projecten", "150+ medewerkers"],
-    period: "Doorlopend",
-  },
-];
+// Map slug to local image imports (fallback)
+const projectImages: Record<string, string> = {
+  "cbre-booking": projectBooking,
+  "schiphol-hq": projectSchiphol,
+  "hub-locaties": gsaHubVliegtuig,
+  "gsa-groep": projectHub,
+};
 
 const Projecten = () => {
+  const { sections: cms, seo, isPreview } = usePageContent("projecten");
+  const hero = cms?.hero;
+  const projects = cms?.projects || [];
+  const cta = cms?.cta;
+
   return (
-    <div className="min-h-screen pb-16 md:pb-0">
+    <div className={`min-h-screen pb-16 md:pb-0 ${isPreview ? "pt-8" : ""}`}>
+      {isPreview && <PreviewBanner />}
       <SEO
-        title="Projecten"
-        description="Bekijk onze projecten: van Booking.com fit-outs tot Schiphol werkplekbeheer. Ontdek wat GPG Facility Management voor uw organisatie kan betekenen."
+        title={seo?.seo_title || "Projecten"}
+        description={seo?.seo_description || "Bekijk onze projecten: van Booking.com fit-outs tot Schiphol werkplekbeheer."}
         canonical="https://gpg-facility.lovable.app/projecten"
       />
       
@@ -62,17 +43,17 @@ const Projecten = () => {
           <div className="container px-4 md:px-6">
             <RevealOnScroll variant="fade-up" delay={0}>
               <p className="text-accent font-medium mb-3 md:mb-4 tracking-wide font-heading uppercase text-xs md:text-sm">
-                ONZE PROJECTEN
+                {hero?.label || "ONZE PROJECTEN"}
               </p>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={100}>
               <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-primary mb-4 md:mb-6 max-w-3xl">
-                PROJECTEN DIE SPREKEN
+                {hero?.headline || "PROJECTEN DIE SPREKEN"}
               </h1>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={200}>
               <p className="text-muted-foreground text-base md:text-lg max-w-2xl font-body">
-                Van kantoorinrichtingen tot bouwlogistiek: bekijk een selectie van onze projecten en ontdek wat wij voor jouw organisatie kunnen betekenen.
+                {hero?.description || "Van kantoorinrichtingen tot bouwlogistiek: bekijk een selectie van onze projecten en ontdek wat wij voor jouw organisatie kunnen betekenen."}
               </p>
             </RevealOnScroll>
           </div>
@@ -82,7 +63,7 @@ const Projecten = () => {
         <section className="py-12 md:py-20 lg:py-28 bg-background">
           <div className="container px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {projects.map((project, index) => (
+              {projects.map((project: any, index: number) => (
                 <RevealOnScroll 
                   key={project.slug} 
                   variant="fade-up" 
@@ -94,12 +75,11 @@ const Projecten = () => {
                   >
                     <div className="relative overflow-hidden gsa-hoek-tr-lg mb-3 md:mb-4">
                       <img
-                        src={project.image}
+                        src={project.image || projectImages[project.slug] || projectBooking}
                         alt={project.title}
                         loading="lazy"
                         className="w-full aspect-[4/3] object-cover image-zoom"
                       />
-                      {/* Blue tint overlay - consistent brand styling */}
                       <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none" />
                       <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300" />
@@ -114,7 +94,7 @@ const Projecten = () => {
                       {project.subtitle}
                     </p>
                     <div className="flex flex-wrap gap-1.5 md:gap-2">
-                      {project.stats.map((stat) => (
+                      {(project.stats || []).map((stat: string) => (
                         <span
                           key={stat}
                           className="text-xs font-medium text-accent bg-accent/10 px-2 md:px-3 py-1 gsa-hoek-sm font-heading"
@@ -141,17 +121,17 @@ const Projecten = () => {
           <div className="container px-4 md:px-6 text-center">
             <RevealOnScroll variant="fade-up">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-foreground mb-3 md:mb-4">
-                Samen aan jouw project werken?
+                {cta?.headline || "Samen aan jouw project werken?"}
               </h2>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={100}>
               <p className="text-primary-foreground/80 mb-6 md:mb-8 max-w-lg mx-auto font-body text-sm md:text-base">
-                Neem contact op en ontdek hoe wij jouw facilitaire uitdagingen kunnen oplossen.
+                {cta?.text || "Neem contact op en ontdek hoe wij jouw facilitaire uitdagingen kunnen oplossen."}
               </p>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={200}>
               <Button variant="hero" size="lg" asChild className="hover-lift w-full sm:w-auto">
-                <Link to="/contact">Neem contact op</Link>
+                <Link to={cta?.button_link || "/contact"}>{cta?.button_label || "Neem contact op"}</Link>
               </Button>
             </RevealOnScroll>
           </div>

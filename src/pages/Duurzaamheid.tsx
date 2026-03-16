@@ -1,60 +1,18 @@
 import Footer from "@/components/layout/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Recycle, Leaf, TrendingDown, Award, CheckCircle, ArrowRight } from "lucide-react";
+import { Recycle, Leaf, TrendingDown, Award, ArrowRight } from "lucide-react";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import SEO from "@/components/SEO";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import MobileCTABar from "@/components/ui/MobileCTABar";
-
-const circularPrincipes = [
-  {
-    icon: Recycle,
-    title: "Circulair Ontwerp",
-    description: "Elk project begint met circulair denken. Wij selecteren materialen die herbruikbaar, recyclebaar of biologisch afbreekbaar zijn."
-  },
-  {
-    icon: Leaf,
-    title: "Duurzame Materialen",
-    description: "Wij werken uitsluitend met gecertificeerde leveranciers die onze duurzaamheidsvisie delen en circulaire materialen leveren."
-  },
-  {
-    icon: TrendingDown,
-    title: "CO₂ Reductie",
-    description: "Actieve CO₂-reductie door slimme logistiek, elektrisch wagenpark en energie-efficiënte werkprocessen."
-  },
-  {
-    icon: Award,
-    title: "Certificeringen",
-    description: "Wij voldoen aan de hoogste duurzaamheidsstandaarden en werken continu aan verbetering van onze certificeringen."
-  }
-];
-
-const aanpakStappen = [
-  {
-    nummer: "01",
-    titel: "Inventarisatie & Analyse",
-    beschrijving: "Wij analyseren bestaande materialen en inventaris om hergebruikmogelijkheden te identificeren."
-  },
-  {
-    nummer: "02", 
-    titel: "Circulair Ontwerp",
-    beschrijving: "Elk ontwerp wordt gemaakt met oog voor demontage, hergebruik en recyclebaarheid van materialen."
-  },
-  {
-    nummer: "03",
-    titel: "Duurzame Inkoop",
-    beschrijving: "Inkoop van nieuwe materialen gebeurt bij gecertificeerde leveranciers met focus op circulariteit."
-  },
-  {
-    nummer: "04",
-    titel: "Verantwoorde Afvoer",
-    beschrijving: "Materialen die niet hergebruikt kunnen worden, worden verantwoord gerecycled of gedoneerd."
-  }
-];
-
+import { usePageContent } from "@/hooks/useCmsContent";
+import PreviewBanner from "@/components/ui/PreviewBanner";
 import certIso14001 from "@/assets/cert-iso-14001.png";
 import certMvoRegister from "@/assets/cert-mvo-register.png";
+
+// Icons mapped by index (can't store icons in CMS)
+const principeIcons = [Recycle, Leaf, TrendingDown, Award];
 
 const certificeringen = [
   { name: "ISO 14001 – Milieumanagementsysteem", logo: certIso14001 },
@@ -62,11 +20,21 @@ const certificeringen = [
 ];
 
 const Duurzaamheid = () => {
+  const { sections: cms, seo, isPreview } = usePageContent("duurzaamheid");
+  const hero = cms?.hero;
+  const principesIntro = cms?.principes_intro;
+  const principes = cms?.principes || [];
+  const aanpakIntro = cms?.aanpak_intro;
+  const aanpak = cms?.aanpak || [];
+  const certIntro = cms?.certificeringen_intro;
+  const cta = cms?.cta;
+
   return (
-    <div className="min-h-screen pb-16 md:pb-0">
+    <div className={`min-h-screen pb-16 md:pb-0 ${isPreview ? "pt-8" : ""}`}>
+      {isPreview && <PreviewBanner />}
       <SEO
-        title="Duurzaamheid & Circulariteit"
-        description="Ontdek onze circulaire aanpak bij GPG Facility Management. Circulariteit staat voorop in elk project: van duurzame materialen tot verantwoorde afvoer."
+        title={seo?.seo_title || "Duurzaamheid & Circulariteit"}
+        description={seo?.seo_description || "Ontdek onze circulaire aanpak bij GPG Facility Management."}
         canonical="https://gpg-facility.lovable.app/duurzaamheid"
       />
       
@@ -77,17 +45,17 @@ const Duurzaamheid = () => {
             <div className="max-w-3xl">
               <RevealOnScroll variant="fade-up">
                 <p className="text-accent font-medium mb-3 md:mb-4 uppercase tracking-wider text-xs md:text-sm">
-                  Duurzaamheid & Circulariteit
+                  {hero?.label || "Duurzaamheid & Circulariteit"}
                 </p>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={100}>
                 <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6">
-                  Circulariteit voorop in elk project
+                  {hero?.headline || "Circulariteit voorop in elk project"}
                 </h1>
               </RevealOnScroll>
               <RevealOnScroll variant="fade-up" delay={200}>
                 <p className="text-base md:text-xl text-white/80 leading-relaxed">
-                  Bij GPG staat circulariteit centraal. Wij geloven dat duurzame facilitaire dienstverlening de standaard moet zijn, niet de uitzondering.
+                  {hero?.description || "Bij GPG staat circulariteit centraal. Wij geloven dat duurzame facilitaire dienstverlening de standaard moet zijn, niet de uitzondering."}
                 </p>
               </RevealOnScroll>
             </div>
@@ -100,33 +68,36 @@ const Duurzaamheid = () => {
             <RevealOnScroll variant="fade-up">
               <div className="text-center mb-10 md:mb-16">
                 <p className="text-accent font-medium uppercase tracking-wider text-xs md:text-sm mb-2 md:mb-3">
-                  Onze Aanpak
+                  {principesIntro?.label || "Onze Aanpak"}
                 </p>
                 <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-primary mb-3 md:mb-4">
-                  Circulaire principes
+                  {principesIntro?.headline || "Circulaire principes"}
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
-                  Circulariteit is geen toevoeging, maar de basis van hoe wij werken. Van ontwerp tot uitvoering, elk aspect is doordacht.
+                  {principesIntro?.description || "Circulariteit is geen toevoeging, maar de basis van hoe wij werken."}
                 </p>
               </div>
             </RevealOnScroll>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              {circularPrincipes.map((principe, index) => (
-                <RevealOnScroll key={index} variant="fade-up" delay={index * 100}>
-                  <div className="bg-muted/30 gsa-hoek-lg p-5 md:p-6 h-full hover-lift">
-                    <div className="w-12 h-12 md:w-14 md:h-14 gsa-hoek-sm bg-accent/10 flex items-center justify-center mb-4">
-                      <principe.icon className="w-6 h-6 md:w-7 md:h-7 text-accent" />
+              {principes.map((principe: any, index: number) => {
+                const Icon = principeIcons[index] || Award;
+                return (
+                  <RevealOnScroll key={index} variant="fade-up" delay={index * 100}>
+                    <div className="bg-muted/30 gsa-hoek-lg p-5 md:p-6 h-full hover-lift">
+                      <div className="w-12 h-12 md:w-14 md:h-14 gsa-hoek-sm bg-accent/10 flex items-center justify-center mb-4">
+                        <Icon className="w-6 h-6 md:w-7 md:h-7 text-accent" />
+                      </div>
+                      <h3 className="text-base md:text-lg font-bold text-primary mb-2">
+                        {principe.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {principe.description}
+                      </p>
                     </div>
-                    <h3 className="text-base md:text-lg font-bold text-primary mb-2">
-                      {principe.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {principe.description}
-                    </p>
-                  </div>
-                </RevealOnScroll>
-              ))}
+                  </RevealOnScroll>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -138,22 +109,22 @@ const Duurzaamheid = () => {
               <div>
                 <RevealOnScroll variant="fade-up">
                   <p className="text-accent font-medium uppercase tracking-wider text-xs mb-2 md:mb-3">
-                    Werkwijze
+                    {aanpakIntro?.label || "Werkwijze"}
                   </p>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={100}>
                   <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-4 md:mb-6">
-                    Zo pakken wij circulariteit aan
+                    {aanpakIntro?.headline || "Zo pakken wij circulariteit aan"}
                   </h2>
                 </RevealOnScroll>
                 <RevealOnScroll variant="fade-up" delay={200}>
                   <p className="text-muted-foreground leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
-                    Ons circulaire proces is geïntegreerd in elke fase van het project. Van de eerste inventarisatie tot de uiteindelijke oplevering, circulariteit is de rode draad.
+                    {aanpakIntro?.description || "Ons circulaire proces is geïntegreerd in elke fase van het project."}
                   </p>
                 </RevealOnScroll>
                 
                 <div className="space-y-4 md:space-y-6">
-                  {aanpakStappen.map((stap, index) => (
+                  {aanpak.map((stap: any, index: number) => (
                     <RevealOnScroll key={index} variant="fade-up" delay={300 + index * 100}>
                       <div className="flex gap-4">
                         <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 gsa-hoek-sm bg-primary flex items-center justify-center">
@@ -172,10 +143,10 @@ const Duurzaamheid = () => {
               <RevealOnScroll variant="slide-left" delay={200}>
                 <div className="bg-primary gsa-hoek-lg p-6 md:p-8 lg:p-10">
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">
-                    Onze certificeringen & registraties
+                    {certIntro?.headline || "Onze certificeringen & registraties"}
                   </h3>
                   <p className="text-white/80 mb-6 text-sm md:text-base leading-relaxed">
-                    Wij voldoen aan de hoogste duurzaamheidsstandaarden en werken continu aan verbetering.
+                    {certIntro?.description || "Wij voldoen aan de hoogste duurzaamheidsstandaarden en werken continu aan verbetering."}
                   </p>
                   <div className="space-y-4">
                     {certificeringen.map((cert, index) => (
@@ -191,24 +162,23 @@ const Duurzaamheid = () => {
           </div>
         </section>
 
-
         {/* CTA Section */}
         <section className="py-10 md:py-16 lg:py-20 bg-primary">
           <div className="container px-4 md:px-6 text-center">
             <RevealOnScroll variant="fade-up">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">
-                Samen werken aan een duurzame toekomst?
+                {cta?.headline || "Samen werken aan een duurzame toekomst?"}
               </h2>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={100}>
               <p className="text-sm md:text-lg text-white/80 mb-6 md:mb-8 max-w-2xl mx-auto">
-                Neem contact op en ontdek hoe onze circulaire aanpak jouw project kan versterken.
+                {cta?.text || "Neem contact op en ontdek hoe onze circulaire aanpak jouw project kan versterken."}
               </p>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up" delay={200}>
               <Button asChild size="lg" variant="hero" className="group w-full sm:w-auto">
-                <Link to="/contact">
-                  Neem contact op
+                <Link to={cta?.button_link || "/contact"}>
+                  {cta?.button_label || "Neem contact op"}
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </Link>
               </Button>
