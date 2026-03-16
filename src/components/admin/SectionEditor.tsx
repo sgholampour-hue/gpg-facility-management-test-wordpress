@@ -54,12 +54,20 @@ const fieldLabels: Record<string, string> = {
   label: "Label",
   suffix: "Achtervoegsel",
   title: "Titel",
+  subtitle: "Subtitel",
+  slug: "Slug (URL)",
+  period: "Periode",
+  nummer: "Nummer",
+  titel: "Titel",
+  beschrijving: "Beschrijving",
+  stats: "Statistieken",
+  image: "Afbeelding URL",
 };
 
 const getLabel = (key: string) => fieldLabels[key] || key.replace(/_/g, " ");
 
 const isLongField = (key: string) =>
-  ["description", "subheadline", "text", "answer", "quote"].includes(key);
+  ["description", "subheadline", "text", "answer", "quote", "beschrijving"].includes(key);
 
 // Section labels in Dutch
 const sectionLabels: Record<string, string> = {
@@ -72,6 +80,14 @@ const sectionLabels: Record<string, string> = {
   faq: "Veelgestelde vragen",
   cta: "Call-to-Action",
   intro: "Introductie",
+  duurzaamheid: "Duurzaamheid",
+  projects: "Projecten",
+  principes_intro: "Principes introductie",
+  principes: "Circulaire principes",
+  aanpak_intro: "Aanpak introductie",
+  aanpak: "Aanpak stappen",
+  certificeringen_intro: "Certificeringen",
+  form: "Formulier",
 };
 
 const SectionEditor = ({ pageSlug, sections, onUpdate }: SectionEditorProps) => {

@@ -95,16 +95,6 @@ const Contact = () => {
                   {hero?.subheadline || "Heb je vragen of wil je meer informatie? Wij staan voor je klaar."}
                 </p>
               </RevealOnScroll>
-              <RevealOnScroll variant="fade-up" delay={100}>
-                <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6">
-                  Neem contact met ons op
-                </h1>
-              </RevealOnScroll>
-              <RevealOnScroll variant="fade-up" delay={200}>
-                <p className="text-base md:text-xl text-white/80 leading-relaxed font-body">
-                  Heb je vragen of wil je meer informatie? Wij staan voor je klaar.
-                </p>
-              </RevealOnScroll>
             </div>
           </div>
         </section>
