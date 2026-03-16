@@ -67,7 +67,7 @@ const fieldLabels: Record<string, string> = {
 const getLabel = (key: string) => fieldLabels[key] || key.replace(/_/g, " ");
 
 const isLongField = (key: string) =>
-  ["description", "subheadline", "text", "answer", "quote"].includes(key);
+  ["description", "subheadline", "text", "answer", "quote", "beschrijving"].includes(key);
 
 // Section labels in Dutch
 const sectionLabels: Record<string, string> = {
