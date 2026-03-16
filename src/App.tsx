@@ -90,12 +90,18 @@ const AdminRoutes = () => (
   </Routes>
 );
 
-const AppRoutes = () => {
-  const location = useLocation();
-  const isAdmin = location.pathname.startsWith("/admin");
-
-  return isAdmin ? <AdminRoutes /> : <PublicRoutes />;
-};
+const AppRoutes = () => (
+  <Routes>
+    <Route path="/admin/login" element={<Login />} />
+    <Route path="/admin" element={<AdminLayout><Dashboard /></AdminLayout>} />
+    <Route path="/admin/paginas" element={<AdminLayout><PagesList /></AdminLayout>} />
+    <Route path="/admin/paginas/:slug" element={<AdminLayout><PageEditor /></AdminLayout>} />
+    <Route path="/admin/instellingen" element={<AdminLayout><GlobalSettings /></AdminLayout>} />
+    <Route path="/admin/media" element={<AdminLayout><MediaManager /></AdminLayout>} />
+    <Route path="/admin/gebruikers" element={<AdminLayout><UserManager /></AdminLayout>} />
+    <Route path="/*" element={<PublicRoutes />} />
+  </Routes>
+);
 
 const App = () => (
   <HelmetProvider>
