@@ -65,13 +65,13 @@ const ProcessTimeline = () => {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
           <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wide mb-4">
-            Onze werkwijze
+            {process?.badge || "Onze werkwijze"}
           </span>
           <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4">
-            Van plan naar realisatie
+            {process?.headline || "Van plan naar realisatie"}
           </h2>
           <p className="text-muted-foreground">
-            Een helder proces met vaste stappen zorgt voor een voorspelbaar en succesvol resultaat.
+            {process?.description || "Een helder proces met vaste stappen zorgt voor een voorspelbaar en succesvol resultaat."}
           </p>
         </div>
 

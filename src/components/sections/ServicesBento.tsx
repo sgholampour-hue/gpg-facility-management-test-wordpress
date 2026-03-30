@@ -174,13 +174,13 @@ const ServicesBento = () => {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
           <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide mb-3 md:mb-4">
-            Onze diensten
+            {cmsServices?.badge || "Onze diensten"}
           </span>
           <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-primary mb-3 md:mb-4">
-            Complete facilitaire ondersteuning
+            {cmsServices?.headline || "Complete facilitaire ondersteuning"}
           </h2>
           <p className="text-muted-foreground text-sm md:text-base">
-            Van verhuizingen tot volledige kantoorinrichtingen. Wij bieden alles wat je nodig hebt.
+            {cmsServices?.description || "Van verhuizingen tot volledige kantoorinrichtingen. Wij bieden alles wat je nodig hebt."}
           </p>
         </div>
 
