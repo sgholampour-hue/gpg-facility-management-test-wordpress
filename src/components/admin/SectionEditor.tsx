@@ -70,6 +70,9 @@ const getLabel = (key: string) => fieldLabels[key] || key.replace(/_/g, " ");
 const isLongField = (key: string) =>
   ["description", "subheadline", "text", "answer", "quote", "beschrijving"].includes(key);
 
+const isImageField = (key: string) =>
+  ["image", "image_url", "logo", "logo_url", "photo", "avatar", "thumbnail", "background_image", "icon_url"].includes(key);
+
 // Section labels in Dutch
 const sectionLabels: Record<string, string> = {
   hero: "Hero sectie",
