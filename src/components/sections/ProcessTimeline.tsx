@@ -30,6 +30,8 @@ const steps = [
 ];
 
 const ProcessTimeline = () => {
+  const { sections } = usePageContent("home");
+  const process = sections?.process;
   const [isVisible, setIsVisible] = useState(false);
   const [activeStep, setActiveStep] = useState(-1);
   const sectionRef = useRef<HTMLElement>(null);
