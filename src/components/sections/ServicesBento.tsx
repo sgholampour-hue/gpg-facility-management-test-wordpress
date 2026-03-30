@@ -136,6 +136,8 @@ const ServiceCard = ({
 };
 
 const ServicesBento = () => {
+  const { sections } = usePageContent("home");
+  const cmsServices = sections?.services;
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
