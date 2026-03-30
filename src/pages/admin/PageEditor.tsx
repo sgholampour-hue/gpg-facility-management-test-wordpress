@@ -143,6 +143,10 @@ const PageEditor = () => {
       <Tabs defaultValue="content" className="w-full">
         <TabsList>
           <TabsTrigger value="content">Content</TabsTrigger>
+          <TabsTrigger value="preview">
+            <Eye className="w-4 h-4 mr-1" />
+            Visuele preview
+          </TabsTrigger>
           <TabsTrigger value="seo">
             <Globe className="w-4 h-4 mr-1" />
             SEO
@@ -155,6 +159,29 @@ const PageEditor = () => {
             sections={page.sections}
             onUpdate={updateSection}
           />
+        </TabsContent>
+
+        <TabsContent value="preview" className="mt-4">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <Eye className="w-5 h-5" />
+                Live preview
+              </CardTitle>
+              <p className="text-sm text-muted-foreground">
+                Sla eerst je wijzigingen op als concept, dan zie je de preview hieronder.
+              </p>
+            </CardHeader>
+            <CardContent>
+              <div className="border rounded-lg overflow-hidden bg-white" style={{ height: "70vh" }}>
+                <iframe
+                  src={`/${page.page_slug === "home" ? "" : page.page_slug}?preview=true`}
+                  className="w-full h-full border-0"
+                  title={`Preview van ${page.page_name}`}
+                />
+              </div>
+            </CardContent>
+          </Card>
         </TabsContent>
 
         <TabsContent value="seo" className="mt-4">

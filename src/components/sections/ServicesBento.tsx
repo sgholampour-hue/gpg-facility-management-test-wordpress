@@ -1,8 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Wrench, Truck, Building2, PenTool, ShoppingBag, Sofa } from "lucide-react";
+import { usePageContent } from "@/hooks/useCmsContent";
 
-const services = [
+const iconMap: Record<string, any> = {
+  huismeesterdiensten: Wrench,
+  verhuizen: Truck,
+  "integrated-facilities": Building2,
+  fitouts: PenTool,
+  inkoop: ShoppingBag,
+  stoffering: Sofa,
+};
+
+const defaultServices = [
   {
     icon: Wrench,
     title: "Huismeesterdiensten",
@@ -126,6 +136,8 @@ const ServiceCard = ({
 };
 
 const ServicesBento = () => {
+  const { sections } = usePageContent("home");
+  const cmsServices = sections?.services;
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -162,19 +174,19 @@ const ServicesBento = () => {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
           <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide mb-3 md:mb-4">
-            Onze diensten
+            {cmsServices?.badge || "Onze diensten"}
           </span>
           <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-primary mb-3 md:mb-4">
-            Complete facilitaire ondersteuning
+            {cmsServices?.headline || "Complete facilitaire ondersteuning"}
           </h2>
           <p className="text-muted-foreground text-sm md:text-base">
-            Van verhuizingen tot volledige kantoorinrichtingen. Wij bieden alles wat je nodig hebt.
+            {cmsServices?.description || "Van verhuizingen tot volledige kantoorinrichtingen. Wij bieden alles wat je nodig hebt."}
           </p>
         </div>
 
         {/* Grid - 3 columns like reference */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-          {services.map((service, index) => (
+          {defaultServices.map((service, index) => (
             <ServiceCard
               key={service.title}
               service={service}

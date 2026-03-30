@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Users, Award, Calendar, RefreshCw } from "lucide-react";
+import { usePageContent } from "@/hooks/useCmsContent";
 import teamWim from "@/assets/team-wim-gruijters.png";
 import teamDanny from "@/assets/team-danny-moeljoredjo.png";
 import teamPatricia from "@/assets/team-patricia-nijholt.png";
@@ -54,6 +55,8 @@ const features = [
 ];
 
 const WhyGPGNew = () => {
+  const { sections } = usePageContent("home");
+  const whyGpg = sections?.why_gpg;
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -86,14 +89,13 @@ const WhyGPGNew = () => {
             isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
           }`}>
             <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide mb-3 md:mb-4">
-              Waarom GPG
+              {whyGpg?.badge || "Waarom GPG"}
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-3 md:mb-4">
-              40+ jaar facilitaire expertise
+              {whyGpg?.headline || "40+ jaar facilitaire expertise"}
             </h2>
             <p className="text-muted-foreground mb-6 md:mb-8 text-sm md:text-base leading-relaxed">
-              Bij GPG begrijpen we dat je behoefte hebt aan een betrouwbare partner 
-              die jouw facilitaire diensten naar een hoger niveau tilt.
+              {whyGpg?.description || "Bij GPG begrijpen we dat je behoefte hebt aan een betrouwbare partner die jouw facilitaire diensten naar een hoger niveau tilt."}
             </p>
 
             {/* Feature Grid */}
