@@ -1,8 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Wrench, Truck, Building2, PenTool, ShoppingBag, Sofa } from "lucide-react";
+import { usePageContent } from "@/hooks/useCmsContent";
 
-const services = [
+const iconMap: Record<string, any> = {
+  huismeesterdiensten: Wrench,
+  verhuizen: Truck,
+  "integrated-facilities": Building2,
+  fitouts: PenTool,
+  inkoop: ShoppingBag,
+  stoffering: Sofa,
+};
+
+const defaultServices = [
   {
     icon: Wrench,
     title: "Huismeesterdiensten",
