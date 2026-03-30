@@ -94,16 +94,9 @@ const Login = () => {
               {loading ? "Bezig..." : isSignUp ? "Account aanmaken" : "Inloggen"}
             </Button>
 
-            <button
-              type="button"
-              className="w-full text-sm text-muted-foreground hover:text-primary transition-colors"
-              onClick={() => {
-                setIsSignUp(!isSignUp);
-                setError("");
-              }}
-            >
-              {isSignUp ? "Al een account? Log in" : "Nog geen account? Registreer"}
-            </button>
+            <p className="text-xs text-center text-muted-foreground">
+              Geen account? Neem contact op met een admin.
+            </p>
           </form>
         </CardContent>
       </Card>
