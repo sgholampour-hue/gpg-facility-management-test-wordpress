@@ -4,6 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Plus, Trash2 } from "lucide-react";
+import MediaPicker from "@/components/admin/MediaPicker";
 
 interface SectionEditorProps {
   pageSlug: string;
