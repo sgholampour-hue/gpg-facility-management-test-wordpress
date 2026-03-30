@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Users, Award, Calendar, RefreshCw } from "lucide-react";
+import { usePageContent } from "@/hooks/useCmsContent";
 import teamWim from "@/assets/team-wim-gruijters.png";
 import teamDanny from "@/assets/team-danny-moeljoredjo.png";
 import teamPatricia from "@/assets/team-patricia-nijholt.png";
