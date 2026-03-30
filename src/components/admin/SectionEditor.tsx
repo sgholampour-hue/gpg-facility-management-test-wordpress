@@ -151,18 +151,31 @@ const SectionEditor = ({ pageSlug, sections, onUpdate }: SectionEditorProps) => 
                         }}
                       />
                     ) : (
-                      Object.keys(item).map((fieldKey) => (
-                        <FieldEditor
-                          key={fieldKey}
-                          label={getLabel(fieldKey)}
-                          value={item[fieldKey]}
-                          onChange={(val) => {
-                            const newArr = [...section];
-                            newArr[index] = { ...newArr[index], [fieldKey]: val };
-                            onUpdate(sectionKey, newArr);
-                          }}
-                          multiline={isLongField(fieldKey)}
-                        />
+                      Object.keys(item).map((fieldKey) => 
+                        isImageField(fieldKey) ? (
+                          <MediaPicker
+                            key={fieldKey}
+                            label={getLabel(fieldKey)}
+                            value={item[fieldKey] || ""}
+                            onChange={(val) => {
+                              const newArr = [...section];
+                              newArr[index] = { ...newArr[index], [fieldKey]: val };
+                              onUpdate(sectionKey, newArr);
+                            }}
+                          />
+                        ) : (
+                          <FieldEditor
+                            key={fieldKey}
+                            label={getLabel(fieldKey)}
+                            value={item[fieldKey]}
+                            onChange={(val) => {
+                              const newArr = [...section];
+                              newArr[index] = { ...newArr[index], [fieldKey]: val };
+                              onUpdate(sectionKey, newArr);
+                            }}
+                            multiline={isLongField(fieldKey)}
+                          />
+                        )
                       ))
                     )}
                   </div>
