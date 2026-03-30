@@ -55,6 +55,8 @@ const features = [
 ];
 
 const WhyGPGNew = () => {
+  const { sections } = usePageContent("home");
+  const whyGpg = sections?.why_gpg;
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
