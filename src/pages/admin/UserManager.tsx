@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { UserPlus, Trash2, Loader2, Shield } from "lucide-react";
+import { UserPlus, Trash2, Loader2, Shield, Mail } from "lucide-react";
 import { toast } from "sonner";
 
 interface UserRole {
@@ -21,8 +21,10 @@ const UserManager = () => {
   const { user, isAdmin } = useAuth();
   const [roles, setRoles] = useState<UserRole[]>([]);
   const [loading, setLoading] = useState(true);
-  const [newUserId, setNewUserId] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const [newRole, setNewRole] = useState<"admin" | "editor">("editor");
+  const [creating, setCreating] = useState(false);
 
   const fetchRoles = async () => {
     const { data } = await supabase.from("user_roles").select("*").order("created_at");
@@ -34,22 +36,37 @@ const UserManager = () => {
     fetchRoles();
   }, []);
 
-  const addRole = async () => {
-    if (!newUserId.trim()) {
-      toast.error("Voer een gebruikers-ID in.");
+  const createUser = async () => {
+    if (!newEmail.trim() || !newPassword.trim()) {
+      toast.error("Vul e-mailadres en wachtwoord in.");
       return;
     }
-    const { error } = await supabase.from("user_roles").insert({
-      user_id: newUserId.trim(),
-      role: newRole,
-    });
-    if (error) {
-      toast.error("Fout: " + error.message);
-    } else {
-      toast.success("Rol toegevoegd!");
-      setNewUserId("");
-      fetchRoles();
+    if (newPassword.length < 6) {
+      toast.error("Wachtwoord moet minimaal 6 tekens zijn.");
+      return;
     }
+    setCreating(true);
+
+    try {
+      // Use edge function to create user + assign role
+      const { data, error } = await supabase.functions.invoke("create-cms-user", {
+        body: { email: newEmail.trim(), password: newPassword, role: newRole },
+      });
+
+      if (error) {
+        toast.error("Fout bij aanmaken: " + error.message);
+      } else if (data?.error) {
+        toast.error(data.error);
+      } else {
+        toast.success(`Gebruiker ${newEmail} aangemaakt met rol "${newRole}".`);
+        setNewEmail("");
+        setNewPassword("");
+        fetchRoles();
+      }
+    } catch (err: any) {
+      toast.error("Fout: " + err.message);
+    }
+    setCreating(false);
   };
 
   const removeRole = async (roleId: string) => {
@@ -71,32 +88,41 @@ const UserManager = () => {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-primary">Gebruikers</h1>
-        <p className="text-muted-foreground text-sm">Beheer CMS rollen en toegang.</p>
+        <p className="text-muted-foreground text-sm">Beheer CMS gebruikers en toegang.</p>
       </div>
 
-      {/* Add role */}
+      {/* Create user */}
       <Card>
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
             <UserPlus className="w-5 h-5" />
-            Rol toekennen
+            Nieuwe gebruiker aanmaken
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-sm text-muted-foreground">
-            Kopieer het gebruikers-ID (UUID) van de geregistreerde gebruiker en ken een rol toe.
-            Het gebruikers-ID is te vinden in Lovable Cloud → Users.
+            Maak direct een CMS-gebruiker aan met e-mailadres, wachtwoord en rol. De gebruiker kan meteen inloggen.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="flex-1 space-y-1">
-              <Label className="text-xs">Gebruikers-ID (UUID)</Label>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="space-y-1">
+              <Label className="text-xs">E-mailadres</Label>
               <Input
-                value={newUserId}
-                onChange={(e) => setNewUserId(e.target.value)}
-                placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                type="email"
+                value={newEmail}
+                onChange={(e) => setNewEmail(e.target.value)}
+                placeholder="naam@bedrijf.nl"
               />
             </div>
-            <div className="w-40 space-y-1">
+            <div className="space-y-1">
+              <Label className="text-xs">Wachtwoord</Label>
+              <Input
+                type="password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                placeholder="Min. 6 tekens"
+              />
+            </div>
+            <div className="space-y-1">
               <Label className="text-xs">Rol</Label>
               <Select value={newRole} onValueChange={(v) => setNewRole(v as "admin" | "editor")}>
                 <SelectTrigger>
@@ -109,9 +135,9 @@ const UserManager = () => {
               </Select>
             </div>
             <div className="flex items-end">
-              <Button onClick={addRole}>
-                <UserPlus className="w-4 h-4 mr-1" />
-                Toevoegen
+              <Button onClick={createUser} disabled={creating} className="w-full">
+                {creating ? <Loader2 className="w-4 h-4 mr-1 animate-spin" /> : <UserPlus className="w-4 h-4 mr-1" />}
+                Aanmaken
               </Button>
             </div>
           </div>
@@ -123,7 +149,7 @@ const UserManager = () => {
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
             <Shield className="w-5 h-5" />
-            Actieve rollen
+            Actieve gebruikers
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -132,7 +158,7 @@ const UserManager = () => {
               <Loader2 className="w-5 h-5 animate-spin text-primary" />
             </div>
           ) : roles.length === 0 ? (
-            <p className="text-sm text-muted-foreground py-4">Nog geen rollen toegekend.</p>
+            <p className="text-sm text-muted-foreground py-4">Nog geen gebruikers.</p>
           ) : (
             <div className="space-y-3">
               {roles.map((r) => (

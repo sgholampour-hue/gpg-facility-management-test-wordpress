@@ -12,8 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [isSignUp, setIsSignUp] = useState(false);
-  const { signIn, signUp } = useAuth();
+  const { signIn } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,22 +21,11 @@ const Login = () => {
     setLoading(true);
 
     try {
-      if (isSignUp) {
-        const { error } = await signUp(email, password);
-        if (error) {
-          setError(error.message);
-        } else {
-          setError("");
-          setIsSignUp(false);
-          alert("Account aangemaakt! Vraag een admin om je de juiste rol toe te kennen. Log daarna in.");
-        }
+      const { error } = await signIn(email, password);
+      if (error) {
+        setError("Ongeldige inloggegevens. Probeer het opnieuw.");
       } else {
-        const { error } = await signIn(email, password);
-        if (error) {
-          setError("Ongeldige inloggegevens. Probeer het opnieuw.");
-        } else {
-          navigate("/admin");
-        }
+        navigate("/admin");
       }
     } finally {
       setLoading(false);
@@ -52,7 +40,7 @@ const Login = () => {
             GPG CMS
           </CardTitle>
           <CardDescription>
-            {isSignUp ? "Maak een account aan" : "Log in om content te beheren"}
+            Log in om content te beheren
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -91,19 +79,12 @@ const Login = () => {
 
             <Button type="submit" className="w-full" disabled={loading}>
               <LogIn className="w-4 h-4 mr-2" />
-              {loading ? "Bezig..." : isSignUp ? "Account aanmaken" : "Inloggen"}
+              {loading ? "Bezig..." : "Inloggen"}
             </Button>
 
-            <button
-              type="button"
-              className="w-full text-sm text-muted-foreground hover:text-primary transition-colors"
-              onClick={() => {
-                setIsSignUp(!isSignUp);
-                setError("");
-              }}
-            >
-              {isSignUp ? "Al een account? Log in" : "Nog geen account? Registreer"}
-            </button>
+            <p className="text-xs text-center text-muted-foreground">
+              Geen account? Neem contact op met een admin.
+            </p>
           </form>
         </CardContent>
       </Card>
