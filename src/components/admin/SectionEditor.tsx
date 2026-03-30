@@ -176,7 +176,7 @@ const SectionEditor = ({ pageSlug, sections, onUpdate }: SectionEditorProps) => 
                             multiline={isLongField(fieldKey)}
                           />
                         )
-                      ))
+                      )
                     )}
                   </div>
                 ))}
