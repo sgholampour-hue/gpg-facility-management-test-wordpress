@@ -95,6 +95,51 @@ export type Database = {
         }
         Relationships: []
       }
+      page_revisions: {
+        Row: {
+          created_at: string
+          id: string
+          note: string | null
+          og_description: string | null
+          og_title: string | null
+          page_id: string
+          page_slug: string
+          saved_by: string | null
+          sections: Json
+          seo_description: string | null
+          seo_title: string | null
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          note?: string | null
+          og_description?: string | null
+          og_title?: string | null
+          page_id: string
+          page_slug: string
+          saved_by?: string | null
+          sections?: Json
+          seo_description?: string | null
+          seo_title?: string | null
+          status: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          note?: string | null
+          og_description?: string | null
+          og_title?: string | null
+          page_id?: string
+          page_slug?: string
+          saved_by?: string | null
+          sections?: Json
+          seo_description?: string | null
+          seo_title?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
       site_settings: {
         Row: {
           address: Json | null
