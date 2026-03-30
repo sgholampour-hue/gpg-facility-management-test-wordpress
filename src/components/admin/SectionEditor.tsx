@@ -4,6 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Plus, Trash2 } from "lucide-react";
+import MediaPicker from "@/components/admin/MediaPicker";
 
 interface SectionEditorProps {
   pageSlug: string;
@@ -68,6 +69,9 @@ const getLabel = (key: string) => fieldLabels[key] || key.replace(/_/g, " ");
 
 const isLongField = (key: string) =>
   ["description", "subheadline", "text", "answer", "quote", "beschrijving"].includes(key);
+
+const isImageField = (key: string) =>
+  ["image", "image_url", "logo", "logo_url", "photo", "avatar", "thumbnail", "background_image", "icon_url"].includes(key);
 
 // Section labels in Dutch
 const sectionLabels: Record<string, string> = {
@@ -147,19 +151,32 @@ const SectionEditor = ({ pageSlug, sections, onUpdate }: SectionEditorProps) => 
                         }}
                       />
                     ) : (
-                      Object.keys(item).map((fieldKey) => (
-                        <FieldEditor
-                          key={fieldKey}
-                          label={getLabel(fieldKey)}
-                          value={item[fieldKey]}
-                          onChange={(val) => {
-                            const newArr = [...section];
-                            newArr[index] = { ...newArr[index], [fieldKey]: val };
-                            onUpdate(sectionKey, newArr);
-                          }}
-                          multiline={isLongField(fieldKey)}
-                        />
-                      ))
+                      Object.keys(item).map((fieldKey) => 
+                        isImageField(fieldKey) ? (
+                          <MediaPicker
+                            key={fieldKey}
+                            label={getLabel(fieldKey)}
+                            value={item[fieldKey] || ""}
+                            onChange={(val) => {
+                              const newArr = [...section];
+                              newArr[index] = { ...newArr[index], [fieldKey]: val };
+                              onUpdate(sectionKey, newArr);
+                            }}
+                          />
+                        ) : (
+                          <FieldEditor
+                            key={fieldKey}
+                            label={getLabel(fieldKey)}
+                            value={item[fieldKey]}
+                            onChange={(val) => {
+                              const newArr = [...section];
+                              newArr[index] = { ...newArr[index], [fieldKey]: val };
+                              onUpdate(sectionKey, newArr);
+                            }}
+                            multiline={isLongField(fieldKey)}
+                          />
+                        )
+                      )
                     )}
                   </div>
                 ))}
@@ -239,6 +256,17 @@ const SectionEditor = ({ pageSlug, sections, onUpdate }: SectionEditorProps) => 
 
                   // Skip non-string fields
                   if (typeof fieldValue !== "string") return null;
+
+                  if (isImageField(fieldKey)) {
+                    return (
+                      <MediaPicker
+                        key={fieldKey}
+                        label={getLabel(fieldKey)}
+                        value={fieldValue}
+                        onChange={(val) => onUpdate(sectionKey, { ...section, [fieldKey]: val })}
+                      />
+                    );
+                  }
 
                   return (
                     <FieldEditor
