@@ -257,6 +257,17 @@ const SectionEditor = ({ pageSlug, sections, onUpdate }: SectionEditorProps) => 
                   // Skip non-string fields
                   if (typeof fieldValue !== "string") return null;
 
+                  if (isImageField(fieldKey)) {
+                    return (
+                      <MediaPicker
+                        key={fieldKey}
+                        label={getLabel(fieldKey)}
+                        value={fieldValue}
+                        onChange={(val) => onUpdate(sectionKey, { ...section, [fieldKey]: val })}
+                      />
+                    );
+                  }
+
                   return (
                     <FieldEditor
                       key={fieldKey}
