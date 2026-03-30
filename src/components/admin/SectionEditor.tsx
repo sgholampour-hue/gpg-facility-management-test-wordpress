@@ -71,7 +71,8 @@ const isLongField = (key: string) =>
   ["description", "subheadline", "text", "answer", "quote", "beschrijving"].includes(key);
 
 const isImageField = (key: string) =>
-  ["image", "image_url", "logo", "logo_url", "photo", "avatar", "thumbnail", "background_image", "icon_url"].includes(key);
+  ["image", "image_url", "logo", "logo_url", "photo", "avatar", "thumbnail", "background_image", "icon_url", "bg_image", "hero_image", "cover", "cover_image", "banner"].includes(key) ||
+  key.endsWith("_image") || key.endsWith("_url") && (key.includes("image") || key.includes("logo") || key.includes("photo") || key.includes("icon"));
 
 // Section labels in Dutch
 const sectionLabels: Record<string, string> = {
