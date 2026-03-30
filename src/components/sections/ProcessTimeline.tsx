@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { MessageSquare, FileSearch, Hammer, CheckCircle } from "lucide-react";
+import { usePageContent } from "@/hooks/useCmsContent";
 
 const steps = [
   {
