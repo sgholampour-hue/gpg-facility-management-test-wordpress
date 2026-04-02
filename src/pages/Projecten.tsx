@@ -73,12 +73,23 @@ const Projecten = () => {
                     to={`/projecten/${project.slug}`}
                     className="group block"
                   >
-                    <div className="relative overflow-hidden gsa-hoek-tr-lg mb-3 md:mb-4">
+                    <div className="relative overflow-hidden gsa-hoek-tr-lg mb-3 md:mb-4 bg-muted">
                       <img
                         src={project.image || projectImages[project.slug] || projectBooking}
                         alt={project.title}
                         loading="lazy"
                         className="w-full aspect-[4/3] object-cover image-zoom"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          // Try local fallback first, then show placeholder
+                          const fallback = projectImages[project.slug];
+                          if (fallback && target.src !== fallback) {
+                            target.src = fallback;
+                          } else {
+                            target.style.display = "none";
+                            target.parentElement?.classList.add("flex", "items-center", "justify-center", "aspect-[4/3]");
+                          }
+                        }}
                       />
                       <div className="absolute inset-0 bg-primary/25 mix-blend-multiply pointer-events-none" />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent pointer-events-none" />
