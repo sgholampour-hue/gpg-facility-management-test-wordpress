@@ -18,16 +18,18 @@ const FieldEditor = ({
   value,
   onChange,
   multiline = false,
+  fieldKey,
 }: {
   label: string;
   value: string;
   onChange: (val: string) => void;
   multiline?: boolean;
+  fieldKey?: string;
 }) => (
   <div className="space-y-1.5">
     <Label className="text-xs font-medium capitalize">{label.replace(/_/g, " ")}</Label>
     {multiline ? (
-      <Textarea value={value || ""} onChange={(e) => onChange(e.target.value)} rows={3} />
+      <Textarea value={value || ""} onChange={(e) => onChange(e.target.value)} rows={fieldKey === "body" ? 12 : 3} className={fieldKey === "body" ? "font-mono text-xs" : ""} />
     ) : (
       <Input value={value || ""} onChange={(e) => onChange(e.target.value)} />
     )}
@@ -63,12 +65,13 @@ const fieldLabels: Record<string, string> = {
   beschrijving: "Beschrijving",
   stats: "Statistieken",
   image: "Afbeelding URL",
+  body: "Inhoud (HTML)",
 };
 
 const getLabel = (key: string) => fieldLabels[key] || key.replace(/_/g, " ");
 
 const isLongField = (key: string) =>
-  ["description", "subheadline", "text", "answer", "quote", "beschrijving"].includes(key);
+  ["description", "subheadline", "text", "answer", "quote", "beschrijving", "body"].includes(key);
 
 const isImageField = (key: string) =>
   ["image", "image_url", "logo", "logo_url", "photo", "avatar", "thumbnail", "background_image", "icon_url", "bg_image", "hero_image", "cover", "cover_image", "banner"].includes(key) ||
@@ -93,6 +96,7 @@ const sectionLabels: Record<string, string> = {
   aanpak: "Aanpak stappen",
   certificeringen_intro: "Certificeringen",
   form: "Formulier",
+  content: "Inhoud",
 };
 
 const SectionEditor = ({ pageSlug, sections, onUpdate }: SectionEditorProps) => {
@@ -175,6 +179,7 @@ const SectionEditor = ({ pageSlug, sections, onUpdate }: SectionEditorProps) => 
                               onUpdate(sectionKey, newArr);
                             }}
                             multiline={isLongField(fieldKey)}
+                            fieldKey={fieldKey}
                           />
                         )
                       )
@@ -276,6 +281,7 @@ const SectionEditor = ({ pageSlug, sections, onUpdate }: SectionEditorProps) => 
                       value={fieldValue}
                       onChange={(val) => onUpdate(sectionKey, { ...section, [fieldKey]: val })}
                       multiline={isLongField(fieldKey)}
+                      fieldKey={fieldKey}
                     />
                   );
                 })}
