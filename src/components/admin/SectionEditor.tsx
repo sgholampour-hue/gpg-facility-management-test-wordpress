@@ -68,7 +68,7 @@ const fieldLabels: Record<string, string> = {
 const getLabel = (key: string) => fieldLabels[key] || key.replace(/_/g, " ");
 
 const isLongField = (key: string) =>
-  ["description", "subheadline", "text", "answer", "quote", "beschrijving"].includes(key);
+  ["description", "subheadline", "text", "answer", "quote", "beschrijving", "body"].includes(key);
 
 const isImageField = (key: string) =>
   ["image", "image_url", "logo", "logo_url", "photo", "avatar", "thumbnail", "background_image", "icon_url", "bg_image", "hero_image", "cover", "cover_image", "banner"].includes(key) ||
