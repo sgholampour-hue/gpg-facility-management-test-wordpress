@@ -93,6 +93,7 @@ const sectionLabels: Record<string, string> = {
   aanpak: "Aanpak stappen",
   certificeringen_intro: "Certificeringen",
   form: "Formulier",
+  content: "Inhoud",
 };
 
 const SectionEditor = ({ pageSlug, sections, onUpdate }: SectionEditorProps) => {
