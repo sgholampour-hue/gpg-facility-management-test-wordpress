@@ -281,6 +281,7 @@ const SectionEditor = ({ pageSlug, sections, onUpdate }: SectionEditorProps) => 
                       value={fieldValue}
                       onChange={(val) => onUpdate(sectionKey, { ...section, [fieldKey]: val })}
                       multiline={isLongField(fieldKey)}
+                      fieldKey={fieldKey}
                     />
                   );
                 })}
