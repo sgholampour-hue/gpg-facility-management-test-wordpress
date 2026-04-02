@@ -18,16 +18,18 @@ const FieldEditor = ({
   value,
   onChange,
   multiline = false,
+  fieldKey,
 }: {
   label: string;
   value: string;
   onChange: (val: string) => void;
   multiline?: boolean;
+  fieldKey?: string;
 }) => (
   <div className="space-y-1.5">
     <Label className="text-xs font-medium capitalize">{label.replace(/_/g, " ")}</Label>
     {multiline ? (
-      <Textarea value={value || ""} onChange={(e) => onChange(e.target.value)} rows={3} />
+      <Textarea value={value || ""} onChange={(e) => onChange(e.target.value)} rows={fieldKey === "body" ? 12 : 3} className={fieldKey === "body" ? "font-mono text-xs" : ""} />
     ) : (
       <Input value={value || ""} onChange={(e) => onChange(e.target.value)} />
     )}
